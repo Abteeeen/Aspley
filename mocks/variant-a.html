@@ -1,0 +1,565 @@
+<title>Aspley Hotel Verandah</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<style>
+/* Layout concept: a daylight Queenslander. Left-aligned editorial column, photographs bleed to the edge like looking off the verandah, one pinned walk through the rooms of the house. */
+:root{
+  color-scheme: light;
+  --paint:#F1F2EE;        /* white weatherboard paint, cool not cream */
+  --paint-deep:#E3E6E1;   /* shaded side of the boards */
+  --ink:#15232C;          /* the navy-charcoal of the bistro walls */
+  --ink-soft:#43525B;     /* secondary text on paint */
+  --red:#B80F2A;          /* Aspley red, darkened a touch for text contrast */
+  --timber:#7A4B2F;       /* deck boards */
+  --rail:#C9CFCB;         /* hairlines, verandah rails */
+  --on-ink:#F1F2EE;
+  --on-ink-soft:#B9C3C8;
+  --display:"Young Serif", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --body:"Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
+  --ease-out:cubic-bezier(0.23,1,0.32,1);
+  --ease-drawer:cubic-bezier(0.32,0.72,0,1);
+  --gutter:clamp(16px,4vw,56px);
+  --maxw:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--paint);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:clip}
+::selection{background:var(--red);color:var(--paint)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.05;letter-spacing:-0.02em;text-wrap:balance;margin:0}
+p{margin:0}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter)}
+.num{font-variant-numeric:tabular-nums}
+
+/* status strip */
+.status{background:var(--ink);color:var(--on-ink);font-size:14px}
+.status .wrap{display:flex;gap:16px 28px;flex-wrap:wrap;align-items:center;justify-content:space-between;padding-block:10px}
+.status .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#7BC48E;margin-right:8px;vertical-align:1px}
+.status .dot.closed{background:#E38C7C}
+.status span.soft{color:var(--on-ink-soft)}
+
+/* header */
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paint) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--rail)}
+header.site .wrap{display:flex;align-items:center;gap:24px;padding-block:14px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand b{font-family:var(--display);font-weight:400;font-size:22px;letter-spacing:-0.01em}
+.brand small{display:block;font-size:12px;color:var(--ink-soft);line-height:1.2}
+nav.main{display:flex;gap:22px;margin-left:auto}
+nav.main a{text-decoration:none;font-weight:500;font-size:15px;color:var(--ink-soft);transition:color .2s ease}
+nav.main a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 15px/1 var(--body);text-decoration:none;border:0;cursor:pointer;border-radius:999px;padding:14px 22px;transition:transform .16s var(--ease-out),background-color .2s ease}
+.btn:active{transform:scale(.97)}
+.btn.red{background:var(--red);color:var(--paint)}
+.btn.red:hover{background:#9E0C24}
+.btn.line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn.line:hover{background:var(--paint-deep)}
+.btn.on-ink{background:var(--paint);color:var(--ink)}
+@media (max-width:980px){nav.main{display:none} header.site .btn{margin-left:auto}}
+
+/* hero */
+.hero{position:relative;padding-block:clamp(28px,5vw,64px) 0}
+.hero-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,4vw,64px);align-items:end}
+.hero h1{grid-column:1/-1;font-size:clamp(56px,7.9vw,128px);line-height:.95;letter-spacing:-0.03em}
+.hero h1 .ln{display:inline-block;overflow:hidden;padding-bottom:.08em;vertical-align:top}
+.hero-copy{align-self:end;padding-bottom:clamp(8px,2vw,32px)}
+.hero h1 .ln > span{display:block}
+.hero .lede{margin-top:0;max-width:34ch;font-size:clamp(18px,1.6vw,21px);color:var(--ink-soft)}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.hero-photo{position:relative;border-radius:18px 18px 0 0;aspect-ratio:4/3.1;max-width:100%}
+.hero-photo .ph{position:absolute;inset:0;overflow:hidden;border-radius:inherit}
+.hero-photo img{width:100%;height:100%;object-fit:cover;display:block;transform-origin:50% 60%}
+.badge{position:absolute;left:-58px;bottom:56px;width:132px;height:132px;color:var(--ink);background:var(--paint);border-radius:50%;box-shadow:0 10px 30px -12px rgba(21,35,44,.35)}
+.badge svg{width:100%;height:100%;display:block}
+.badge .core{font-family:var(--display);font-size:15px;fill:var(--red)}
+@media (max-width:860px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero h1 .ln{display:block}
+  .badge{left:auto;right:14px;bottom:-40px;width:104px;height:104px}
+  .hero-photo{border-radius:14px}
+}
+
+/* today */
+.today{background:var(--ink);color:var(--on-ink)}
+.today .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1fr);gap:32px;padding-block:clamp(56px,7vw,96px)}
+.today h2{font-size:clamp(34px,4vw,52px)}
+.today .day{color:var(--on-ink-soft);margin-top:10px}
+.today dl{margin:0;display:grid;gap:18px}
+.today dt{font-size:14px;color:var(--on-ink-soft)}
+.today dd{margin:2px 0 0;font-family:var(--display);font-size:24px;line-height:1.25}
+.today .event{border-left:1px solid #33444F;padding-left:28px}
+.today .event p{color:var(--on-ink-soft);margin-top:8px;max-width:34ch}
+@media (max-width:860px){.today .wrap{grid-template-columns:1fr}.today .event{border-left:0;border-top:1px solid #33444F;padding:24px 0 0}}
+
+/* rooms: pinned walk */
+.rooms{padding-block:clamp(72px,9vw,128px) 0;overflow:hidden}
+.rooms-head{display:flex;justify-content:space-between;gap:24px;align-items:end;flex-wrap:wrap}
+.rooms-head h2{font-size:clamp(40px,5.4vw,76px);max-width:14ch}
+.rooms-head p{max-width:40ch;color:var(--ink-soft)}
+.rail{height:2px;background:var(--rail);margin-top:40px;position:relative}
+.rail i{position:absolute;inset:0 auto 0 0;width:100%;background:var(--timber);transform-origin:0 50%;transform:scaleX(0)}
+.track-outer{padding-block:32px clamp(72px,9vw,120px)}
+.track{display:flex;gap:28px;padding-inline:var(--gutter);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.room{flex:0 0 min(78vw,560px);scroll-snap-align:start;display:grid;gap:16px}
+.room figure{margin:0;border-radius:14px;overflow:hidden;aspect-ratio:4/3}
+.room img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.08)}
+.room h3{font-size:30px}
+.room .meta{display:flex;justify-content:space-between;gap:16px;align-items:baseline;flex-wrap:wrap}
+.room .hours{font-size:14px;color:var(--ink-soft)}
+.room p{color:var(--ink-soft);max-width:44ch}
+.room a.more{font-weight:600;color:var(--red);text-underline-offset:4px}
+.js-pin .track{overflow:visible;scroll-snap-type:none;width:max-content}
+
+/* menu */
+.menu{background:var(--paint-deep);padding-block:clamp(72px,9vw,128px)}
+.menu-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,5vw,80px)}
+.menu h2{font-size:clamp(40px,5.4vw,76px)}
+.menu .intro{margin-top:16px;max-width:46ch;color:var(--ink-soft)}
+.toggle{display:inline-flex;align-items:center;gap:12px;margin-top:28px;font-weight:600;cursor:pointer;user-select:none}
+.toggle input{position:absolute;opacity:0;pointer-events:none}
+.toggle .sw{width:46px;height:26px;border-radius:999px;background:var(--rail);position:relative;transition:background-color .2s ease}
+.toggle .sw::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--paint);box-shadow:0 1px 3px rgba(21,35,44,.3);transition:transform .22s var(--ease-out)}
+.toggle input:checked + .sw{background:var(--red)}
+.toggle input:checked + .sw::after{transform:translateX(20px)}
+.toggle input:focus-visible + .sw{outline:3px solid var(--red);outline-offset:3px}
+.dishes{list-style:none;padding:0;margin:32px 0 0;display:grid}
+.dishes li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 24px;padding-block:16px;border-top:1px solid var(--rail)}
+.dishes li:last-child{border-bottom:1px solid var(--rail)}
+.dishes .name{font-family:var(--display);font-size:21px}
+.dishes .desc{grid-column:1;color:var(--ink-soft);font-size:15px}
+.dishes .price{grid-row:1/span 2;grid-column:2;font-weight:600;font-size:18px;text-align:right}
+.dishes .price s{display:block;font-weight:400;font-size:14px;color:var(--ink-soft)}
+.menu-side{display:grid;gap:20px;align-content:start}
+.menu-side figure{margin:0;border-radius:14px;overflow:hidden;aspect-ratio:5/3}
+.menu-side img{width:100%;height:100%;object-fit:cover;display:block}
+.menu-side figcaption{font-size:14px;color:var(--ink-soft);margin-top:8px}
+.menu .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+@media (max-width:900px){.menu-grid{grid-template-columns:1fr}}
+
+/* week */
+.week{padding-block:clamp(72px,9vw,128px)}
+.week h2{font-size:clamp(40px,5.4vw,76px)}
+.days{list-style:none;padding:0;margin:36px 0 0;display:grid}
+.days li{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:8px 28px;align-items:baseline;padding-block:22px;border-top:1px solid var(--rail)}
+.days li:last-child{border-bottom:1px solid var(--rail)}
+.days .d{font-family:var(--display);font-size:22px}
+.days .what b{font-weight:600}
+.days .what span{display:block;color:var(--ink-soft);font-size:15px}
+.days .when{font-size:15px;color:var(--ink-soft)}
+.days li.is-today .d{color:var(--red)}
+.days li.is-today .d::after{content:" today";font-family:var(--body);font-size:13px;font-weight:600;color:var(--red);margin-left:6px}
+.coming{margin-top:40px;display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:28px;border-radius:16px;background:var(--paint-deep)}
+.coming h3{font-size:clamp(26px,3vw,36px);margin-top:6px}
+.coming p{color:var(--ink-soft);max-width:52ch}
+.coming .tag{color:var(--red);font-weight:600;font-size:15px}
+@media (max-width:700px){.days li{grid-template-columns:1fr}.days .when{order:3}}
+
+/* functions */
+.functions{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:0}
+.functions .photo{position:relative;min-height:420px}
+.functions .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.functions .copy{background:var(--ink);color:var(--on-ink);padding:clamp(48px,6vw,96px) var(--gutter)}
+.functions h2{font-size:clamp(40px,5vw,68px)}
+.functions .copy > p{color:var(--on-ink-soft);margin-top:16px;max-width:44ch}
+.spaces{list-style:none;padding:0;margin:32px 0;display:grid;gap:0}
+.spaces li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;padding-block:14px;border-top:1px solid #33444F}
+.spaces li span{color:var(--on-ink-soft)}
+form.enquire{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+form.enquire label{display:grid;gap:6px;font-size:14px;color:var(--on-ink-soft)}
+form.enquire input,form.enquire select{font:500 16px var(--body);color:var(--ink);background:var(--paint);border:0;border-radius:10px;padding:12px 14px;min-width:0;width:100%}
+form.enquire .full{grid-column:1/-1}
+form.enquire .note{grid-column:1/-1;font-size:14px;color:var(--on-ink-soft);min-height:1.6em}
+@media (max-width:900px){.functions{grid-template-columns:1fr}.functions .photo{min-height:280px}}
+@media (max-width:480px){form.enquire{grid-template-columns:1fr}}
+
+/* rewards */
+.rewards{padding-block:clamp(72px,9vw,128px)}
+.rewards .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:center}
+.rewards h2{font-size:clamp(40px,5.4vw,76px)}
+.rewards h2 .amt{color:var(--red)}
+.rewards .lead{margin-top:16px;color:var(--ink-soft);max-width:44ch}
+.steps{list-style:none;padding:0;margin:0;display:grid;gap:0;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:48px minmax(0,1fr);gap:16px;padding-block:20px;border-top:1px solid var(--rail)}
+.steps li::before{content:counter(s);font-family:var(--display);font-size:28px;color:var(--red);line-height:1}
+.steps li:last-child{border-bottom:1px solid var(--rail)}
+.rating{display:flex;gap:16px;align-items:center;margin-top:32px;flex-wrap:wrap}
+.rating .score{font-family:var(--display);font-size:56px;line-height:1}
+.stars{display:flex;gap:3px}
+.stars svg{width:20px;height:20px}
+@media (max-width:860px){.rewards .wrap{grid-template-columns:1fr}}
+
+/* visit */
+.visit{background:var(--paint-deep);padding-block:clamp(72px,9vw,120px)}
+.visit .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) repeat(3,minmax(0,1fr));gap:32px}
+.visit h2{font-size:clamp(36px,4.4vw,60px)}
+.visit h3{font-family:var(--body);font-weight:700;font-size:15px;margin-bottom:10px}
+.visit table{border-collapse:collapse;font-size:15px;width:100%}
+.visit td{padding:4px 0;vertical-align:top}
+.visit td:last-child{text-align:right;padding-left:12px;white-space:nowrap}
+.visit .addr{margin-top:14px;color:var(--ink-soft)}
+.visit .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+@media (max-width:980px){.visit .wrap{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.visit .wrap{grid-template-columns:1fr}}
+footer{background:var(--ink);color:var(--on-ink-soft);font-size:14px}
+footer .wrap{display:grid;gap:14px;padding-block:36px 120px}
+footer strong{color:var(--on-ink)}
+.mock-note{background:#FFF4D6;color:#5A4300;font-size:13px;text-align:center;padding:8px 16px}
+
+/* mobile book bar */
+.bookbar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:none;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--paint);border-top:1px solid var(--rail)}
+.bookbar .btn{flex:1;justify-content:center}
+@media (max-width:760px){.bookbar{display:flex}}
+
+/* book */
+.book{padding-block:clamp(64px,8vw,112px)}
+.book .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(32px,5vw,80px);align-items:start}
+.book h2{font-size:clamp(40px,5.4vw,76px)}
+.book p{color:var(--ink-soft);margin-top:14px;max-width:40ch}
+form.booking{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;background:var(--paint-deep);padding:24px;border-radius:16px}
+form.booking label{display:grid;gap:6px;font-size:14px;color:var(--ink-soft)}
+form.booking input,form.booking select{font:500 16px var(--body);color:var(--ink);background:var(--paint);border:1px solid var(--rail);border-radius:10px;padding:12px 14px;min-width:0;width:100%}
+form.booking .full{grid-column:1/-1}
+form.booking .note{grid-column:1/-1;font-size:14px;color:var(--ink-soft);min-height:1.6em}
+@media (max-width:860px){.book .wrap{grid-template-columns:1fr}}
+@media (max-width:520px){form.booking{grid-template-columns:1fr}}
+</style>
+
+<div class="mock-note">Design mock, variant A. Photos are from the venue's September 2026 shoot. Booking and enquiry forms are not connected.</div>
+
+<div class="status" role="status">
+  <div class="wrap">
+    <div><span class="dot" id="kdot"></span><span id="kitchen">Checking kitchen hours…</span></div>
+    <div><span class="soft">1247 Gympie Road, Aspley</span> &nbsp; <a href="tel:+61732634040" class="num">(07) 3263 4040</a></div>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top"><span><b>Aspley Hotel</b><small>The pub on the hill since 1935</small></span></a>
+    <nav class="main" aria-label="Main">
+      <a href="#menu">Eat</a><a href="#rooms">Drink</a><a href="#week">What's on</a><a href="#functions">Functions</a><a href="#rooms">Gaming</a><a href="#visit">Bottle shop</a>
+    </nav>
+    <a class="btn red" href="#book">Book a table</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <h1><span class="ln"><span>The pub</span></span> <span class="ln"><span>on the hill.</span></span></h1>
+    <div class="hero-copy">
+      <p class="lede">A cold drink, a proper feed and the footy on the big screens. Locals have been coming up the hill on Gympie Road since 1935.</p>
+      <div class="cta">
+        <a class="btn red" href="#book">Book a table</a>
+        <a class="btn line" href="#week">What's on this week</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="ph"><img src="img/exterior-hill.webp" alt="The Aspley Hotel, a white Queenslander with a terracotta roof, on the hill above Gympie Road" width="1600" height="1040" fetchpriority="high"></div>
+      <div class="badge" aria-hidden="true">
+        <svg viewBox="0 0 132 132">
+          <defs><path id="circ" d="M66,66 m-50,0 a50,50 0 1,1 100,0 a50,50 0 1,1 -100,0"/></defs>
+          <g class="spin" style="transform-origin:66px 66px">
+            <text font-family="Hanken Grotesk, sans-serif" font-size="11.5" font-weight="600" letter-spacing="2.6" fill="currentColor"><textPath href="#circ">ASPLEY HOTEL • PUB ON THE HILL • GAMING BAR FOOD •</textPath></text>
+          </g>
+          <text class="core" x="66" y="62" text-anchor="middle">Est.</text>
+          <text class="core" x="66" y="84" text-anchor="middle" font-size="22">1935</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="today" aria-labelledby="today-h">
+  <div class="wrap">
+    <div>
+      <h2 id="today-h">Today at the hill</h2>
+      <p class="day" id="today-date">—</p>
+    </div>
+    <dl>
+      <div><dt>Bistro</dt><dd id="today-bistro">—</dd></div>
+      <div><dt>Gaming room</dt><dd>10am to 4am</dd></div>
+      <div><dt>Drive-through bottle shop</dt><dd id="today-bottle">—</dd></div>
+    </dl>
+    <div class="event">
+      <p style="font-size:14px;color:var(--on-ink-soft)">On today</p>
+      <h3 id="today-event" style="font-size:30px;margin-top:4px">—</h3>
+      <p id="today-event-desc"></p>
+    </div>
+  </div>
+</section>
+
+<section class="rooms" id="rooms" aria-labelledby="rooms-h">
+  <div class="wrap">
+    <div class="rooms-head">
+      <h2 id="rooms-h">Six rooms, one verandah</h2>
+      <p>Lunch in the bistro, a schooner on the deck, the races in the sports bar or a birthday on the terrace. Here is the walk from the front door.</p>
+    </div>
+    <div class="rail" aria-hidden="true"><i></i></div>
+  </div>
+  <div class="track-outer">
+    <div class="track" id="track">
+      <article class="room">
+        <figure><img src="img/bistro-bright.webp" alt="The bistro dining room with timber tables and verandah windows" loading="lazy" width="1200" height="800"></figure>
+        <div class="meta"><h3>The bistro</h3><span class="hours">Lunch and dinner daily</span></div>
+        <p>Steaks from JBS, parmys done seven ways and a kids menu with a drink and ice cream for $13.95.</p>
+        <a class="more" href="#menu">See the menu</a>
+      </article>
+      <article class="room">
+        <figure><img src="img/bar-cocktails.webp" alt="The main bar with a chalkboard cocktail mural above the back bar" loading="lazy" width="1200" height="800"></figure>
+        <div class="meta"><h3>The bar</h3><span class="hours">Cocktails, wine and cold beer</span></div>
+        <p>Twelve cocktails from the Espresso Martini to the Fruit Tingle, and a wine list that runs from Prosecco piccolos to St Hugo.</p>
+        <a class="more" href="#menu">Drinks list</a>
+      </article>
+      <article class="room">
+        <figure><img src="img/deck.webp" alt="The timber deck with high tables looking over Gympie Road" loading="lazy" width="1200" height="800"></figure>
+        <div class="meta"><h3>The deck</h3><span class="hours">Outdoor tables</span></div>
+        <p>Timber boards, high tables and the breeze off the hill. The best seat in the house on a Friday arvo.</p>
+        <a class="more" href="#book">Book a table</a>
+      </article>
+      <article class="room">
+        <figure><img src="img/sports-bar.webp" alt="The sports bar with State of Origin banners and screens" loading="lazy" width="1200" height="800"></figure>
+        <div class="meta"><h3>The sports bar</h3><span class="hours">TAB and Fox Sports</span></div>
+        <p>Dedicated TAB screens and your Fox Sports favourites live all day. Pull on your team's jersey and bring your mates.</p>
+        <a class="more" href="#week">What's on</a>
+      </article>
+      <article class="room">
+        <figure><img src="img/gaming-machines.webp" alt="The gaming room with a row of lit machines" loading="lazy" width="1200" height="800"></figure>
+        <div class="meta"><h3>The gaming room</h3><span class="hours">10am to 4am, every day</span></div>
+        <p>Friendly staff, members jackpots and a quiet corner of the house. Gamble responsibly.</p>
+        <a class="more" href="#visit">Gaming hours</a>
+      </article>
+      <article class="room">
+        <figure><img src="img/function-terrace.webp" alt="The covered function terrace with tables set for an event" loading="lazy" width="1200" height="800"></figure>
+        <div class="meta"><h3>The terrace</h3><span class="hours">Functions up to 100</span></div>
+        <p>The Herb Garden and Terrace host birthdays, engagements and work drinks, with platters from $100.</p>
+        <a class="more" href="#functions">Plan a function</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu" aria-labelledby="menu-h">
+  <div class="wrap menu-grid">
+    <div>
+      <h2 id="menu-h">From the kitchen</h2>
+      <p class="intro">A few favourites from the main menu. Star Rewards members pay a dollar less on every dish.</p>
+      <label class="toggle" for="member"><input type="checkbox" id="member"><span class="sw" aria-hidden="true"></span>Show Star Rewards prices</label>
+      <ul class="dishes" id="dishes">
+        <li><span class="name">Chicken schnitzel</span><span class="desc">Parmy it up seven ways, from the Original to the Dirty Birdie</span><span class="price num" data-p="27.73"></span></li>
+        <li><span class="name">Famous steak sandwich</span><span class="desc">A pub classic</span><span class="price num" data-p="30.99"></span></li>
+        <li><span class="name">Beer battered barramundi</span><span class="desc">Chips and salad</span><span class="price num" data-p="32.94"></span></li>
+        <li><span class="name">300g rump</span><span class="desc">Locally sourced from JBS, your choice of seven sauces</span><span class="price num" data-p="41.93"></span></li>
+        <li><span class="name">Slow cooked lamb shank</span><span class="desc">On creamy mash</span><span class="price num" data-p="34.61"></span></li>
+        <li><span class="name">The Bachelor</span><span class="desc">550g Black Angus T-bone</span><span class="price num" data-p="66.95"></span></li>
+      </ul>
+      <div class="links">
+        <a class="btn line" href="#menu">Full menu</a>
+        <a class="btn line" href="#menu">Kids menu</a>
+        <a class="btn line" href="#menu">Coffee and cake</a>
+      </div>
+    </div>
+    <div class="menu-side">
+      <figure><img src="img/dish-pie-pint.webp" alt="Lamb shank pie with peas beside a pint of beer" loading="lazy" width="1014" height="590"><figcaption>Pie and a pint, Queensland Week special</figcaption></figure>
+      <figure><img src="img/dish-wings.webp" alt="Glazed chicken wings with a dipping sauce" loading="lazy" width="730" height="380"><figcaption>Wings, the sports bar's favourite order</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="week" id="week" aria-labelledby="week-h">
+  <div class="wrap">
+    <h2 id="week-h">This week at Aspley</h2>
+    <ul class="days" id="days">
+      <li data-dow="1"><span class="d">Monday</span><span class="what"><b>Sport on every screen</b><span>TAB and Fox Sports in the sports bar</span></span><span class="when">All day</span></li>
+      <li data-dow="2"><span class="d">Tuesday</span><span class="what"><b>Sport on every screen</b><span>TAB and Fox Sports in the sports bar</span></span><span class="when">All day</span></li>
+      <li data-dow="3"><span class="d">Wednesday</span><span class="what"><b>Trivia with Questionable Company</b><span>Free entry, quirky rounds, great prizes</span></span><span class="when">6:30pm</span></li>
+      <li data-dow="4"><span class="d">Thursday</span><span class="what"><b>All-day dining starts</b><span>The kitchen stays open from lunch through to dinner</span></span><span class="when">11:30am to 8:30pm</span></li>
+      <li data-dow="5"><span class="d">Friday</span><span class="what"><b>Jag the Joker</b><span>One entry for every drink. Jackpot grows $100 a week until the Joker is found.</span></span><span class="when">3:30pm to 6:30pm</span></li>
+      <li data-dow="6"><span class="d">Saturday</span><span class="what"><b>Members jackpot draw</b><span>Starts at $400 and must go by $4,000</span></span><span class="when">Evening</span></li>
+      <li data-dow="0"><span class="d">Sunday</span><span class="what"><b>Long lunch on the deck</b><span>Bistro open for lunch and dinner</span></span><span class="when">From 11:30am</span></li>
+    </ul>
+    <div class="coming">
+      <div><p class="tag">Coming up, Tuesday 3 November</p><h3>Melbourne Cup at the pub on the hill</h3><p>Sweeps, chef specials, prizes and a lucky loser draw, with a $55 Cup lunch. Bookings essential.</p></div>
+      <a class="btn red" href="#book">Book for the Cup</a>
+    </div>
+  </div>
+</section>
+
+<section class="functions" id="functions" aria-labelledby="fn-h">
+  <div class="photo"><img src="img/function-room.webp" alt="The function room set with tables beside the terrace" loading="lazy" width="1200" height="800"></div>
+  <div class="copy">
+    <h2 id="fn-h">Have it on the hill</h2>
+    <p>Birthdays, engagements and work functions with a team that looks after the details. Tell us the date and the numbers and we will come back to you.</p>
+    <ul class="spaces">
+      <li><b>Herb Garden</b><span class="num">80 seated, 100 standing</span></li>
+      <li><b>Terrace and Herb Garden</b><span class="num">60 seated</span></li>
+      <li><b>Terrace</b><span class="num">40 seated</span></li>
+    </ul>
+    <form class="enquire" id="fn-form" novalidate>
+      <label for="fn-date">Date<input id="fn-date" type="date" required></label>
+      <label for="fn-guests">Guests<input id="fn-guests" type="number" min="10" max="100" value="40" inputmode="numeric"></label>
+      <label class="full" for="fn-space">Space<select id="fn-space"><option>Herb Garden</option><option>Terrace and Herb Garden</option><option>Terrace</option><option>Not sure yet</option></select></label>
+      <button class="btn on-ink full" type="submit" style="justify-content:center">Send enquiry</button>
+      <p class="note" id="fn-note" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<section class="rewards" aria-labelledby="rw-h">
+  <div class="wrap">
+    <div>
+      <h2 id="rw-h"><span class="amt">$1 off</span> every dish for members</h2>
+      <p class="lead">Star Rewards is free. Collect points at every Star Hotels venue and Star Liquor store, and hear about jackpots and specials first.</p>
+      <div class="rating">
+        <span class="score num">4.2</span>
+        <span>
+          <span class="stars" aria-hidden="true"><svg viewBox="0 0 20 20"><path fill="#B80F2A" d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path fill="#B80F2A" d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path fill="#B80F2A" d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path fill="#B80F2A" d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><defs><linearGradient id="part"><stop offset="20%" stop-color="#B80F2A"/><stop offset="20%" stop-color="#C9CFCB"/></linearGradient></defs><path fill="url(#part)" d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg></span>
+          <span class="num" style="color:var(--ink-soft);font-size:15px">from 791 Google reviews</span>
+        </span>
+      </div>
+    </div>
+    <ol class="steps">
+      <li><span><b>Sign up on your phone</b><br><span style="color:var(--ink-soft)">Takes a minute, no card needed.</span></span></li>
+      <li><span><b>Show your membership</b><br><span style="color:var(--ink-soft)">At the bar, the bistro or the bottle shop.</span></span></li>
+      <li><span><b>Pay the member price</b><br><span style="color:var(--ink-soft)">And collect points across every Star venue.</span></span></li>
+      <li style="border-bottom:0;padding-top:28px;grid-template-columns:1fr"><a class="btn red" href="#visit" style="justify-self:start">Join Star Rewards</a></li>
+    </ol>
+  </div>
+</section>
+
+<section class="book" id="book" aria-labelledby="bk-h">
+  <div class="wrap">
+    <div>
+      <h2 id="bk-h">Book a table</h2>
+      <p>Pick a time and we will hold a table in the bistro or on the deck. Larger groups can call the venue.</p>
+    </div>
+    <form class="booking" id="bk-form" novalidate>
+      <label for="bk-date">Date<input id="bk-date" type="date"></label>
+      <label for="bk-time">Time<select id="bk-time"><option>12:00pm</option><option>12:30pm</option><option>1:00pm</option><option>5:30pm</option><option selected>6:00pm</option><option>6:30pm</option><option>7:00pm</option><option>7:30pm</option></select></label>
+      <label for="bk-guests">Guests<select id="bk-guests"><option>2</option><option selected>4</option><option>6</option><option>8</option><option>10+</option></select></label>
+      <button class="btn red full" type="submit" style="justify-content:center">Find a table</button>
+      <p class="note" id="bk-note" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<section class="visit" id="visit" aria-labelledby="vs-h">
+  <div class="wrap">
+    <div>
+      <h2 id="vs-h">Find us on the hill</h2>
+      <p class="addr">1247 Gympie Road, Aspley QLD 4034<br><span class="num">(07) 3263 4040</span></p>
+      <div class="actions">
+        <a class="btn red" href="https://maps.google.com/?q=Aspley+Hotel+1247+Gympie+Road+Aspley" target="_blank" rel="noopener">Directions</a>
+        <a class="btn line" href="tel:+61732634040">Call the pub</a>
+      </div>
+    </div>
+    <div>
+      <h3>Bistro</h3>
+      <table class="num"><tr><td>Sun to Wed lunch</td><td>11:30 to 2:30</td></tr><tr><td>Sun to Wed dinner</td><td>5:30 to 8:30</td></tr><tr><td>Thu to Sat</td><td>11:30 to 8:30</td></tr></table>
+    </div>
+    <div>
+      <h3>Bottle shop</h3>
+      <table class="num"><tr><td>Sun to Thu</td><td>10am to 11pm</td></tr><tr><td>Fri and Sat</td><td>10am to midnight</td></tr></table>
+    </div>
+    <div>
+      <h3>Gaming room</h3>
+      <table class="num"><tr><td>Every day</td><td>10am to 4am</td></tr></table>
+      <p style="font-size:14px;color:var(--ink-soft);margin-top:12px">Gamble responsibly. Need to talk? Gambling Help 1800 858 858, free and confidential, 24 hours.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Aspley Hotel</strong> is part of the Star Hotels Group. Use your Star Rewards at any Star Hotels venue or Star Liquor store.</p>
+    <p>We promote the responsible service of alcohol. Hours shown are taken from the current website and need confirming with the venue.</p>
+  </div>
+</footer>
+
+<div class="bookbar"><a class="btn red" href="#book">Book a table</a><a class="btn line" href="tel:+61732634040">Call</a></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  /* ---------- live hours in Brisbane time ---------- */
+  var tz='Australia/Brisbane';
+  function nowParts(){
+    var f=new Intl.DateTimeFormat('en-AU',{timeZone:tz,weekday:'short',hour:'numeric',minute:'numeric',hour12:false});
+    var p={};f.formatToParts(new Date()).forEach(function(x){p[x.type]=x.value});
+    var days={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+    return {dow:days[p.weekday],mins:(parseInt(p.hour,10)%24)*60+parseInt(p.minute,10)};
+  }
+  function bistroSlots(dow){ return (dow>=4&&dow<=6)?[[690,1230]]:[[690,870],[1050,1230]]; }
+  function fmt(m){var h=Math.floor(m/60),mm=m%60,ap=h>=12?'pm':'am';h=h%12||12;return h+(mm?':'+String(mm).padStart(2,'0'):'')+ap;}
+  var n=nowParts(), slots=bistroSlots(n.dow), open=null, next=null;
+  slots.forEach(function(s){ if(n.mins>=s[0]&&n.mins<s[1]) open=s; else if(n.mins<s[0]&&!next) next=s; });
+  var k=document.getElementById('kitchen'), dot=document.getElementById('kdot');
+  if(open){k.textContent='Kitchen open now until '+fmt(open[1]);}
+  else if(next){k.textContent='Kitchen opens at '+fmt(next[0])+' today';dot.classList.add('closed');}
+  else{k.textContent='Kitchen closed for today. Opens at 11:30am';dot.classList.add('closed');}
+  document.getElementById('today-bistro').textContent=slots.map(function(s){return fmt(s[0])+' to '+fmt(s[1])}).join(', ');
+  document.getElementById('today-bottle').textContent=(n.dow===5||n.dow===6)?'10am to midnight':'10am to 11pm';
+  var dateStr=new Intl.DateTimeFormat('en-AU',{timeZone:tz,weekday:'long',day:'numeric',month:'long'}).format(new Date());
+  document.getElementById('today-date').textContent=dateStr;
+  var ev={0:['Long lunch on the deck','The bistro is open for lunch and dinner.'],1:['Sport on every screen','TAB and Fox Sports live in the sports bar all day.'],2:['Sport on every screen','TAB and Fox Sports live in the sports bar all day.'],3:['Trivia at 6:30pm','Free entry with Questionable Company. Quirky rounds and great prizes.'],4:['All-day dining','The kitchen stays open from 11:30am right through to 8:30pm.'],5:['Jag the Joker','One entry for every drink between 3:30pm and 6:30pm.'],6:['Members jackpot draw','Starts at $400 and must go by $4,000. Members only.']};
+  document.getElementById('today-event').textContent=ev[n.dow][0];
+  document.getElementById('today-event-desc').textContent=ev[n.dow][1];
+  var li=document.querySelector('.days li[data-dow="'+n.dow+'"]'); if(li) li.classList.add('is-today');
+
+  /* ---------- menu prices ---------- */
+  var member=document.getElementById('member');
+  function renderPrices(){
+    document.querySelectorAll('.dishes .price').forEach(function(el){
+      var p=parseFloat(el.dataset.p);
+      el.innerHTML=member.checked?('$'+(p-1).toFixed(2)+'<s>$'+p.toFixed(2)+'</s>'):('$'+p.toFixed(2));
+    });
+  }
+  member.addEventListener('change',renderPrices); renderPrices();
+
+  /* ---------- forms (mock) ---------- */
+  var today=new Date(); var iso=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().slice(0,10);
+  ['bk-date','fn-date'].forEach(function(id){var el=document.getElementById(id);el.min=iso;el.value=iso;});
+  document.getElementById('bk-form').addEventListener('submit',function(e){e.preventDefault();
+    document.getElementById('bk-note').textContent='Mock only. On the live site this checks real availability for '+document.getElementById('bk-guests').value+' at '+document.getElementById('bk-time').value+'.';});
+  document.getElementById('fn-form').addEventListener('submit',function(e){e.preventDefault();
+    document.getElementById('fn-note').textContent='Mock only. On the live site this sends your enquiry to the functions team.';});
+
+  /* ---------- motion ---------- */
+  if(!window.gsap) return;
+  gsap.registerPlugin(ScrollTrigger);
+  var mm=gsap.matchMedia();
+  mm.add({motion:'(prefers-reduced-motion: no-preference)',wide:'(min-width: 900px)'},function(ctx){
+    var c=ctx.conditions;
+    if(!c.motion) return;
+    /* one load sequence: the headline rises out of its line, the photo settles */
+    var tl=gsap.timeline({defaults:{ease:'expo.out'}});
+    tl.from('.hero h1 .ln > span',{yPercent:105,duration:1.1,stagger:.12})
+      .from('.hero-photo img',{scale:1.12,duration:1.6},0)
+      .from('.hero .lede, .hero .cta',{y:16,duration:.8,stagger:.08},.35)
+      .from('.badge',{scale:.6,rotate:-40,duration:1,ease:'back.out(1.6)'},.5);
+    gsap.to('.badge .spin',{rotation:360,duration:40,repeat:-1,ease:'none'});
+
+    /* the walk: pin the rooms and travel along the verandah */
+    var track=document.getElementById('track');
+    if(c.wide){
+      document.querySelector('.rooms').classList.add('js-pin');
+      var dist=function(){return Math.max(0,track.scrollWidth-window.innerWidth+parseFloat(getComputedStyle(track).paddingLeft));};
+      var walk=gsap.to(track,{x:function(){return -dist();},ease:'none',scrollTrigger:{trigger:'.track-outer',start:'center center',end:function(){return '+='+dist();},pin:'.rooms',scrub:.6,invalidateOnRefresh:true}});
+      gsap.to('.rail i',{scaleX:1,ease:'none',scrollTrigger:{trigger:'.track-outer',start:'center center',end:function(){return '+='+dist();},scrub:true}});
+      gsap.utils.toArray('.room img').forEach(function(img){
+        gsap.to(img,{scale:1,ease:'none',scrollTrigger:{trigger:img,containerAnimation:walk,start:'left right',end:'center center',scrub:true}});
+      });
+      return function(){document.querySelector('.rooms').classList.remove('js-pin');};
+    } else {
+      gsap.set('.room img',{scale:1});
+    }
+  });
+})();
+</script>
