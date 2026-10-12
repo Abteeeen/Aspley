@@ -1,6 +1,8 @@
 # Aspley — Hotel Website
 
-Full brand and booking website for a hotel. Reference hotel and content are supplied by the owner as the project progresses.
+Rebuild of https://aspleyhotel.com.au/ for the Aspley Hotel, 1247 Gympie Road, Aspley QLD 4034, part of the Star Hotels Group.
+
+It is a **pub, not an accommodation hotel**: bistro, bars, gaming room, sports bar with TAB, functions, drive-through bottle shop and the Star Rewards loyalty program. There are no rooms. The site's job is table bookings, function enquiries, event tickets, Star Rewards sign-ups and phone calls. Read `research/aspley-current-site/README.md` and `research/competitors/README.md` before any design work.
 
 ## Mandatory design and engineering skills
 
