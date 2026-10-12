@@ -552,6 +552,99 @@ dialog::backdrop{background:rgba(20,17,15,.62);-webkit-backdrop-filter:blur(8px)
   .hero-aside .btn{min-height:44px;padding:12px 16px;gap:12px}
   .tapcard .mono{font-size:10px}
 }
+
+/* ================= PHONE SIGNATURE MOMENTS =================
+   Phones only (max-width:760px). Desktop and tablet are untouched. The scroll-scene classes (.is-stack, .is-pin)
+   are added by script only when motion is allowed, so with reduced motion or no script the page stays a plain,
+   complete stack. */
+@media (max-width:760px){
+  /* hero: the app opening */
+  .intro-pending .hero-media{clip-path:inset(15% 8% 24% 8% round 28px)}
+  .intro-pending .hero .live{opacity:0}
+  .hero h1{font-size:clamp(3.4rem,15.4vw,4.4rem)}
+  .hero .live{position:absolute;top:78px;left:0;right:0;margin-inline:auto;width:max-content;max-width:calc(100% - 32px);align-items:center;padding:9px 14px 9px 12px;border-radius:999px;background:rgba(20,17,15,.44);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1px rgba(243,238,230,.22);color:var(--paper)}
+  .hero .live::before{transform:none;box-shadow:0 0 0 3px rgba(63,191,110,.25)}
+  .hero .live[data-state="closed"]::before{box-shadow:none}
+  .tapcard{width:min(47vw,236px);aspect-ratio:4/3;border-radius:12px;box-shadow:0 22px 40px -18px rgba(0,0,0,.7)}
+  .tapcard .tl{left:11px;top:11px}.tapcard .bl{left:11px;bottom:11px;right:11px}
+  .hero-aside .addr{font-size:10.5px;line-height:1.5}
+
+  /* prefooter: the photo gets its own row, so it can open between the words */
+  .pf-title{font-size:23cqi}
+  .pf-line:has(.pf-photo){flex-direction:column;gap:0}
+  .pf-photo{width:100%;height:auto;aspect-ratio:3/2;border-radius:22px;margin:.06em 0 .02em;transform:none}
+
+  /* story: chapters become sticky cards that stack, each drawing its own hill contours */
+  .contours{--rf:rgba(200,16,46,.02);--rs:rgba(200,16,46,.16)}
+  .contours path{fill:var(--rf);fill-opacity:1;stroke:var(--rs)}
+  .contours path:nth-child(odd){display:none}
+  .story.is-stack .story-stage{padding:24px 0 10svh}
+  .story.is-stack .contours{position:sticky;top:0;right:auto;margin:0 0 -100svh -45vw;width:190vw;height:100svh;aspect-ratio:auto;display:block}
+  .story.is-stack .chapter{position:sticky;top:var(--stick,78px);margin:0 12px 26svh;padding:26px 18px 30px;gap:16px;border-radius:26px;background:#F9F5EF;box-shadow:0 -1px 0 rgba(20,17,15,.05),0 -20px 44px -26px rgba(20,17,15,.45);overflow:hidden;isolation:isolate;transform-origin:50% 0}
+  .story.is-stack .chapter:last-of-type{margin-bottom:0}
+  .story.is-stack .chapter::after{content:"";position:absolute;inset:0;z-index:3;background:var(--ink);opacity:var(--dim,0);pointer-events:none}
+  .story.is-stack #ch-bistro{background:var(--sand)}
+  .story.is-stack #ch-sport{background:var(--ink);color:var(--paper)}
+  .story.is-stack #ch-sport .ch-meta{color:#F58A9A}
+  .story.is-stack #ch-sport .ch-body{color:var(--on-dark-2)}
+  .story.is-stack .ch-rings{position:absolute;z-index:-1;left:-55%;top:-14%;width:210%;height:auto;pointer-events:none;--rf:transparent;--rs:rgba(200,16,46,.2)}
+  .story.is-stack #ch-bistro .ch-rings{--rs:rgba(158,11,35,.2)}
+  .story.is-stack #ch-sport .ch-rings{--rs:rgba(243,238,230,.12)}
+  .story.is-stack .ch-cards{margin-bottom:8px}
+  .story.is-stack .ch-card-wrap{width:min(38vw,176px)}
+  .story.is-stack .ch-body{font-size:16px}
+
+  /* the pour: one short pinned stage (CSS sticky), photos wipe up, the fact line crossfades */
+  .pour.is-pin .pour-track{position:relative;height:280svh}
+  .pour.is-pin .pour-stage{display:block;position:sticky;top:0;height:100svh}
+  .pour.is-pin .pour-media::after{background:linear-gradient(180deg,rgba(20,17,15,.86) 0%,rgba(20,17,15,.66) 26%,rgba(20,17,15,.3) 40%,rgba(20,17,15,.1) 50%,rgba(20,17,15,.5) 64%,rgba(20,17,15,.93) 86%)}
+  .pour.is-pin .pour-entries{position:sticky;top:0;height:100svh;margin-top:-100svh;padding:0;display:block;color:var(--paper);overflow:hidden}
+  .pour.is-pin .pour-title{position:absolute;left:var(--gut);right:var(--gut);top:98px}
+  .pour.is-pin .pour-title h2{font-size:clamp(2.4rem,10.6vw,3.2rem);max-width:none}
+  .pour.is-pin .pour-title p{margin-top:12px;font-size:15px;line-height:1.45;color:rgba(243,238,230,.84);max-width:32ch}
+  .pour.is-pin .pour-entry{position:absolute;left:var(--gut);right:var(--gut);bottom:calc(92px + env(safe-area-inset-bottom));gap:10px;opacity:0;transform:translateY(18px);transition:opacity 320ms var(--ease-out),transform 520ms var(--ease-focal)}
+  .pour.is-pin .pour-entry.is-on{opacity:1;transform:none;transition-delay:80ms}
+  .pour.is-pin .pour-entry figure{display:none}
+  .pour.is-pin .pour-entry .spec{order:-1}
+  .pour.is-pin .pour-entry h3{font-size:clamp(2.1rem,9.4vw,2.6rem)}
+  .pour.is-pin .pour-entry p{font-size:15.5px;color:rgba(243,238,230,.88)}
+  .pour.is-pin .spec,.pour.is-pin .spec>div{border-color:var(--rule-dark)}
+  .pour-prog{position:absolute;z-index:2;left:var(--gut);right:var(--gut);top:80px;display:flex;gap:6px}
+  .pour-prog i{position:relative;flex:1;height:2px;border-radius:2px;background:rgba(243,238,230,.28);overflow:hidden}
+  .pour-prog b{position:absolute;inset:0;background:var(--paper);transform:scaleX(0);transform-origin:0 50%}
+
+  /* cocktails: a native swipe deck, the centred tile scaled up with its gradient glowing */
+  #cocktails .bento{position:relative;display:flex;gap:10px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;margin-inline:calc(var(--gut) * -1);padding:18px 19vw 34px}
+  #cocktails .bento::-webkit-scrollbar{display:none}
+  #cocktails .bento>*{flex:0 0 62vw;scroll-snap-align:center;scale:var(--k,1);opacity:var(--o,1)}
+  #cocktails .bento .wide{aspect-ratio:336/400;min-height:0}
+  #cocktails .bento .tile{transition:transform 900ms var(--spring),box-shadow 450ms var(--ease-out)}
+  #cocktails .bento .tile-bg{transition:transform 1s var(--spring),filter 450ms var(--ease-out)}
+  #cocktails .tile.is-centre{box-shadow:0 28px 48px -22px color-mix(in oklab,var(--g1,#14110F) 80%,#14110F)}
+  #cocktails .tile.is-centre .tile-bg{transform:scale(1.14);filter:saturate(1.35) brightness(1.04)}
+  .deck-ui{display:flex;align-items:center;gap:14px;margin-top:-6px}
+  .deck-n{min-width:7ch;font-variant-numeric:tabular-nums}
+  .deck-bar{flex:1;height:2px;border-radius:2px;background:var(--rule);overflow:hidden}
+  .deck-bar i{display:block;height:100%;background:var(--ink);transform-origin:0 50%;transform:scaleX(var(--p,.08))}
+
+  /* tile details open as a bottom sheet with a drag handle */
+  .sm{inset:auto 0 0 0;width:100%;height:auto;max-height:92dvh;margin:0;border-radius:24px 24px 0 0;overflow:auto;overscroll-behavior:contain}
+  .sm::backdrop{background:rgba(20,17,15,.55);-webkit-backdrop-filter:none;backdrop-filter:none}
+  .sm-in{min-height:0;gap:14px;padding:30px 16px calc(18px + env(safe-area-inset-bottom))}
+  .sm-art{order:-1;min-height:0;padding-top:4px;touch-action:none}
+  .sm-art svg{width:min(30vw,128px)}
+  .sm-art img{aspect-ratio:16/9;max-height:26svh}
+  .sm-art .bigt{font-size:clamp(4rem,21vw,6rem)}
+  .sm .x{position:absolute;top:14px;right:14px}
+  .sm-card{box-shadow:0 12px 30px -20px rgba(20,17,15,.45)}
+  .sm-grab{position:absolute;z-index:1;top:0;left:0;right:0;height:34px;display:grid;place-items:center;touch-action:none;cursor:grab}
+  .sm-grab::before{content:"";width:44px;height:5px;border-radius:5px;background:rgba(20,17,15,.3)}
+}
+@media (max-width:760px) and (prefers-reduced-motion:no-preference){
+  .sm[open]{animation:sheetUp 560ms cubic-bezier(.32,.72,0,1)}
+  .sm[open] .sm-card{animation:none}
+  @keyframes sheetUp{from{transform:translateY(100%)}to{transform:none}}
+}
 </style>
 
 <a class="skip" href="#main">Skip to content</a>
@@ -718,10 +811,10 @@ dialog::backdrop{background:rgba(20,17,15,.62);-webkit-backdrop-filter:blur(8px)
   <div class="pour-track">
     <div class="pour-stage" aria-hidden="true">
       <div class="pour-media">
-        <div class="pour-layer"><img src="img/drive/12-bistro-bar-counter-view-02.webp" width="1536" height="1024" alt="" loading="lazy" decoding="async" style="object-position:40% 60%"></div>
-        <div class="pour-layer"><img src="img/drive/05-bar-drinks-and-pour.webp" width="1672" height="941" alt="" loading="lazy" decoding="async"></div>
-        <div class="pour-layer"><img src="img/drive/02-bar-timber-and-counter-detail.webp" width="1536" height="1024" alt="" loading="lazy" decoding="async"></div>
-        <div class="pour-layer"><img src="img/drive/42-bottleshop-interior-wide.webp" width="1448" height="1086" alt="" loading="lazy" decoding="async"></div>
+        <div class="pour-layer"><picture><source media="(max-width: 760px)" srcset="img/drive/12-bistro-bar-counter-view-02-sm.webp"><img src="img/drive/12-bistro-bar-counter-view-02.webp" width="1536" height="1024" alt="" loading="lazy" decoding="async" style="object-position:40% 60%"></picture></div>
+        <div class="pour-layer"><picture><source media="(max-width: 760px)" srcset="img/drive/05-bar-drinks-and-pour-sm.webp"><img src="img/drive/05-bar-drinks-and-pour.webp" width="1672" height="941" alt="" loading="lazy" decoding="async"></picture></div>
+        <div class="pour-layer"><picture><source media="(max-width: 760px)" srcset="img/drive/02-bar-timber-and-counter-detail-sm.webp"><img src="img/drive/02-bar-timber-and-counter-detail.webp" width="1536" height="1024" alt="" loading="lazy" decoding="async"></picture></div>
+        <div class="pour-layer"><picture><source media="(max-width: 760px)" srcset="img/drive/42-bottleshop-interior-wide-sm.webp"><img src="img/drive/42-bottleshop-interior-wide.webp" width="1448" height="1086" alt="" loading="lazy" decoding="async"></picture></div>
       </div>
     </div>
     <div class="pour-entries">
@@ -1389,9 +1482,25 @@ dialog::backdrop{background:rgba(20,17,15,.62);-webkit-backdrop-filter:blur(8px)
   });
 
   /* Hero intro: plays on load (focal moment) */
-  mm.add({ motion: '(prefers-reduced-motion: no-preference)', small: '(max-width: 999px)' }, ctx => {
+  mm.add({ motion: '(prefers-reduced-motion: no-preference)', small: '(max-width: 999px)', phone: '(max-width: 760px)' }, ctx => {
     if (!ctx.conditions.motion) return;
     const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
+    if (ctx.conditions.phone) {
+      /* Phone: the app opening. The pour photo opens from a rounded inset card and de-blurs, the headline builds
+         line by line, the kitchen chip pops, then the ON TAP card rises out of a bottom mask. */
+      tl.fromTo('.hero-media', { clipPath: 'inset(15% 8% 24% 8% round 28px)', scale: 1.02 }, { clipPath: 'inset(0% 0% 0% 0% round 0px)', scale: 1, duration: 1.7 }, 0)
+        .fromTo('.hero-media img', { filter: 'blur(12px)', scale: 1.22 }, { filter: 'blur(0px)', scale: 1, duration: 2.4, clearProps: 'filter' }, 0)
+        .fromTo('.hero .li', { y: 0, yPercent: 110, skewX: 10, scale: 1.04 }, { y: 0, yPercent: 0, skewX: 0, scale: 1, duration: .95, ease: 'spring', stagger: .14 }, .45)
+        .fromTo('.hero .live', { autoAlpha: 0, scale: .9, y: -8 }, { autoAlpha: 1, scale: 1, y: 0, duration: .6, ease: 'back.out(1.6)' }, .95)
+        .fromTo('.tapcard', { autoAlpha: 1, y: 70, clipPath: 'inset(100% 0% 0% 0% round 12px)' }, { y: 0, clipPath: 'inset(0% 0% 0% 0% round 12px)', duration: 1.1 }, 1.0)
+        .fromTo('.tapcard img', { scale: 2 }, { scale: 1.5, duration: 1.6, clearProps: 'transform' }, 1.0)
+        .fromTo('.hero-aside .addr', { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: .8 }, 1.15);
+      root.classList.remove('intro-pending');
+      // leaving the hero: the photo recedes into a rounded card as the story slides over it
+      gsap.fromTo('.hero-inner', { y: 0 }, { y: () => -innerHeight * .12, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true, invalidateOnRefresh: true } });
+      gsap.to('.hero-media img', { yPercent: 14, scale: 1.08, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+      return;
+    }
     tl.fromTo('.hero-media', { clipPath: 'inset(7% 5% 7% 5% round 24px)', scale: 1.04 }, { clipPath: 'inset(0% 0% 0% 0% round 0px)', scale: 1, duration: 1.5 }, 0)
       .fromTo('.hero-media img', { filter: `blur(${ctx.conditions.small ? 6 : 14}px)`, scale: 1.14 }, { filter: 'blur(0px)', scale: 1, duration: 2.4, clearProps: 'filter' }, 0)
       .fromTo('.hero .li', { y: 0, yPercent: 110, skewX: 10, scale: 1.04 }, { y: 0, yPercent: 0, skewX: 0, scale: 1, duration: .9, ease: 'spring', stagger: .1 }, .35)
@@ -1463,7 +1572,9 @@ dialog::backdrop{background:rgba(20,17,15,.62);-webkit-backdrop-filter:blur(8px)
     });
 
     /* ---------- everything else that moves with scroll (all widths) ---------- */
-    mm.add('(prefers-reduced-motion: no-preference)', () => {
+    mm.add({ motion: '(prefers-reduced-motion: no-preference)', phone: '(max-width: 760px)' }, ctx => {
+      if (!ctx.conditions.motion) return;
+      const phone = ctx.conditions.phone;
       // E1 line-mask reveals on headings
       $$('.js-lines, .cat-head, .weekly h3, .day-list h3').forEach(el => {
         SplitText.create(el, {
@@ -1529,6 +1640,17 @@ dialog::backdrop{background:rgba(20,17,15,.62);-webkit-backdrop-filter:blur(8px)
       // E9 prefooter: lines clip in, words part, photo opens between them
       const pfl = $('.pf-l'), pfr = $('.pf-r'), pfp = $('.pf-photo');
       const half = () => pfp.offsetWidth / 2 + 4;
+      if (phone) {
+        // Phone: the words rise once, then part with the thumb while the exterior photo opens between them
+        gsap.from('.pf-w', { yPercent: 105, duration: .6, ease: 'power2.inOut', stagger: .05, scrollTrigger: { trigger: '.prefoot', start: 'top 80%', once: true } });
+        // the photo sits on its own row: "on the" and "Hill" start touching, then part vertically as it opens
+        const gap = () => { const cs = getComputedStyle(pfp); return (pfp.offsetHeight + parseFloat(cs.marginTop) + parseFloat(cs.marginBottom)) / 2; };
+        gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { trigger: '.prefoot', start: 'top 80%', end: 'center 52%', scrub: .4, invalidateOnRefresh: true } })
+          .fromTo(pfl, { y: gap }, { y: 0, ease: 'power2.out' }, 0)
+          .fromTo(pfr, { y: () => -gap() }, { y: 0, ease: 'power2.out' }, 0)
+          .fromTo(pfp, { clipPath: 'inset(50% 0% 50% 0% round 22px)' }, { clipPath: 'inset(0% 0% 0% 0% round 22px)', ease: 'power2.out' }, 0)
+          .fromTo(pfp.querySelector('img'), { scale: 1.5 }, { scale: 1 }, 0);
+      } else
       gsap.timeline({ scrollTrigger: { trigger: '.prefoot', start: 'top 75%', once: true } })
         .from('.pf-w', { yPercent: 105, duration: .6, ease: 'power2.inOut', stagger: .05 })
         .from(pfl, { x: half, duration: .8, ease: 'expo.out' }, '-=.15')
@@ -1553,6 +1675,142 @@ dialog::backdrop{background:rgba(20,17,15,.62);-webkit-backdrop-filter:blur(8px)
           settle?.kill(); settle = gsap.to(loop, { timeScale: dir, duration: 1.1, ease: 'power2.out' });
         }
       });
+    });
+
+    /* ================= PHONE SIGNATURE MOMENTS (max-width 760px, motion allowed) ================= */
+    mm.add('(max-width: 760px) and (prefers-reduced-motion: no-preference)', () => {
+      const undo = [];
+      const clamp01 = v => Math.max(0, Math.min(1, v));
+
+      /* 1. Story chapters stack as sticky cards. Each card carries its own hill contours (an SVG <use> of the
+            rings, every other ring hidden) that drift with transform only. Earlier cards ease back to .94 and dim
+            as the next card arrives; the photo pair fans open while a card is held. */
+      const story = $('#story'); const chapters = $$('.chapter', story); const stage = $('.story-stage', story);
+      const ringsG = $('.contours > g'); ringsG.id = 'hill-rings';
+      const NS = 'http://www.w3.org/2000/svg';
+      const rings = chapters.map(ch => {
+        const svg = document.createElementNS(NS, 'svg'); svg.setAttribute('class', 'ch-rings'); svg.setAttribute('viewBox', '0 0 1200 1100'); svg.setAttribute('aria-hidden', 'true'); svg.setAttribute('focusable', 'false');
+        const use = document.createElementNS(NS, 'use'); use.setAttribute('href', '#hill-rings'); svg.appendChild(use); ch.prepend(svg); return svg;
+      });
+      story.classList.add('is-stack');
+      const bgRings = $('.contours', story);
+      gsap.fromTo(bgRings, { rotation: 8 }, { rotation: 30, ease: 'none', scrollTrigger: { trigger: story, start: 'top bottom', end: 'bottom top', scrub: true } });
+      undo.push(() => gsap.set(bgRings, { clearProps: 'transform' }));
+      // static (un-stuck) geometry, measured from heights so sticky offsets never skew it
+      const geo = { tops: [], sticks: [] };
+      function layoutStack() {
+        const base = story.getBoundingClientRect().top + scrollY + parseFloat(getComputedStyle(stage).paddingTop);
+        let y = base;
+        chapters.forEach((ch, i) => {
+          const h = ch.offsetHeight;
+          const stick = Math.min(78 + i * 12, innerHeight - h - 84); // tall cards on short phones stick early so their foot is never hidden
+          ch.style.setProperty('--stick', stick + 'px');
+          geo.tops[i] = y; geo.sticks[i] = stick;
+          y += h + parseFloat(getComputedStyle(ch).marginBottom);
+        });
+      }
+      layoutStack();
+      ScrollTrigger.addEventListener('refreshInit', layoutStack);
+      undo.push(() => ScrollTrigger.removeEventListener('refreshInit', layoutStack));
+      chapters.forEach((ch, i) => {
+        // the photo pair fans open while the card is held
+        const l = $('.ch-card-wrap.l', ch), r = $('.ch-card-wrap.r', ch);
+        gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { start: () => geo.tops[i] - innerHeight, end: () => geo.tops[i] - geo.sticks[i] + innerHeight * .5, scrub: .4, invalidateOnRefresh: true } })
+          .fromTo(l, { rotation: -3, x: 22, y: 10 }, { rotation: -11, x: 4, y: -4 }, 0)
+          .fromTo(r, { rotation: 2, x: -22, y: 34 }, { rotation: 10, x: -4, y: 18 }, 0)
+          .fromTo(rings[i], { rotation: -8, yPercent: 6 }, { rotation: 7, yPercent: -8, transformOrigin: '50% 50%' }, 0);
+        if (i < chapters.length - 1) {
+          // the next card arriving pushes this one back
+          gsap.fromTo(ch, { scale: 1, '--dim': 0 }, { scale: .94, '--dim': .38, ease: 'none', scrollTrigger: { start: () => geo.tops[i + 1] - innerHeight, end: () => geo.tops[i + 1] - geo.sticks[i + 1], scrub: true, invalidateOnRefresh: true } });
+        }
+      });
+      undo.push(() => { story.classList.remove('is-stack'); rings.forEach(s => s.remove()); ringsG.removeAttribute('id'); gsap.set(chapters, { clearProps: 'transform' }); chapters.forEach(c => { c.style.removeProperty('--stick'); c.style.removeProperty('--dim'); }); });
+
+      /* 2. The Pour: the one pinned scene on phones (CSS sticky, 180% of the viewport of scroll). The four real
+            photos wipe up from the bottom one after another, each pushing in, and the matching fact line
+            crossfades at the foot of the screen. */
+      const pour = $('#pour'), layers = $$('.pour-layer'), entries = $$('.pour-entry');
+      const pstage = $('.pour-stage');
+      const prog = document.createElement('div'); prog.className = 'pour-prog';
+      prog.innerHTML = '<i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i>';
+      pstage.appendChild(prog);
+      const bars = $$('b', prog);
+      pour.classList.add('is-pin');
+      gsap.fromTo('.pour-media', { scale: .88, '--r': '28px' }, { scale: 1, '--r': '0px', ease: 'power1.inOut', scrollTrigger: { trigger: '.pour-track', start: 'top bottom', end: 'top top', scrub: true } });
+      gsap.set(layers.slice(1), { clipPath: 'inset(100% 0% 0% 0%)' });
+      let onIdx = -1;
+      function setEntry(p) {
+        const idx = p < .3 ? 0 : p < .56 ? 1 : p < .82 ? 2 : 3;
+        if (idx !== onIdx) { entries.forEach((e, k) => e.classList.toggle('is-on', k === idx)); onIdx = idx; }
+        bars.forEach((b, k) => { b.style.transform = `scaleX(${clamp01(p * 4 - k).toFixed(3)})`; });
+      }
+      const ptl = gsap.timeline({ defaults: { ease: 'none' }, onUpdate: () => setEntry(ptl.progress()), scrollTrigger: { trigger: '.pour-track', start: 'top top', end: 'bottom bottom', scrub: .5 } });
+      layers.forEach(l => ptl.fromTo(l.querySelector('img'), { scale: 1.02 }, { scale: 1.16, duration: 1 }, 0));
+      [.24, .5, .76].forEach((t, k) => ptl.fromTo(layers[k + 1], { clipPath: 'inset(100% 0% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: .12, ease: 'power2.inOut' }, t));
+      setEntry(0);
+      undo.push(() => { pour.classList.remove('is-pin'); prog.remove(); entries.forEach(e => e.classList.remove('is-on')); gsap.set(layers, { clearProps: 'all' }); gsap.set('.pour-media', { clearProps: 'all' }); });
+
+      /* 3. Cocktails swipe deck: the tile nearest the centre scales up and glows, neighbours ease back and dim.
+            Driven by the deck's own scroll position in rAF; a counter and progress line track the swipe. */
+      const deck = $('#cocktails .bento'); const cards = [...deck.children];
+      const ui = document.createElement('div'); ui.className = 'deck-ui'; ui.setAttribute('aria-hidden', 'true');
+      ui.innerHTML = `<span class="mono deck-n">01 / ${String(cards.length).padStart(2, '0')}</span><span class="deck-bar"><i></i></span><span class="mono">Swipe</span>`;
+      deck.after(ui);
+      const nEl = $('.deck-n', ui), barEl = $('.deck-bar', ui);
+      let draw = 0, centre = -1;
+      function paintDeck() {
+        draw = 0;
+        const mid = deck.scrollLeft + deck.clientWidth / 2; let best = 0, bd = 1e9;
+        cards.forEach((c, i) => {
+          const d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid) / (c.offsetWidth + 10);
+          const t = Math.min(d, 1);
+          c.style.setProperty('--k', (1 - t * .13).toFixed(3)); c.style.setProperty('--o', (1 - t * .45).toFixed(3));
+          if (d < bd) { bd = d; best = i; }
+        });
+        if (best !== centre) { cards[centre]?.classList.remove('is-centre'); cards[best].classList.add('is-centre'); centre = best; nEl.textContent = `${String(best + 1).padStart(2, '0')} / ${String(cards.length).padStart(2, '0')}`; }
+        const max = deck.scrollWidth - deck.clientWidth;
+        barEl.style.setProperty('--p', Math.max(.08, max ? deck.scrollLeft / max : 0).toFixed(3));
+      }
+      const onDeck = () => { if (!draw) draw = requestAnimationFrame(paintDeck); };
+      deck.addEventListener('scroll', onDeck, { passive: true }); addEventListener('resize', onDeck);
+      paintDeck();
+      undo.push(() => { deck.removeEventListener('scroll', onDeck); removeEventListener('resize', onDeck); ui.remove(); cards.forEach(c => { c.classList.remove('is-centre'); c.style.removeProperty('--k'); c.style.removeProperty('--o'); }); });
+
+      return () => undo.reverse().forEach(f => f());
+    });
+
+    /* Phone bottom sheet: drag the handle (or the art) down to close. A quick flick closes regardless of
+       distance; a short drag springs back. Upward drag is damped. Works with or without reduced motion. */
+    mm.add('(max-width: 760px)', () => {
+      const dlg = specDlg;
+      const grab = document.createElement('div'); grab.className = 'sm-grab'; grab.setAttribute('aria-hidden', 'true');
+      dlg.prepend(grab);
+      const zones = [grab, $('#sm-art')];
+      let drag = null;
+      const down = e => {
+        if (drag || !e.isPrimary) return;
+        drag = { y: e.clientY, t: performance.now(), dy: 0, id: e.pointerId, el: e.currentTarget };
+        e.currentTarget.setPointerCapture(e.pointerId); dlg.style.transition = 'none';
+      };
+      const move = e => {
+        if (!drag || e.pointerId !== drag.id) return;
+        let d = e.clientY - drag.y; if (d < 0) d = -Math.sqrt(-d) * 2.5;
+        drag.dy = d; dlg.style.transform = `translateY(${d}px)`;
+      };
+      const up = e => {
+        if (!drag || e.pointerId !== drag.id) return;
+        const { dy, t } = drag; drag = null;
+        const v = dy / Math.max(1, performance.now() - t);
+        if (dy > 110 || (dy > 20 && v > .11)) {
+          dlg.style.transition = reduceMQ.matches ? 'none' : 'transform 240ms cubic-bezier(.4,0,1,1)';
+          dlg.style.transform = 'translateY(105%)';
+          setTimeout(() => { dlg.close(); dlg.style.transform = ''; dlg.style.transition = ''; }, reduceMQ.matches ? 0 : 240);
+        } else {
+          dlg.style.transition = 'transform 420ms cubic-bezier(.16,1,.3,1)'; dlg.style.transform = '';
+        }
+      };
+      zones.forEach(z => { z.addEventListener('pointerdown', down); z.addEventListener('pointermove', move); z.addEventListener('pointerup', up); z.addEventListener('pointercancel', up); });
+      return () => { zones.forEach(z => { z.removeEventListener('pointerdown', down); z.removeEventListener('pointermove', move); z.removeEventListener('pointerup', up); z.removeEventListener('pointercancel', up); }); grab.remove(); dlg.style.transform = ''; dlg.style.transition = ''; };
     });
 
     /* ---------- The Pour stage (desktop): push-in + clip wipes ---------- */

@@ -533,6 +533,85 @@ button.rb:active:not(:disabled){transform:scale(.97)}
 .mbar.is-away,.hdr.has-menu ~ .mbar{transform:translateY(110%)}
 .mbar{transition:transform .35s var(--ease-out)}
 
+/* ==========================================================================
+   Phone signature layer (max-width 760px only). Desktop and tablet are untouched.
+   Hero card grows to full bleed, rooms stack as sticky full-screen cards,
+   denser 4-lane galaxy, centred snap deck for This week, odometer rating.
+   ========================================================================== */
+picture{display:contents}
+.hero__chip,.week__pill{display:none}
+@media (max-width:760px){
+  /* Hero: full-bleed first screen, bigger headline, live kitchen chip */
+  .hero{padding:0;min-height:560px}
+  .hero__media{border-radius:0}
+  .hero__shade{background:linear-gradient(to bottom,rgba(13,11,10,.5),rgba(13,11,10,0) 24%),linear-gradient(to top,rgba(13,11,10,.78),rgba(13,11,10,.28) 46%,rgba(13,11,10,0) 66%)}
+  .hero__content{gap:16px;padding:0 12px 84px}
+  .hero__title{font-size:clamp(3.125rem,15.2vw,4.5rem);line-height:.8}
+  .hero__chip{--ring:#fbfaf7;display:inline-flex;align-self:flex-start;align-items:center;gap:8px;min-height:32px;margin:0 0 4px 4px;padding:0 12px 0 10px;border-radius:999px;background:rgba(13,11,10,.32);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);color:#fff;font-size:11px}
+  .hero__chip .dot{margin:0;background:#a8a198}
+  .hero__chip.is-open .dot{background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.22)}
+  .hero-card{grid-template-columns:40% 1fr;background:rgba(13,11,10,.3)}
+  .hero-card:active{transform:scale(.98);transition:transform .16s var(--ease-out)}
+
+  /* Galaxy: bigger particles in four lanes, larger staircase headline */
+  .galaxy{height:118svh;min-height:720px}
+  .pt{width:21vw}
+  .pt img{border-radius:4px}
+  .galaxy__title{font-size:clamp(2.875rem,13.4vw,3.75rem)}
+
+  /* Rooms: card anatomy (photo in a rounded frame, big name, mono facts) */
+  .rooms{counter-reset:room}
+  .slide{counter-increment:room}
+  .slide__frame{border-radius:20px;padding:6px}
+  .slide__media{border-radius:14px;aspect-ratio:4/3.4}
+  .slide__frame::before{content:counter(room,decimal-leading-zero) " / 07";position:absolute;left:16px;top:16px;z-index:2;display:inline-flex;align-items:center;min-height:28px;padding:0 10px;border-radius:999px;background:rgba(13,11,10,.42);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);color:#fff;font:400 11px/1 var(--mono);letter-spacing:.04em;font-variant-numeric:tabular-nums}
+  .slide__card{padding:16px 10px 10px;gap:14px}
+  .slide__name h3{font-size:clamp(2.75rem,13.6vw,3.6rem);letter-spacing:-.05em;line-height:.84}
+  .slide__text{font-size:15px;line-height:1.42}
+  .slide .btn--sm{min-height:44px}
+
+  /* Footer: 44px tap targets */
+  .foot__menu li{padding-bottom:0}
+  .foot__menu a{display:flex;align-items:center;min-height:48px;padding-block:0}
+  .foot__social a{display:inline-flex;align-items:center;min-height:44px}
+
+  /* This week: centred snap deck with neighbours peeking either side */
+  .week__track{position:relative;padding:6px 15vw 8px;scroll-padding-inline:0;gap:14px}
+  .ev{flex:0 0 70vw;scroll-snap-align:center;transform-origin:50% 40%}
+  .ev__img{aspect-ratio:1/1.08}
+
+  /* Snapshot: giant rating */
+  .snap__num{align-items:flex-end;gap:12px}
+  .snap__num b{font-size:min(38vw,170px)}
+  .snap__num .mono{padding-bottom:.6em}
+  .odo{display:inline-flex}
+  .odo__c{display:block;height:1em;overflow:hidden;line-height:1}
+  .odo__r{display:block}
+  .odo__r > span{display:block;height:1em;line-height:1}
+  .odo__s{overflow:visible}
+  b[data-rating].has-odo{display:block;margin-block:-.08em}
+}
+@media (max-width:760px) and (prefers-reduced-motion:no-preference){
+  /* Hero folds back into a rounded card as it scrolls away (values driven by GSAP) */
+  .hero{clip-path:inset(0px var(--hx,0px) 0px var(--hx,0px) round 0px 0px var(--hrr,0px) var(--hrr,0px))}
+  .galaxy__inner::before{content:"";position:absolute;left:50%;top:50%;z-index:-1;width:150%;height:62%;translate:-50% -50%;background:radial-gradient(closest-side,rgba(251,250,247,.86),rgba(251,250,247,.6) 55%,rgba(251,250,247,0));pointer-events:none}
+  /* Rooms become a sticky deck: each card slides over the last, which recedes */
+  .rooms{display:block;padding-inline:8px;max-width:none}
+  .slide{--i:0;position:sticky;top:calc(10px + var(--i) * 7px);height:calc(100vh - 138px);height:calc(100svh - 138px);min-height:560px;margin-bottom:36svh}
+  .slide:last-of-type{margin-bottom:0}
+  .slide:nth-of-type(2){--i:1}.slide:nth-of-type(3){--i:2}.slide:nth-of-type(4){--i:3}.slide:nth-of-type(5){--i:4}.slide:nth-of-type(6){--i:5}.slide:nth-of-type(7){--i:6}
+  .slide__frame{height:100%;display:flex;flex-direction:column;transform-origin:50% 0;box-shadow:0 -10px 30px -18px rgba(13,11,10,.5)}
+  .slide__media{flex:1 1 auto;min-height:0;aspect-ratio:auto}
+  .slide__img{top:-9%;height:118%;will-change:transform}
+  .slide__card{flex:none}
+
+  /* This week progress pill */
+  .week__pill{display:flex;align-items:center;gap:12px;width:max-content;margin:18px auto 0;padding:0 14px;min-height:32px;border-radius:999px;background:var(--ink);color:var(--paper)}
+  .week__pill .mono{min-width:4.2em;text-align:right}
+  .week__bar{position:relative;width:72px;height:3px;border-radius:2px;background:rgba(251,250,247,.22);overflow:hidden}
+  .week__fill{position:absolute;inset:0;border-radius:inherit;background:var(--paper);transform-origin:0 50%;transform:scaleX(.2)}
+}
+
 /* Intro guard: only when motion is allowed */
 @media (prefers-reduced-motion:no-preference){
   .js-intro .hero__media,.js-intro .hero-card,.js-intro .hero__title,.js-intro .hdr__bar{visibility:hidden}
@@ -636,6 +715,7 @@ button.rb:active:not(:disabled){transform:scale(.97)}
       <div class="hero__frame"><img class="hero__img" src="img/drive/24-hotel-wide-exterior-hero.webp" width="1800" height="1168" alt="The Aspley Hotel on Gympie Road: a white two-storey Queenslander with a terracotta roof and Functions, Gaming, Bistro and TAB Bar signs, in late afternoon sun" fetchpriority="high" decoding="async"></div>
       <div class="hero__shade" aria-hidden="true"></div>
       <div class="hero__content">
+        <p class="hero__chip mono" data-hero-chip><span class="dot" aria-hidden="true"></span><span data-hero-kitchen>Kitchen opens 11:30am</span></p>
         <h1 class="hero__title" id="hero-title"><span class="hl">The pub</span> <span class="hl">on the hill.</span> <span class="hl">Since 1935.</span></h1>
         <a class="hero-card" href="#book" data-cup>
           <div class="hero-card__img"><img src="img/drive/05-bar-drinks-and-pour-sm.webp" width="900" height="506" alt="" decoding="async"></div>
@@ -689,7 +769,7 @@ button.rb:active:not(:disabled){transform:scale(.97)}
 
     <article class="slide" id="room-bistro" data-name="Bistro" aria-labelledby="r1">
       <div class="slide__frame">
-        <div class="slide__media"><img class="slide__img" src="img/drive/07-bistro-wide-dining-room.webp" width="1800" height="1200" alt="The bistro dining room: round timber tables, navy walls and verandah windows" loading="lazy" decoding="async"></div>
+        <div class="slide__media"><picture><source media="(max-width: 760px)" srcset="img/drive/07-bistro-wide-dining-room-sm.webp"><img class="slide__img" src="img/drive/07-bistro-wide-dining-room.webp" width="1800" height="1200" alt="The bistro dining room: round timber tables, navy walls and verandah windows" loading="lazy" decoding="async"></picture></div>
         <div class="slide__card">
           <div class="slide__name"><h3 id="r1">Bistro</h3></div>
           <div class="slide__body">
@@ -707,7 +787,7 @@ button.rb:active:not(:disabled){transform:scale(.97)}
 
     <article class="slide" id="room-bar" data-name="Bar" aria-labelledby="r2">
       <div class="slide__frame">
-        <div class="slide__media"><img class="slide__img" src="img/drive/03-bar-counter-view-02.webp" width="1800" height="1200" alt="The main bar with a hand-drawn chalkboard cocktail mural above the back bar" loading="lazy" decoding="async"></div>
+        <div class="slide__media"><picture><source media="(max-width: 760px)" srcset="img/drive/03-bar-counter-view-02-sm.webp"><img class="slide__img" src="img/drive/03-bar-counter-view-02.webp" width="1800" height="1200" alt="The main bar with a hand-drawn chalkboard cocktail mural above the back bar" loading="lazy" decoding="async"></picture></div>
         <div class="slide__card">
           <div class="slide__name"><h3 id="r2">Bar</h3></div>
           <div class="slide__body">
@@ -724,7 +804,7 @@ button.rb:active:not(:disabled){transform:scale(.97)}
 
     <article class="slide" id="room-deck" data-name="Deck" aria-labelledby="r3">
       <div class="slide__frame">
-        <div class="slide__media"><img class="slide__img" src="img/drive/31-outdoor-deck-view-01.webp" width="1800" height="1200" alt="The timber deck with high tables, looking out over the road" loading="lazy" decoding="async"></div>
+        <div class="slide__media"><picture><source media="(max-width: 760px)" srcset="img/drive/31-outdoor-deck-view-01-sm.webp"><img class="slide__img" src="img/drive/31-outdoor-deck-view-01.webp" width="1800" height="1200" alt="The timber deck with high tables, looking out over the road" loading="lazy" decoding="async"></picture></div>
         <div class="slide__card">
           <div class="slide__name"><h3 id="r3">Deck</h3></div>
           <div class="slide__body">
@@ -741,7 +821,7 @@ button.rb:active:not(:disabled){transform:scale(.97)}
 
     <article class="slide" id="room-sports" data-name="Sports Bar" aria-labelledby="r4">
       <div class="slide__frame">
-        <div class="slide__media"><img class="slide__img" src="img/drive/49-sports-bar-wide.webp" width="1800" height="1200" alt="The sports bar: long counter, high tables and screens showing live sport" loading="lazy" decoding="async"></div>
+        <div class="slide__media"><picture><source media="(max-width: 760px)" srcset="img/drive/49-sports-bar-wide-sm.webp"><img class="slide__img" src="img/drive/49-sports-bar-wide.webp" width="1800" height="1200" alt="The sports bar: long counter, high tables and screens showing live sport" loading="lazy" decoding="async"></picture></div>
         <div class="slide__card">
           <div class="slide__name"><h3 id="r4">Sports Bar</h3></div>
           <div class="slide__body">
@@ -758,7 +838,7 @@ button.rb:active:not(:disabled){transform:scale(.97)}
 
     <article class="slide" id="room-gaming" data-name="Gaming" aria-labelledby="r5">
       <div class="slide__frame">
-        <div class="slide__media"><img class="slide__img" src="img/drive/40-gaming-lounge-wide.webp" width="1800" height="1200" alt="The gaming room with its own bar counter" loading="lazy" decoding="async"></div>
+        <div class="slide__media"><picture><source media="(max-width: 760px)" srcset="img/drive/40-gaming-lounge-wide-sm.webp"><img class="slide__img" src="img/drive/40-gaming-lounge-wide.webp" width="1800" height="1200" alt="The gaming room with its own bar counter" loading="lazy" decoding="async"></picture></div>
         <div class="slide__card">
           <div class="slide__name"><h3 id="r5">Gaming</h3></div>
           <div class="slide__body">
@@ -773,7 +853,7 @@ button.rb:active:not(:disabled){transform:scale(.97)}
 
     <article class="slide" id="room-functions" data-name="Functions" aria-labelledby="r6">
       <div class="slide__frame">
-        <div class="slide__media"><img class="slide__img" src="img/drive/34-covered-function-terrace-wide.webp" width="1800" height="1200" alt="The covered function terrace set with tables beside the Herb Garden" loading="lazy" decoding="async"></div>
+        <div class="slide__media"><picture><source media="(max-width: 760px)" srcset="img/drive/34-covered-function-terrace-wide-sm.webp"><img class="slide__img" src="img/drive/34-covered-function-terrace-wide.webp" width="1800" height="1200" alt="The covered function terrace set with tables beside the Herb Garden" loading="lazy" decoding="async"></picture></div>
         <div class="slide__card">
           <div class="slide__name"><h3 id="r6">Functions</h3></div>
           <div class="slide__body">
@@ -790,7 +870,7 @@ button.rb:active:not(:disabled){transform:scale(.97)}
 
     <article class="slide" id="room-bottleshop" data-name="Bottle Shop" aria-labelledby="r7">
       <div class="slide__frame">
-        <div class="slide__media"><img class="slide__img" src="img/drive/42-bottleshop-interior-wide.webp" width="1800" height="1350" alt="Inside the Star Liquor Warehouse bottle shop: fridges of beer and wine" loading="lazy" decoding="async"></div>
+        <div class="slide__media"><picture><source media="(max-width: 760px)" srcset="img/drive/42-bottleshop-interior-wide-sm.webp"><img class="slide__img" src="img/drive/42-bottleshop-interior-wide.webp" width="1800" height="1350" alt="Inside the Star Liquor Warehouse bottle shop: fridges of beer and wine" loading="lazy" decoding="async"></picture></div>
         <div class="slide__card">
           <div class="slide__name"><h3 id="r7">Bottle Shop</h3></div>
           <div class="slide__body">
@@ -819,7 +899,7 @@ button.rb:active:not(:disabled){transform:scale(.97)}
   <!-- Functions -->
   <section class="fn container" id="functions" aria-labelledby="fn-title">
     <div class="fn__card on-dark">
-      <div class="fn__media"><img src="img/drive/36-terrace-evening-festoon-lights.webp" width="1800" height="1350" alt="The function terrace at dusk under festoon lights, tables set" loading="lazy" decoding="async"></div>
+      <div class="fn__media"><picture><source media="(max-width: 760px)" srcset="img/drive/36-terrace-evening-festoon-lights-sm.webp"><img src="img/drive/36-terrace-evening-festoon-lights.webp" width="1800" height="1350" alt="The function terrace at dusk under festoon lights, tables set" loading="lazy" decoding="async"></picture></div>
       <div class="fn__body">
         <h2 class="h-md" id="fn-title">Functions in the<br>Herb Garden</h2>
         <p class="fn__intro">Three spaces for birthdays, engagements, anniversaries and work dos. Platters run from $100 to $145, and our team runs the day.</p>
@@ -975,11 +1055,12 @@ button.rb:active:not(:disabled){transform:scale(.97)}
         <p>Crispy Chicken Bites, Prawn Cocktail or Burrata, then Miso Salmon, Pork Piccata or Pumpkin and Sage Gnocchi. Sweeps, prizes and a lucky loser draw. <a href="#book" data-cup>Bookings essential</a></p>
       </li>
     </ul>
+    <div class="week__pill" aria-hidden="true"><span class="week__bar"><span class="week__fill" data-week-fill></span></span><span class="mono" data-week-count>1 / 5</span></div>
   </section>
 
   <!-- Push: book -->
   <section class="push" id="book" aria-labelledby="book-title">
-    <div class="push__media" aria-hidden="true"><img src="img/drive/06-bistro-dining-room-view-01.webp" width="1800" height="1200" alt="" loading="lazy" decoding="async"></div>
+    <div class="push__media" aria-hidden="true"><picture><source media="(max-width: 760px)" srcset="img/drive/06-bistro-dining-room-view-01-sm.webp"><img src="img/drive/06-bistro-dining-room-view-01.webp" width="1800" height="1200" alt="" loading="lazy" decoding="async"></picture></div>
     <div class="push__inner">
       <h2 class="push__title" id="book-title"><span class="pl">Book</span> <span class="pl">a table.</span></h2>
       <p class="push__hours">Lunch Sunday to Wednesday 11:30am to 2:30pm, dinner 5:30pm to 8:30pm. All-day dining Thursday to Saturday, 11:30am to 8:30pm.</p>
@@ -1060,7 +1141,7 @@ button.rb:active:not(:disabled){transform:scale(.97)}
 <div class="curtain" aria-hidden="true">
   <div class="curtain__wrap">
     <div class="curtain__panel">
-      <img src="img/drive/25-hotel-exterior-wide-hero-alternate.webp" width="1800" height="1010" alt="" loading="lazy" decoding="async">
+      <picture><source media="(max-width: 760px)" srcset="img/drive/25-hotel-exterior-wide-hero-alternate-sm.webp"><img src="img/drive/25-hotel-exterior-wide-hero-alternate.webp" width="1800" height="1010" alt="" loading="lazy" decoding="async"></picture>
       <p class="curtain__word"><span>ASPLEY</span> <span>HOTEL</span></p>
     </div>
   </div>
@@ -1085,6 +1166,8 @@ function $$(s,c){return Array.prototype.slice.call((c||document).querySelectorAl
 var reduceMQ = matchMedia('(prefers-reduced-motion: reduce)');
 var deskMQ = matchMedia('(min-width: 1000px)');
 var fineMQ = matchMedia('(pointer: fine)');
+var PHONE = '(max-width: 760px) and (prefers-reduced-motion: no-preference)';
+var phoneMQ = matchMedia(PHONE);
 var G = window.gsap;
 var hasG = !!(G && window.ScrollTrigger);
 var hasSplit = hasG && !!window.SplitText;
@@ -1100,6 +1183,10 @@ setNote(); addEventListener('resize', setNote);
 function flowTop(el){var t=0; while(el){t+=el.offsetTop; el=el.offsetParent} return t}
 var rooms = $('#rooms'), slides = $$('.slide');
 function slideH(){return slides[0].offsetHeight}
+/* Phone sticky deck: flow position of room i (offsetTop of a stuck card reports its stuck spot, so compute from the section) */
+function phoneStep(){ var s = slides[0]; return s.offsetHeight + (parseFloat(getComputedStyle(s).marginBottom) || 0) }
+function phoneFlowY(i){ return flowTop(rooms) + (parseFloat(getComputedStyle(rooms).paddingTop) || 0) + i*phoneStep() }
+function phoneRoomY(i){ return phoneFlowY(i) - (parseFloat(getComputedStyle(slides[i]).top) || 0) }
 function scrollToY(y){
   y = Math.max(0, y);
   if (lenis) lenis.scrollTo(y, {duration:1.2});
@@ -1108,6 +1195,7 @@ function scrollToY(y){
 function targetY(el){
   if (el.id === 'top') return 0;
   if (el.classList.contains('slide') && deskMQ.matches) return flowTop(rooms) + slides.indexOf(el) * slideH();
+  if (el.classList.contains('slide') && phoneMQ.matches) return phoneRoomY(slides.indexOf(el));
   if (el.id === 'rooms') return flowTop(rooms);
   if (el.id === 'book' || el.id === 'galaxy') return flowTop(el);
   return flowTop(el) - 96;
@@ -1163,6 +1251,7 @@ function updateToday(){
   $('[data-bottle-cell]').classList.toggle('is-open', b.open);
   $('[data-event]').innerHTML = eventToday(n);
   var mk = $('[data-mbar-kitchen]'); if (mk) mk.textContent = k.short;
+  var hk = $('[data-hero-kitchen]'); if (hk){ hk.textContent = 'Kitchen · ' + k.text; $('[data-hero-chip]').classList.toggle('is-open', k.open) }
   var d = daysToCup(n), cupTxt = 'Tue 3 Nov 2026';
   if (d > 1) cupTxt += ' · ' + d + ' days to go';
   else if (d === 1) cupTxt += ' · Tomorrow';
@@ -1474,9 +1563,27 @@ var GSRC = ['05-bar-drinks-and-pour','12-bistro-bar-counter-view-02','29-parmigi
 var ZS = [-200,-150,-100,-50,0,50,100,150,200], SPD = [.8,.9,1,1.1,1.2];
 function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
 var pts = [], built = false, galActive = false, gTarget = 0, gCur = 0, gDir = 1, lastSY = scrollY, fieldH = 1;
+var phoneG = false, gStretch = 0, LANE_SPD = [.78, 1.18, .92, 1.3];
+/* Phones: 44 particles in four lanes, each lane its own speed, so the field reads as depth rather than confetti */
+function buildPhoneGalaxy(rnd){
+  for (var i = 0; i < 44; i++){
+    var lane = i % 4, el = document.createElement('span'); el.className = 'pt';
+    var z = ZS[Math.floor(rnd()*ZS.length)];
+    el.style.left = (lane*25 + 1.5 + rnd()*2.5).toFixed(2) + '%';
+    el.style.setProperty('--haze', (z < 0 ? 1 - Math.max(.45, 1 + z/240) : 0).toFixed(2));
+    var img = document.createElement('img');
+    img.src = 'img/drive/' + GSRC[(i*7) % GSRC.length] + '-sm.webp'; img.alt = ''; img.decoding = 'async'; img.width = 104; img.height = 104;
+    el.appendChild(img); field.appendChild(el);
+    pts.push({el:el, z:z, speed:LANE_SPD[lane]*(.9 + rnd()*.2), base:(Math.floor(i/4) + rnd()*.6)/11, s:1});
+  }
+  fieldH = field.offsetHeight;
+  placeStatic();
+}
 function buildGalaxy(){
   if (built) return; built = true;
   var rnd = mulberry(1935), mobile = innerWidth < 700;
+  phoneG = innerWidth <= 760;
+  if (phoneG) return buildPhoneGalaxy(rnd);
   for (var i = 0; i < 32; i++){
     var el = document.createElement('span'); el.className = 'pt';
     var z = ZS[Math.floor(rnd()*ZS.length)];
@@ -1504,6 +1611,7 @@ function galaxyTick(time, dt){
   var v = lenis ? lenis.velocity : (scrollY - lastSY); lastSY = scrollY;
   if (Math.abs(v) > .5) gDir = v > 0 ? 1 : -1;
   gTarget += .03*dt*gDir + v*.4;
+  if (phoneG) gStretch += (Math.min(Math.abs(v)*.007, .22) - gStretch)*.15;
   gCur += (gTarget - gCur)*.1;
   var H = fieldH, range = H*1.2;
   for (var i = 0; i < pts.length; i++){
@@ -1511,6 +1619,7 @@ function galaxyTick(time, dt){
     var y = ((p.base*range - gCur*p.speed) % range + range) % range - H*0.1;
     var ts = .5 + (y/H)*.9;
     p.s += (ts - p.s)*.25;
+    if (phoneG){ p.el.style.transform = 'translate3d(0,' + y.toFixed(1) + 'px,' + p.z + 'px) scale(' + p.s.toFixed(3) + ',' + (p.s*(1 + gStretch*p.speed)).toFixed(3) + ')'; continue }
     p.el.style.transform = 'translate3d(0,' + y.toFixed(1) + 'px,' + p.z + 'px) scale(' + p.s.toFixed(3) + ')';
   }
 }
@@ -1555,7 +1664,7 @@ function heroIntro(){
 }
 
 var mm = G.matchMedia();
-mm.add({motion:'(prefers-reduced-motion: no-preference)', reduce:'(prefers-reduced-motion: reduce)', desk:'(min-width: 1000px)', fine:'(pointer: fine)'}, function(ctx){
+mm.add({motion:'(prefers-reduced-motion: no-preference)', reduce:'(prefers-reduced-motion: reduce)', desk:'(min-width: 1000px)', fine:'(pointer: fine)', phone:PHONE}, function(ctx){
   var c = ctx.conditions, rafFn = null;
   if (c.reduce){
     root.classList.remove('js-intro');
@@ -1574,11 +1683,11 @@ mm.add({motion:'(prefers-reduced-motion: no-preference)', reduce:'(prefers-reduc
 
   /* Hero: rise-and-grow intro, then a gentle scrubbed drift as it leaves */
   var fontsReady = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
-  Promise.race([fontsReady, new Promise(function(r){setTimeout(r, 1200)})]).then(heroIntro);
+  if (!c.phone) Promise.race([fontsReady, new Promise(function(r){setTimeout(r, 1200)})]).then(heroIntro);
   G.to('.hero__frame', {yPercent:10, ease:'none', scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}});
 
   /* Galaxy: staircase words settle from offsets of about a third of an em (always visible) */
-  if (hasSplit){
+  if (hasSplit && !c.phone){
     fontsReady.then(function(){
       var pat = [[-1,0],[0,-1],[0,1],[1,0],[0,-1],[0,1]];
       var fs = parseFloat(getComputedStyle($('.galaxy__title')).fontSize) * .3;
@@ -1627,6 +1736,117 @@ mm.add({motion:'(prefers-reduced-motion: no-preference)', reduce:'(prefers-reduc
     if (lenis){ lenis.destroy(); lenis = null }
     if (rafFn) G.ticker.remove(rafFn);
   };
+});
+
+/* ==========================================================================
+   Phone signature moments: (max-width 760px) and motion allowed. Desktop never runs this.
+   ========================================================================== */
+function heroIntroPhone(ctx){
+  var media = $('.hero__media'), img = $('.hero__img'), h1 = $('.hero__title'), card = $('.hero-card'), hb = $('.hdr__bar'), chip = $('.hero__chip');
+  var split = null;
+  if (hasSplit){
+    split = SplitText.create(h1, {type:'lines', mask:'lines'});
+    (split.masks || []).forEach(function(m){ m.style.paddingBottom = '.14em'; m.style.marginBottom = '-.14em' });
+  }
+  root.classList.remove('js-intro');
+  /* 1 the photo rises as a rounded card, 2 it grows to full bleed, 3 lines build, 4 the glass Cup card slides up from the bottom edge */
+  media.style.clipPath = 'inset(0px round var(--hr, 0px))';
+  var tl = G.timeline({defaults:{ease:'expo.out'}, onComplete:function(){
+    if (split) split.revert();
+    G.set([media, card, hb, chip], {clearProps:'transform,opacity,visibility,clipPath,--hr'});
+    ctx.add(function(){ G.to(img, {scale:1.1, duration:14, ease:'sine.out'}) });   /* slow push-in once settled */
+  }});
+  tl.fromTo(media, {autoAlpha:0, yPercent:24, scale:.62, '--hr':'34px'}, {autoAlpha:1, yPercent:0, scale:.9, duration:.8})
+    .to(media, {scale:1, '--hr':'0px', duration:1.05, ease:'expo.inOut'}, '-=.3')
+    .fromTo(img, {scale:1.32}, {scale:1.04, duration:2}, 0)
+    .fromTo(split ? split.lines : h1, {yPercent:135}, {yPercent:0, duration:.9, stagger:.11}, 1.05)
+    .fromTo(chip, {autoAlpha:0, y:8, scale:.94}, {autoAlpha:1, y:0, scale:1, duration:.6}, '<')
+    .fromTo(card, {autoAlpha:0, yPercent:130}, {autoAlpha:1, yPercent:0, duration:1}, '<+0.3')
+    .fromTo(hb, {autoAlpha:0, y:-12}, {autoAlpha:1, y:0, duration:.8}, '<');
+  return tl;
+}
+
+mm.add(PHONE, function(ctx){
+  var fontsReady = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+  var cleanups = [];
+
+  /* Hero: intro, then the full-bleed photo folds back into a rounded card as it leaves */
+  Promise.race([fontsReady, new Promise(function(r){setTimeout(r, 1200)})]).then(function(){ ctx.add(function(){ heroIntroPhone(ctx) }) });
+  G.fromTo('.hero', {'--hx':'0px', '--hrr':'0px'}, {'--hx':'14px', '--hrr':'30px', ease:'none', scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}});
+  G.to('.hero__content', {y:-70, ease:'none', scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}});
+
+  /* Galaxy: the three lines arrive from opposite sides and settle as the section enters */
+  if (hasSplit){
+    fontsReady.then(function(){ ctx.add(function(){
+      var fs = parseFloat(getComputedStyle($('.galaxy__title')).fontSize);
+      $$('.galaxy__title .gl').forEach(function(line, li){
+        var sp = SplitText.create(line, {type:'words'}); cleanups.push(function(){ sp.revert() });
+        var dir = li % 2 ? 1 : -1;
+        G.fromTo(sp.words, {x:function(i){ return dir*fs*(.55 + i*.3) }, y:function(i){ return (i % 2 ? -1 : 1)*fs*.12 }}, {x:0, y:0, ease:'none',
+          scrollTrigger:{trigger:'.galaxy', start:'top bottom', end:'center 58%', scrub:.5}});
+      });
+    })});
+  }
+
+  /* Rooms: sticky deck. The covered card shrinks to .93 and dims; each photo drifts inside its frame */
+  slides.forEach(function(s, i){
+    var img = $('.slide__img', s), frame = $('.slide__frame', s), veil = $('.slide__veil', s), name = $('.slide__name h3', s);
+    G.fromTo(img, {yPercent:-6}, {yPercent:6, ease:'none', scrollTrigger:{
+      start:function(){ return phoneFlowY(i) - innerHeight }, end:function(){ return phoneFlowY(i) + phoneStep() }, scrub:true, invalidateOnRefresh:true}});
+    G.fromTo(name, {y:40}, {y:0, ease:'none', scrollTrigger:{
+      start:function(){ return phoneFlowY(i) - innerHeight }, end:function(){ return phoneFlowY(i) - innerHeight*.3 }, scrub:.3, invalidateOnRefresh:true}});
+    if (i < slides.length - 1){
+      G.timeline({scrollTrigger:{start:function(){ return phoneFlowY(i+1) - innerHeight }, end:function(){ return phoneRoomY(i+1) }, scrub:true, invalidateOnRefresh:true}})
+        .fromTo(frame, {scale:1}, {scale:.93, ease:'none'}, 0)
+        .fromTo(veil, {opacity:0}, {opacity:.55, ease:'none'}, 0);
+    }
+  });
+
+  /* This week: centred card scales up, neighbours shrink and dim; progress pill follows the swipe */
+  var wFill = $('[data-week-fill]'), wCount = $('[data-week-count]'), wRaf = 0;
+  function deck(){
+    wRaf = 0;
+    var cards = $$('.ev', track), cw = track.clientWidth, sl = track.scrollLeft, best = 0, bd = 1e9;
+    cards.forEach(function(c, i){
+      var d = (c.offsetLeft + c.offsetWidth/2 - sl - cw/2) / (c.offsetWidth + 14), a = Math.min(1, Math.abs(d));
+      c.style.transform = 'scale(' + (1 - .08*a).toFixed(4) + ')';
+      c.style.opacity = (1 - .5*a).toFixed(3);
+      if (Math.abs(d) < bd){ bd = Math.abs(d); best = i }
+    });
+    var max = Math.max(1, track.scrollWidth - cw), n = cards.length;
+    wFill.style.transform = 'scaleX(' + ((1 + Math.min(1, sl/max)*(n - 1))/n).toFixed(4) + ')';
+    wCount.textContent = (best + 1) + ' / ' + n;
+  }
+  function onDeck(){ if (!wRaf) wRaf = requestAnimationFrame(deck) }
+  track.addEventListener('scroll', onDeck, {passive:true});
+  addEventListener('resize', onDeck);
+  deck();
+  cleanups.push(function(){
+    track.removeEventListener('scroll', onDeck); removeEventListener('resize', onDeck);
+    $$('.ev', track).forEach(function(c){ c.style.transform = ''; c.style.opacity = '' });
+  });
+
+  /* Snapshot: 4.2 rolls one full turn of the odometer and lands where it started */
+  var rb = $('[data-rating]'), rbHTML = rb.innerHTML, txt = rb.textContent.trim(), html = '';
+  txt.split('').forEach(function(ch){
+    if (/\d/.test(ch)){ var d = +ch, r = ''; for (var k = 0; k <= 10; k++) r += '<span>' + ((d + k) % 10) + '</span>'; html += '<span class="odo__c"><span class="odo__r">' + r + '</span></span>' }
+    else html += '<span class="odo__c odo__s">' + ch + '</span>';
+  });
+  rb.innerHTML = '<span class="sr-only">' + txt + '</span><span class="odo" aria-hidden="true">' + html + '</span>';
+  rb.classList.add('has-odo');
+  G.fromTo($$('.odo__r', rb), {yPercent:0}, {yPercent:-100*10/11, duration:1.9, ease:'power4.inOut', stagger:.22,
+    scrollTrigger:{trigger:'.snap__num', start:'top 82%', once:true}});
+  cleanups.push(function(){ rb.innerHTML = rbHTML; rb.classList.remove('has-odo') });
+
+  /* Curtain: the two words slide in from opposite sides as the exterior rises */
+  var cw2 = $$('.curtain__word span');
+  if (cw2.length === 2){
+    G.fromTo(cw2[0], {xPercent:-28}, {xPercent:0, ease:'none', scrollTrigger:{trigger:'.curtain', start:'top bottom', end:'bottom bottom', scrub:true}});
+    G.fromTo(cw2[1], {xPercent:28}, {xPercent:0, ease:'none', scrollTrigger:{trigger:'.curtain', start:'top bottom', end:'bottom bottom', scrub:true}});
+  }
+
+  ScrollTrigger.refresh();
+  return function(){ cleanups.forEach(function(f){ f() }) };
 });
 
 addEventListener('load', function(){ ScrollTrigger.refresh() });

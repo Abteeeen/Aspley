@@ -139,6 +139,7 @@ html{scrollbar-color:var(--ink) var(--paper-2)}
 .hero__side--r{grid-column:8/13;justify-self:start}
 .hero__media{grid-column:6/8;grid-row:1;aspect-ratio:204/362;border-radius:2px;overflow:hidden;background:var(--ink-2)}
 .hero__media img{width:100%;height:100%;object-fit:cover;object-position:48% 50%}
+.hero__media picture{display:contents}
 .hero__side--l{grid-row:1}.hero__side--r{grid-row:1}
 .tonight{position:relative;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 0;margin:30px auto 0;max-width:900px;font:500 14px/1.35 var(--display);color:var(--cream)}
 .tonight span{padding:0 14px;position:relative}
@@ -552,6 +553,95 @@ html{scrollbar-color:var(--ink) var(--paper-2)}
   .fbottom{flex-direction:column}
 }
 
+/* ---------- Phone signature pass (max-width 760px only; desktop and tablet untouched) ---------- */
+.deck-ui,.sheet__grab{display:none}
+@media (max-width:760px){
+  /* Hero: one 100svh ink screen. Sign photo sized by height, kitchen chip, statement, the red mat peeking at the bottom */
+  .hero{padding-top:calc(var(--hh) + 12px);overflow-x:clip}
+  .hero__intro{padding-top:6px;transform-origin:50% 45%}
+  .hero__media{width:auto;max-width:none;height:clamp(220px,41svh,380px);aspect-ratio:204/362}
+  .hero__side{font-size:12px}
+  .hero__statement{margin-top:24px}
+  .matwrap{margin-top:40px}
+  .tonight.is-roll{display:grid;grid-template-columns:auto minmax(0,auto);align-items:center;column-gap:10px;width:fit-content;max-width:100%;min-height:40px;margin:20px auto 0;padding:0 16px 0 12px;border:1px solid var(--line-dark);border-radius:2rem;background:rgba(27,24,22,.72);overflow:hidden;font-size:14px}
+  .tonight.is-roll span{grid-row:1;padding:0}
+  .tonight.is-roll span+span::before{display:none}
+  .tonight.is-roll .tonight__day{grid-column:1;display:inline-flex;align-items:center;gap:8px;font-size:12px;padding-right:10px;border-right:1px solid var(--line-dark);line-height:40px}
+  .tonight.is-roll .tonight__day::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--cream-dim);flex:none}
+  .tonight.is-roll:has(.is-open) .tonight__day::before{background:#3FA34D;box-shadow:0 0 0 0 rgba(63,163,77,.6)}
+  .is-live .tonight.is-roll:has(.is-open) .tonight__day::before{animation:kpulse 2.4s var(--ease-out) infinite}
+  .tonight.is-roll span:not(.tonight__day){grid-column:2;white-space:nowrap;transform:translateY(120%);opacity:0;transition:transform .55s var(--ease-dul),opacity .3s ease}
+  .tonight.is-roll span.is-on{transform:none;opacity:1}
+  .tonight.is-roll span.was-on{transform:translateY(-120%);opacity:0}
+
+  /* Giant list as a focus line: left-set rows, the row on the centre line turns to a black bar */
+  .cats__list{counter-reset:cat}
+  .cat{counter-increment:cat}
+  .cat__btn{justify-content:flex-start;padding:16px 12px 13px;font-size:min(9.4vw,44px);text-align:left;transition:color .25s ease}
+  .cat__btn::before{opacity:1;clip-path:inset(0 100% 0 0);transition:clip-path .42s var(--ease-dul)}
+  .cat__btn::after{content:counter(cat,decimal-leading-zero);position:absolute;right:12px;top:50%;margin-top:-6px;font:800 12px/1 var(--display);letter-spacing:0;color:var(--muted);transition:color .25s ease}
+  .cat__btn.is-focus,.cat__btn[aria-expanded="true"]{color:var(--paper)}
+  .cat__btn.is-focus::after,.cat__btn[aria-expanded="true"]::after{color:var(--cream-dim)}
+  .cat__btn.is-focus::before,.cat__btn[aria-expanded="true"]::before,.cat__btn:focus-visible::before{clip-path:inset(0 0 0 0)}
+  .cats__pthumb{position:absolute;right:8px;top:0;width:clamp(78px,21vw,104px);aspect-ratio:3/4;z-index:4;pointer-events:none;will-change:transform}
+  .cats__pthumb .ti{position:absolute;inset:0;overflow:hidden;border-radius:2px;clip-path:inset(100% 0 0 0);box-shadow:0 14px 26px -12px rgba(0,0,0,.6)}
+  .cats__pthumb img{width:100%;height:100%;object-fit:cover}
+
+  /* Kinetic heading pairs: full-bleed and clipped so the sliding words never widen the page */
+  .hpair{overflow-x:clip;margin-inline:calc(-1 * var(--m));padding-inline:var(--m)}
+  .hpair__serif{font-size:min(19vw,6rem);white-space:nowrap}
+  .hpair__caps{font-size:min(10.2vw,3.4rem);white-space:nowrap}
+
+  /* This week: a snap deck with the centred card scaled up */
+  .week{padding-inline:0}
+  .week .hpair{margin-inline:0;margin-bottom:44px}
+  .wgrid{--cw:min(76vw,320px);position:relative;display:flex;align-items:flex-start;gap:14px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;padding:6px calc((100% - var(--cw)) / 2) 18px;scrollbar-width:none}
+  .wgrid::-webkit-scrollbar{display:none}
+  .wgrid>.card,.wgrid>.wtext{flex:0 0 var(--cw);scroll-snap-align:center;transform-origin:50% 38%}
+  .wgrid>.wtext{align-self:stretch;order:0;display:flex;flex-direction:column;justify-content:flex-end;max-width:none;padding:26px 22px 24px;border-radius:2px;background:var(--red);color:#fff;text-align:left}
+  .wgrid>.wtext .wtext__big{font-size:34px;line-height:.9}
+  .wgrid>.wtext p{color:rgba(255,255,255,.9)}
+  .wgrid>.wtext .pill{white-space:normal;align-self:flex-start;text-align:left}
+  .wgrid .card__zoom,.wgrid .card--w .card__zoom{aspect-ratio:4/5;min-height:0;overflow:hidden}
+  .wgrid .card__zoom img{position:absolute;inset:0}
+  .card__data{display:flex;left:14px;right:14px;top:14px}
+  .card__media::after{background:linear-gradient(to bottom,rgba(0,0,0,.62),rgba(0,0,0,0) 46%);transition:opacity .45s var(--ease-dul)}
+  .card.is-active .card__media::after{opacity:1}
+  .card.is-active .card__data span{clip-path:inset(0 0 0 0);transform:none}
+  .card.is-active .card__data>span:nth-child(2){transition-delay:.08s}
+  .deck-ui{display:flex;align-items:center;justify-content:center;gap:16px;padding:6px var(--m) 0}
+  .deck-ui__btn{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--ink);background:none;color:var(--ink);cursor:pointer;transition:transform .16s var(--ease-out),opacity .2s ease;-webkit-tap-highlight-color:transparent}
+  .deck-ui__btn:active{transform:scale(.94)}
+  .deck-ui__btn[disabled]{opacity:.3;cursor:default}
+  .deck-ui__btn svg{width:18px;height:18px}
+  .deck-ui__btn--prev svg{transform:scaleX(-1)}
+  .deck-ui__count{display:flex;align-items:center;gap:10px;font:800 13px/1 var(--display)}
+  .deck-ui__bar{position:relative;width:96px;height:2px;background:var(--rule);overflow:hidden}
+  .deck-ui__bar i{position:absolute;inset:0;background:var(--red);transform-origin:0 50%;transform:scaleX(var(--dp,.1667))}
+
+  /* Menu: chips ride a horizontal snap row */
+  .menu__bar{flex-wrap:nowrap;align-items:stretch}
+  .chips{position:relative;flex-wrap:nowrap;gap:8px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;margin-inline:calc(-1 * var(--m));padding:2px var(--m);scroll-padding-inline:var(--m);scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14px,#000 calc(100% - 34px),transparent);mask-image:linear-gradient(90deg,transparent 0,#000 14px,#000 calc(100% - 34px),transparent)}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:none;scroll-snap-align:start}
+  .menu__tools{align-self:flex-start}
+
+  /* Function spaces stack as sticky cards */
+  .stairs{display:block}
+  .stairs .tile{position:sticky;top:calc(var(--hh) + 14px + var(--ti,0) * 16px);min-height:min(360px,52svh);transform-origin:50% 0;box-shadow:0 -1px 0 var(--rule),0 -22px 34px -26px rgba(14,12,11,.45)}
+  .tile__serif{font-size:64px}
+  .stairs .tile:nth-child(2){--ti:1}
+  .stairs .tile:nth-child(3){--ti:2}
+  .stairs .tile+.tile{margin-top:22px!important}
+  .tile::after{content:"";position:absolute;inset:0;background:var(--ink);opacity:var(--dim,0);pointer-events:none}
+  .tile.is-out{background:#F8F7F5}
+
+  /* Bottom sheet: grab bar you can drag down */
+  .sheet__grab{display:block;position:absolute;left:0;right:0;top:0;height:40px;touch-action:none;cursor:grab}
+  .sheet__grab span{position:absolute;left:50%;top:12px;width:44px;height:5px;margin-left:-22px;border-radius:5px;background:var(--rule)}
+}
+@keyframes kpulse{0%{box-shadow:0 0 0 0 rgba(63,163,77,.55)}70%,100%{box-shadow:0 0 0 9px rgba(63,163,77,0)}}
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{transition-duration:.01ms!important;transition-delay:0ms!important;animation-duration:.01ms!important;scroll-behavior:auto!important}
@@ -603,7 +693,7 @@ html{scrollbar-color:var(--ink) var(--paper-2)}
     <div class="hero__intro">
       <p class="hero__side hero__side--l">The pub</p>
       <figure class="hero__media">
-        <img src="img/drive/18-aspley-hotel-signage.webp" width="1536" height="1024" alt="The round Aspley Hotel sign: Est 1935, Pub on the Hill, Gaming, Bar, Food, Bottleshop" fetchpriority="high" decoding="async">
+        <picture><source media="(max-width:760px)" srcset="img/drive/18-aspley-hotel-signage-sm.webp"><img src="img/drive/18-aspley-hotel-signage.webp" width="1536" height="1024" alt="The round Aspley Hotel sign: Est 1935, Pub on the Hill, Gaming, Bar, Food, Bottleshop" fetchpriority="high" decoding="async"></picture>
       </figure>
       <p class="hero__side hero__side--r">On the hill</p>
     </div>
@@ -735,7 +825,7 @@ html{scrollbar-color:var(--ink) var(--paper-2)}
   <!-- ============ THIS WEEK ============ -->
   <section class="week" id="this-week" aria-labelledby="week-title">
     <h2 class="hpair js-hpair" id="week-title"><span class="hpair__serif">This week</span><span class="hpair__rule" aria-hidden="true"></span><span class="hpair__caps">at the Aspley</span></h2>
-    <div class="wgrid">
+    <div class="wgrid" id="week-deck">
       <article class="card">
         <div class="card__top"><h3 class="card__name">Wednesday trivia</h3><p class="card__stat tnum"><span>6:30pm</span><span>Free</span></p></div>
         <a class="card__media" href="#book">
@@ -787,6 +877,11 @@ html{scrollbar-color:var(--ink) var(--paper-2)}
         </a>
         <p class="card__desc">Nuggets, fish and chips, a cheeseburger, bolognese or Hawaiian pizza, with a soft drink and vanilla ice cream.</p>
       </article>
+    </div>
+    <div class="deck-ui">
+      <button type="button" class="deck-ui__btn deck-ui__btn--prev js-deck-prev" aria-label="Previous card" aria-controls="week-deck"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      <p class="deck-ui__count tnum" aria-hidden="true"><span class="js-deck-n">01</span><span class="deck-ui__bar"><i class="js-deck-bar"></i></span><span class="js-deck-t">06</span></p>
+      <button type="button" class="deck-ui__btn js-deck-next" aria-label="Next card" aria-controls="week-deck"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
     </div>
   </section>
 
@@ -1103,6 +1198,7 @@ html{scrollbar-color:var(--ink) var(--paper-2)}
   <div class="sheet__scrim" data-close></div>
   <button class="sheet__close" type="button" data-close aria-label="Close menu"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
   <div class="sheet__panel">
+    <div class="sheet__grab" aria-hidden="true"><span></span></div>
     <h2 class="sr-only" id="sheet-title">Site menu</h2>
     <ul class="sheet__links">
       <li><a href="#menu" data-close>Food menu<svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
@@ -1426,10 +1522,10 @@ var rings=(function(){
   function draw(){
     dirty=false;
     ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);
-    var vh=window.innerHeight,mob=w<700;
-    var cx=w/2+st.mx*w*.05,cy=Math.min(vh*.5,h/2)+st.my*vh*.05+st.dy;
-    var R=Math.max(w*(mob?.62:.44),vh*(mob?.42:.6))*st.s;
-    ctx.save();ctx.translate(cx,cy);ctx.rotate(st.rot);ctx.scale(1,st.sq);
+    var vh=window.innerHeight,mob=w<700,ph=w<=760&&st.pcy!=null;
+    var cx=w/2+st.mx*w*.05,cy=(ph?st.pcy:Math.min(vh*.5,h/2))+st.my*vh*.05+st.dy;
+    var R=(ph?w*.47:Math.max(w*(mob?.62:.44),vh*(mob?.42:.6)))*st.s*(st.ps||1);
+    ctx.save();ctx.translate(cx,cy);ctx.rotate(st.rot+(st.pr||0)+(st.sa||0));ctx.scale(1,st.sq);
     ctx.lineWidth=1;
     ctx.strokeStyle='rgba(232,217,181,.34)';ctx.beginPath();ctx.arc(0,0,R,0,Math.PI*2);ctx.stroke();
     ctx.strokeStyle='rgba(200,16,46,.9)';ctx.beginPath();ctx.arc(0,0,R*.86,0,Math.PI*2);ctx.stroke();
@@ -1442,6 +1538,7 @@ var rings=(function(){
     if(!visible)return;
     var ex=st.tx-st.mx,ey=st.ty-st.my;
     if(Math.abs(ex)>.0005||Math.abs(ey)>.0005){st.mx+=ex*.06;st.my+=ey*.06;dirty=true}
+    if(st.spin){st.sa=(st.sa||0)+st.spin;dirty=true}
     if(dirty)draw();
   }
   size();
@@ -1540,6 +1637,166 @@ mm.add({motion:'(prefers-reduced-motion: no-preference)',reduce:'(prefers-reduce
   }
 
   return function(){if(lenis){gsap.ticker.remove(raf);lenis.destroy();lenis=null}};
+});
+
+/* ================= Phone signature moments (max-width 760px only; desktop never enters) ================= */
+var pm=gsap.matchMedia();
+pm.add({phone:'(max-width:760px)',motion:'(prefers-reduced-motion: no-preference)'},function(ctx){
+  if(!ctx.conditions.phone)return;
+  var motion=ctx.conditions.motion,offs=[],timers=[];
+  function on(el,ev,fn,opt){if(!el)return;el.addEventListener(ev,fn,opt);offs.push(function(){el.removeEventListener(ev,fn,opt)})}
+  function pad(n){return (n<10?'0':'')+n}
+
+  /* This week deck: the centred card leads (scale, data lines), counter and prev/next. State also works with reduced motion. */
+  var deck=$('#week-deck'),slides=deck?Array.prototype.slice.call(deck.children):[],dn=$('.js-deck-n'),dbar=$('.js-deck-bar'),dprev=$('.js-deck-prev'),dnext=$('.js-deck-next'),act=-1,dq=0;
+  function deckUpdate(){
+    dq=0;if(!slides.length)return;
+    var r=deck.getBoundingClientRect(),c=r.left+r.width/2,cw=slides[0].offsetWidth+14,best=0,bd=1e9;
+    slides.forEach(function(sl,i){
+      var sr=sl.getBoundingClientRect(),d=(sr.left+sr.width/2-c)/cw,ad=Math.min(1,Math.abs(d));
+      if(Math.abs(d)<bd){bd=Math.abs(d);best=i}
+      if(motion){sl.style.transform='scale('+(1-.085*ad).toFixed(4)+')';sl.style.opacity=(1-.4*ad).toFixed(3)}
+    });
+    if(best!==act){
+      if(act>-1)slides[act].classList.remove('is-active');
+      act=best;slides[act].classList.add('is-active');
+      dn.textContent=pad(act+1);dprev.disabled=act===0;dnext.disabled=act===slides.length-1;
+    }
+    var max=deck.scrollWidth-deck.clientWidth,p=max>0?deck.scrollLeft/max:0;
+    dbar.style.setProperty('--dp',((1+p*(slides.length-1))/slides.length).toFixed(4));
+  }
+  function deckQ(){if(!dq)dq=requestAnimationFrame(deckUpdate)}
+  function deckGo(k){
+    var i=Math.max(0,Math.min(slides.length-1,act+k)),sl=slides[i];
+    deck.scrollTo({left:sl.offsetLeft-(deck.clientWidth-sl.offsetWidth)/2,behavior:motion?'smooth':'auto'});
+  }
+  if(slides.length){
+    $('.js-deck-t').textContent=pad(slides.length);
+    on(deck,'scroll',deckQ,{passive:true});on(window,'resize',deckQ);
+    on(dprev,'click',function(){deckGo(-1)});on(dnext,'click',function(){deckGo(1)});
+    deckUpdate();
+  }
+
+  /* Menu chips: keep the pressed chip in view, with a small pop */
+  var chipRow=$('.chips');
+  $$('.chip').forEach(function(c){on(c,'click',function(){
+    if(motion)gsap.fromTo(c,{scale:.92},{scale:1,duration:.3,ease:'back.out(2)',overwrite:true,clearProps:'transform'});
+    chipRow.scrollTo({left:Math.max(0,c.offsetLeft-(chipRow.clientWidth-c.offsetWidth)/2),behavior:motion?'smooth':'auto'});
+  })});
+
+  /* Bottom sheet: drag the grab bar down to close */
+  var grab=$('.sheet__grab'),closeB=$('.sheet__close');
+  if(grab){
+    var gy=0,gt=0,gd=0,drag=false;
+    var gEnd=function(){
+      if(!drag)return;drag=false;
+      var v=gd/Math.max(1,performance.now()-gt);
+      panelS.style.transition='';closeB.style.transition='';
+      if(gd>90||v>.6){closeSheet();timers.push(setTimeout(function(){panelS.style.transform='';closeB.style.transform=''},620))}
+      else{panelS.style.transition='transform .35s var(--ease-drawer)';panelS.style.transform='';closeB.style.transform='';timers.push(setTimeout(function(){panelS.style.transition=''},380))}
+    };
+    on(grab,'pointerdown',function(e){drag=true;gy=e.clientY;gt=performance.now();gd=0;try{grab.setPointerCapture(e.pointerId)}catch(err){}panelS.style.transition='none';closeB.style.transition='none'});
+    on(grab,'pointermove',function(e){if(!drag)return;gd=Math.max(0,e.clientY-gy);var t='translateY('+gd+'px)';panelS.style.transform=t;closeB.style.transform=t});
+    on(grab,'pointerup',gEnd);on(grab,'pointercancel',gEnd);
+  }
+
+  function cleanup(){
+    offs.forEach(function(f){f()});timers.forEach(function(t){clearTimeout(t);clearInterval(t)});
+    if(dq)cancelAnimationFrame(dq);
+    slides.forEach(function(sl){sl.style.transform='';sl.style.opacity='';sl.classList.remove('is-active')});
+    if(rings){rings.st.pcy=null;rings.st.spin=0;rings.st.sa=0;rings.st.ps=1;rings.st.pr=0;rings.mark()}
+    var tn=$('.js-today');if(tn)tn.classList.remove('is-roll');
+    $$('.cat__btn').forEach(function(b){b.classList.remove('is-focus')});
+    var th=$('.cats__pthumb');if(th)th.remove();
+    $('.hero').classList.remove('is-live');
+  }
+  if(!motion)return cleanup;
+
+  /* Hero: rings centre on the sign, turn slowly like a record, and open outward as you scroll */
+  var hero=$('.hero'),intro=$('.hero__intro'),media=$('.hero__media');
+  if(rings){
+    var setCy=function(){rings.st.pcy=intro.offsetTop+media.offsetTop+media.offsetHeight/2;rings.mark()};
+    setCy();ScrollTrigger.addEventListener('refresh',setCy);offs.push(function(){ScrollTrigger.removeEventListener('refresh',setCy)});
+    rings.st.spin=.0016;
+    gsap.fromTo(rings.st,{ps:1,pr:0},{ps:1.8,pr:1.2,ease:'none',onUpdate:rings.mark,scrollTrigger:{trigger:hero,start:'top top',end:'55% top',scrub:.6}});
+  }
+  gsap.to('.hero__side--l',{x:-26,ease:'none',scrollTrigger:{trigger:hero,start:'top top',end:'40% top',scrub:true}});
+  gsap.to('.hero__side--r',{x:26,ease:'none',scrollTrigger:{trigger:hero,start:'top top',end:'40% top',scrub:true}});
+  gsap.to(media,{scale:1.07,ease:'none',scrollTrigger:{trigger:hero,start:'top top',end:'40% top',scrub:true}});
+
+  /* Kitchen chip: today's lines roll through one at a time while the hero is on screen */
+  var tn=$('.js-today'),heroOn=true,ri=-1;
+  ScrollTrigger.create({trigger:hero,start:'top bottom',end:'bottom top',onToggle:function(self){heroOn=self.isActive;hero.classList.toggle('is-live',heroOn)}});
+  hero.classList.add('is-live');
+  if(tn){
+    tn.classList.add('is-roll');
+    var roll=function(){
+      if(!heroOn||document.hidden)return;
+      var items=$$('span:not(.tonight__day)',tn);if(!items.length)return;
+      var prev=ri;ri=(ri+1)%items.length;
+      items.forEach(function(x,k){x.classList.toggle('is-on',k===ri);x.classList.toggle('was-on',k===prev&&k!==ri)});
+    };
+    if('MutationObserver' in window){
+      var mo=new MutationObserver(function(){var items=$$('span:not(.tonight__day)',tn),it=items[Math.max(0,ri)];if(!it)return;it.style.transition='none';it.classList.add('is-on');void it.offsetWidth;it.style.transition=''});
+      mo.observe(tn,{childList:true});offs.push(function(){mo.disconnect()});
+    }
+    timers.push(setTimeout(function(){roll();timers.push(setInterval(roll,3000))},1250));
+  }
+
+  /* Giant list as a focus line: the row on the centre line turns black and its photo wipes in beside it */
+  var list=$('.js-cats'),btns=cats.map(function(c){return $('.cat__btn',c)}),th=document.createElement('div'),tz=1,cur=-1,firstF=true,actv=[],rq=0;
+  th.className='cats__pthumb';th.setAttribute('aria-hidden','true');
+  var its=cats.map(function(cat){
+    var wrap=document.createElement('div');wrap.className='ti';
+    var img=new Image();img.alt='';img.decoding='async';img.loading='lazy';img.width=900;img.height=/^(29|41)-/.test(cat.dataset.img)?1200:600;img.src='img/drive/'+cat.dataset.img+'-sm.webp';
+    wrap.appendChild(img);th.appendChild(wrap);return {wrap:wrap,img:img};
+  });
+  list.appendChild(th);
+  var yTo=gsap.quickTo(th,'y',{duration:.55,ease:'power3'}),rTo=gsap.quickTo(th,'rotation',{duration:.6,ease:'power3'});
+  function focusRow(i){
+    if(i===cur)return;
+    btns.forEach(function(b,k){b.classList.toggle('is-focus',k===i)});
+    if(cur>-1)gsap.to(its[cur].wrap,{clipPath:'inset(0% 0% 100% 0%)',duration:.3,ease:'dul',overwrite:true});
+    cur=i;if(i<0)return;
+    var b=btns[i],y=b.offsetTop+b.offsetHeight/2-th.offsetHeight/2,rot=i%2?3:-3;
+    if(firstF){gsap.set(th,{y:y,rotation:rot});firstF=false}else{yTo(y);rTo(rot)}
+    var it=its[i];it.wrap.style.zIndex=++tz;
+    gsap.fromTo(it.wrap,{clipPath:'inset(100% 0% 0% 0%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:.42,ease:'dul',overwrite:true});
+    gsap.fromTo(it.img,{scale:1.18},{scale:1,duration:.6,ease:'power2.out',overwrite:true});
+  }
+  btns.forEach(function(b,i){
+    actv[i]=false;
+    ScrollTrigger.create({trigger:b,start:'top 54%',end:'bottom 54%',onToggle:function(self){
+      actv[i]=self.isActive;
+      if(!rq)rq=requestAnimationFrame(function(){rq=0;focusRow(actv.indexOf(true))});
+    }});
+  });
+
+  /* Kinetic heading pairs: the serif word and the caps word slide past each other */
+  $$('.js-hpair').forEach(function(hp){
+    gsap.timeline({scrollTrigger:{trigger:hp,start:'top bottom',end:'bottom top',scrub:.5,invalidateOnRefresh:true}})
+      .fromTo($('.hpair__serif',hp),{x:function(){return -innerWidth*.09}},{x:function(){return innerWidth*.09},ease:'none'},0)
+      .fromTo($('.hpair__caps',hp),{x:function(){return innerWidth*.09}},{x:function(){return -innerWidth*.09},ease:'none'},0);
+  });
+
+  /* Function spaces: each card settles back and dims as the next one stacks over it */
+  var stairs=$('.js-stairs'),tls=$$('.tile',stairs);
+  function natTop(k){var y=0;for(var j=0;j<k;j++)y+=tls[j].offsetHeight+22;return stairs.getBoundingClientRect().top+window.scrollY+y}
+  tls.forEach(function(t,i){
+    if(i===tls.length-1)return;
+    var nx=tls[i+1];
+    gsap.fromTo(t,{scale:1,'--dim':0},{scale:.93,'--dim':.28,ease:'none',scrollTrigger:{
+      start:function(){return natTop(i+1)-innerHeight},
+      end:function(){return natTop(i+1)-(parseFloat(getComputedStyle(nx).top)||90)},
+      scrub:true,invalidateOnRefresh:true}});
+  });
+
+  /* Photo frames open as they cross the screen (always partly visible) */
+  $$('.wfig,.fn__photo').forEach(function(f){
+    gsap.fromTo(f,{clipPath:'inset(9% 7% 9% 7% round 2px)'},{clipPath:'inset(0% 0% 0% 0% round 2px)',ease:'none',scrollTrigger:{trigger:f,start:'top bottom',end:'top 40%',scrub:true}});
+  });
+
+  return cleanup;
 });
 
 /* ================= Hero intro: one rehearsed sequence on load ================= */
