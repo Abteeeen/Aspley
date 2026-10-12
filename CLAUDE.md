@@ -6,7 +6,7 @@ It is a **pub, not an accommodation hotel**: bistro, bars, gaming room, sports b
 
 ## Mandatory design and engineering skills
 
-Seven skills are vendored in `.claude/skills/`. They are the source of truth for every UI, UX, and React decision in this repo. Do not build site code without them. Upstream versions and commits are recorded in `.claude/skills/PROVENANCE.md`.
+Sixteen skills are vendored in `.claude/skills/`. They are the source of truth for every UI, UX, and React decision in this repo. Do not build site code without them. Upstream versions and commits are recorded in `.claude/skills/PROVENANCE.md`.
 
 | Skill | Use it for | When |
 |---|---|---|
@@ -16,12 +16,20 @@ Seven skills are vendored in `.claude/skills/`. They are the source of truth for
 | `react-best-practices` | React and Next.js performance: waterfalls, bundle size, rendering, server patterns. | While writing and when reviewing every component and page. |
 | `web-design-guidelines` | Audit built UI against Vercel's Web Interface Guidelines (accessibility, UX, performance). Fetches current rules from Vercel's GitHub. | Run as a quality gate on every finished page before it is considered done. |
 | `impeccable` | 24 design-director commands: `/impeccable init`, `shape`, `craft`, `critique`, `audit`, `polish`, `animate`, `bolder`, `quieter`, `typeset`, `colorize`, `layout`, `delight`, `harden`, `adapt`, `optimize`, `clarify`, `live`. Includes 59 deterministic design-slop detector rules. | Run `/impeccable init` once to write `PRODUCT.md`. Use `animate` for all motion work, `critique` and `polish` before any page is shown to the client. |
+| `high-end-visual-design` | Premium agency look: fonts, spacing, card structure, motion. Bans cheap defaults. | Alongside `frontend-design` when setting direction. |
+| `emil-design-eng` | Interaction polish: easing, durations, press feedback, when not to animate. | Every interactive component and transition. |
+| `gsap-core`, `gsap-scrolltrigger` | Official GSAP guidance for timelines and scroll-driven motion. | All JavaScript motion. Pair with `/impeccable animate` for what to animate and `emil-design-eng` for how it should feel. |
+| `copywriting` | Conversion copy for hero, sections and CTAs without AI tells. | All site copy. Preserve the facts in `research/aspley-current-site/content-and-language.md`. |
+| `baseline-ui` | Tailwind guardrails and fast deslop pass. | Review pass on every Tailwind component. |
+| `shadcn` | Correct shadcn/ui CLI use and theming. | Only if the production build uses shadcn. |
+| `core-web-vitals` | LCP, INP, CLS diagnosis and fixes. | Before launch and after any heavy media change. |
+| `frontend-ui-engineering` | Production UI checklist: accessibility, responsive, states. | Pre-completion checklist. |
 | `find-skills` | Discover and install further skills from skills.sh via `npx skills find` / `npx skills add`. | Whenever a task needs a capability none of the installed skills cover. See triggers below. |
 
 ### Rules
 
 1. **Skills come first.** Read the relevant `SKILL.md` before writing code. Cite the skill rule when a decision is driven by it.
-2. **Build on top of the skills, never around them.** If a skill and a personal default disagree, the skill wins. If two skills disagree: `impeccable` and `frontend-design` decide aesthetics (impeccable's command reference is more specific, so it wins ties), `ui-ux-pro-max` decides palette and type data, `react-best-practices` decides performance, `composition-patterns` decides component API shape.
+2. **Build on top of the skills, never around them.** If a skill and a personal default disagree, the skill wins. If two skills disagree: `impeccable` and `frontend-design` decide aesthetics (impeccable's command reference is more specific, so it wins ties; `high-end-visual-design` is advisory below them, and its font bans never override accessibility), `ui-ux-pro-max` decides palette and type data, `react-best-practices` decides performance, `composition-patterns` decides component API shape.
 3. **Do not edit vendored skill files.** Project-specific additions go in `CLAUDE.md` or in `design-system/`, not inside `.claude/skills/*`.
 4. **Design system is persisted.** The `ui-ux-pro-max` output lives in `design-system/aspley/MASTER.md`. Read it before every page. Page overrides live in `design-system/aspley/pages/`. Never regenerate with `--force` without the owner's explicit approval.
 5. **Audit before done.** Every page passes a `web-design-guidelines` review and a `react-best-practices` review before it is reported complete.
