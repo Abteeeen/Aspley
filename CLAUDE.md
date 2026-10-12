@@ -4,6 +4,13 @@ Rebuild of https://aspleyhotel.com.au/ for the Aspley Hotel, 1247 Gympie Road, A
 
 It is a **pub, not an accommodation hotel**: bistro, bars, gaming room, sports bar with TAB, functions, drive-through bottle shop and the Star Rewards loyalty program. There are no rooms. The site's job is table bookings, function enquiries, event tickets, Star Rewards sign-ups and phone calls. Read `research/aspley-current-site/README.md` and `research/competitors/README.md` before any design work.
 
+## Venue facts decided (owner approved 12 Oct 2026)
+
+The current site contradicts itself. The owner told us to pick the best option and move forward:
+
+- **Bistro hours:** lunch Sunday to Wednesday 11:30am to 2:30pm, dinner Sunday to Wednesday 5:30pm to 8:30pm, all-day dining Thursday to Saturday 11:30am to 8:30pm. This is the only version that covers all seven days.
+- **Melbourne Cup, Tuesday 3 November 2026:** 2-course lunch, $55. The published Cup menu lists only entrées (Crispy Chicken Bites, Prawn Cocktail, Burrata) and mains (Miso Salmon, Pork Piccata, Pumpkin and Sage Gnocchi), so 2 courses is the verifiable figure.
+
 ## Mandatory design and engineering skills
 
 Sixteen skills are vendored in `.claude/skills/`. They are the source of truth for every UI, UX, and React decision in this repo. Do not build site code without them. Upstream versions and commits are recorded in `.claude/skills/PROVENANCE.md`.
