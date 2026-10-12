@@ -50,7 +50,8 @@
   --bar-h:58px;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;text-size-adjust:100%;background:var(--paper);overflow-x:clip}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;background:var(--paper);overflow-x:clip;scrollbar-color:#8A8178 var(--paper);accent-color:var(--red)}
+input,select{caret-color:var(--red)}
 html.modal-open{overflow:hidden}
 body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--sans);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:clip;font-kerning:normal}
 img{display:block;max-width:100%;height:auto}
@@ -263,7 +264,7 @@ html:not(.intro-pending) .hero .li,html:not(.intro-pending) .hero-foot>*{transit
   .pour-entry:nth-child(odd){align-items:flex-end;padding-right:9vw}
   .pour-entry:nth-child(even){align-items:flex-start;padding-left:9vw}
   .pour-entry figure{display:none}
-  .pour-entry p{color:rgba(243,238,230,.88)}
+  .pour-entry p{color:rgba(243,238,230,.88);max-width:none}
   .pour-entry .spec{border-color:var(--rule-dark)}
   .pour-entry .spec>div{border-color:var(--rule-dark)}
 }
@@ -531,7 +532,15 @@ dialog::backdrop{background:rgba(20,17,15,.62);-webkit-backdrop-filter:blur(8px)
   .hero-aside{justify-self:stretch;max-width:none;gap:10px}
   .hero-aside .btn{justify-self:start}
   .hero h1{padding-top:0}
+  .hero-inner{padding-bottom:calc(88px + env(safe-area-inset-bottom))}
+  .hero-aside .btn{display:none}
   .tapcard{width:clamp(132px,36vw,220px)}
+  .chapter{padding-block:56px}
+  .arch{order:-1}
+  .flank.r{order:1}.flank.l{order:2}.arch-note{order:3}
+  .mph.d{left:auto;right:30%;bottom:-2%}
+  .mph.e{left:2%;bottom:0}
+  .pf-title{font-size:17cqi}
   .tapcard .tr{display:none}
   .arch-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
   .arch{grid-column:1/-1;grid-row:auto;width:min(76vw,360px);justify-self:center}
@@ -674,7 +683,7 @@ dialog::backdrop{background:rgba(20,17,15,.62);-webkit-backdrop-filter:blur(8px)
       </div>
       <h2 class="ch-title">Wednesday is <em>trivia</em> night.</h2>
       <p class="ch-meta mono">Wednesday trivia 6:30pm · Free · Hosted by Questionable Company</p>
-      <p class="ch-body">Fox Sports and dedicated TAB screens run all day, every day in the sports bar. Bring a team on Wednesday and pull on your jersey for the big games.</p>
+      <p class="ch-body">Fox Sports and dedicated TAB screens run all day, every day in the sports bar. Bring a team on Wednesday. On game nights, pull on your jersey.</p>
     </article>
     <div class="story-dots mono" aria-hidden="true"><span class="on">The hill</span><span>The bistro</span><span>The sports bar</span></div>
   </div>
@@ -698,7 +707,7 @@ dialog::backdrop{background:rgba(20,17,15,.62);-webkit-backdrop-filter:blur(8px)
       <p class="mono">Up the stone steps<br>to the bistro</p>
     </div>
     <div class="arch-note">
-      <p>Aspley Hotel joined the Star Hotels Group in November 2023. The building has stood on the hill above Gympie Road since 1935, and it still pours the first one at the bar.</p>
+      <p>Aspley Hotel joined the Star Hotels Group in November 2023. The building has stood on the hill above Gympie Road since 1935.</p>
       <p class="rating"><b class="num">4.2</b><span class="mono">On Google, from 791 reviews</span></p>
     </div>
   </div>
@@ -906,8 +915,8 @@ dialog::backdrop{background:rgba(20,17,15,.62);-webkit-backdrop-filter:blur(8px)
       <p class="fine">Gamble responsibly. Gambling Help <a href="tel:1800858858">1800 858 858</a>.</p>
     </div>
     <article class="cup" aria-labelledby="cup-h">
-      <p class="mono">Tuesday 3 November 2026</p>
       <h3 id="cup-h">Melbourne Cup lunch</h3>
+      <p class="mono">Tuesday 3 November 2026 · Bookings essential</p>
       <div class="rail" aria-hidden="true"><i style="left:20%"></i><i style="left:40%"></i><i style="left:60%"></i><i style="left:80%"></i><span class="post"></span><span class="marker" id="cup-marker"></span></div>
       <p><span id="cup-days">Three weeks away.</span> Two courses for $55, with sweeps, chef specials, prizes and a lucky loser draw. Bookings essential.</p>
       <dl class="spec">
