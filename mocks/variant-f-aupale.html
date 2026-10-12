@@ -1,0 +1,1573 @@
+<title>Aspley Hotel After Dark</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Aspley Hotel, the pub on the hill since 1935. Bistro, bars, deck, sports bar with TAB, functions, gaming room and a drive-through bottle shop at 1247 Gympie Road, Aspley.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500;600&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&display=swap">
+<link rel="preload" as="image" href="img/drive/05-bar-drinks-and-pour.webp" imagesrcset="img/drive/05-bar-drinks-and-pour-sm.webp 900w, img/drive/05-bar-drinks-and-pour.webp 1672w" imagesizes="100vw" fetchpriority="high">
+<script>
+/* Intro guard: hide only the hero lines that the on-load intro plays in, and only when motion is allowed. A failsafe releases them after 2.6s if scripts never run. */
+(function(){var d=document.documentElement;d.classList.add('js');if(window.matchMedia&&matchMedia('(prefers-reduced-motion: no-preference)').matches){d.classList.add('intro-pending');setTimeout(function(){d.classList.remove('intro-pending')},2600);}})();
+</script>
+<style>
+/* Variant F: "the bar after dark, on the hill". Learned from a premium spirits scroll story: restraint, a serif with one italic accent, mono labels, viewport-height spacing and grain. Warm pub materials instead of cool tones. */
+:root{
+  color-scheme: light;
+  --paper:#F3EEE6;
+  --paper-2:#EAE3D8;
+  --sand:#E4D6C1;
+  --ink:#14110F;
+  --ink-2:#2A2420;
+  --muted:#5E554D;     /* 6.3:1 on paper, 5.1:1 on sand */
+  --tone:#8A8178;      /* second tone of two-tone headings, large text only (3.3:1) */
+  --red:#C8102E;
+  --red-deep:#9E0B23;
+  --red-ink:#B00E29;   /* red text on sand */
+  --amber:#E2A33B;
+  --amber-deep:#C77D1A;
+  --foam:#F6EBD3;
+  --on-dark:#F3EEE6;
+  --on-dark-2:#C9BFB3;
+  --rule:rgba(20,17,15,.16);
+  --rule-dark:rgba(243,238,230,.22);
+  --serif:"Instrument Serif","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --sans:"Inter Tight",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Geist Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  --ease-out:cubic-bezier(0.23,1,0.32,1);
+  --ease-focal:cubic-bezier(0.16,1,0.3,1);
+  --ease-io:cubic-bezier(0.645,0.045,0.355,1);
+  --ease-menu:cubic-bezier(1,0.005,0.292,1);
+  --spring:linear(0, 0.006, 0.025 2.8%, 0.101 6.1%, 0.539 18.9%, 0.721 25.3%, 0.849 31.5%, 0.937 38.1%, 0.968 41.8%, 0.991 45.7%, 1.006 50.1%, 1.015 55%, 1.017 63.9%, 1.001 85.9%, 1);
+  --gut:clamp(16px,2.4vw,24px);
+  --sec:clamp(96px,16vh,176px);
+  --fs-hero:clamp(3.25rem,1.1rem + 8.4vw,8.4rem);
+  --fs-ch:clamp(2.6rem,1rem + 5.6vw,6.6rem);
+  --fs-h2:clamp(2.75rem,1.3rem + 5vw,6.25rem);
+  --fs-h3:clamp(2rem,1.2rem + 2.4vw,4rem);
+  --fs-mega:clamp(4.6rem,0.6rem + 15.4vw,15rem);
+  --pill-top:16px;
+  --bar-h:58px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;background:var(--paper)}
+html.modal-open{overflow:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--sans);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:clip;font-kerning:normal}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.22em}
+button{font:inherit;color:inherit;cursor:pointer}
+h1,h2,h3,h4,p,figure,dl,dd,ul,ol{margin:0}
+ul,ol{padding:0;list-style:none}
+::selection{background:var(--red);color:#fff}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:6px}
+.on-dark :focus-visible,.hero :focus-visible,.pill :focus-visible,.prefoot :focus-visible{outline-color:var(--paper)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:var(--gut);top:-80px;z-index:120;background:var(--ink);color:var(--paper);padding:12px 18px;border-radius:12px;font:600 12px/1 var(--mono);text-transform:uppercase}
+.skip:focus{top:12px}
+.num{font-variant-numeric:tabular-nums}
+.mono{font:600 12px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.01em}
+.serif{font-family:var(--serif);font-weight:400}
+.display{font-family:var(--serif);font-weight:400;letter-spacing:-.025em;line-height:.88;text-wrap:balance}
+.display em,.serif em{font-style:italic;letter-spacing:-.02em}
+/* line masks: generous padding so tight leading never clips descenders or italics */
+.lm{display:block;overflow:clip;padding:.1em .06em .12em;margin:-.1em -.06em -.12em}
+.li{display:block;transform-origin:0% 100%}
+.wrap{padding-inline:var(--gut)}
+
+/* ---------- mock note ---------- */
+.note{position:relative;z-index:3;background:var(--ink);color:var(--on-dark-2);font:500 12.5px/1.4 var(--sans);padding:9px var(--gut);text-align:center}
+.note strong{color:var(--paper);font-weight:600}
+
+/* ---------- film grain (fixed, multiply, steps jitter) ---------- */
+.grain{position:fixed;inset:-3rem;z-index:95;pointer-events:none;opacity:.16;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:240px 240px;animation:grain 1s steps(2) infinite}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-1.5rem,1rem)}50%{transform:translate(1rem,-1.5rem)}75%{transform:translate(-1rem,-.5rem)}100%{transform:translate(1.5rem,1.5rem)}}
+
+/* ---------- buttons: bottom-up fill wipe + press scale ---------- */
+.btn{--bg:var(--ink);--fg:var(--paper);--wipe:var(--red);--wfg:#fff;
+  position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:space-between;gap:18px;min-height:50px;padding:16px 22px 16px 24px;border-radius:12px;border:0;background:var(--bg);color:var(--fg);
+  font:600 12px/1 var(--mono);text-transform:uppercase;letter-spacing:.02em;text-decoration:none;overflow:hidden;transition:transform 160ms var(--ease-out),color 300ms var(--ease-out)}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--wipe);transform:scaleY(0);transform-origin:50% 100%;transition:transform 520ms var(--spring)}
+.btn:active{transform:scale(.97)}
+.btn svg{width:12px;height:12px;flex:none}
+.btn .ar path{stroke-dasharray:24;stroke-dashoffset:0;transition:stroke-dashoffset 420ms var(--ease-focal)}
+@media (hover:hover) and (pointer:fine){
+  .btn:hover{color:var(--wfg)}
+  .btn:hover::before{transform:scaleY(1)}
+  .btn:hover .ar path{animation:redraw 620ms var(--ease-focal)}
+}
+@keyframes redraw{0%{stroke-dashoffset:0}35%{stroke-dashoffset:24}36%{stroke-dashoffset:-24}100%{stroke-dashoffset:0}}
+.btn--red{--bg:var(--red);--fg:#fff;--wipe:var(--ink);--wfg:var(--paper)}
+.btn--paper{--bg:var(--paper);--fg:var(--ink);--wipe:var(--red);--wfg:#fff}
+.btn--line{--bg:transparent;--fg:currentColor;box-shadow:inset 0 0 0 1px currentColor}
+.btn--line.on-ink{--wipe:var(--paper);--wfg:var(--ink)}
+.btn--wide{width:100%}
+.tlink{font:600 12px/1.3 var(--mono);text-transform:uppercase;text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat;padding-bottom:3px;transition:background-size 300ms var(--ease-out)}
+@media (hover:hover){.tlink:hover{background-size:0 1px;background-position:100% 100%}}
+
+/* ---------- wide header (desktop top only) ---------- */
+.mast{position:absolute;left:0;right:0;z-index:20;display:none;color:var(--paper);padding:26px var(--gut) 0}
+.mast nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:start}
+.mast ul{display:flex;gap:clamp(20px,2.6vw,40px)}
+.mast ul:last-of-type{justify-content:flex-end}
+.mast a{text-decoration:none}
+.mast ul a{padding:6px 0;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size 300ms var(--ease-out)}
+.mast ul a:hover{background-size:100% 1px}
+.mast-mark{display:grid;justify-items:center;gap:8px;text-align:center}
+.mast-word{font:400 31px/.86 var(--serif);letter-spacing:-.01em}
+.mast-mark svg{width:42px;height:42px}
+
+/* ---------- floating pill header + menu panel ---------- */
+.pill-wrap{position:fixed;z-index:60;top:var(--pill-top);left:50%;width:min(486px,calc(100vw - 32px));transform:translateX(-50%);filter:drop-shadow(0 10px 22px rgba(20,17,15,.24));pointer-events:none}
+.pill{position:relative;border-radius:12px;background:var(--red);color:#fff;clip-path:inset(0 0 calc(100% - var(--bar-h)) 0 round 12px);transition:clip-path 450ms var(--ease-io),background-color 450ms var(--ease-out)}
+.pill-bar{pointer-events:auto;height:var(--bar-h);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 10px}
+.pill-bar>*:first-child{justify-self:start}
+.pill-bar>*:last-child{justify-self:end}
+.pill-btn{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 12px;border:0;background:none;border-radius:8px;text-decoration:none;font:600 12px/1 var(--mono);text-transform:uppercase;letter-spacing:.02em}
+.pill-home{display:grid;place-items:center;width:46px;height:46px;border-radius:50%}
+.pill-home svg{width:40px;height:40px}
+.burger{position:relative;width:22px;height:10px;display:inline-block}
+.burger i{position:absolute;right:0;height:1.5px;background:currentColor;border-radius:2px;transition:transform 300ms var(--ease-out),width 300ms var(--ease-out),top 300ms var(--ease-out)}
+.burger i:first-child{top:0;width:22px}
+.burger i:last-child{top:8px;width:14px}
+.pill-panel{padding:6px 22px 22px;display:grid;gap:18px}
+.pm-head{display:grid;justify-items:center;gap:6px;padding:18px 0 6px;text-align:center}
+.pm-head .pm-word{font:400 40px/.86 var(--serif)}
+.pm-head .mono{color:rgba(255,255,255,.78)}
+.pm-links{border-top:1px solid rgba(255,255,255,.28)}
+.pm-links a{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0 9px;border-bottom:1px solid rgba(255,255,255,.28);font:400 34px/.95 var(--serif);text-decoration:none}
+.pm-links a span{font:600 11px/1 var(--mono);opacity:.75}
+.pm-tel{display:flex;justify-content:space-between;align-items:center;min-height:52px;padding:0 18px;border-radius:12px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.55);text-decoration:none;font:600 12px/1 var(--mono);text-transform:uppercase}
+.pm-tel b{font:400 22px/1 var(--serif);text-transform:none;letter-spacing:0}
+.pill-panel .pm-i{opacity:0;transform:scale(.92);transform-origin:50% 0;transition:opacity 260ms var(--ease-out),transform 260ms var(--ease-out);transition-delay:calc((6 - var(--i,0)) * 22ms)}
+.pill-wrap.is-open{pointer-events:auto}
+.pill-wrap.is-open .pill{clip-path:inset(0 0 0 0 round 12px);background:var(--red-deep);transition:clip-path 650ms var(--ease-menu),background-color 450ms var(--ease-out)}
+.pill-wrap.is-open .pm-i{opacity:1;transform:none;transition:opacity 420ms var(--ease-menu),transform 420ms var(--ease-menu);transition-delay:calc(195ms + var(--i,0) * 15ms)}
+.pill-wrap.is-open .burger i:first-child{top:4px;transform:rotate(45deg);width:18px}
+.pill-wrap.is-open .burger i:last-child{top:4px;transform:rotate(-45deg);width:18px}
+@media (min-width:1000px){
+  .mast{display:block}
+  .pill-wrap{transform:translate(-50%,-150%);visibility:hidden;transition:transform 650ms var(--ease-menu),visibility 0s linear 650ms}
+  .is-scrolled .pill-wrap{transform:translate(-50%,0);visibility:visible;transition:transform 650ms var(--ease-menu),visibility 0s}
+}
+
+/* ---------- hero ---------- */
+.hero{position:relative;height:calc(100svh - var(--note-h,36px));min-height:600px;max-height:1100px;background:var(--ink);color:var(--paper);overflow:hidden}
+.hero-media{position:absolute;inset:0;overflow:hidden}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:56% 42%}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,.62) 0%,rgba(20,17,15,.32) 34%,rgba(20,17,15,.42) 62%,rgba(20,17,15,.86) 100%)}
+.hero-inner{position:relative;height:100%;display:grid;grid-template-rows:1fr auto;padding:96px var(--gut) var(--gut)}
+.hero h1{align-self:center;text-align:center;font:400 var(--fs-hero)/.84 var(--serif);letter-spacing:-.03em;padding-top:4vh}
+.hero-foot{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:end}
+.tapcard{position:relative;display:block;width:clamp(150px,18vw,244px);aspect-ratio:244/138;border-radius:8px;overflow:hidden;text-decoration:none;color:#fff;transition:transform 160ms var(--ease-out)}
+.tapcard:active{transform:scale(.97)}
+.tapcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 100%;transform:scale(1.5);transform-origin:62% 92%;transition:transform 900ms var(--spring)}
+.tapcard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,.55),rgba(20,17,15,0) 42%,rgba(20,17,15,.65))}
+.tapcard .mono{position:absolute;z-index:1;font-size:11px}
+.tapcard .tl{left:9px;top:9px}.tapcard .tr{right:9px;top:9px}
+.tapcard .bl{left:9px;bottom:9px;right:9px;line-height:1.25}
+@media (hover:hover){.tapcard:hover img{transform:scale(1.62)}}
+.hero-aside{justify-self:end;display:grid;gap:14px;max-width:290px}
+.hero-aside .mono{color:rgba(243,238,230,.88)}
+.live{display:flex;gap:8px;align-items:baseline}
+.live::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:#3FBF6E;transform:translateY(-1px)}
+.live[data-state="closed"]::before{background:var(--on-dark-2)}
+/* intro guard states (match the GSAP "from" values) */
+.intro-pending .hero .li{transform:translateY(110%) skewX(10deg)}
+.intro-pending .hero-foot>*,.intro-pending .mast{opacity:0}
+.intro-pending .hero-media{clip-path:inset(7% 5% 7% 5% round 24px)}
+html:not(.intro-pending) .hero .li,html:not(.intro-pending) .hero-foot>*{transition:none}
+
+/* ---------- story chapters ---------- */
+.story{position:relative;background:var(--paper)}
+.story-stage{position:relative}
+.contours{position:absolute;pointer-events:none;width:min(1500px,130vw);aspect-ratio:1200/1100;right:-34vw;top:-6vh;transform:rotate(15deg);-webkit-mask-image:radial-gradient(closest-side,#000 55%,transparent);mask-image:radial-gradient(closest-side,#000 55%,transparent)}
+.contours path{fill:var(--red);fill-opacity:.03;stroke:#FBF8F3;stroke-width:1.1;vector-effect:non-scaling-stroke}
+.story-cover{position:absolute;left:0;right:0;top:0;height:46vh;background:linear-gradient(180deg,rgba(20,17,15,.9),rgba(20,17,15,0));pointer-events:none;opacity:0}
+.chapter{position:relative;display:grid;justify-items:center;text-align:center;gap:22px;padding:clamp(88px,14vh,150px) var(--gut)}
+.ch-cards{display:flex;justify-content:center;margin-bottom:14px}
+.ch-card-wrap{width:min(40vw,230px)}
+.ch-card-wrap.l{transform:rotate(-7deg) translate(14px,6px);z-index:1}
+.ch-card-wrap.r{transform:rotate(6deg) translate(-14px,30px)}
+.ch-card{border-radius:16px;overflow:hidden;aspect-ratio:1/1.2;box-shadow:0 18px 40px -18px rgba(20,17,15,.45);clip-path:inset(0 0 0 0 round 16px);background:var(--sand)}
+.ch-card img{width:100%;height:100%;object-fit:cover}
+.ch-title{font:400 var(--fs-ch)/.86 var(--serif);letter-spacing:-.03em;max-width:13ch;text-wrap:balance}
+.ch-meta{color:var(--red);max-width:420px}
+.ch-body{max-width:440px;color:var(--muted);font-size:17px;text-wrap:pretty}
+.story.is-pinned{height:calc(var(--chs,3) * 115vh + 100vh)}
+.story.is-pinned .story-stage{position:sticky;top:0;height:100vh;overflow:hidden}
+.story.is-pinned .chapter{position:absolute;inset:0;padding:0 var(--gut);align-content:center;gap:20px}
+.story.is-pinned .ch-cards{position:absolute;inset:0;margin:0;pointer-events:none;display:block}
+.story.is-pinned .ch-card-wrap{position:absolute;width:clamp(190px,15vw,232px);transform:none}
+.story.is-pinned .ch-card-wrap.l{left:5.5vw;top:17vh}
+.story.is-pinned .ch-card-wrap.r{right:5.5vw;top:44vh}
+.story.is-pinned .ch-title{max-width:min(48vw,780px);position:relative;z-index:2}
+.story.is-pinned .ch-meta{margin-top:10px}
+.story-dots{display:none}
+.story.is-pinned .story-dots{display:flex;position:absolute;left:var(--gut);bottom:var(--gut);gap:14px;z-index:3}
+.story-dots span{font:600 11px/1 var(--mono);color:var(--tone);transition:color 300ms}
+.story-dots span.on{color:var(--ink)}
+
+/* ---------- arch (Queenslander doorway) ---------- */
+.archsec{position:relative;padding:var(--sec) var(--gut);overflow:clip}
+.arch-grid{position:relative;display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
+.arch{grid-column:5/9;grid-row:1/3;position:relative;width:100%;aspect-ratio:454/829;border-radius:999px;background:var(--red-deep);color:var(--paper);display:grid;place-items:center;overflow:hidden;transform-origin:50% 40%}
+.arch svg.dash{position:absolute;inset:0;width:100%;height:100%}
+.arch svg.dash path{fill:none;stroke:var(--paper);stroke-opacity:.32;stroke-dasharray:2 6;vector-effect:non-scaling-stroke}
+.arch blockquote{position:relative;margin:0;text-align:center;font:400 clamp(2.3rem,1.2rem + 3vw,4rem)/.9 var(--serif);letter-spacing:-.025em}
+.arch .mono{position:absolute;bottom:9%;left:0;right:0;text-align:center;color:rgba(243,238,230,.82)}
+.arch .mono.top{top:9%;bottom:auto}
+.flank{display:grid;gap:12px}
+.flank figure{border-radius:16px;overflow:hidden;background:var(--sand)}
+.flank img{width:100%;height:100%;object-fit:cover}
+.flank .mono{color:var(--ink);max-width:28ch}
+.flank.l{grid-column:1/4;grid-row:2;align-self:end;margin-bottom:6vh}
+.flank.l figure{aspect-ratio:220/330}
+.flank.r{grid-column:10/13;grid-row:1;margin-top:4vh}
+.flank.r figure{aspect-ratio:4/3}
+.arch-note{grid-column:9/13;grid-row:2;align-self:end;display:grid;gap:14px;max-width:340px;justify-self:end;margin-bottom:6vh}
+.arch-note p{color:var(--muted);text-wrap:pretty}
+.arch-note .rating{display:flex;gap:10px;align-items:baseline}
+.arch-note .rating b{font:400 44px/1 var(--serif);color:var(--ink)}
+
+/* ---------- the pour ---------- */
+.pour{position:relative;background:var(--paper)}
+.pour-stage{position:sticky;top:0;height:100vh;padding:0;display:none}
+.pour-media{position:absolute;inset:0;overflow:hidden;clip-path:inset(0 round var(--r,0px));background:var(--ink)}
+.pour-layer{position:absolute;inset:0;overflow:hidden}
+.pour-layer img{width:100%;height:100%;object-fit:cover;transform-origin:50% 55%}
+.pour-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,17,15,.66),rgba(20,17,15,.28) 50%,rgba(20,17,15,.62)),linear-gradient(180deg,rgba(20,17,15,.2),rgba(20,17,15,.45))}
+.pour-entries{position:relative;padding:var(--sec) var(--gut) 40px;display:grid;gap:72px}
+.pour-title h2{font:400 var(--fs-h2)/.86 var(--serif);letter-spacing:-.03em;max-width:12ch;text-wrap:balance}
+.pour-title p{margin-top:22px;max-width:44ch;color:var(--muted);text-wrap:pretty}
+.pour-entry{display:grid;gap:16px;max-width:520px}
+.pour-entry figure{border-radius:16px;overflow:hidden;aspect-ratio:4/3;margin-bottom:6px}
+.pour-entry figure img{width:100%;height:100%;object-fit:cover}
+.pour-entry h3{font:400 var(--fs-h3)/.9 var(--serif);letter-spacing:-.025em;text-wrap:balance}
+.pour-entry p{color:var(--muted);text-wrap:pretty;max-width:42ch}
+.spec{border-top:1px solid var(--rule);display:grid}
+.spec>div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:16px;padding:11px 0 10px;border-bottom:1px solid var(--rule);align-items:baseline}
+.spec dt{font:600 12px/1.3 var(--mono);text-transform:uppercase}
+.spec dd{font:400 16px/1.4 var(--sans);font-variant-numeric:tabular-nums}
+@media (min-width:1000px){
+  .pour-stage{display:block}
+  .pour-entries{margin-top:-100vh;padding:0;gap:0;color:var(--paper)}
+  .pour-title,.pour-entry{min-height:100vh;display:flex;flex-direction:column;justify-content:center;max-width:none}
+  .pour-title{padding:0 0 0 calc(var(--gut) + 14vw)}
+  .pour-title h2{max-width:11ch}
+  .pour-title p{color:rgba(243,238,230,.86)}
+  .pour-entry{padding:0 var(--gut)}
+  .pour-entry>*{width:min(500px,38vw)}
+  .pour-entry:nth-child(odd){align-items:flex-end;padding-right:9vw}
+  .pour-entry:nth-child(even){align-items:flex-start;padding-left:9vw}
+  .pour-entry figure{display:none}
+  .pour-entry p{color:rgba(243,238,230,.88)}
+  .pour-entry .spec{border-color:var(--rule-dark)}
+  .pour-entry .spec>div{border-color:var(--rule-dark)}
+}
+
+/* ---------- a day on the hill: the pint ---------- */
+.day{position:relative;background:var(--sand);padding:var(--sec) var(--gut)}
+.day-head{display:grid;gap:20px;max-width:900px;margin-bottom:clamp(48px,8vh,96px)}
+.day-head h2{font:400 var(--fs-h2)/.86 var(--serif);letter-spacing:-.03em}
+.day-head p{max-width:46ch;color:var(--muted);text-wrap:pretty}
+.day-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
+.pint-col{display:grid;justify-items:center}
+.pint{width:min(100%,540px);height:auto;overflow:visible}
+.pint text{font:600 11px var(--mono);fill:var(--muted);letter-spacing:.02em}
+.pint .now text{fill:var(--red-ink)}
+.day-list{display:grid;border-top:1px solid var(--rule)}
+.day-list li{display:grid;grid-template-columns:88px minmax(0,1fr);gap:18px;padding:22px 0 24px;border-bottom:1px solid var(--rule)}
+.day-list time{font:600 12px/1.6 var(--mono);text-transform:uppercase;color:var(--red-ink)}
+.day-list h3{font:400 clamp(1.7rem,1.2rem + 1.2vw,2.4rem)/.95 var(--serif);letter-spacing:-.02em;margin-bottom:8px}
+.day-list p{color:var(--muted);max-width:44ch;text-wrap:pretty}
+@media (min-width:1000px){
+  .day-grid{grid-template-columns:5fr 6fr;gap:6vw;align-items:start}
+  .pint-col{position:sticky;top:max(90px,12vh)}
+  .day-list li{padding:6vh 0 6.5vh;grid-template-columns:120px minmax(0,1fr)}
+}
+
+/* ---------- catalogues (cocktails, bistro, functions) ---------- */
+.cat{position:relative;padding:var(--sec) var(--gut)}
+.cat-head{font:400 clamp(2.6rem,1.5rem + 3.8vw,4.6rem)/.92 var(--serif);letter-spacing:-.03em;margin-bottom:clamp(28px,4vh,44px);max-width:20ch;text-wrap:balance}
+.cat-head span{display:block;color:var(--tone)}
+.bento{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;grid-auto-flow:dense}
+.bento .wide{grid-column:span 2}
+@media (min-width:700px){.bento{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}}
+@media (min-width:1000px){.bento{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}.bento .wide{grid-row:span 2}}
+.tile{position:relative;display:block;width:100%;aspect-ratio:336/400;border:0;padding:0;border-radius:12px;overflow:hidden;text-align:left;background:var(--g2,#eee);color:var(--ink);isolation:isolate;transition:transform 900ms var(--spring)}
+.tile:active{transform:scale(.97);transition-duration:160ms}
+.tile-bg{position:absolute;inset:0;z-index:-1;background:radial-gradient(120% 90% at 22% 12%,var(--g1) 0%,transparent 60%),radial-gradient(90% 80% at 85% 95%,color-mix(in oklab,var(--g2) 70%,#fff) 0%,var(--g2) 70%);transition:transform 1s var(--spring)}
+.tile .glass{position:absolute;left:50%;top:44%;width:42%;height:auto;transform:translate(-50%,-50%);transition:transform 1s var(--spring);overflow:visible}
+.tile-label{position:absolute;left:16px;right:16px;bottom:14px;display:grid;gap:1px}
+.tile-name{font:500 18px/1.15 var(--sans);letter-spacing:-.01em}
+.tile-kind{font:400 19px/1.05 var(--serif);color:color-mix(in oklab,currentColor 72%,transparent)}
+.tile.dark{color:var(--paper)}
+.tile .big{position:absolute;left:16px;right:16px;top:42%;transform:translateY(-50%);text-align:center;font:400 clamp(2.6rem,1.6rem + 2.4vw,4.2rem)/.9 var(--serif);letter-spacing:-.03em}
+.tile .open{position:absolute;right:12px;top:12px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.55);transition:transform 300ms var(--ease-out)}
+.tile.dark .open{background:rgba(255,255,255,.18)}
+.tile .open svg{width:12px;height:12px}
+.tile.photo{background:var(--ink);color:#fff}
+.tile.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s var(--spring)}
+.tile.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,15,0) 50%,rgba(20,17,15,.72));z-index:0}
+.tile.photo .tile-label{z-index:1}
+.tile.wide{aspect-ratio:auto;min-height:100%}
+@media (max-width:999px){.tile.wide{aspect-ratio:688/400}}
+@media (hover:hover) and (pointer:fine){
+  button.tile:hover{transform:scale(.98)}
+  button.tile:hover .tile-bg{transform:scale(1.08)}
+  button.tile:hover .glass{transform:translate(-50%,-54%) rotate(-4deg)}
+  .tile:hover img{transform:scale(1.1)}
+  button.tile:hover .open{transform:rotate(45deg)}
+}
+.cat-foot{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;margin-top:28px}
+.cat-foot p{color:var(--muted);max-width:52ch}
+
+.bistro-lower{display:grid;gap:48px;margin-top:clamp(48px,7vh,80px)}
+@media (min-width:1000px){.bistro-lower{grid-template-columns:7fr 5fr;gap:6vw}}
+.menu-list h3,.hours h3{font:400 clamp(1.9rem,1.3rem + 1.4vw,2.7rem)/.95 var(--serif);letter-spacing:-.02em;margin-bottom:16px}
+.ml-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 24px;margin-bottom:10px}
+.switch{display:inline-flex;align-items:center;gap:12px;min-height:44px;padding:0 4px 0 0;border:0;background:none;font:600 12px/1 var(--mono);text-transform:uppercase}
+.switch .track{position:relative;width:46px;height:26px;border-radius:99px;background:var(--paper-2);box-shadow:inset 0 0 0 1px var(--rule);transition:background-color 240ms var(--ease-out)}
+.switch .track::after{content:"";position:absolute;left:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(20,17,15,.3);transition:transform 240ms var(--ease-out)}
+.switch[aria-checked="true"] .track{background:var(--red)}
+.switch[aria-checked="true"] .track::after{transform:translateX(20px)}
+.dishes{border-top:1px solid var(--rule)}
+.dishes li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:13px 0 12px;border-bottom:1px solid var(--rule)}
+.dishes .d{font:500 17px/1.3 var(--sans)}
+.dishes .d small{display:block;font:400 14px/1.4 var(--sans);color:var(--muted);margin-top:2px}
+.price{position:relative;display:inline-flex;align-items:center;gap:10px;font:500 17px/1 var(--sans);font-variant-numeric:tabular-nums}
+.pr{display:inline-block;height:1.25em;overflow:hidden;text-align:right}
+.pr-roll{display:flex;flex-direction:column;transition:transform 240ms var(--ease-out);transition-delay:calc(var(--i,0) * 30ms)}
+.pr-roll span{height:1.25em;line-height:1.25em}
+.stamp{font:600 11px/1 var(--mono);color:#fff;background:var(--red);padding:4px 6px;border-radius:4px;opacity:0;transform:scale(1.4) rotate(-8deg);transition:opacity 200ms var(--ease-out),transform 260ms var(--ease-out)}
+[data-members="true"] .pr-roll{transform:translateY(-1.25em)}
+[data-members="true"] .stamp{opacity:1;transform:scale(1) rotate(-4deg);transition-delay:180ms}
+.members-note{margin-top:14px;color:var(--muted);font-size:15px}
+
+.func{background:var(--sand)}
+.func .tile.photo{background:var(--ink-2)}
+.func-lower{display:grid;gap:40px;margin-top:clamp(48px,7vh,80px)}
+@media (min-width:1000px){.func-lower{grid-template-columns:7fr 5fr;gap:6vw;align-items:start}}
+.func .spec{border-color:rgba(20,17,15,.2)}
+.func-cta{display:grid;gap:14px;align-content:start}
+.func-cta p{color:var(--muted);text-wrap:pretty}
+.func-cta .row{display:flex;flex-wrap:wrap;gap:10px}
+
+/* ---------- what's on mosaic ---------- */
+.whats{position:relative;padding:var(--sec) var(--gut);overflow:clip}
+.mosaic{position:relative;display:grid;place-items:center;min-height:clamp(420px,62vw,980px)}
+.mosaic h2{position:relative;z-index:2;text-align:center;font:400 var(--fs-mega)/.78 var(--serif);letter-spacing:-.035em;text-transform:none;pointer-events:none;mix-blend-mode:multiply}
+.mosaic h2 .w{display:block}
+.mph{position:absolute;margin:0;border-radius:16px;overflow:hidden;background:var(--sand);box-shadow:0 22px 50px -24px rgba(20,17,15,.5)}
+.mph img{width:100%;height:100%;object-fit:cover}
+.mph.a{width:clamp(110px,22vw,330px);aspect-ratio:330/410;left:0;top:4%}
+.mph.b{width:clamp(90px,15vw,226px);aspect-ratio:226/282;right:10%;top:0}
+.mph.c{width:clamp(110px,22vw,320px);aspect-ratio:320/230;right:0;bottom:6%;z-index:3}
+.mph.d{width:clamp(80px,9vw,128px);aspect-ratio:1;left:24%;bottom:2%;z-index:3}
+.mph.e{width:clamp(90px,13vw,190px);aspect-ratio:190/240;left:6%;bottom:-2%;z-index:1}
+.whats-lower{display:grid;gap:40px;margin-top:clamp(56px,9vh,110px)}
+@media (min-width:1000px){.whats-lower{grid-template-columns:6fr 5fr;gap:6vw;align-items:start}}
+.weekly h3{font:400 clamp(1.9rem,1.3rem + 1.4vw,2.7rem)/.95 var(--serif);letter-spacing:-.02em;margin-bottom:16px}
+.weekly li{display:grid;grid-template-columns:76px minmax(0,1fr);gap:16px;padding:16px 0 15px;border-bottom:1px solid var(--rule);align-items:baseline}
+.weekly ul{border-top:1px solid var(--rule)}
+.weekly .day-k{font:600 12px/1.4 var(--mono);text-transform:uppercase}
+.weekly b{font-weight:600}
+.weekly li p{color:var(--muted)}
+.weekly li p b{color:var(--ink)}
+.weekly li.today .day-k{color:var(--red)}
+.weekly li.today .day-k::after{content:" · Today";}
+.fine{margin-top:16px;font-size:14px;color:var(--muted)}
+.fine a{color:var(--ink)}
+.cup{position:relative;border-radius:16px;background:var(--red-deep);color:var(--paper);padding:clamp(24px,3vw,36px);display:grid;gap:18px;overflow:hidden}
+.cup h3{font:400 clamp(2.6rem,1.6rem + 3vw,4.4rem)/.86 var(--serif);letter-spacing:-.03em}
+.cup .mono{color:rgba(243,238,230,.86)}
+.cup p{color:rgba(243,238,230,.92);text-wrap:pretty}
+.cup .spec{border-color:var(--rule-dark)}
+.cup .spec>div{border-color:var(--rule-dark)}
+.cup .rail{position:relative;height:28px;margin:4px 0 2px}
+.cup .rail::before{content:"";position:absolute;left:0;right:0;top:13px;height:1px;background:rgba(243,238,230,.5)}
+.cup .rail i{position:absolute;top:8px;width:1px;height:11px;background:rgba(243,238,230,.5)}
+.cup .rail .post{position:absolute;right:0;top:3px;width:2px;height:21px;background:var(--paper)}
+.cup .rail .marker{position:absolute;top:7px;left:0;width:13px;height:13px;border-radius:50%;background:var(--paper);transform:translateX(-50%)}
+
+/* ---------- gaming: quiet band ---------- */
+.gaming{background:var(--ink);color:var(--paper);padding:clamp(72px,12vh,120px) var(--gut)}
+.gaming-in{display:grid;gap:32px;align-items:center}
+@media (min-width:1000px){.gaming-in{grid-template-columns:6fr 5fr;gap:6vw}}
+.gaming figure{border-radius:16px;overflow:hidden;aspect-ratio:3/2}
+.gaming figure img{width:100%;height:100%;object-fit:cover;filter:saturate(.7) brightness(.82)}
+.gaming h2{font:400 clamp(2.4rem,1.6rem + 2.6vw,4.2rem)/.9 var(--serif);letter-spacing:-.025em;margin-bottom:18px}
+.gaming p{color:var(--on-dark-2);max-width:44ch}
+.gaming .hrs{font:600 13px/1.3 var(--mono);text-transform:uppercase;color:var(--paper);margin:18px 0}
+.rg{margin-top:22px;padding-top:16px;border-top:1px solid var(--rule-dark);font-size:16px;color:var(--paper)}
+.rg a{font-weight:600}
+
+/* ---------- prefooter: the pub [photo] on the hill ---------- */
+.prefoot{background:var(--red-deep);color:var(--paper);padding:clamp(80px,14vh,150px) var(--gut) clamp(64px,10vh,110px);container-type:inline-size;overflow:clip}
+.pf-title{font:400 15.2cqi/.8 var(--serif);letter-spacing:-.035em;text-align:center}
+.pf-line{display:flex;justify-content:center;align-items:center;gap:.12em;overflow:clip;padding:.08em 0 .12em;margin:-.08em 0 -.12em}
+.pf-line>span{display:inline-block}
+.pf-photo{display:inline-block;height:.72em;aspect-ratio:1.55;border-radius:.11em;overflow:hidden;flex:none;transform:translateY(.04em)}
+.pf-photo img{width:100%;height:100%;object-fit:cover}
+.pf-sub{display:grid;justify-items:center;gap:20px;margin-top:clamp(36px,6vh,64px);text-align:center}
+.pf-sub p{max-width:40ch;color:rgba(243,238,230,.9)}
+.pf-sub .row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+
+/* ---------- footer ---------- */
+.foot{background:var(--sand);padding:clamp(72px,10vh,110px) var(--gut) 56px}
+.foot-grid{display:grid;gap:48px}
+@media (min-width:1000px){.foot-grid{grid-template-columns:1fr auto 1fr;gap:4vw;align-items:start}}
+.fbadge{width:clamp(200px,22vw,300px);height:auto;justify-self:center;color:var(--red-deep);overflow:visible}
+.foot h2{font:400 clamp(2.2rem,1.6rem + 1.8vw,3.2rem)/.9 var(--serif);letter-spacing:-.025em;margin-bottom:12px}
+.foot .lede{color:var(--muted);max-width:42ch;margin-bottom:18px;text-wrap:pretty}
+.joined{display:grid;grid-template-columns:minmax(0,1fr) auto}
+.joined input{min-width:0;height:54px;border:1px solid var(--ink);border-right:0;background:transparent;padding:0 16px;font:500 16px var(--sans);color:var(--ink);border-radius:0}
+.joined input::placeholder{color:#7A7068}
+.joined input:focus-visible{outline:2px solid var(--red);outline-offset:-2px;border-radius:0}
+.joined button{height:54px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);padding:0 22px;font:600 12px/1 var(--mono);text-transform:uppercase;transition:background-color 200ms var(--ease-out),transform 160ms var(--ease-out)}
+.joined button:hover{background:var(--red);border-color:var(--red)}
+.joined button:active{transform:scale(.97)}
+.joined label{grid-column:1/-1;font:600 12px/1 var(--mono);text-transform:uppercase;margin-bottom:10px}
+.form-msg{min-height:1.4em;margin-top:10px;font-size:15px;color:var(--red-ink)}
+.foot .spec{border-color:rgba(20,17,15,.22)}
+.foot .spec>div{border-color:rgba(20,17,15,.22)}
+.contact-list{margin-top:22px;display:grid;gap:6px}
+.contact-list .tel{font:400 clamp(2rem,1.4rem + 1.6vw,2.8rem)/1 var(--serif);text-decoration:none;letter-spacing:-.01em}
+.contact-list .tel:hover{color:var(--red-ink)}
+.socials{display:grid;border-top:1px solid rgba(20,17,15,.22);margin-top:18px}
+.socials a{display:flex;justify-content:space-between;padding:12px 0 11px;border-bottom:1px solid rgba(20,17,15,.22);text-decoration:none}
+.rail-band{position:relative;background:var(--paper);overflow:clip;padding:clamp(40px,6vh,72px) 0;display:grid;place-items:center}
+.marquee{width:100%;overflow:clip;pointer-events:none}
+.mq-track{display:flex;width:max-content;will-change:transform}
+.mq-track span{flex:none;padding-right:.35em;font:400 clamp(7rem,3rem + 18vw,22rem)/.92 var(--serif);letter-spacing:-.03em;color:#E7B9C0;white-space:nowrap}
+.mq-track em{font-style:italic}
+.rail-band .btn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);min-width:min(336px,calc(100vw - 32px))}
+.rail-band .btn:active{transform:translate(-50%,-50%) scale(.97)}
+.legal{background:var(--paper);padding:0 var(--gut) 28px}
+.legal-in{border-top:1px solid var(--rule);padding-top:18px;display:grid;gap:12px;font:600 11.5px/1.45 var(--mono);text-transform:uppercase}
+.legal-in a{text-decoration-thickness:1px}
+@media (min-width:1000px){.legal-in{grid-template-columns:1.1fr 1.5fr 1.2fr auto;gap:24px}}
+
+/* ---------- phone dock: Book / Call ---------- */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:55;display:grid;grid-template-columns:1fr 1.15fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(243,238,230,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 -1px 0 var(--rule)}
+.dock .btn{min-height:50px;padding:0 14px;justify-content:center;gap:8px;font-size:11.5px}
+.dock .btn .n{font-variant-numeric:tabular-nums}
+@media (min-width:1000px){.dock{display:none}}
+@media (max-width:999px){body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}:root{--bar-h:54px}}
+
+/* ---------- dialogs ---------- */
+dialog{border:0;padding:0;color:var(--ink);background:transparent;max-width:none;max-height:none}
+dialog::backdrop{background:rgba(20,17,15,.62);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.sheet[open]{animation:sheetIn 520ms var(--ease-focal)}
+.sheet[open]::backdrop{animation:fadeIn 400ms var(--ease-out)}
+@keyframes sheetIn{from{clip-path:inset(100% 0 0 0 round 16px);transform:translateY(24px)}to{clip-path:inset(0 0 0 0 round 16px);transform:none}}
+@keyframes fadeIn{from{opacity:0}}
+.book{width:min(560px,calc(100vw - 24px));margin:auto;border-radius:16px;background:var(--paper);overscroll-behavior:contain}
+.book-in{padding:clamp(22px,3vw,32px);display:grid;gap:18px}
+.book h2{font:400 clamp(2.4rem,1.8rem + 2vw,3.4rem)/.88 var(--serif);letter-spacing:-.03em}
+.book p{color:var(--muted)}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:grid;gap:6px}
+.field.full{grid-column:1/-1}
+.field label{font:600 11.5px/1 var(--mono);text-transform:uppercase}
+.field input,.field select{height:48px;border:1px solid rgba(20,17,15,.35);border-radius:10px;background:#fff;padding:0 12px;font:500 16px var(--sans);color:var(--ink);width:100%}
+.field input:focus-visible,.field select:focus-visible{outline:2px solid var(--red);outline-offset:1px}
+.x{position:absolute;right:14px;top:14px;display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px;border:0;border-radius:12px;background:var(--ink);color:var(--paper);font:600 11.5px/1 var(--mono);text-transform:uppercase;transition:transform 160ms var(--ease-out);z-index:2}
+.x:active{transform:scale(.96)}
+.x svg{width:10px;height:10px}
+.book .x{position:absolute}
+.book-wrap{position:relative}
+.ok{border-radius:10px;background:var(--sand);padding:12px 14px;font-size:15px}
+.ok[hidden]{display:none}
+
+.sm{width:100vw;height:100dvh;margin:0;inset:0;overscroll-behavior:contain;background:radial-gradient(110% 90% at 18% 10%,var(--g1,#F3EEE6),transparent 65%),radial-gradient(100% 90% at 90% 100%,var(--g2,#E4D6C1),var(--g2,#E4D6C1));overflow:auto}
+.sm[open]{animation:fadeIn 360ms var(--ease-out)}
+.sm::backdrop{background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}
+.sm-in{min-height:100%;display:grid;gap:24px;padding:72px 16px 24px;align-content:start}
+.sm-card{position:relative;z-index:1;background:var(--paper);border-radius:16px;padding:22px;display:grid;gap:16px;align-content:start;box-shadow:0 30px 60px -30px rgba(20,17,15,.45)}
+.sm[open] .sm-card{animation:sheetIn 620ms var(--ease-focal)}
+.sm-card h2 [data-f]{display:block}
+.sm-card h2{font:500 clamp(2.2rem,1.6rem + 2vw,3rem)/.92 var(--sans);letter-spacing:-.045em}
+.sm-card h2 span:not([data-f]){display:block;font:400 clamp(2.2rem,1.6rem + 2vw,3rem)/.95 var(--serif);letter-spacing:-.02em;color:var(--muted)}
+.sm-card p{color:var(--muted);text-wrap:pretty}
+.sm-art{display:grid;place-items:center;min-height:220px}
+.sm-art svg{width:min(56vw,300px);height:auto;overflow:visible}
+.sm-art img{width:100%;max-width:760px;border-radius:16px;aspect-ratio:4/3;object-fit:cover}
+.sm-art .bigt{font:400 clamp(5rem,3rem + 8vw,12rem)/.8 var(--serif);letter-spacing:-.04em;color:var(--ink);text-align:center}
+.sm .x{position:fixed;right:16px;top:16px}
+@media (min-width:1000px){
+  .sm-in{grid-template-columns:450px 1fr;align-items:center;padding:24px;min-height:100vh}
+  .sm-card{max-height:calc(100vh - 48px);overflow:auto}
+  .sm-art svg{width:min(34vw,420px)}
+}
+
+/* glass line-art */
+.gl{fill:none;stroke:var(--gl-stroke,var(--ink));stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.lq{fill:var(--liq,#E2A33B);stroke:none}
+.tile.dark{--gl-stroke:var(--paper)}
+.sm-art.dark{--gl-stroke:var(--paper)}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion:reduce){
+  .grain{animation:none}
+  .btn::before,.tile,.tile-bg,.tile .glass,.tile img,.tapcard img{transition-duration:0ms}
+  .btn .ar path{animation:none !important}
+  .sheet[open],.sm[open] .sm-card{animation:fadeIn 200ms linear}
+  .pill-wrap .pill,.pill-wrap.is-open .pill{transition:background-color 200ms linear}
+  .pill-wrap:not(.is-open) .pill{clip-path:inset(0 0 calc(100% - var(--bar-h)) 0 round 12px)}
+  .pill-panel .pm-i,.pill-wrap.is-open .pm-i{transform:none;transition:opacity 180ms linear;transition-delay:0ms}
+  .pr-roll{transition:none}
+  .pill-wrap,.is-scrolled .pill-wrap{transition:none}
+}
+
+/* ---------- small screens ---------- */
+@media (max-width:999px){
+  .mono{font-size:11px}
+  .hero-inner{padding-top:96px}
+  .hero-foot{grid-template-columns:1fr;gap:18px}
+  .hero-aside{justify-self:stretch;max-width:none;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:12px 16px}
+  .hero-aside .addr{grid-column:1/-1}
+  .hero h1{padding-top:0}
+  .tapcard{display:none}
+  .arch-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .arch{grid-column:1/-1;grid-row:auto;width:min(76vw,360px);justify-self:center}
+  .flank.l,.flank.r{grid-column:auto;grid-row:auto;margin:0;align-self:start}
+  .flank.l figure,.flank.r figure{aspect-ratio:3/4}
+  .arch-note{grid-column:1/-1;grid-row:auto;justify-self:start;margin:12px 0 0;max-width:none}
+}
+@media (max-width:420px){
+  .hero-aside{grid-template-columns:1fr}
+  .hero-aside .btn{justify-self:start}
+}
+</style>
+
+<a class="skip" href="#main">Skip to content</a>
+<p class="note"><strong>Design mock, variant F (scroll story, Aupale-inspired).</strong> Photos are enhanced versions of the venue's own photography. Forms are not connected.</p>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Shared SVG symbols: badge, arrow, close, glassware -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <path id="badge-circle" d="M100 100 m-81 0 a81 81 0 1 1 162 0 a81 81 0 1 1 -162 0"/>
+    <symbol id="badge" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="96" fill="none" stroke="currentColor" stroke-width="3"/>
+      <circle cx="100" cy="100" r="68" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <text font-family="Geist Mono, ui-monospace, monospace" font-weight="600" font-size="12.5" fill="currentColor" letter-spacing="1"><textPath href="#badge-circle" textLength="500" lengthAdjust="spacing">ASPLEY HOTEL · PUB ON THE HILL · GAMING · BAR · FOOD · BOTTLESHOP ·</textPath></text>
+      <text x="100" y="78" text-anchor="middle" font-family="Geist Mono, ui-monospace, monospace" font-weight="600" font-size="13" fill="currentColor" letter-spacing="2">EST</text>
+      <text x="100" y="128" text-anchor="middle" font-family="Instrument Serif, Georgia, serif" font-size="56" fill="currentColor">1935</text>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 12 12"><path class="ar" d="M2 10 L10 2 M3.5 2 H10 V8.5" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 10 10"><path d="M1 1 L9 9 M9 1 L1 9" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 12 12"><path d="M6 1 V11 M1 6 H11" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <!-- glassware, 120x160 -->
+    <symbol id="g-martini" viewBox="0 0 120 160"><path class="lq" d="M27 36 H93 L60 80 Z"/><path class="gl" d="M16 28 H104 L60 86 Z M60 86 V138 M38 142 Q60 134 82 142"/><path class="gl" d="M82 18 L70 44" /><circle class="gl" cx="86" cy="14" r="5"/></symbol>
+    <symbol id="g-coupe" viewBox="0 0 120 160"><path class="lq" d="M22 46 H98 Q92 78 60 80 Q28 78 22 46 Z"/><path class="gl" d="M14 38 H106 Q102 86 60 88 Q18 86 14 38 Z M60 88 V138 M38 142 Q60 134 82 142"/><path class="gl" d="M94 30 a10 10 0 1 1 0.1 0"/></symbol>
+    <symbol id="g-high" viewBox="0 0 120 160"><path class="lq" d="M39 52 H81 L79 142 H41 Z"/><path class="gl" d="M34 24 H86 L83 148 H37 Z"/><path class="gl" d="M70 8 L58 120"/><rect class="gl" x="45" y="62" width="16" height="16" rx="3"/><rect class="gl" x="60" y="86" width="15" height="15" rx="3"/></symbol>
+    <symbol id="g-rocks" viewBox="0 0 120 160"><path class="lq" d="M32 86 H88 L86 140 H34 Z"/><path class="gl" d="M26 64 H94 L90 146 H30 Z"/><rect class="gl" x="42" y="92" width="20" height="20" rx="4"/><rect class="gl" x="60" y="104" width="18" height="18" rx="4"/><path class="gl" d="M26 64 H94"/></symbol>
+    <symbol id="g-wine" viewBox="0 0 120 160"><path class="lq" d="M33 54 H87 Q86 88 60 90 Q34 88 33 54 Z"/><path class="gl" d="M34 20 H86 Q92 60 86 82 Q80 96 60 96 Q40 96 34 82 Q28 60 34 20 Z M60 96 V140 M40 144 Q60 136 80 144"/><path class="gl" d="M80 40 a7 7 0 1 1 0.1 0"/></symbol>
+    <symbol id="g-hurr" viewBox="0 0 120 160"><path class="lq" d="M38 46 H82 Q90 70 76 92 Q70 104 76 122 Q60 128 44 122 Q50 104 44 92 Q30 70 38 46 Z"/><path class="gl" d="M36 20 H84 Q96 62 78 92 Q70 106 80 128 Q60 136 40 128 Q50 106 42 92 Q24 62 36 20 Z M60 132 V140 M40 146 Q60 138 80 146"/><path class="gl" d="M76 6 L62 100"/></symbol>
+    <clipPath id="pint-in"><path d="M44 30 L216 30 C219 52 224 72 222 92 L193 388 L67 388 L38 92 C36 72 41 52 44 30 Z"/></clipPath>
+    <clipPath id="pint-liq"><rect id="pint-liq-rect" x="0" y="73" width="260" height="400"/></clipPath>
+    <linearGradient id="beer" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9B04A"/><stop offset=".55" stop-color="#E2A33B"/><stop offset="1" stop-color="#C77D1A"/></linearGradient>
+  </defs>
+</svg>
+
+<header class="mast" aria-label="Site">
+  <nav aria-label="Primary">
+    <ul class="mono">
+      <li><a href="#bistro">Eat &amp; Drink</a></li>
+      <li><a href="#whatson">What's On</a></li>
+      <li><a href="#functions">Functions</a></li>
+      <li><a href="#story" data-ch="2">Sports &amp; TAB</a></li>
+    </ul>
+    <a class="mast-mark" href="#top" aria-label="Aspley Hotel, back to top">
+      <span class="mast-word">Aspley<br>Hotel</span>
+      <svg aria-hidden="true"><use href="#badge"/></svg>
+    </a>
+    <ul class="mono">
+      <li><a href="#gaming">Gaming</a></li>
+      <li><a href="#rewards">Star Rewards</a></li>
+      <li><a href="#find">Find Us</a></li>
+      <li><a href="tel:+61732634040">Call (07) 3263 4040</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="pill-wrap" id="pill">
+  <div class="pill">
+    <div class="pill-bar">
+      <button class="pill-btn" type="button" data-book>Book a table</button>
+      <a class="pill-home" href="#top" aria-label="Aspley Hotel, back to top"><svg aria-hidden="true"><use href="#badge"/></svg></a>
+      <button class="pill-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="menu-panel">Menu <span class="burger" aria-hidden="true"><i></i><i></i></span></button>
+    </div>
+    <nav class="pill-panel" id="menu-panel" aria-label="Menu" inert>
+      <div class="pm-head pm-i" style="--i:0"><span class="pm-word">Aspley Hotel</span><span class="mono">Est 1935 · Pub on the hill</span></div>
+      <div class="pm-links pm-i" style="--i:1">
+        <a href="#bistro">Eat &amp; Drink <span>Bistro, bar</span></a>
+        <a href="#whatson">What's On <span>Weekly</span></a>
+        <a href="#functions">Functions <span>Up to 100</span></a>
+        <a href="#story" data-ch="2">Sports &amp; TAB <span>Daily</span></a>
+        <a href="#gaming">Gaming <span>10am–4am</span></a>
+        <a href="#rewards">Star Rewards <span>$1 off</span></a>
+        <a href="#find">Find Us <span>Gympie Rd</span></a>
+      </div>
+      <a class="pm-tel pm-i" style="--i:2" href="tel:+61732634040">Call <b class="num">(07) 3263 4040</b></a>
+      <button class="btn btn--wide pm-i" style="--i:3" type="button" data-book>Book a table <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+    </nav>
+  </div>
+</div>
+
+<main id="main">
+<!-- ================= HERO ================= -->
+<section class="hero" id="top" aria-labelledby="hero-h">
+  <div class="hero-media">
+    <img src="img/drive/05-bar-drinks-and-pour.webp" srcset="img/drive/05-bar-drinks-and-pour-sm.webp 900w, img/drive/05-bar-drinks-and-pour.webp 1672w" sizes="100vw" width="1672" height="941" alt="A bartender pulls a beer at the Aspley Hotel bar" fetchpriority="high" decoding="async">
+  </div>
+  <div class="hero-inner">
+    <h1 id="hero-h"><span class="lm"><span class="li">The pub</span></span><span class="lm"><span class="li">on the <em>hill</em></span></span><span class="lm"><span class="li">since 1935.</span></span></h1>
+    <div class="hero-foot">
+      <a class="tapcard" href="#pour" aria-label="On tap: XXXX, Stone and Wood, Great Northern. Jump to the pour.">
+        <img src="img/drive/39-gaming-lounge-bar-sm.webp" width="900" height="600" alt="" loading="eager" decoding="async">
+        <span class="mono tl">On tap</span><span class="mono tr">(The pour)</span>
+        <span class="mono bl">XXXX · Stone &amp; Wood<br>Great Northern</span>
+      </a>
+      <div class="hero-aside">
+        <p class="mono addr">1247 Gympie Road, Aspley QLD 4034 · Open 7 days</p>
+        <p class="mono live" data-live-kitchen data-state="open">Bistro open seven days</p>
+        <button class="btn btn--paper" type="button" data-book>Book a table <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STORY CHAPTERS ================= -->
+<section class="story" id="story" aria-label="The pub on the hill" style="--chs:3">
+  <div class="story-stage">
+    <svg class="contours" viewBox="0 0 1200 1100" aria-hidden="true" focusable="false"><g><path d="M1709 540C1708 570 1705 600 1700 630C1694 660 1687 690 1676 719C1665 748 1652 776 1636 804C1620 832 1602 859 1581 884C1561 910 1538 935 1514 959C1490 983 1463 1006 1437 1028C1410 1050 1381 1071 1353 1092C1324 1112 1294 1132 1263 1152C1232 1171 1200 1189 1167 1208C1135 1226 1101 1244 1066 1261C1032 1279 996 1296 959 1314C922 1331 884 1349 844 1365C803 1382 762 1399 718 1413C674 1426 627 1440 580 1448C533 1456 483 1461 435 1460C387 1459 337 1452 292 1440C247 1428 204 1408 165 1387C127 1365 92 1337 61 1310C30 1283 4 1253 -23 1226C-50 1199 -73 1172 -99 1148C-125 1125 -152 1104 -181 1083C-210 1063 -242 1046 -273 1026C-305 1006 -339 988 -369 966C-398 944 -428 920 -450 894C-472 868 -490 840 -502 811C-514 781 -519 750 -522 720C-525 689 -521 658 -519 628C-516 598 -511 569 -508 540C-505 511 -503 482 -501 453C-500 424 -500 394 -498 364C-496 334 -495 303 -488 273C-482 243 -474 211 -460 182C-446 153 -427 124 -405 98C-382 72 -354 47 -324 25C-295 3 -260 -17 -226 -36C-192 -54 -155 -70 -118 -85C-82 -101 -45 -114 -8 -128C29 -142 65 -155 102 -169C139 -182 176 -195 213 -209C250 -223 288 -237 327 -251C366 -265 406 -280 449 -293C491 -306 535 -319 580 -328C625 -338 673 -346 720 -349C767 -351 816 -351 863 -345C909 -339 956 -328 998 -313C1040 -298 1080 -277 1116 -255C1152 -233 1184 -206 1213 -180C1243 -154 1269 -126 1294 -100C1320 -74 1343 -48 1367 -22C1392 3 1416 26 1440 50C1464 74 1489 97 1513 121C1537 145 1561 170 1582 195C1603 221 1623 248 1640 275C1656 303 1670 332 1680 361C1691 390 1698 420 1703 450C1708 480 1709 510 1709 540Z"/><path d="M1651 535C1650 563 1646 592 1638 620C1630 647 1618 675 1605 701C1592 727 1575 753 1558 777C1541 802 1522 826 1503 850C1484 873 1464 896 1443 918C1422 941 1400 963 1377 984C1354 1005 1330 1026 1304 1046C1279 1066 1252 1085 1224 1104C1196 1122 1166 1140 1136 1157C1106 1175 1075 1192 1043 1209C1012 1226 979 1244 945 1261C910 1278 875 1296 837 1311C800 1327 760 1344 719 1356C677 1368 633 1379 589 1384C545 1389 499 1390 455 1386C411 1382 367 1372 326 1358C286 1345 247 1325 213 1304C179 1283 148 1257 119 1232C91 1208 67 1181 42 1158C17 1134 -5 1111 -30 1090C-55 1069 -80 1051 -107 1033C-134 1014 -163 998 -193 981C-222 963 -255 947 -284 927C-314 908 -344 888 -369 865C-394 842 -417 817 -434 791C-451 765 -464 737 -472 708C-479 680 -481 650 -480 621C-479 593 -473 564 -467 535C-460 507 -451 480 -442 452C-433 425 -423 399 -412 372C-402 345 -392 319 -381 293C-369 267 -358 240 -343 215C-328 189 -312 164 -292 140C-273 116 -250 93 -225 72C-200 50 -171 31 -141 13C-112 -4 -79 -19 -46 -34C-14 -49 20 -61 53 -75C86 -88 119 -100 152 -114C185 -127 217 -141 251 -155C285 -170 318 -186 354 -201C390 -216 427 -232 466 -246C505 -259 547 -272 589 -281C632 -290 677 -297 721 -299C765 -301 811 -299 854 -292C897 -286 940 -275 979 -260C1019 -246 1056 -227 1090 -207C1124 -187 1155 -163 1183 -139C1211 -115 1235 -89 1259 -64C1282 -39 1302 -13 1323 11C1343 36 1362 60 1381 84C1401 108 1420 131 1439 154C1459 177 1479 199 1498 223C1518 246 1538 269 1556 294C1574 318 1592 343 1606 370C1620 396 1632 423 1639 451C1647 478 1651 507 1651 535Z"/><path d="M1573 531C1573 556 1568 583 1561 608C1554 633 1544 659 1533 683C1522 707 1509 731 1495 755C1482 778 1467 801 1452 824C1436 847 1419 869 1401 891C1382 912 1361 933 1339 952C1317 972 1292 991 1267 1008C1242 1026 1215 1042 1187 1058C1160 1074 1132 1089 1103 1104C1075 1120 1046 1135 1016 1150C987 1166 957 1182 925 1197C893 1211 860 1227 825 1240C790 1253 754 1265 716 1274C678 1282 638 1289 599 1291C559 1294 518 1293 479 1289C440 1285 400 1277 363 1267C326 1257 290 1244 257 1229C223 1214 191 1197 162 1179C132 1161 105 1141 78 1122C52 1103 28 1083 4 1063C-19 1043 -42 1024 -65 1005C-88 985 -110 967 -134 948C-157 929 -181 911 -205 891C-229 872 -253 852 -276 831C-298 810 -320 788 -338 765C-356 741 -372 716 -382 691C-392 665 -398 638 -400 611C-401 584 -397 557 -390 531C-384 504 -372 478 -360 453C-348 429 -334 405 -320 381C-306 357 -292 335 -278 312C-264 289 -250 266 -236 244C-221 221 -207 198 -191 176C-175 154 -158 132 -138 111C-118 90 -96 70 -72 52C-48 33 -21 16 6 0C34 -16 64 -30 94 -43C124 -56 155 -68 187 -80C218 -92 251 -103 283 -113C316 -124 349 -135 383 -145C417 -155 451 -166 487 -175C523 -185 560 -194 599 -202C637 -209 677 -216 717 -220C757 -224 799 -227 840 -225C881 -224 923 -220 962 -211C1001 -202 1039 -190 1073 -173C1107 -157 1139 -136 1166 -114C1192 -91 1215 -65 1234 -39C1254 -13 1268 16 1283 42C1298 68 1309 94 1322 119C1336 143 1348 165 1364 187C1379 209 1396 229 1414 250C1432 271 1453 291 1472 312C1490 334 1510 356 1525 380C1540 403 1553 428 1561 453C1569 478 1573 505 1573 531Z"/><path d="M1473 526C1476 549 1477 573 1476 596C1475 619 1471 643 1466 666C1460 689 1452 712 1442 734C1431 757 1419 779 1405 800C1390 821 1374 842 1355 861C1337 881 1316 899 1294 917C1272 934 1247 950 1222 965C1197 979 1170 992 1143 1005C1116 1018 1088 1029 1061 1041C1034 1053 1007 1064 979 1076C952 1089 925 1101 896 1114C868 1128 840 1142 809 1156C779 1170 747 1185 714 1197C680 1209 644 1221 608 1229C572 1236 533 1242 495 1242C458 1242 419 1239 383 1230C347 1222 312 1209 281 1194C250 1178 221 1158 196 1138C170 1117 148 1094 127 1072C106 1051 89 1028 70 1008C51 987 34 968 16 949C-3 931 -23 914 -43 897C-64 880 -86 864 -108 847C-129 830 -153 813 -174 795C-195 776 -216 757 -233 736C-250 715 -266 693 -276 670C-287 647 -295 623 -298 599C-302 575 -301 550 -298 526C-295 502 -288 478 -280 455C-272 431 -261 408 -250 386C-240 364 -228 342 -216 320C-204 298 -192 277 -179 255C-166 234 -152 212 -137 192C-121 171 -104 150 -84 132C-65 113 -43 94 -19 78C6 63 33 48 61 36C89 24 120 14 150 5C180 -4 211 -10 242 -17C272 -25 302 -30 332 -38C361 -45 390 -53 420 -63C450 -72 479 -83 510 -94C542 -105 574 -117 608 -128C642 -138 679 -149 716 -156C753 -163 792 -169 830 -170C868 -170 908 -168 944 -160C981 -153 1017 -142 1048 -127C1080 -113 1110 -94 1136 -74C1161 -54 1184 -30 1204 -7C1223 16 1239 40 1255 64C1270 88 1282 112 1295 135C1308 158 1319 180 1330 202C1342 224 1353 245 1365 266C1376 287 1388 307 1399 328C1410 349 1421 370 1431 392C1441 413 1450 435 1457 458C1464 480 1470 503 1473 526Z"/><path d="M1432 521C1436 543 1437 565 1434 587C1431 609 1424 631 1414 651C1404 672 1390 692 1376 711C1361 730 1343 748 1325 765C1307 782 1288 798 1269 814C1250 830 1230 845 1211 859C1191 874 1172 889 1152 903C1132 918 1112 932 1092 946C1071 960 1050 974 1028 988C1006 1002 983 1015 959 1028C935 1041 910 1054 884 1066C858 1078 831 1090 802 1100C774 1111 744 1122 713 1130C683 1139 650 1147 617 1152C584 1157 550 1161 516 1162C482 1163 448 1161 415 1156C382 1151 348 1143 318 1132C288 1121 259 1106 234 1091C208 1075 185 1056 164 1037C143 1018 126 997 109 977C92 957 77 937 62 918C47 899 32 881 17 863C2 846 -15 829 -31 812C-47 795 -65 779 -81 762C-97 744 -114 726 -127 707C-141 689 -153 669 -162 648C-171 628 -177 607 -180 585C-183 564 -182 543 -180 521C-179 500 -174 479 -170 458C-165 437 -159 416 -154 396C-148 375 -142 354 -135 333C-129 312 -122 291 -113 270C-104 249 -94 228 -80 208C-67 189 -51 169 -32 152C-13 134 10 118 34 104C58 91 85 79 112 69C139 59 169 51 197 44C226 36 254 31 282 25C310 18 338 13 365 6C392 -0 419 -7 446 -14C474 -22 501 -30 529 -38C558 -46 587 -54 617 -61C648 -69 680 -76 712 -81C745 -85 779 -89 813 -90C846 -91 881 -90 914 -85C948 -81 981 -73 1011 -63C1042 -53 1071 -39 1096 -23C1122 -8 1145 12 1165 31C1184 51 1200 73 1215 95C1229 116 1239 139 1250 161C1260 183 1268 204 1278 225C1287 245 1296 265 1307 284C1317 304 1329 322 1340 341C1352 359 1366 378 1377 397C1389 417 1402 437 1411 457C1420 478 1428 500 1432 521Z"/><path d="M1338 517C1340 536 1339 555 1336 574C1334 593 1329 612 1323 630C1317 649 1309 667 1300 685C1291 703 1281 721 1269 738C1257 755 1244 771 1229 787C1214 803 1198 818 1180 832C1162 846 1143 859 1124 872C1104 884 1083 896 1063 907C1042 919 1021 930 1000 941C978 952 957 963 935 973C912 984 890 995 866 1006C843 1016 818 1027 793 1036C767 1045 740 1054 713 1061C685 1068 656 1074 627 1078C597 1082 567 1085 537 1085C507 1085 476 1084 447 1079C417 1075 388 1069 361 1060C333 1051 307 1039 283 1026C260 1013 238 996 219 980C200 963 184 945 168 927C153 909 141 891 127 874C113 856 101 840 87 824C73 808 59 793 43 779C28 764 10 750 -6 734C-23 719 -41 704 -56 687C-70 670 -84 653 -94 634C-104 616 -110 596 -113 576C-116 557 -114 536 -111 517C-108 497 -100 478 -93 459C-86 440 -76 422 -67 404C-59 385 -50 368 -41 350C-32 332 -24 314 -15 296C-5 278 4 260 15 242C26 225 39 207 54 190C69 174 86 158 106 144C125 131 147 118 170 107C192 97 218 88 243 80C268 72 294 67 320 61C346 56 372 53 397 49C423 45 448 42 474 38C499 34 524 30 549 25C575 20 600 14 627 9C653 3 681 -4 710 -10C739 -16 769 -23 800 -27C831 -31 865 -34 896 -33C928 -32 961 -29 990 -22C1019 -15 1048 -4 1072 10C1096 24 1117 43 1135 61C1152 80 1165 103 1177 124C1188 145 1196 167 1204 188C1212 209 1217 229 1225 248C1232 267 1240 285 1249 303C1257 320 1267 337 1277 354C1286 371 1297 388 1306 406C1314 424 1322 442 1328 460C1333 479 1337 498 1338 517Z"/><path d="M1262 512C1263 529 1262 546 1260 562C1258 579 1254 596 1249 612C1244 628 1238 645 1230 661C1223 676 1214 692 1204 707C1193 722 1182 737 1169 751C1157 766 1143 779 1129 793C1114 806 1099 819 1083 831C1066 843 1049 855 1031 866C1013 877 994 887 975 897C955 907 935 916 914 924C893 932 871 940 849 948C827 955 805 962 782 969C759 976 735 982 711 988C687 994 662 1000 636 1005C610 1009 583 1013 557 1015C530 1017 502 1018 475 1016C448 1014 421 1010 396 1002C371 995 346 985 325 973C304 961 284 946 268 931C251 915 237 898 224 881C211 864 201 847 190 830C179 814 170 798 160 783C149 769 138 755 126 741C114 727 100 714 87 701C73 687 58 674 45 660C32 645 18 630 6 615C-5 599 -15 582 -22 565C-29 548 -33 530 -35 512C-36 494 -35 476 -31 458C-28 441 -21 423 -14 406C-6 389 4 373 15 357C26 341 38 326 51 311C63 296 77 281 91 267C105 253 119 240 135 227C151 214 167 201 185 190C202 178 221 167 241 158C260 148 281 140 303 133C324 126 346 120 368 115C391 110 413 106 435 102C457 98 479 95 501 90C523 86 545 81 567 75C589 69 612 62 636 55C660 48 685 40 711 34C738 28 766 22 794 19C822 16 851 14 879 16C907 18 935 23 960 31C985 39 1009 51 1030 64C1051 77 1069 94 1085 110C1101 127 1113 145 1125 163C1137 181 1146 199 1155 216C1164 234 1172 251 1180 268C1188 285 1196 301 1203 317C1211 333 1218 349 1225 365C1232 381 1238 397 1244 413C1249 429 1254 446 1257 462C1260 479 1262 495 1262 512Z"/><path d="M1206 507C1209 522 1210 538 1209 553C1208 568 1204 583 1199 598C1194 612 1187 627 1179 641C1170 654 1160 668 1149 681C1139 694 1127 706 1115 718C1103 730 1090 742 1076 753C1063 764 1049 775 1034 785C1020 795 1004 805 988 815C972 824 956 832 938 840C921 848 903 856 885 863C867 870 848 876 829 882C810 889 791 895 771 901C751 908 732 914 711 921C690 927 668 934 645 939C623 944 599 949 575 952C551 955 526 957 502 956C478 954 453 951 431 945C409 938 387 929 368 918C349 907 332 894 318 880C303 866 291 850 279 835C267 821 258 805 248 791C238 777 230 763 220 750C210 737 199 725 189 712C178 700 166 688 155 676C144 664 132 651 122 638C112 625 102 611 94 597C86 583 79 568 75 553C71 538 68 523 68 507C67 492 69 476 71 461C74 446 79 431 85 416C90 401 98 387 106 372C114 358 123 344 133 331C143 318 154 305 165 292C177 279 189 267 202 255C216 243 229 232 244 221C259 210 275 200 292 191C309 182 326 173 345 166C363 159 383 153 403 148C423 143 443 139 464 136C484 133 504 131 524 129C545 127 565 125 585 123C605 120 625 117 645 114C666 110 687 106 709 102C732 98 755 93 779 90C803 87 828 84 853 83C878 83 904 85 927 89C951 93 975 101 995 110C1015 120 1033 132 1049 146C1064 160 1076 176 1086 192C1096 209 1103 226 1110 243C1116 259 1120 276 1125 292C1130 308 1134 323 1139 338C1144 352 1149 366 1155 380C1161 394 1168 407 1175 421C1181 435 1188 449 1194 463C1199 478 1204 492 1206 507Z"/><path d="M1133 503C1136 515 1139 529 1139 542C1140 555 1139 568 1136 581C1134 594 1129 607 1123 620C1116 632 1108 644 1098 655C1089 667 1078 677 1066 687C1055 697 1042 707 1029 716C1017 725 1003 734 990 742C976 750 963 758 949 766C934 773 920 781 905 787C890 794 875 800 859 806C844 812 828 818 812 823C796 829 779 834 762 840C745 845 728 851 710 856C693 862 674 868 655 873C635 878 615 883 594 886C574 889 552 891 531 891C510 890 488 888 468 884C448 879 428 872 411 864C394 855 378 844 364 833C350 821 339 808 328 795C318 782 309 768 301 755C292 742 285 730 278 717C271 705 264 693 257 681C250 670 242 658 235 647C227 636 220 625 212 613C205 602 198 590 191 578C185 566 179 554 174 541C169 529 166 516 163 503C161 490 161 476 161 463C162 450 165 436 169 423C172 410 178 398 184 385C190 372 198 360 206 348C214 336 223 324 232 313C242 302 252 290 263 280C274 269 286 258 299 249C312 239 327 230 342 222C357 215 374 208 391 203C408 198 427 194 445 191C463 188 481 187 499 185C517 184 535 183 552 182C569 180 586 179 603 176C620 174 637 171 655 167C672 163 690 159 710 155C729 151 749 146 769 143C790 141 812 139 833 139C854 139 876 141 896 144C916 148 936 155 954 162C972 170 988 180 1003 191C1017 202 1030 214 1040 227C1051 240 1059 254 1066 268C1073 282 1079 296 1083 310C1088 324 1091 338 1094 351C1097 365 1100 378 1103 391C1106 403 1109 416 1112 428C1115 440 1119 453 1123 465C1126 477 1130 490 1133 503Z"/><path d="M1074 498C1075 509 1076 520 1075 531C1073 542 1071 553 1067 564C1064 574 1059 585 1053 595C1048 606 1041 616 1034 625C1027 635 1020 645 1011 654C1003 663 994 672 984 680C974 689 964 697 953 704C941 712 929 718 917 725C905 731 891 736 878 742C865 747 852 752 838 756C825 761 811 766 797 770C784 775 770 780 756 785C741 790 727 795 712 799C696 804 680 808 664 812C648 815 630 818 613 820C596 822 578 822 561 822C543 821 525 819 509 815C492 812 475 806 460 800C445 794 431 786 418 777C405 769 394 759 384 749C374 738 366 727 358 716C351 705 345 694 340 683C334 672 329 661 324 651C319 640 314 630 308 620C302 611 296 601 289 592C283 582 275 573 268 563C262 552 254 542 249 531C244 521 239 509 237 498C235 487 234 475 236 464C237 452 241 441 246 430C250 419 257 408 264 398C271 388 280 378 288 369C296 359 305 350 314 341C322 332 331 323 341 314C350 305 360 296 370 288C381 280 392 272 404 265C416 258 429 251 442 246C456 240 470 236 484 232C499 228 514 225 529 222C544 219 559 218 574 216C589 214 604 213 619 212C634 210 649 209 664 208C679 206 695 205 711 203C726 202 743 200 760 199C776 198 794 197 811 197C829 198 847 198 864 201C882 203 900 207 915 212C931 217 947 225 960 233C973 241 985 251 994 262C1004 273 1011 285 1017 297C1023 309 1027 321 1031 333C1034 345 1037 357 1040 369C1042 380 1045 391 1048 402C1051 413 1055 423 1058 434C1061 444 1065 455 1068 466C1070 476 1073 487 1074 498Z"/><path d="M1005 493C1006 502 1007 511 1007 520C1007 529 1006 538 1005 547C1003 556 1001 565 997 574C994 583 990 592 985 600C979 609 973 617 967 625C960 633 952 640 944 647C935 654 926 661 916 667C906 672 895 678 885 683C874 688 863 692 852 696C840 700 829 704 818 707C806 711 795 714 783 718C772 721 760 724 748 728C736 731 724 734 712 737C699 740 687 744 673 746C660 749 646 751 632 753C618 754 604 756 589 756C575 756 560 755 546 753C532 751 517 748 504 744C491 739 479 734 468 727C457 720 447 712 438 704C429 696 422 686 416 677C410 668 405 658 400 649C395 640 391 631 387 622C382 613 378 605 373 596C369 588 364 580 359 572C354 564 349 555 345 547C341 538 336 530 333 521C330 512 328 503 327 493C326 484 326 475 327 465C328 456 330 447 333 438C336 429 340 420 345 411C349 402 354 394 360 386C366 377 373 369 380 362C387 354 395 346 403 339C411 332 420 325 429 319C438 312 448 306 458 301C468 295 479 290 490 285C501 280 513 276 524 273C536 269 549 266 561 264C573 261 586 260 598 259C611 258 624 257 636 257C649 256 661 257 673 256C686 256 698 256 711 255C724 254 737 253 750 252C764 251 778 250 793 249C808 248 823 248 838 249C853 249 869 251 883 255C897 258 911 263 923 270C935 276 945 285 953 293C961 302 967 313 972 323C977 333 979 345 981 355C984 365 984 376 986 386C987 396 988 405 989 414C991 424 992 432 994 441C996 450 998 458 1000 467C1002 476 1004 484 1005 493Z"/><path d="M948 489C948 496 948 503 948 510C947 517 946 524 945 531C943 539 941 546 939 553C936 560 932 566 928 573C924 580 920 586 914 593C909 599 903 605 897 611C891 616 884 622 876 627C869 632 860 636 852 640C844 644 835 648 826 651C817 654 807 657 798 660C789 662 779 664 770 667C760 669 751 671 742 673C732 675 723 678 713 680C703 683 693 685 683 687C672 690 661 692 650 694C639 696 627 697 616 698C604 699 592 699 580 697C569 696 557 694 546 691C536 687 525 683 516 678C507 672 499 666 493 659C486 652 480 644 475 637C470 629 467 621 463 614C460 606 458 598 455 591C452 584 450 577 447 570C444 563 440 557 437 550C433 544 429 537 425 531C422 524 417 517 414 510C411 503 408 496 406 489C404 481 403 474 403 466C403 459 405 451 407 444C409 436 413 429 417 422C421 415 426 409 432 402C437 396 443 390 449 384C455 378 462 372 468 366C475 361 482 355 489 350C496 345 503 340 511 335C519 331 528 326 537 323C545 319 555 315 564 313C573 310 583 308 593 306C603 304 613 303 623 302C633 301 643 301 653 300C663 299 673 299 683 299C693 298 703 298 713 297C723 297 734 296 744 296C755 295 766 295 777 295C789 295 801 296 812 297C823 298 835 300 846 303C857 306 868 310 877 314C887 319 895 325 903 331C910 338 916 345 921 353C926 360 930 368 933 376C936 384 937 393 939 401C940 408 941 416 942 424C943 431 943 439 944 446C945 453 946 460 946 467C947 475 948 482 948 489Z"/><path d="M891 484C891 489 891 495 891 500C891 505 891 511 890 516C889 522 888 527 886 533C885 538 882 543 879 548C876 553 872 558 868 563C864 568 859 572 854 576C849 580 843 584 837 588C831 591 825 594 819 597C812 600 805 603 799 605C792 608 785 610 778 612C772 614 765 616 758 618C751 620 744 622 737 624C730 626 722 628 715 630C708 631 700 633 692 635C684 637 676 638 667 639C659 640 650 641 642 642C633 642 624 641 615 640C607 639 598 638 590 635C582 633 574 629 567 626C561 622 554 617 549 612C543 607 539 602 535 596C530 591 527 585 525 579C522 574 520 568 518 562C515 557 514 551 512 546C510 541 508 536 506 530C504 525 502 520 499 515C497 510 494 505 492 500C490 495 487 489 486 484C484 479 483 473 482 467C482 461 482 456 483 450C484 444 487 439 489 433C492 428 496 423 500 418C504 413 509 408 513 404C518 399 524 395 529 391C534 387 540 383 545 379C551 375 557 372 563 368C569 365 575 362 582 359C588 356 595 353 603 351C610 349 617 348 625 346C632 345 640 344 647 344C655 343 662 343 670 343C677 343 685 343 692 343C699 342 707 342 714 342C722 341 730 341 738 340C746 340 754 339 763 339C772 339 781 339 789 340C798 340 807 341 816 343C824 345 833 348 840 351C847 355 854 359 860 364C866 369 871 374 875 380C879 386 881 392 883 398C886 404 887 411 888 417C888 423 889 429 889 435C889 441 889 446 889 452C889 457 889 463 890 468C890 473 890 479 891 484Z"/><path d="M840 479C840 483 840 487 839 490C839 494 838 498 838 502C837 505 836 509 834 513C833 516 831 520 829 523C827 527 824 530 822 533C819 537 816 540 813 543C809 546 806 548 802 551C798 554 794 556 789 558C785 561 781 563 776 564C772 566 767 568 762 569C757 571 752 572 747 573C742 574 737 575 732 576C727 577 722 578 717 579C712 580 707 581 701 581C696 582 691 583 685 584C679 585 673 585 667 586C661 586 655 586 649 586C643 585 637 585 631 584C625 582 619 581 614 578C609 576 604 573 600 570C596 567 593 563 590 559C587 555 585 551 583 547C581 543 580 539 578 534C577 530 577 526 575 523C574 519 574 515 572 512C571 508 570 505 569 501C567 497 566 494 564 490C563 487 561 483 560 479C559 476 558 472 558 468C558 464 558 460 559 456C560 452 561 448 563 445C564 441 567 437 569 434C572 430 575 427 578 424C581 421 585 418 588 415C592 412 595 409 599 406C603 404 607 401 611 399C615 396 620 394 624 392C629 390 634 388 639 386C644 385 649 384 654 383C659 382 665 382 670 381C675 381 681 381 686 381C691 381 696 381 701 382C706 382 712 382 717 382C722 382 727 382 733 382C738 382 744 381 749 381C755 381 761 381 767 382C773 382 779 383 785 384C791 385 797 387 802 389C808 391 813 394 817 397C821 400 825 403 828 407C831 411 833 415 835 419C837 423 838 428 839 432C840 436 840 440 840 445C841 449 840 453 840 457C840 461 840 464 840 468C840 472 840 476 840 479Z"/><path d="M791 475C791 477 791 479 791 481C791 483 791 486 791 488C790 490 790 492 789 494C788 496 788 499 786 501C785 503 784 505 782 507C781 509 779 511 777 512C775 514 772 516 770 517C768 519 765 520 763 521C760 522 757 524 755 525C752 526 749 527 746 527C743 528 740 529 738 530C735 530 732 531 729 531C726 532 723 532 720 533C717 533 714 534 711 534C708 535 704 535 701 536C698 536 694 536 691 536C687 537 684 537 680 537C677 536 673 536 670 535C666 535 663 534 660 532C657 531 654 529 651 528C649 526 647 524 645 522C643 520 641 517 640 515C639 513 638 510 637 508C636 505 636 503 635 501C635 498 634 496 634 494C633 492 633 490 632 487C632 485 631 483 630 481C629 479 629 477 628 475C627 472 627 470 627 468C626 466 626 463 627 461C627 459 628 456 629 454C630 452 631 450 633 448C635 446 637 444 639 442C640 440 643 439 645 437C647 435 649 434 651 432C654 431 656 429 658 428C661 426 663 425 666 424C668 422 671 421 674 420C677 419 680 418 683 418C686 417 689 417 692 416C695 416 698 416 701 416C705 416 708 416 711 417C714 417 717 417 720 417C723 417 726 417 729 417C732 418 735 418 739 418C742 418 745 418 749 418C752 418 756 419 759 419C763 420 766 421 770 422C773 423 776 424 779 426C781 428 784 430 786 432C788 434 789 436 790 439C792 441 792 444 793 446C793 449 793 452 793 454C793 457 793 459 792 461C792 464 792 466 792 468C791 470 791 473 791 475Z"/><path d="M754 470C754 471 754 472 754 473C754 474 754 475 754 475C753 476 753 477 753 478C753 479 752 480 752 481C751 482 751 483 750 484C750 484 749 485 748 486C747 487 746 487 745 488C744 489 743 489 742 490C741 490 740 491 739 491C738 492 736 492 735 492C734 493 733 493 731 493C730 493 729 494 728 494C726 494 725 494 724 494C723 495 721 495 720 495C719 495 717 495 716 496C715 496 713 496 712 496C710 496 709 496 707 496C706 496 704 496 703 496C701 495 700 495 698 494C697 494 696 493 695 493C694 492 692 491 692 490C691 489 690 488 689 487C689 486 689 485 688 484C688 483 688 482 688 481C687 480 687 479 687 478C687 477 687 476 687 475C687 475 686 474 686 473C686 472 685 471 685 470C685 469 685 468 685 467C685 466 685 465 685 464C685 463 685 462 686 461C686 460 687 460 687 459C688 458 689 457 689 456C690 455 691 455 692 454C693 453 694 452 695 452C695 451 696 450 698 450C699 449 700 449 701 448C702 448 703 447 704 447C706 446 707 446 708 446C709 446 711 445 712 445C713 445 715 445 716 445C717 445 719 445 720 445C721 445 723 446 724 446C725 446 726 446 728 446C729 446 730 446 732 446C733 446 734 446 736 446C737 447 739 447 740 447C742 447 743 447 745 448C746 448 748 449 749 449C750 450 751 451 752 452C753 453 754 454 754 455C755 456 755 457 755 458C755 459 755 460 755 461C755 462 755 463 755 464C755 465 755 466 755 467C755 468 755 469 754 470Z"/></g></svg>
+    <div class="story-cover" aria-hidden="true"></div>
+    <article class="chapter" id="ch-hill">
+      <div class="ch-cards" aria-hidden="true">
+        <div class="ch-card-wrap l"><figure class="ch-card"><img src="img/drive/24-hotel-wide-exterior-hero-sm.webp" width="900" height="585" alt="" loading="lazy" decoding="async" style="object-position:40% 50%"></figure></div>
+        <div class="ch-card-wrap r"><figure class="ch-card"><img src="img/drive/18-aspley-hotel-signage-sm.webp" width="900" height="600" alt="" loading="lazy" decoding="async" style="object-position:62% 50%"></figure></div>
+      </div>
+      <h2 class="ch-title">Pull up a stool on the <em>hill</em>.</h2>
+      <p class="ch-meta mono">Aspley Hotel · Est 1935 · Part of the Star Hotels Group</p>
+      <p class="ch-body">The white Queenslander above Gympie Road has been the local since 1935. Bistro, bars, a deck, the sports bar, a gaming room and a drive-through bottle shop.</p>
+    </article>
+    <article class="chapter" id="ch-bistro">
+      <div class="ch-cards" aria-hidden="true">
+        <div class="ch-card-wrap l"><figure class="ch-card"><img src="img/drive/07-bistro-wide-dining-room-sm.webp" width="900" height="600" alt="" loading="lazy" decoding="async"></figure></div>
+        <div class="ch-card-wrap r"><figure class="ch-card"><img src="img/drive/31-outdoor-deck-view-01-sm.webp" width="900" height="600" alt="" loading="lazy" decoding="async" style="object-position:30% 50%"></figure></div>
+      </div>
+      <h2 class="ch-title">Bistro, bar, deck and the <em>big</em> screens.</h2>
+      <p class="ch-meta mono">Lunch Sun–Wed 11:30am–2:30pm · Dinner Sun–Wed 5:30pm–8:30pm · All day Thu–Sat 11:30am–8:30pm</p>
+      <p class="ch-body">Pub classics from the grill, the parmy army and a kids menu. Star Rewards members pay $1 less on every dish.</p>
+    </article>
+    <article class="chapter" id="ch-sport">
+      <div class="ch-cards" aria-hidden="true">
+        <div class="ch-card-wrap l"><figure class="ch-card"><img src="img/drive/49-sports-bar-wide-sm.webp" width="900" height="600" alt="" loading="lazy" decoding="async" style="object-position:70% 50%"></figure></div>
+        <div class="ch-card-wrap r"><figure class="ch-card"><img src="img/drive/48-sports-bar-tab-screens-sm.webp" width="900" height="600" alt="" loading="lazy" decoding="async" style="object-position:55% 40%"></figure></div>
+      </div>
+      <h2 class="ch-title">Wednesday is <em>trivia</em> night.</h2>
+      <p class="ch-meta mono">Wednesday trivia 6:30pm · Free · Hosted by Questionable Company</p>
+      <p class="ch-body">Fox Sports and dedicated TAB screens run all day, every day in the sports bar. Bring a team on Wednesday and pull on your jersey for the big games.</p>
+    </article>
+    <div class="story-dots mono" aria-hidden="true"><span class="on">The hill</span><span>The bistro</span><span>The sports bar</span></div>
+  </div>
+</section>
+
+<!-- ================= ARCH ================= -->
+<section class="archsec" aria-labelledby="arch-q">
+  <div class="arch-grid">
+    <div class="flank r" data-speed="-0.12">
+      <figure><img src="img/drive/23-front-veranda-street-perspective-sm.webp" width="900" height="600" alt="The front verandah of the Aspley Hotel looking down Gympie Road" loading="lazy" decoding="async"></figure>
+      <p class="mono">The front verandah<br>on Gympie Road</p>
+    </div>
+    <div class="arch" id="arch">
+      <svg class="dash" viewBox="0 0 454 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path d="M403 370C404 386 404 403 403 419C403 436 402 453 400 469C398 486 396 502 392 518C388 534 383 549 376 563C370 577 362 591 353 602C345 614 335 624 324 633C314 642 303 649 293 656C282 663 272 668 261 674C251 679 241 684 232 690C222 695 213 701 204 707C194 712 185 718 176 724C167 729 157 735 148 740C138 745 128 749 118 753C108 757 98 759 87 761C76 763 66 764 55 765C44 765 33 764 22 763C11 762 0 760 -11 757C-22 755 -33 751 -44 747C-54 742 -65 736 -75 729C-86 722 -96 714 -105 704C-114 695 -123 684 -130 672C-138 660 -145 647 -151 633C-157 620 -162 606 -167 592C-172 577 -175 563 -179 548C-183 534 -186 519 -190 504C-193 490 -196 475 -199 461C-202 446 -205 431 -207 416C-210 401 -212 386 -214 370C-216 354 -217 338 -218 322C-218 306 -218 290 -216 274C-215 258 -213 241 -210 226C-206 210 -202 195 -197 180C-192 166 -185 151 -179 138C-172 125 -164 113 -156 101C-147 90 -138 79 -129 70C-120 60 -110 51 -101 43C-91 35 -81 28 -71 22C-60 15 -50 10 -40 5C-29 -1 -19 -5 -9 -9C2 -13 13 -16 23 -19C34 -21 44 -23 55 -24C66 -25 76 -25 87 -24C98 -23 108 -21 118 -18C129 -15 139 -11 149 -6C159 -1 168 5 178 11C187 16 196 23 205 29C214 36 223 42 232 49C242 55 251 61 261 68C270 74 280 81 290 88C300 96 310 103 319 113C329 122 339 132 347 143C355 155 363 167 370 181C376 194 382 209 386 225C391 240 394 256 396 272C399 288 400 304 401 321C403 337 403 354 403 370Z"/><path d="M384 361C384 376 383 390 382 405C381 419 379 433 376 447C374 461 371 475 367 489C364 502 359 516 354 528C349 541 343 553 337 564C330 575 322 585 314 594C306 602 297 610 288 616C279 623 270 628 260 633C251 638 242 641 233 645C224 649 216 653 207 657C199 661 190 665 182 669C174 673 165 677 157 681C149 684 140 688 131 690C122 693 113 695 105 696C96 697 86 697 77 697C68 696 59 695 50 694C41 693 31 691 22 689C13 686 3 684 -6 680C-16 677 -25 673 -34 668C-43 663 -52 657 -61 649C-69 642 -77 633 -85 624C-92 615 -99 604 -104 593C-110 581 -115 569 -120 557C-124 545 -128 532 -131 519C-135 506 -138 493 -140 480C-142 467 -144 454 -146 441C-147 427 -148 414 -149 401C-150 388 -151 375 -151 361C-152 348 -152 335 -152 321C-152 308 -152 294 -151 280C-151 266 -150 252 -148 238C-147 224 -145 210 -142 197C-138 183 -134 170 -129 157C-124 145 -118 133 -110 123C-103 113 -95 104 -86 96C-78 88 -68 82 -59 76C-50 70 -41 65 -32 61C-22 56 -13 52 -4 47C5 43 13 39 22 35C31 31 40 27 49 24C58 21 67 18 77 17C86 15 95 15 104 16C114 16 123 18 132 21C141 24 150 27 159 31C167 35 176 40 184 45C192 50 201 56 209 61C217 67 224 73 232 79C240 85 248 92 255 99C263 106 270 113 277 121C285 129 292 137 299 146C306 155 313 164 320 174C326 183 333 193 339 204C346 215 352 226 357 238C362 251 367 263 371 277C375 290 378 304 380 318C382 332 383 347 384 361Z"/><path d="M355 352C356 365 356 377 356 389C356 401 356 414 354 426C353 438 351 451 348 462C345 474 341 485 337 496C332 507 327 517 321 526C315 535 308 543 301 551C294 558 286 564 279 570C271 576 263 580 255 584C247 588 239 592 232 595C224 598 216 600 209 602C201 605 194 607 187 610C180 613 173 615 166 618C159 621 152 624 144 627C137 630 130 634 122 636C114 639 106 641 99 642C91 643 82 644 74 643C66 643 58 641 50 639C42 637 34 633 26 629C18 625 10 621 3 615C-4 610 -12 604 -19 598C-26 591 -32 584 -38 575C-45 567 -50 558 -55 549C-60 539 -64 528 -67 518C-70 507 -73 495 -74 484C-76 473 -77 461 -78 450C-79 439 -80 428 -80 417C-81 406 -82 395 -83 385C-85 374 -86 363 -88 353C-89 342 -91 330 -93 319C-94 307 -96 295 -96 283C-97 271 -97 259 -96 246C-96 234 -94 222 -91 210C-89 198 -85 186 -81 175C-77 165 -71 154 -66 145C-60 135 -53 127 -46 119C-39 111 -31 105 -24 99C-16 94 -7 89 1 86C10 82 18 80 27 78C35 76 44 76 52 75C60 74 68 74 76 74C84 73 92 73 99 73C107 73 114 72 122 72C130 72 137 72 145 73C152 74 160 75 167 77C175 79 182 82 189 86C196 89 203 94 210 98C217 103 224 108 230 113C237 118 244 124 250 129C257 135 264 141 270 147C277 153 284 159 290 167C296 174 303 182 308 190C314 199 319 208 324 218C328 227 332 238 336 249C339 259 342 271 345 282C347 293 349 305 351 317C352 328 354 340 355 352Z"/><path d="M331 344C331 354 331 364 330 374C330 384 329 393 327 403C326 413 324 423 322 433C320 442 318 452 315 461C312 471 309 480 305 488C301 497 297 505 292 512C286 519 280 526 274 531C268 536 261 540 254 543C247 547 240 549 233 551C226 553 219 554 213 555C206 556 200 557 194 559C187 560 182 562 176 563C170 565 164 567 158 569C152 571 146 573 140 575C133 576 127 578 120 578C114 579 107 579 101 579C94 578 88 577 81 575C75 574 68 571 62 569C55 566 49 562 42 558C36 555 30 550 24 545C18 540 12 534 7 527C2 521 -3 514 -7 506C-11 498 -15 490 -18 481C-21 472 -23 463 -25 454C-27 445 -29 435 -30 426C-31 417 -31 407 -32 398C-32 389 -32 380 -33 371C-33 362 -33 353 -33 344C-33 335 -34 326 -34 317C-34 307 -35 298 -35 288C-35 279 -36 269 -35 259C-35 249 -35 238 -34 228C-33 217 -31 207 -29 197C-26 187 -23 177 -18 169C-14 160 -9 153 -3 146C3 140 10 135 17 130C24 126 32 124 39 122C46 120 54 119 61 118C68 117 75 116 82 116C89 115 95 115 102 114C108 113 114 112 121 111C127 111 133 110 139 109C146 109 152 109 158 110C165 110 171 112 177 113C184 115 190 118 196 121C202 124 207 128 213 132C219 136 224 140 229 145C235 149 240 154 245 160C250 165 255 170 261 176C266 181 271 187 275 193C280 199 285 206 290 213C294 219 299 227 303 234C307 242 311 250 315 259C318 267 321 276 323 285C326 295 328 304 329 314C330 324 331 334 331 344Z"/><path d="M307 335C308 343 308 351 307 359C307 366 306 374 305 382C304 390 303 398 302 405C300 413 299 421 297 428C295 436 292 443 289 451C287 458 283 465 280 471C276 477 271 482 267 487C262 492 256 496 251 499C246 502 240 504 234 506C229 508 223 508 217 509C212 510 207 511 202 512C196 512 191 513 186 514C181 515 177 516 172 516C167 517 162 518 157 518C152 518 147 518 142 518C137 518 132 517 127 516C122 515 117 514 112 513C107 511 102 510 97 508C92 506 87 504 82 501C77 498 72 496 67 492C62 489 57 485 53 480C48 475 44 470 40 464C37 458 33 452 31 445C28 438 26 431 24 424C22 417 21 409 20 402C19 394 18 387 17 379C17 372 16 364 16 357C16 350 16 342 16 335C16 328 16 320 17 313C17 306 17 298 18 291C18 283 19 276 19 268C20 261 21 253 22 245C24 237 25 229 27 222C29 214 32 207 35 200C38 193 42 187 46 181C50 175 55 171 60 167C65 163 71 160 77 157C82 155 88 153 94 152C99 151 105 150 110 149C116 148 121 148 126 147C131 147 137 146 142 146C147 145 152 145 157 145C162 145 167 145 172 146C177 147 182 148 187 150C192 152 197 154 202 157C207 159 211 162 216 166C220 169 225 172 229 176C233 180 237 184 241 188C245 192 249 197 253 201C257 206 261 211 265 216C268 221 272 226 275 232C279 238 282 243 285 250C288 256 291 262 293 269C296 275 298 282 300 290C302 297 304 304 305 312C306 319 307 327 307 335Z"/><path d="M288 326C289 332 289 338 289 344C289 350 289 356 288 362C288 368 287 374 285 380C284 386 283 392 281 397C279 403 277 408 275 414C272 419 269 424 267 428C264 433 260 437 257 441C253 444 249 447 246 450C242 453 237 455 233 456C229 458 225 459 221 460C217 460 212 461 208 461C204 461 201 461 197 462C193 462 189 462 186 462C182 462 178 463 174 463C171 463 167 463 163 463C160 462 156 462 152 462C149 461 145 460 141 459C137 459 133 457 129 456C126 455 122 453 118 451C114 449 110 447 106 445C103 442 99 439 95 436C92 433 89 429 86 424C83 420 81 415 78 410C76 405 75 399 73 394C72 388 71 382 71 377C70 371 70 365 69 360C69 354 69 348 69 343C69 337 69 332 69 326C69 321 70 315 70 310C70 304 71 299 71 293C72 288 72 283 73 277C74 271 75 266 76 260C77 255 78 249 79 243C81 238 82 232 84 226C86 221 89 215 91 211C94 206 97 201 100 197C104 193 108 190 112 188C116 185 120 184 125 182C129 181 133 181 138 181C142 180 146 181 151 181C155 181 159 181 163 182C167 182 171 182 174 183C178 183 182 184 186 184C190 185 194 186 197 187C201 188 205 190 208 192C212 194 215 196 219 199C222 201 225 204 228 207C231 210 234 214 237 217C240 220 243 224 246 227C248 231 251 235 254 238C257 242 259 246 262 250C264 254 267 259 269 263C271 268 274 272 276 277C278 282 279 287 281 292C283 298 284 303 285 309C287 315 288 320 288 326Z"/><path d="M269 318C270 322 270 326 270 330C270 334 270 338 269 342C269 346 269 350 268 354C267 358 266 363 265 366C264 370 263 374 261 378C259 381 258 385 256 388C254 391 251 394 249 397C247 399 244 401 241 403C239 405 236 407 233 408C230 410 227 411 225 412C222 412 219 413 216 413C213 413 210 413 208 413C205 413 202 413 200 412C197 412 195 412 192 411C189 411 187 411 184 411C182 410 179 410 177 410C174 410 172 409 169 409C166 408 164 408 161 407C158 406 156 405 153 404C150 402 148 401 145 399C143 397 141 394 138 392C136 390 134 387 132 384C130 381 128 378 127 375C125 371 123 368 122 364C121 360 120 357 119 353C119 349 118 345 118 341C118 337 118 333 118 329C119 325 119 321 120 318C120 314 120 310 121 306C121 303 122 299 122 295C123 292 123 288 123 284C124 280 124 276 125 272C125 268 126 264 127 260C127 256 128 252 130 249C131 245 133 241 135 238C136 234 139 231 141 228C143 226 146 223 148 221C151 219 154 218 157 217C160 216 163 215 166 215C169 214 172 214 175 215C178 215 181 216 184 216C187 217 189 218 192 219C195 219 197 220 200 221C202 222 205 223 207 223C210 224 213 225 215 226C217 227 220 228 222 230C225 231 227 233 229 235C232 237 234 239 236 241C238 244 240 246 242 249C243 251 245 254 247 257C249 260 250 262 252 265C254 268 255 271 257 274C258 277 260 281 261 284C263 287 264 291 265 294C266 298 267 302 268 306C268 310 269 313 269 318Z"/><path d="M254 309C255 311 255 313 255 316C255 318 255 321 254 323C254 325 254 328 253 330C253 332 252 335 252 337C251 339 250 342 249 344C249 346 248 348 247 350C245 352 244 354 243 355C242 357 240 358 239 359C237 361 236 362 234 363C232 364 231 364 229 365C227 365 226 366 224 366C222 366 221 366 219 366C217 366 216 366 214 365C213 365 211 365 210 364C208 364 207 364 205 363C204 363 202 362 201 362C199 362 198 361 196 361C195 360 193 360 192 359C190 359 189 358 187 358C186 357 184 356 183 355C182 354 180 353 179 351C177 350 176 349 175 347C174 346 172 344 171 342C170 340 169 338 169 336C168 334 167 332 167 330C166 327 166 325 166 323C165 320 165 318 165 316C166 313 166 311 166 309C167 307 167 304 167 302C168 300 168 298 169 296C169 294 170 292 170 290C170 287 171 285 171 283C172 281 172 279 173 277C173 274 174 272 174 270C175 268 176 265 177 263C178 261 179 259 180 257C181 256 183 254 184 253C186 251 187 250 189 249C191 248 192 248 194 247C196 247 198 247 199 247C201 247 203 248 205 248C206 248 208 249 210 250C211 250 213 251 214 251C216 252 217 253 219 253C220 254 222 254 223 255C224 256 226 257 227 258C229 258 230 260 231 261C233 262 234 263 235 265C236 266 237 268 238 269C239 271 240 272 241 274C242 276 243 277 244 279C245 281 246 282 247 284C247 286 248 288 249 289C250 291 251 293 252 295C252 297 253 300 253 302C254 304 254 306 254 309Z"/><path d="M245 300C245 301 246 302 246 303C246 304 246 305 246 306C245 307 245 308 245 309C245 310 245 311 245 312C244 313 244 314 244 314C243 315 243 316 242 317C242 318 241 318 241 319C240 320 240 320 239 321C238 322 238 322 237 322C236 323 236 323 235 323C234 323 234 324 233 324C232 324 232 324 231 324C230 324 230 324 229 324C228 324 228 323 227 323C226 323 226 323 225 323C225 323 224 323 223 322C223 322 222 322 221 322C221 322 220 321 220 321C219 321 218 321 218 320C217 320 217 319 216 319C216 318 215 318 214 317C214 317 213 316 213 316C212 315 212 314 212 314C211 313 211 312 210 311C210 310 210 309 209 309C209 308 209 307 209 306C209 305 209 304 209 303C209 302 209 301 209 300C209 299 209 298 209 297C210 296 210 295 210 295C210 294 211 293 211 292C211 291 211 290 211 290C212 289 212 288 212 287C212 286 212 285 213 284C213 283 213 282 214 281C214 281 214 280 215 279C215 278 216 277 216 277C217 276 218 275 218 275C219 275 220 274 221 274C221 274 222 274 223 274C223 274 224 274 225 275C226 275 226 275 227 275C228 276 228 276 229 276C230 276 230 277 231 277C231 277 232 278 233 278C233 278 234 279 234 279C235 279 235 280 236 280C236 281 237 281 238 282C238 282 238 283 239 283C239 284 240 285 240 285C241 286 241 287 241 288C242 288 242 289 242 290C243 291 243 291 243 292C243 293 244 294 244 295C244 295 245 296 245 297C245 298 245 299 245 300Z"/></svg>
+      <p class="mono top" aria-hidden="true">Est 1935</p>
+      <blockquote id="arch-q"><p>Ninety-one<br><em>years</em> on<br>Gympie<br>Road.</p></blockquote>
+      <p class="mono">1935 – 2026</p>
+    </div>
+    <div class="flank l" data-speed="0.1">
+      <figure><img src="img/drive/21-bistro-doorway-and-steps-close-sm.webp" width="900" height="600" alt="Stone-clad steps up to the bistro doors" loading="lazy" decoding="async" style="object-position:38% 50%"></figure>
+      <p class="mono">Up the stone steps<br>to the bistro</p>
+    </div>
+    <div class="arch-note">
+      <p>Aspley Hotel joined the Star Hotels Group in November 2023. The building has stood on the hill above Gympie Road since 1935, and it still pours the first one at the bar.</p>
+      <p class="rating"><b class="num">4.2</b><span class="mono">On Google, from 791 reviews</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= THE POUR ================= -->
+<section class="pour" id="pour" aria-labelledby="pour-h">
+  <div class="pour-track">
+    <div class="pour-stage" aria-hidden="true">
+      <div class="pour-media">
+        <div class="pour-layer"><img src="img/drive/12-bistro-bar-counter-view-02.webp" width="1536" height="1024" alt="" loading="lazy" decoding="async" style="object-position:40% 60%"></div>
+        <div class="pour-layer"><img src="img/drive/05-bar-drinks-and-pour.webp" width="1672" height="941" alt="" loading="lazy" decoding="async"></div>
+        <div class="pour-layer"><img src="img/drive/02-bar-timber-and-counter-detail.webp" width="1536" height="1024" alt="" loading="lazy" decoding="async"></div>
+        <div class="pour-layer"><img src="img/drive/42-bottleshop-interior-wide.webp" width="1448" height="1086" alt="" loading="lazy" decoding="async"></div>
+      </div>
+    </div>
+    <div class="pour-entries">
+      <header class="pour-title">
+        <h2 id="pour-h" class="js-lines">From the tap to the <em>drive-through</em>.</h2>
+        <p>The main bar, the cocktail chalkboard and the Star Liquor bottle shop out the front, all on the one block.</p>
+      </header>
+      <article class="pour-entry">
+        <figure><img src="img/drive/12-bistro-bar-counter-view-02-sm.webp" width="900" height="600" alt="Tap handles along the bistro bar" loading="lazy" decoding="async"></figure>
+        <h3 class="js-lines">XXXX, Stone &amp; Wood, Great Northern.</h3>
+        <p>The handles you know, pulled at the main bar and the bistro counter.</p>
+        <dl class="spec"><div><dt>The taps</dt><dd>Main bar · Bistro counter</dd></div></dl>
+      </article>
+      <article class="pour-entry">
+        <figure><img src="img/drive/05-bar-drinks-and-pour-sm.webp" width="900" height="506" alt="A beer being poured into a pint glass" loading="lazy" decoding="async"></figure>
+        <h3 class="js-lines">Pulled, then off to a <em>seat</em>.</h3>
+        <p>Grab a pint at the bar, then find a spot on the deck, in the bistro or under the big screens.</p>
+        <dl class="spec"><div><dt>The pour</dt><dd>Deck · Bistro · Sports bar</dd></div></dl>
+      </article>
+      <article class="pour-entry">
+        <figure><img src="img/drive/03-bar-counter-view-02-sm.webp" width="900" height="600" alt="The main bar with a hand-drawn cocktail chalkboard" loading="lazy" decoding="async"></figure>
+        <h3 class="js-lines">Cocktails off the <em>chalkboard</em>.</h3>
+        <p>Twelve on the list, from a Margarita to a Whiskey Sour, mixed at the main bar.</p>
+        <dl class="spec"><div><dt>The bar</dt><dd>12 cocktails · Wine list</dd></div></dl>
+      </article>
+      <article class="pour-entry">
+        <figure><img src="img/drive/42-bottleshop-interior-wide-sm.webp" width="900" height="675" alt="Fridges and shelves inside the Star Liquor Warehouse bottle shop" loading="lazy" decoding="async"></figure>
+        <h3 class="js-lines">Drive through, or <em>park</em> up.</h3>
+        <p>Browse the Star Liquor store, or drive up to the counter and the team will sort it.</p>
+        <dl class="spec"><div><dt>Sun – Thu</dt><dd>10am – 11pm</dd></div><div><dt>Fri – Sat</dt><dd>10am – midnight</dd></div></dl>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= A DAY ON THE HILL (PINT) ================= -->
+<section class="day" id="day" aria-labelledby="day-h">
+  <div class="day-head">
+    <h2 id="day-h" class="js-lines">Lunch to last <em>drinks</em>.</h2>
+    <p>The glass fills from the 10am open to the midnight close. The red line marks the time in Aspley right now.</p>
+  </div>
+  <div class="day-grid">
+    <div class="pint-col">
+      <svg class="pint" viewBox="0 0 450 420" role="img" aria-labelledby="pint-t">
+        <title id="pint-t">A pint glass marked with the day's hours, from 10am opening to midnight</title>
+        <g transform="translate(96 0)">
+          <g clip-path="url(#pint-in)">
+            <rect x="0" y="0" width="260" height="420" fill="#F4ECDF"/>
+            <rect id="pint-liquid" x="0" y="73" width="260" height="360" fill="url(#beer)"/>
+            <g clip-path="url(#pint-liq)"><g id="bubbles" fill="#FFF3D6" fill-opacity=".75">
+              <circle cx="80" cy="330" r="2.6"/><circle cx="104" cy="250" r="1.8"/><circle cx="128" cy="300" r="2.2"/><circle cx="150" cy="200" r="1.6"/><circle cx="170" cy="340" r="2.8"/><circle cx="96" cy="160" r="2"/><circle cx="186" cy="230" r="1.7"/><circle cx="140" cy="120" r="2.3"/><circle cx="118" cy="360" r="1.9"/><circle cx="160" cy="280" r="2.1"/><circle cx="76" cy="210" r="1.6"/>
+            </g></g>
+            <path id="pint-foam" fill="#F6EBD3" d="M0 52 Q20 46 40 52 T80 52 T120 52 T160 52 T200 52 T240 52 T280 52 V79 H0 Z"/>
+          </g>
+          <path class="gl" d="M38 24 L222 24 C226 50 232 70 230 92 L200 392 Q199 402 188 402 L72 402 Q61 402 60 392 L30 92 C28 70 34 50 38 24 Z" style="stroke-width:2.6"/>
+          <path d="M58 44 C56 70 58 84 60 100 L80 360" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="5" stroke-linecap="round"/>
+          <g id="pint-ticks" stroke="var(--muted)" stroke-width="1.2">
+            <!-- y = 388 - f*315, f = (minutes - 600) / 840 -->
+            <line x1="236" x2="250" y1="388" y2="388"/><line x1="236" x2="250" y1="354" y2="354"/><line x1="236" x2="250" y1="264" y2="264"/><line x1="236" x2="250" y1="219" y2="219"/><line x1="236" x2="250" y1="196.5" y2="196.5"/><line x1="236" x2="250" y1="151.5" y2="151.5"/><line x1="236" x2="250" y1="95.5" y2="95.5"/><line x1="236" x2="250" y1="73" y2="73"/>
+          </g>
+          <g>
+            <text x="256" y="392">10AM</text><text x="256" y="358">11:30AM</text><text x="256" y="268">3:30PM</text><text x="256" y="223">5:30PM</text><text x="256" y="200">6:30PM</text><text x="256" y="155">8:30PM</text><text x="256" y="99">11PM</text><text x="256" y="77">12AM</text>
+          </g>
+          <g class="now" id="pint-now" style="display:none">
+            <line x1="22" x2="238" y1="0" y2="0" stroke="var(--red)" stroke-width="2"/>
+            <text x="16" y="4" text-anchor="end" id="pint-now-t">NOW</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <ol class="day-list">
+      <li><time>10:00am</time><div><h3>Bottle shop opens</h3><p>The drive-through opens at 10am, seven days a week.</p></div></li>
+      <li><time>11:30am</time><div><h3>Kitchen opens</h3><p>Lunch from 11:30am every day. Thursday to Saturday it runs straight through to dinner.</p></div></li>
+      <li><time>3:30pm</time><div><h3>Jag the Joker, Fridays</h3><p>One entry for every drink until 6:30pm. The jackpot grows $100 a week until the Joker is found.</p></div></li>
+      <li><time>5:30pm</time><div><h3>Dinner</h3><p>Sunday to Wednesday the kitchen reopens at 5:30pm for dinner.</p></div></li>
+      <li><time>6:30pm</time><div><h3>Trivia, Wednesdays</h3><p>Free to play, hosted by Questionable Company.</p></div></li>
+      <li><time>8:30pm</time><div><h3>Kitchen closes</h3><p>Last meals are served until 8:30pm every night.</p></div></li>
+      <li><time>11pm–12am</time><div><h3>Bottle shop closes</h3><p>11pm Sunday to Thursday, midnight on Friday and Saturday.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= COCKTAILS ================= -->
+<section class="cat" id="cocktails" aria-labelledby="ck-h">
+  <h2 class="cat-head" id="ck-h">Cocktails <span>Twelve on the chalkboard at the main bar.</span></h2>
+  <div class="bento js-tiles">
+    <figure class="tile photo wide">
+      <img src="img/drive/03-bar-counter-view-02-sm.webp" srcset="img/drive/03-bar-counter-view-02-sm.webp 900w, img/drive/03-bar-counter-view-02.webp 1536w" sizes="(min-width:1000px) 50vw, 100vw" width="900" height="600" alt="The main bar under a hand-drawn chalkboard of cocktail glasses" loading="lazy" decoding="async">
+      <figcaption class="tile-label"><span class="tile-name">The chalkboard</span><span class="tile-kind">Main bar</span></figcaption>
+    </figure>
+    <button class="tile" type="button" style="--g1:#D9F0A3;--g2:#F7F3D6;--liq:#CFE58A" data-name="Margarita" data-glass="coupe" data-liq="#CFE58A" data-g1="#D9F0A3" data-g2="#F7F3D6" aria-haspopup="dialog"><span class="tile-bg"></span><svg class="glass" viewBox="0 0 120 160" aria-hidden="true" focusable="false"><use href="#g-coupe"/></svg><span class="open" aria-hidden="true"><svg><use href="#i-plus"/></svg></span><span class="tile-label"><span class="tile-name">Margarita</span><span class="tile-kind">Cocktail</span></span></button>
+    <button class="tile dark" type="button" style="--g1:#C8A27A;--g2:#3B2A20;--liq:#1E140E" data-name="Espresso Martini" data-glass="martini" data-liq="#1E140E" data-g1="#C8A27A" data-g2="#3B2A20" aria-haspopup="dialog"><span class="tile-bg"></span><svg class="glass" viewBox="0 0 120 160" aria-hidden="true" focusable="false"><use href="#g-martini"/></svg><span class="open" aria-hidden="true"><svg><use href="#i-plus"/></svg></span><span class="tile-label"><span class="tile-name">Espresso Martini</span><span class="tile-kind">Cocktail</span></span></button>
+    <button class="tile" type="button" style="--g1:#F3B6C8;--g2:#D7F0DE;--liq:#F29BB5" data-name="Flavoured Mojito" data-glass="high" data-liq="#F29BB5" data-g1="#F3B6C8" data-g2="#D7F0DE" aria-haspopup="dialog"><span class="tile-bg"></span><svg class="glass" viewBox="0 0 120 160" aria-hidden="true" focusable="false"><use href="#g-high"/></svg><span class="open" aria-hidden="true"><svg><use href="#i-plus"/></svg></span><span class="tile-label"><span class="tile-name">Flavoured Mojito</span><span class="tile-kind">Cocktail</span></span></button>
+    <button class="tile" type="button" style="--g1:#FFF1C9;--g2:#F7E3A1;--liq:#FFF8E6" data-name="Pina Colada" data-glass="hurr" data-liq="#FFF8E6" data-g1="#FFF1C9" data-g2="#F7E3A1" aria-haspopup="dialog"><span class="tile-bg"></span><svg class="glass" viewBox="0 0 120 160" aria-hidden="true" focusable="false"><use href="#g-hurr"/></svg><span class="open" aria-hidden="true"><svg><use href="#i-plus"/></svg></span><span class="tile-label"><span class="tile-name">Pina Colada</span><span class="tile-kind">Cocktail</span></span></button>
+    <button class="tile" type="button" style="--g1:#FFD27A;--g2:#F59E5B;--liq:#FFC85A" data-name="Pornstar Martini" data-glass="coupe" data-liq="#FFC85A" data-g1="#FFD27A" data-g2="#F59E5B" aria-haspopup="dialog"><span class="tile-bg"></span><svg class="glass" viewBox="0 0 120 160" aria-hidden="true" focusable="false"><use href="#g-coupe"/></svg><span class="open" aria-hidden="true"><svg><use href="#i-plus"/></svg></span><span class="tile-label"><span class="tile-name">Pornstar Martini</span><span class="tile-kind">Cocktail</span></span></button>
+    <button class="tile" type="button" style="--g1:#F7A1B5;--g2:#FCD5DC;--liq:#E8577A" data-name="Cosmopolitan" data-glass="martini" data-liq="#E8577A" data-g1="#F7A1B5" data-g2="#FCD5DC" aria-haspopup="dialog"><span class="tile-bg"></span><svg class="glass" viewBox="0 0 120 160" aria-hidden="true" focusable="false"><use href="#g-martini"/></svg><span class="open" aria-hidden="true"><svg><use href="#i-plus"/></svg></span><span class="tile-label"><span class="tile-name">Cosmopolitan</span><span class="tile-kind">Cocktail</span></span></button>
+    <button class="tile" type="button" style="--g1:#8FD3F4;--g2:#F7B2E0;--liq:#7CC8F0" data-name="Fruit Tingle" data-glass="high" data-liq="#7CC8F0" data-g1="#8FD3F4" data-g2="#F7B2E0" aria-haspopup="dialog"><span class="tile-bg"></span><svg class="glass" viewBox="0 0 120 160" aria-hidden="true" focusable="false"><use href="#g-high"/></svg><span class="open" aria-hidden="true"><svg><use href="#i-plus"/></svg></span><span class="tile-label"><span class="tile-name">Fruit Tingle</span><span class="tile-kind">Cocktail</span></span></button>
+    <button class="tile" type="button" style="--g1:#FF9A4D;--g2:#FFD8B0;--liq:#FF8A3D" data-name="Aperol Spritz" data-glass="wine" data-liq="#FF8A3D" data-g1="#FF9A4D" data-g2="#FFD8B0" aria-haspopup="dialog"><span class="tile-bg"></span><svg class="glass" viewBox="0 0 120 160" aria-hidden="true" focusable="false"><use href="#g-wine"/></svg><span class="open" aria-hidden="true"><svg><use href="#i-plus"/></svg></span><span class="tile-label"><span class="tile-name">Aperol Spritz</span><span class="tile-kind">Cocktail</span></span></button>
+    <button class="tile" type="button" style="--g1:#CFEBC0;--g2:#F3FAEE;--liq:#BFE3A8" data-name="Mojito" data-glass="high" data-liq="#BFE3A8" data-g1="#CFEBC0" data-g2="#F3FAEE" aria-haspopup="dialog"><span class="tile-bg"></span><svg class="glass" viewBox="0 0 120 160" aria-hidden="true" focusable="false"><use href="#g-high"/></svg><span class="open" aria-hidden="true"><svg><use href="#i-plus"/></svg></span><span class="tile-label"><span class="tile-name">Mojito</span><span class="tile-kind">Cocktail</span></span></button>
+    <button class="tile" type="button" style="--g1:#E9A3C0;--g2:#FBE3EC;--liq:#D9668F" data-name="French Martini" data-glass="coupe" data-liq="#D9668F" data-g1="#E9A3C0" data-g2="#FBE3EC" aria-haspopup="dialog"><span class="tile-bg"></span><svg class="glass" viewBox="0 0 120 160" aria-hidden="true" focusable="false"><use href="#g-coupe"/></svg><span class="open" aria-hidden="true"><svg><use href="#i-plus"/></svg></span><span class="tile-label"><span class="tile-name">French Martini</span><span class="tile-kind">Cocktail</span></span></button>
+    <button class="tile" type="button" style="--g1:#D9A066;--g2:#F5E1C8;--liq:#B8742E" data-name="Long Island Iced Tea" data-glass="high" data-liq="#B8742E" data-g1="#D9A066" data-g2="#F5E1C8" aria-haspopup="dialog"><span class="tile-bg"></span><svg class="glass" viewBox="0 0 120 160" aria-hidden="true" focusable="false"><use href="#g-high"/></svg><span class="open" aria-hidden="true"><svg><use href="#i-plus"/></svg></span><span class="tile-label"><span class="tile-name">Long Island Iced Tea</span><span class="tile-kind">Cocktail</span></span></button>
+    <button class="tile" type="button" style="--g1:#E8C07A;--g2:#FFF0CF;--liq:#E3A84A" data-name="Whiskey Sour" data-glass="rocks" data-liq="#E3A84A" data-g1="#E8C07A" data-g2="#FFF0CF" aria-haspopup="dialog"><span class="tile-bg"></span><svg class="glass" viewBox="0 0 120 160" aria-hidden="true" focusable="false"><use href="#g-rocks"/></svg><span class="open" aria-hidden="true"><svg><use href="#i-plus"/></svg></span><span class="tile-label"><span class="tile-name">Whiskey Sour</span><span class="tile-kind">Cocktail</span></span></button>
+  </div>
+  <div class="cat-foot">
+    <p>Prices are on the cocktail menu at the bar. Tap a drink for where to find it.</p>
+  </div>
+</section>
+
+<!-- ================= BISTRO ================= -->
+<section class="cat" id="bistro" aria-labelledby="bi-h">
+  <h2 class="cat-head" id="bi-h">The bistro <span>Pub feeds, a dollar less for members.</span></h2>
+  <div class="bento js-tiles">
+    <figure class="tile photo wide">
+      <img src="img/drive/28-menu-food-spread-overhead-sm.webp" srcset="img/drive/28-menu-food-spread-overhead-sm.webp 900w, img/drive/28-menu-food-spread-overhead.webp 1672w" sizes="(min-width:1000px) 50vw, 100vw" width="900" height="506" alt="Overhead view of a table of bistro dishes: steak, schnitzel, oysters, wings and chips" loading="lazy" decoding="async">
+      <figcaption class="tile-label"><span class="tile-name">The main menu</span><span class="tile-kind">Grill, classics, parmy army</span></figcaption>
+    </figure>
+    <button class="tile photo" type="button" data-tpl="tpl-parmy" data-g1="#F4D9A6" data-g2="#EBC98F" aria-haspopup="dialog">
+      <img src="img/drive/29-parmigiana-portrait-view-01-sm.webp" width="900" height="1200" alt="" loading="lazy" decoding="async">
+      <span class="open" aria-hidden="true"><svg><use href="#i-plus"/></svg></span>
+      <span class="tile-label"><span class="tile-name">Parmy Army</span><span class="tile-kind">Schnitzel, seven toppers</span></span>
+    </button>
+    <button class="tile photo" type="button" data-tpl="tpl-cake" data-g1="#F6E2D0" data-g2="#E9CDB3" aria-haspopup="dialog">
+      <img src="img/drive/26-cake-display-fridge-sm.webp" width="900" height="600" alt="" loading="lazy" decoding="async" style="object-position:45% 50%">
+      <span class="open" aria-hidden="true"><svg><use href="#i-plus"/></svg></span>
+      <span class="tile-label"><span class="tile-name">Coffee &amp; cake</span><span class="tile-kind">$13.95, or $12.95 members</span></span>
+    </button>
+    <button class="tile" type="button" data-tpl="tpl-kids" style="--g1:#FFE7A8;--g2:#FFD2B8" data-g1="#FFE7A8" data-g2="#FFD2B8" aria-haspopup="dialog">
+      <span class="tile-bg"></span>
+      <span class="big num">$13.95</span>
+      <span class="open" aria-hidden="true"><svg><use href="#i-plus"/></svg></span>
+      <span class="tile-label"><span class="tile-name">Little Nippers</span><span class="tile-kind">Kids meals, drink and ice cream</span></span>
+    </button>
+    <button class="tile" type="button" data-tpl="tpl-members" style="--g1:#F7C3CB;--g2:#FBE4E7" data-g1="#F7C3CB" data-g2="#FBE4E7" aria-haspopup="dialog">
+      <span class="tile-bg"></span>
+      <span class="big num">−$1</span>
+      <span class="open" aria-hidden="true"><svg><use href="#i-plus"/></svg></span>
+      <span class="tile-label"><span class="tile-name">Star Rewards</span><span class="tile-kind">Off every dish</span></span>
+    </button>
+  </div>
+
+  <div class="bistro-lower">
+    <div class="menu-list" id="menu-list" data-members="false">
+      <div class="ml-top">
+        <h3>From the menu</h3>
+        <button class="switch" type="button" role="switch" aria-checked="false" id="members-toggle"><span class="track" aria-hidden="true"></span>Star Rewards prices</button>
+      </div>
+      <ul class="dishes">
+        <li style="--i:0"><span class="d">Chicken Schnitzel<small>Parmy army, add a topper from $5.72</small></span><span class="price"><span class="stamp" aria-hidden="true">−$1</span><span class="pr" aria-hidden="true"><span class="pr-roll"><span>$27.73</span><span>$26.73</span></span></span><span class="sr-only">$27.73, members $26.73</span></span></li>
+        <li style="--i:1"><span class="d">Beer Battered Barramundi<small>Classics</small></span><span class="price"><span class="pr" aria-hidden="true"><span class="pr-roll"><span>$32.94</span><span>$31.94</span></span></span><span class="sr-only">$32.94, members $31.94</span></span></li>
+        <li style="--i:2"><span class="d">Famous Steak Sandwich<small>Burgers and sandwiches</small></span><span class="price"><span class="pr" aria-hidden="true"><span class="pr-roll"><span>$30.99</span><span>$29.99</span></span></span><span class="sr-only">$30.99, members $29.99</span></span></li>
+        <li style="--i:3"><span class="d">300g Rump<small>From the grill, steaks from JBS</small></span><span class="price"><span class="pr" aria-hidden="true"><span class="pr-roll"><span>$41.93</span><span>$40.93</span></span></span><span class="sr-only">$41.93, members $40.93</span></span></li>
+        <li style="--i:4"><span class="d">Slow Cooked Lamb Shank<small>Classics</small></span><span class="price"><span class="pr" aria-hidden="true"><span class="pr-roll"><span>$34.61</span><span>$33.61</span></span></span><span class="sr-only">$34.61, members $33.61</span></span></li>
+        <li style="--i:5"><span class="d">Chef's Signature Beef Burger<small>Burgers and sandwiches</small></span><span class="price"><span class="pr" aria-hidden="true"><span class="pr-roll"><span>$28.83</span><span>$27.83</span></span></span><span class="sr-only">$28.83, members $27.83</span></span></li>
+      </ul>
+      <p class="members-note" aria-live="polite" id="members-note">Showing standard prices. Members pay $1 less on every dish.</p>
+    </div>
+    <div class="hours">
+      <h3>Kitchen hours</h3>
+      <dl class="spec">
+        <div><dt>Lunch</dt><dd>Sun – Wed, 11:30am – 2:30pm</dd></div>
+        <div><dt>Dinner</dt><dd>Sun – Wed, 5:30pm – 8:30pm</dd></div>
+        <div><dt>All day</dt><dd>Thu – Sat, 11:30am – 8:30pm</dd></div>
+        <div><dt>Kids meals</dt><dd>$13.95 with a soft drink and ice cream, 12 and under</dd></div>
+        <div><dt>Coffee &amp; cake</dt><dd>$13.95, members $12.95</dd></div>
+      </dl>
+      <div class="cat-foot"><button class="btn btn--red" type="button" data-book>Book a table <svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHAT'S ON ================= -->
+<section class="whats" id="whatson" aria-labelledby="wo-h">
+  <div class="mosaic">
+    <figure class="mph a" data-speed="-0.14"><img src="img/drive/48-sports-bar-tab-screens-sm.webp" width="900" height="600" alt="TAB and racing screens in the sports bar" loading="lazy" decoding="async"></figure>
+    <figure class="mph b" data-speed="0.12"><img src="img/drive/36-terrace-evening-festoon-lights-sm.webp" width="900" height="675" alt="The terrace under festoon lights in the evening" loading="lazy" decoding="async"></figure>
+    <figure class="mph c" data-speed="-0.08"><img src="img/drive/32-outdoor-deck-view-02-sm.webp" width="900" height="600" alt="High tables on the timber deck" loading="lazy" decoding="async"></figure>
+    <figure class="mph d" data-speed="0.18"><img src="img/drive/45-sports-bar-table-detail-sm.webp" width="900" height="600" alt="A table number in the sports bar" loading="lazy" decoding="async" style="object-position:20% 50%"></figure>
+    <figure class="mph e" data-speed="0.06"><img src="img/drive/09-bistro-dining-room-view-03-sm.webp" width="900" height="600" alt="A round table set in the bistro" loading="lazy" decoding="async"></figure>
+    <h2 id="wo-h"><span class="w">What's</span><span class="w"><em>on</em></span><span class="w">this week.</span></h2>
+  </div>
+
+  <div class="whats-lower">
+    <div class="weekly">
+      <h3>Every week</h3>
+      <ul id="weekly">
+        <li data-days="3"><span class="day-k">Wed</span><p><b>Trivia, 6:30pm.</b> Free, hosted by Questionable Company.</p></li>
+        <li data-days="5"><span class="day-k">Fri</span><p><b>Jag the Joker.</b> One entry per drink from 3:30 to 6:30pm. The jackpot grows $100 a week.</p></li>
+        <li data-days="6"><span class="day-k">Sat</span><p><b>Members Jackpot draw.</b> Starts at $400 and must go by $4,000.</p></li>
+        <li data-days="0123456"><span class="day-k">Daily</span><p><b>Sport on the screens.</b> Fox Sports and TAB in the sports bar, all day.</p></li>
+      </ul>
+      <p class="fine">Gamble responsibly. Gambling Help <a href="tel:1800858858">1800 858 858</a>.</p>
+    </div>
+    <article class="cup" aria-labelledby="cup-h">
+      <p class="mono">Tuesday 3 November 2026</p>
+      <h3 id="cup-h">Melbourne Cup lunch</h3>
+      <div class="rail" aria-hidden="true"><i style="left:20%"></i><i style="left:40%"></i><i style="left:60%"></i><i style="left:80%"></i><span class="post"></span><span class="marker" id="cup-marker"></span></div>
+      <p><span id="cup-days">Three weeks away.</span> Two courses for $55, with sweeps, chef specials, prizes and a lucky loser draw. Bookings essential.</p>
+      <dl class="spec">
+        <div><dt>Entrées</dt><dd>Crispy Chicken Bites · Prawn Cocktail · Burrata</dd></div>
+        <div><dt>Mains</dt><dd>Miso Salmon · Pork Piccata · Pumpkin and Sage Gnocchi</dd></div>
+        <div><dt>Price</dt><dd>$55, two courses</dd></div>
+      </dl>
+      <div><button class="btn btn--paper" type="button" data-book="cup">Book Cup lunch <svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+    </article>
+  </div>
+</section>
+
+<!-- ================= FUNCTIONS ================= -->
+<section class="cat func" id="functions" aria-labelledby="fn-h">
+  <h2 class="cat-head" id="fn-h">Functions <span>Three spaces for 40 to 100 guests.</span></h2>
+  <div class="bento js-tiles">
+    <figure class="tile photo wide">
+      <img src="img/drive/34-covered-function-terrace-wide-sm.webp" srcset="img/drive/34-covered-function-terrace-wide-sm.webp 900w, img/drive/34-covered-function-terrace-wide.webp 1536w" sizes="(min-width:1000px) 50vw, 100vw" width="900" height="600" alt="The covered function terrace with timber beams and tables" loading="lazy" decoding="async">
+      <figcaption class="tile-label"><span class="tile-name">Covered terrace</span><span class="tile-kind">Out the back</span></figcaption>
+    </figure>
+    <figure class="tile photo">
+      <img src="img/drive/33-indoor-function-room-sm.webp" width="900" height="600" alt="The bright indoor function room" loading="lazy" decoding="async">
+      <figcaption class="tile-label"><span class="tile-name">Indoor room</span><span class="tile-kind">Beside the terrace</span></figcaption>
+    </figure>
+    <figure class="tile photo">
+      <img src="img/drive/35-function-terrace-reverse-angle-sm.webp" width="900" height="600" alt="The function terrace seen from the other end" loading="lazy" decoding="async">
+      <figcaption class="tile-label"><span class="tile-name">The terrace</span><span class="tile-kind">From the other end</span></figcaption>
+    </figure>
+    <button class="tile" type="button" data-tpl="tpl-platters" style="--g1:#EFDDB8;--g2:#F7EEDC" data-g1="#EFDDB8" data-g2="#F7EEDC" aria-haspopup="dialog">
+      <span class="tile-bg"></span>
+      <span class="big num">$100<br>–$145</span>
+      <span class="open" aria-hidden="true"><svg><use href="#i-plus"/></svg></span>
+      <span class="tile-label"><span class="tile-name">Platters</span><span class="tile-kind">Eight to choose from</span></span>
+    </button>
+    <button class="tile" type="button" data-tpl="tpl-terms" style="--g1:#DCD3C6;--g2:#F1ECE4" data-g1="#DCD3C6" data-g2="#F1ECE4" aria-haspopup="dialog">
+      <span class="tile-bg"></span>
+      <span class="big num">$100</span>
+      <span class="open" aria-hidden="true"><svg><use href="#i-plus"/></svg></span>
+      <span class="tile-label"><span class="tile-name">Deposit</span><span class="tile-kind">Terms and minimum spend</span></span>
+    </button>
+  </div>
+  <div class="func-lower">
+    <dl class="spec">
+      <div><dt>Herb Garden</dt><dd>80 seated · 100 standing</dd></div>
+      <div><dt>Terrace &amp; Herb Garden</dt><dd>60 seated</dd></div>
+      <div><dt>Terrace</dt><dd>40 seated</dd></div>
+      <div><dt>Platters</dt><dd>$100 – $145</dd></div>
+      <div><dt>Minimum spend</dt><dd>$1,000 Mon – Thu · $2,000 Fri – Sun · or $250 room hire</dd></div>
+      <div><dt>Deposit</dt><dd>$100</dd></div>
+    </dl>
+    <div class="func-cta">
+      <p>Birthdays, engagements, wakes and work dos. Tell the team the date, the numbers and the space you like, and they'll come back with catering options.</p>
+      <div class="row">
+        <a class="btn btn--red" href="mailto:enquiries@aspleyhotel.com.au?subject=Function%20enquiry">Email the functions team <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn--line" href="tel:+61732634040">Call <span class="num">(07) 3263 4040</span></a>
+      </div>
+      <p class="mono" style="color:var(--muted)">enquiries@aspleyhotel.com.au</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GAMING (quiet) ================= -->
+<section class="gaming on-dark" id="gaming" aria-labelledby="gm-h">
+  <div class="gaming-in">
+    <figure><img src="img/drive/40-gaming-lounge-wide-sm.webp" width="900" height="600" alt="The gaming lounge bar and machines" loading="lazy" decoding="async"></figure>
+    <div>
+      <h2 id="gm-h">The gaming room</h2>
+      <p>A separate lounge with its own bar. If you need a hand with anything, ask the staff on the floor.</p>
+      <p class="hrs">Every day 10am to 4am</p>
+      <p class="rg">Gamble responsibly. Gambling Help <a href="tel:1800858858">1800 858 858</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PREFOOTER ================= -->
+<section class="prefoot on-dark" aria-label="The pub on the hill">
+  <h2 class="pf-title">
+    <span class="pf-line"><span class="pf-w">The Pub</span></span>
+    <span class="pf-line"><span class="pf-w pf-l">on the</span><span class="pf-photo"><img src="img/drive/24-hotel-wide-exterior-hero-sm.webp" width="900" height="585" alt="" loading="lazy" decoding="async" style="object-position:40% 55%"></span><span class="pf-w pf-r"><em>Hill</em></span></span>
+  </h2>
+  <div class="pf-sub">
+    <p>1247 Gympie Road, Aspley QLD 4034. Open seven days, with the bottle shop out the front.</p>
+    <div class="row">
+      <a class="btn btn--paper" href="https://www.google.com/maps/search/?api=1&amp;query=Aspley+Hotel+1247+Gympie+Road+Aspley+QLD+4034" target="_blank" rel="noopener">Get directions <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn--line on-ink" href="tel:+61732634040">Call <span class="num">(07) 3263 4040</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="foot" id="find">
+    <div class="foot-grid">
+      <div id="rewards">
+        <h2>Star Rewards</h2>
+        <p class="lede">Members pay $1 less on every dish and collect points at every Star Hotels venue and Star Liquor store.</p>
+        <form class="joined" id="rewards-form" novalidate>
+          <label for="rw-email">Your email</label>
+          <input id="rw-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" spellcheck="false" required>
+          <button type="submit">Join</button>
+        </form>
+        <p class="form-msg" role="status" id="rewards-msg"></p>
+        <div class="socials mono">
+          <a href="https://www.facebook.com/AspleyHotel" target="_blank" rel="noopener">Facebook <svg width="12" height="12" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="https://www.instagram.com/aspleyhotel/" target="_blank" rel="noopener">Instagram <svg width="12" height="12" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <svg class="fbadge" viewBox="0 0 200 200" role="img" aria-label="Aspley Hotel badge: established 1935, pub on the hill, gaming, bar, food, bottle shop">
+        <g class="fb-ring">
+          <circle cx="100" cy="100" r="96" fill="none" stroke="currentColor" stroke-width="3"/>
+          <text font-family="Geist Mono, ui-monospace, monospace" font-weight="600" font-size="12.5" fill="currentColor" letter-spacing="1"><textPath href="#badge-circle" textLength="500" lengthAdjust="spacing">ASPLEY HOTEL · PUB ON THE HILL · GAMING · BAR · FOOD · BOTTLESHOP ·</textPath></text>
+        </g>
+        <circle cx="100" cy="100" r="68" fill="none" stroke="currentColor" stroke-width="1.4"/>
+        <text x="100" y="78" text-anchor="middle" font-family="Geist Mono, ui-monospace, monospace" font-weight="600" font-size="13" fill="currentColor" letter-spacing="2">EST</text>
+        <text x="100" y="128" text-anchor="middle" font-family="Instrument Serif, Georgia, serif" font-size="56" fill="currentColor">1935</text>
+      </svg>
+      <div>
+        <h2>Hours</h2>
+        <dl class="spec">
+          <div><dt>Bistro lunch</dt><dd>Sun – Wed, 11:30am – 2:30pm</dd></div>
+          <div><dt>Bistro dinner</dt><dd>Sun – Wed, 5:30pm – 8:30pm</dd></div>
+          <div><dt>All-day dining</dt><dd>Thu – Sat, 11:30am – 8:30pm</dd></div>
+          <div><dt>Bottle shop</dt><dd>Sun – Thu 10am – 11pm, Fri – Sat 10am – midnight</dd></div>
+          <div><dt>Gaming room</dt><dd>Every day, 10am – 4am</dd></div>
+        </dl>
+        <div class="contact-list">
+          <a class="tel num" href="tel:+61732634040">(07) 3263 4040</a>
+          <p>1247 Gympie Road, Aspley QLD 4034 · <a href="https://www.google.com/maps/search/?api=1&amp;query=Aspley+Hotel+1247+Gympie+Road+Aspley+QLD+4034" target="_blank" rel="noopener">Directions</a></p>
+          <p>Functions: <a href="mailto:enquiries@aspleyhotel.com.au">enquiries@aspleyhotel.com.au</a></p>
+          <p class="mono" style="color:var(--muted)">4.2 on Google from 791 reviews</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rail-band">
+    <div class="marquee" aria-hidden="true"><div class="mq-track" id="mq"><span>Pub on the <em>hill</em> · Est 1935 ·</span><span>Pub on the <em>hill</em> · Est 1935 ·</span></div></div>
+    <button class="btn" type="button" data-book>Book a table <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+  </div>
+  <div class="legal">
+    <div class="legal-in">
+      <p>© 2026 Aspley Hotel · Part of the Star Hotels Group</p>
+      <p>Gamble responsibly. Gambling Help <a href="tel:1800858858">1800 858 858</a></p>
+      <p>We practise the responsible service of alcohol</p>
+      <p><a href="#top">Back to top</a></p>
+    </div>
+  </div>
+</footer>
+
+<nav class="dock" aria-label="Quick actions">
+  <button class="btn btn--red" type="button" data-book>Book a table</button>
+  <a class="btn" href="tel:+61732634040">Call <span class="n">(07) 3263 4040</span></a>
+</nav>
+
+<!-- ================= DIALOGS ================= -->
+<dialog class="book sheet" id="book-dialog" aria-labelledby="book-h" data-lenis-prevent>
+  <div class="book-wrap">
+    <button class="x" type="button" data-close>Close <svg aria-hidden="true"><use href="#i-x"/></svg></button>
+    <form class="book-in" id="book-form" novalidate>
+      <h2 id="book-h">Book a table</h2>
+      <p>Bistro bookings for lunch and dinner. For functions, email the team or call.</p>
+      <div class="fields">
+        <div class="field full"><label for="bk-name">Name</label><input id="bk-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="bk-phone">Mobile</label><input id="bk-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
+        <div class="field"><label for="bk-people">People</label><select id="bk-people" name="people"><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10+</option></select></div>
+        <div class="field"><label for="bk-date">Date</label><input id="bk-date" name="date" type="date" required></div>
+        <div class="field"><label for="bk-time">Time</label><select id="bk-time" name="time"><option>11:30am</option><option>12:00pm</option><option>12:30pm</option><option>1:00pm</option><option>1:30pm</option><option>2:00pm</option><option>5:30pm</option><option selected>6:00pm</option><option>6:30pm</option><option>7:00pm</option><option>7:30pm</option><option>8:00pm</option></select></div>
+        <div class="field full"><label for="bk-for">Booking for</label><select id="bk-for" name="for"><option value="table">A table in the bistro</option><option value="cup">Melbourne Cup lunch, Tue 3 Nov, $55</option></select></div>
+      </div>
+      <button class="btn btn--red btn--wide" type="submit">Request booking <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      <p class="ok" id="book-ok" role="status" hidden></p>
+      <p class="mono" style="color:var(--muted)">Or call <a href="tel:+61732634040">(07) 3263 4040</a></p>
+    </form>
+  </div>
+</dialog>
+
+<dialog class="sm" id="spec-dialog" aria-labelledby="sm-title" data-lenis-prevent>
+  <button class="x" type="button" data-close>Close <svg aria-hidden="true"><use href="#i-x"/></svg></button>
+  <div class="sm-in">
+    <div class="sm-card" id="sm-card"></div>
+    <div class="sm-art" id="sm-art" aria-hidden="true"></div>
+  </div>
+</dialog>
+
+<template id="tpl-cocktail">
+  <h2 id="sm-title"><span data-f="name"></span><span>Cocktail</span></h2>
+  <dl class="spec">
+    <div><dt>Where</dt><dd>The main bar</dd></div>
+    <div><dt>On the list</dt><dd>Cocktail menu, twelve drinks</dd></div>
+    <div><dt>Price</dt><dd>On the cocktail menu at the bar</dd></div>
+    <div><dt>Star Rewards</dt><dd>Collect points at Star Hotels venues</dd></div>
+  </dl>
+  <button class="btn btn--wide" type="button" data-book>Book a table <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+</template>
+<template id="tpl-parmy">
+  <h2 id="sm-title">Parmy Army<span>Chicken Schnitzel</span></h2>
+  <p>Start with the schnitzel, then parmy it up. Members pay $1 less.</p>
+  <dl class="spec">
+    <div><dt>Chicken Schnitzel</dt><dd>$27.73 · members $26.73</dd></div>
+    <div><dt>Original</dt><dd>+$5.72</dd></div>
+    <div><dt>Caldo</dt><dd>+$5.99</dd></div>
+    <div><dt>Hawaiian</dt><dd>+$6.61</dd></div>
+    <div><dt>Hangover</dt><dd>+$7.87</dd></div>
+    <div><dt>Pork Belly</dt><dd>+$7.91</dd></div>
+    <div><dt>Super Supreme</dt><dd>+$7.98</dd></div>
+    <div><dt>Dirty Birdie</dt><dd>+$9.98</dd></div>
+  </dl>
+  <button class="btn btn--wide" type="button" data-book>Book a table <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+</template>
+<template id="tpl-cake">
+  <h2 id="sm-title">Coffee &amp; cake<span>At the coffee counter</span></h2>
+  <dl class="spec">
+    <div><dt>Coffee &amp; cake</dt><dd>$13.95 · members $12.95</dd></div>
+    <div><dt>Cake</dt><dd>$10.95 · members $9.95</dd></div>
+    <div><dt>Coffee</dt><dd>Cup $5.00 · mug $5.50</dd></div>
+    <div><dt>Tea</dt><dd>Cup $4.00 · mug $4.50 · pot $5.00</dd></div>
+  </dl>
+</template>
+<template id="tpl-kids">
+  <h2 id="sm-title">Little Nippers<span>Kids menu, 12 and under</span></h2>
+  <p>Every kids meal comes with a soft drink and vanilla ice cream with topping.</p>
+  <dl class="spec">
+    <div><dt>Chicken Nuggets</dt><dd>$13.95</dd></div>
+    <div><dt>Hawaiian Pizza</dt><dd>$13.95</dd></div>
+    <div><dt>Fish &amp; Chips</dt><dd>$13.95</dd></div>
+    <div><dt>Cheeseburger</dt><dd>$13.95</dd></div>
+    <div><dt>Bolognese</dt><dd>$13.95</dd></div>
+  </dl>
+  <button class="btn btn--wide" type="button" data-book>Book a family table <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+</template>
+<template id="tpl-members">
+  <h2 id="sm-title">Star Rewards<span>$1 off every dish</span></h2>
+  <p>The loyalty program across Star Hotels venues and Star Liquor stores. Members hear first about offers and events.</p>
+  <dl class="spec">
+    <div><dt>Bistro</dt><dd>$1 less on every dish</dd></div>
+    <div><dt>Coffee &amp; cake</dt><dd>$12.95 instead of $13.95</dd></div>
+    <div><dt>Points</dt><dd>Use them at any Star Hotels venue or Star Liquor store</dd></div>
+  </dl>
+  <a class="btn btn--wide btn--red" href="#rewards" data-close-go>Join Star Rewards <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+</template>
+<template id="tpl-platters">
+  <h2 id="sm-title">Platters<span>For functions</span></h2>
+  <dl class="spec">
+    <div><dt>Pizza</dt><dd>$100</dd></div>
+    <div><dt>Dessert</dt><dd>$100</dd></div>
+    <div><dt>Vegetarian</dt><dd>$110</dd></div>
+    <div><dt>Pub Classic</dt><dd>$120</dd></div>
+    <div><dt>Cheese</dt><dd>$120</dd></div>
+    <div><dt>Mini Slider Burgers</dt><dd>$120</dd></div>
+    <div><dt>Gluten Free</dt><dd>$130</dd></div>
+    <div><dt>Premium</dt><dd>$145</dd></div>
+  </dl>
+  <a class="btn btn--wide btn--red" href="mailto:enquiries@aspleyhotel.com.au?subject=Function%20enquiry">Email the functions team <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+</template>
+<template id="tpl-terms">
+  <h2 id="sm-title">Function terms<span>The short version</span></h2>
+  <dl class="spec">
+    <div><dt>Deposit</dt><dd>$100</dd></div>
+    <div><dt>Minimum spend</dt><dd>$1,000 Mon – Thu, $2,000 Fri – Sun, or $250 room hire</dd></div>
+    <div><dt>Staff</dt><dd>$35 an hour</dd></div>
+    <div><dt>Cakeage</dt><dd>$2.50 a person</dd></div>
+    <div><dt>Public holidays</dt><dd>10% surcharge</dd></div>
+    <div><dt>Not available for</dt><dd>18th, 19th and 20th birthdays</dd></div>
+  </dl>
+  <a class="btn btn--wide btn--red" href="mailto:enquiries@aspleyhotel.com.au?subject=Function%20enquiry">Email the functions team <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+</template>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/CustomEase.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const root = document.documentElement;
+  const reduceMQ = matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* ---------- Brisbane time (UTC+10, no daylight saving) ---------- */
+  function bne() {
+    const parts = new Intl.DateTimeFormat('en-AU', { timeZone: 'Australia/Brisbane', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date());
+    const get = t => parts.find(p => p.type === t)?.value;
+    const days = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+    return { day: days[get('weekday')], mins: (+get('hour')) * 60 + (+get('minute')), y: +get('year'), m: +get('month'), d: +get('day') };
+  }
+  const fmt = m => { m = ((m % 1440) + 1440) % 1440; let h = Math.floor(m / 60), mm = m % 60; const ap = h >= 12 ? 'pm' : 'am'; h = h % 12 || 12; return h + (mm ? ':' + String(mm).padStart(2, '0') : '') + ap; };
+  function kitchenStatus(t) {
+    const split = t.day <= 3; // Sun–Wed: lunch and dinner sittings
+    const sessions = split ? [[690, 870], [1050, 1230]] : [[690, 1230]];
+    const bottleClose = (t.day === 5 || t.day === 6) ? 1440 : 1380;
+    for (const [a, b] of sessions) if (t.mins >= a && t.mins < b) return { open: true, text: 'Kitchen open till ' + fmt(b) };
+    if (t.mins < 690) return { open: false, text: 'Kitchen opens 11:30am today' };
+    if (split && t.mins >= 870 && t.mins < 1050) return { open: false, text: 'Kitchen back at 5:30pm' };
+    if (t.mins >= 600 && t.mins < bottleClose) return { open: false, text: 'Kitchen closed · Bottle shop open till ' + (bottleClose === 1440 ? 'midnight' : '11pm') };
+    return { open: false, text: 'Kitchen opens 11:30am tomorrow' };
+  }
+  const now = bne();
+  const ks = kitchenStatus(now);
+  $$('[data-live-kitchen]').forEach(el => { el.textContent = ks.text; el.dataset.state = ks.open ? 'open' : 'closed'; });
+  $$('#weekly li').forEach(li => { if (li.dataset.days.length === 1 && li.dataset.days.includes(String(now.day))) li.classList.add('today'); });
+  // Melbourne Cup countdown
+  const cupDate = Date.UTC(2026, 10, 3), today = Date.UTC(now.y, now.m - 1, now.d);
+  const daysTo = Math.round((cupDate - today) / 864e5);
+  const cupEl = $('#cup-days');
+  if (cupEl) cupEl.textContent = daysTo > 1 ? daysTo + ' days away.' : daysTo === 1 ? 'Tomorrow.' : daysTo === 0 ? 'Today.' : 'Thanks to everyone who came.';
+  const marker = $('#cup-marker');
+  const cupProgress = Math.max(0, Math.min(1, 1 - daysTo / 42)); // rail spans the six weeks before the Cup
+  if (marker) marker.style.left = (cupProgress * 100).toFixed(1) + '%';
+  // pint "now" line
+  const pintNow = $('#pint-now');
+  if (pintNow) {
+    const f = now.mins >= 600 ? (now.mins - 600) / 840 : 0;
+    pintNow.setAttribute('transform', `translate(0 ${(388 - f * 315).toFixed(1)})`);
+    pintNow.style.display = '';
+    $('#pint-now-t').textContent = 'NOW ' + fmt(now.mins).toUpperCase();
+  }
+  // date input min
+  const bkDate = $('#bk-date');
+  if (bkDate) bkDate.min = `${now.y}-${String(now.m).padStart(2, '0')}-${String(now.d).padStart(2, '0')}`;
+
+  /* ---------- pill position under the mock note, header swap ---------- */
+  const note = $('.note');
+  let ticking = false;
+  function onScroll() {
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(() => {
+      ticking = false;
+      const y = scrollY;
+      root.classList.toggle('is-scrolled', y > 100);
+      const nh = note.offsetHeight; root.style.setProperty('--note-h', nh + 'px');
+      root.style.setProperty('--pill-top', Math.max(12, nh + 12 - y) + 'px');
+    });
+  }
+  addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('resize', onScroll);
+  onScroll();
+
+  /* ---------- menu: pill grows into a panel ---------- */
+  const pill = $('#pill'), menuBtn = $('#menu-btn'), panel = $('#menu-panel');
+  const focusables = () => $$('a[href],button:not([disabled])', pill).filter(el => !el.closest('[inert]'));
+  function openMenu() {
+    pill.classList.add('is-open'); panel.inert = false; menuBtn.setAttribute('aria-expanded', 'true');
+    window.__lenis?.stop();
+    setTimeout(() => panel.querySelector('a')?.focus({ preventScroll: true }), reduceMQ.matches ? 0 : 220);
+    document.addEventListener('keydown', onMenuKey); document.addEventListener('pointerdown', onOutside);
+  }
+  function closeMenu(focusBtn = true) {
+    pill.classList.remove('is-open'); panel.inert = true; menuBtn.setAttribute('aria-expanded', 'false');
+    window.__lenis?.start();
+    document.removeEventListener('keydown', onMenuKey); document.removeEventListener('pointerdown', onOutside);
+    if (focusBtn) menuBtn.focus({ preventScroll: true });
+  }
+  function onMenuKey(e) {
+    if (e.key === 'Escape') { e.preventDefault(); closeMenu(); return; }
+    if (e.key === 'Tab') {
+      const f = focusables(); const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  }
+  function onOutside(e) { if (!pill.contains(e.target)) closeMenu(false); }
+  menuBtn.addEventListener('click', () => pill.classList.contains('is-open') ? closeMenu() : openMenu());
+  panel.addEventListener('click', e => { if (e.target.closest('a[href^="#"]')) closeMenu(false); });
+
+  /* ---------- in-page links (chapters live inside a pinned stage) ---------- */
+  function scrollToY(y) { if (window.__lenis) window.__lenis.scrollTo(y, { force: true, duration: Math.max(.75, Math.abs(y - scrollY) / 4000 * .75), easing: t => t < .5 ? 16 * t ** 5 : 1 - (-2 * t + 2) ** 5 / 2 }); else scrollTo({ top: y, behavior: reduceMQ.matches ? 'auto' : 'smooth' }); }
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]'); if (!a) return;
+    const id = a.getAttribute('href').slice(1); const target = id === 'top' ? document.body : document.getElementById(id); if (!target) return;
+    e.preventDefault();
+    const inDlg = a.closest('dialog');
+    if (inDlg) { inDlg.close(); root.classList.remove('modal-open'); window.__lenis?.start(); }
+    let y = id === 'top' ? 0 : target.getBoundingClientRect().top + scrollY;
+    const story = $('#story');
+    if (a.dataset.ch && story) {
+      const i = +a.dataset.ch;
+      if (story.classList.contains('is-pinned')) { const range = story.offsetHeight - innerHeight; y = story.offsetTop + range * ((i + .45) / 3); }
+      else y = $$('.chapter', story)[i].getBoundingClientRect().top + scrollY;
+    }
+    scrollToY(y);
+    if (id !== 'top') { target.setAttribute('tabindex', '-1'); target.focus({ preventScroll: true }); }
+  });
+
+  /* ---------- dialogs ---------- */
+  const bookDlg = $('#book-dialog'), specDlg = $('#spec-dialog');
+  let lastOpener = null;
+  function openDlg(d, opener) {
+    const o = opener || document.activeElement;
+    if (o && !o.closest('dialog')) lastOpener = o; // keep the page control when one dialog hands off to another
+    if (pill.classList.contains('is-open')) closeMenu(false);
+    d.showModal(); root.classList.add('modal-open'); window.__lenis?.stop();
+  }
+  [bookDlg, specDlg].forEach(d => {
+    d.addEventListener('close', () => {
+      if (bookDlg.open || specDlg.open) return;
+      root.classList.remove('modal-open'); window.__lenis?.start(); lastOpener?.focus?.({ preventScroll: true });
+    });
+    d.addEventListener('click', e => {
+      if (e.target === d || e.target.classList.contains('sm-in') || e.target.closest('[data-close]')) d.close();
+    });
+  });
+  document.addEventListener('click', e => {
+    const b = e.target.closest('[data-book]'); if (!b) return;
+    if (specDlg.open) specDlg.close();
+    $('#book-ok').hidden = true;
+    $('#bk-for').value = b.dataset.book === 'cup' ? 'cup' : 'table';
+    if (b.dataset.book === 'cup') $('#bk-date').value = '2026-11-03';
+    openDlg(bookDlg, b);
+  });
+  $('#book-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const ok = $('#book-ok'); ok.hidden = false;
+    ok.textContent = 'Mock only. This form isn\'t connected, so nothing was sent. To book now, call (07) 3263 4040.';
+  });
+  $('#rewards-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const em = $('#rw-email'), msg = $('#rewards-msg');
+    if (!em.value || !em.checkValidity()) { msg.textContent = 'Enter an email address like name@example.com.'; em.focus(); return; }
+    msg.textContent = 'Mock only. This form isn\'t connected, so nothing was sent.';
+  });
+
+  // spec modal from tiles
+  const glassFor = { coupe: 'g-coupe', martini: 'g-martini', high: 'g-high', rocks: 'g-rocks', wine: 'g-wine', hurr: 'g-hurr' };
+  document.addEventListener('click', e => {
+    const t = e.target.closest('button.tile'); if (!t) return;
+    const card = $('#sm-card'), art = $('#sm-art');
+    const tpl = $('#' + (t.dataset.tpl || 'tpl-cocktail'));
+    card.replaceChildren(tpl.content.cloneNode(true));
+    specDlg.style.setProperty('--g1', t.dataset.g1 || t.style.getPropertyValue('--g1'));
+    specDlg.style.setProperty('--g2', t.dataset.g2 || t.style.getPropertyValue('--g2'));
+    if (t.dataset.name) {
+      card.querySelector('[data-f="name"]').textContent = t.dataset.name;
+      art.innerHTML = `<svg viewBox="0 0 120 160" style="--liq:${t.dataset.liq}" aria-hidden="true"><use href="#${glassFor[t.dataset.glass]}"/></svg>`;
+      art.classList.toggle('dark', t.classList.contains('dark'));
+    } else {
+      const img = t.querySelector('img'); const big = t.querySelector('.big');
+      if (img) art.innerHTML = `<img src="${img.getAttribute('src').replace('-sm.webp', '.webp')}" alt="">`;
+      else art.innerHTML = `<p class="bigt">${big ? big.innerHTML : ''}</p>`;
+    }
+    openDlg(specDlg, t);
+  });
+
+  /* ---------- members price toggle ---------- */
+  const mt = $('#members-toggle'), ml = $('#menu-list'), mnote = $('#members-note');
+  mt.addEventListener('click', () => {
+    const on = mt.getAttribute('aria-checked') !== 'true';
+    mt.setAttribute('aria-checked', String(on)); ml.dataset.members = String(on);
+    mnote.textContent = on ? 'Showing Star Rewards prices, $1 less on every dish.' : 'Showing standard prices. Members pay $1 less on every dish.';
+  });
+
+  /* ================= MOTION ================= */
+  if (!window.gsap || !window.ScrollTrigger) { root.classList.remove('intro-pending'); return; }
+  gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase);
+  CustomEase.create('spring', 'M0,0 C0.18,0.72 0.32,1.04 0.52,1.03 C0.7,1.01 0.85,1 1,1');
+  CustomEase.create('menu', 'M0,0 C1,0.005 0.292,1 1,1');
+  ScrollTrigger.config({ ignoreMobileResize: true });
+
+  const mm = gsap.matchMedia();
+
+  /* Lenis: only with motion allowed and a fine pointer */
+  mm.add('(prefers-reduced-motion: no-preference) and (pointer: fine)', () => {
+    if (!window.Lenis) return;
+    const lenis = new Lenis({ lerp: 0.1, wheelMultiplier: 1 });
+    window.__lenis = lenis;
+    lenis.on('scroll', ScrollTrigger.update);
+    const raf = t => lenis.raf(t * 1000);
+    gsap.ticker.add(raf); gsap.ticker.lagSmoothing(0);
+    return () => { gsap.ticker.remove(raf); lenis.destroy(); window.__lenis = null; };
+  });
+
+  /* Hero intro: plays on load (focal moment) */
+  mm.add({ motion: '(prefers-reduced-motion: no-preference)', small: '(max-width: 999px)' }, ctx => {
+    if (!ctx.conditions.motion) return;
+    const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
+    tl.fromTo('.hero-media', { clipPath: 'inset(7% 5% 7% 5% round 24px)', scale: 1.04 }, { clipPath: 'inset(0% 0% 0% 0% round 0px)', scale: 1, duration: 1.5 }, 0)
+      .fromTo('.hero-media img', { filter: `blur(${ctx.conditions.small ? 6 : 14}px)`, scale: 1.14 }, { filter: 'blur(0px)', scale: 1, duration: 2.4, clearProps: 'filter' }, 0)
+      .fromTo('.hero .li', { y: 0, yPercent: 110, skewX: 10, scale: 1.04 }, { y: 0, yPercent: 0, skewX: 0, scale: 1, duration: .9, ease: 'spring', stagger: .1 }, .35)
+      .fromTo('.mast', { autoAlpha: 0 }, { autoAlpha: 1, duration: .9 }, .7)
+      .fromTo('.hero-foot > *', { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: .8, stagger: .12 }, .8);
+    root.classList.remove('intro-pending');
+    // hero media drifts slower than the page as you leave
+    gsap.to('.hero-media img', { yPercent: 12, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+  });
+  mm.add('(prefers-reduced-motion: reduce)', () => { root.classList.remove('intro-pending'); });
+
+  function whenReady(fn) { (document.fonts ? document.fonts.ready : Promise.resolve()).then(fn); }
+
+  whenReady(() => {
+    /* ---------- desktop pinned story ---------- */
+    mm.add('(prefers-reduced-motion: no-preference) and (min-width: 1000px)', () => {
+      const story = $('#story'); const chapters = $$('.chapter', story); const n = chapters.length;
+      const dots = $$('.story-dots span', story);
+      story.classList.add('is-pinned');
+      const splits = chapters.map(ch => SplitText.create($('.ch-title', ch), { type: 'lines', mask: 'lines' }));
+      splits.forEach(s => s.masks?.forEach(m => { m.style.padding = '.1em .06em .14em'; m.style.margin = '-.1em -.06em -.14em'; }));
+      const parts = ch => ({ lines: splits[chapters.indexOf(ch)].lines, cards: $$('.ch-card', ch), text: $$('.ch-meta,.ch-body', ch) });
+      chapters.forEach((ch, i) => { if (i) { gsap.set(ch, { autoAlpha: 0 }); } });
+      let current = 0; const tls = [];
+      function show(i, dir) {
+        tls[i]?.kill(); const ch = chapters[i]; const p = parts(ch);
+        tls[i] = gsap.timeline()
+          .set(ch, { autoAlpha: 1 })
+          .fromTo(p.lines, { yPercent: dir > 0 ? 110 : -110, skewX: dir > 0 ? 10 : -10, scale: 1.04 }, { yPercent: 0, skewX: 0, scale: 1, duration: .75, ease: 'expo.out', stagger: .05 }, 0)
+          .fromTo(p.cards, { scale: .7, skewX: 8, clipPath: 'inset(100% 0% 0% 0% round 16px)' }, { scale: 1, skewX: 0, clipPath: 'inset(0% 0% 0% 0% round 16px)', duration: .8, ease: 'expo.out', stagger: .1 }, .05)
+          .fromTo(p.text, { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: .6, ease: 'expo.out', stagger: .06 }, .15);
+        dots.forEach((d, k) => d.classList.toggle('on', k === i));
+      }
+      function hide(i, dir) {
+        tls[i]?.kill(); const ch = chapters[i]; const p = parts(ch);
+        tls[i] = gsap.timeline({ onComplete: () => gsap.set(ch, { autoAlpha: 0 }) })
+          .to(p.lines, { yPercent: dir > 0 ? -110 : 110, duration: .4, ease: 'power2.inOut', stagger: .03 }, 0)
+          .to(p.cards, { clipPath: dir > 0 ? 'inset(0% 0% 100% 0% round 16px)' : 'inset(100% 0% 0% 0% round 16px)', scale: .9, duration: .45, ease: 'power2.inOut' }, 0)
+          .to(p.text, { autoAlpha: 0, duration: .25 }, 0);
+      }
+      const seg = () => (story.offsetHeight - innerHeight) / n;
+      ScrollTrigger.create({
+        trigger: story, start: 'top top', end: 'bottom bottom',
+        onUpdate(self) {
+          const idx = Math.min(n - 1, Math.floor(self.progress * n * 0.9999));
+          if (idx !== current) { const dir = idx > current ? 1 : -1; hide(current, dir); show(idx, dir); current = idx; }
+        }
+      });
+      // scrubbed inside each chapter: cards rotate opposite ways, tagline drifts up
+      chapters.forEach((ch, i) => {
+        const odd = i % 2 ? -1 : 1;
+        const l = $('.ch-card-wrap.l', ch), r = $('.ch-card-wrap.r', ch);
+        gsap.timeline({ scrollTrigger: { trigger: story, start: () => `top+=${i * seg()} top`, end: () => `top+=${(i + 1) * seg()} top`, scrub: true, invalidateOnRefresh: true }, defaults: { ease: 'none' } })
+          .fromTo(l, { rotation: 0, yPercent: 0 }, { rotation: -15 * odd, yPercent: -18 }, 0)
+          .fromTo(r, { rotation: 0, yPercent: 0 }, { rotation: 15 * odd, yPercent: 14 }, 0)
+          .fromTo($('.ch-title', ch), { y: 0 }, { y: () => -innerHeight * .05 }, 0);
+      });
+      // dark cover from the hero fades over the first fifth of the story
+      gsap.fromTo('.story-cover', { opacity: .8 }, { opacity: 0, ease: 'none', scrollTrigger: { trigger: story, start: 'top bottom', end: () => `top+=${seg() * .6} top`, scrub: true, invalidateOnRefresh: true } });
+      // contour rings: per-ring parallax and a staggered arrival
+      const paths = $$('.contours path');
+      gsap.fromTo(paths, { y: 0 }, { y: i => -(70 + i * 16), ease: 'none', scrollTrigger: { trigger: story, start: 'top bottom', end: 'bottom top', scrub: true } });
+      gsap.from('.contours', { scale: .95, rotation: 9, duration: 1.6, ease: 'expo.out', scrollTrigger: { trigger: story, start: 'top 70%', once: true } });
+      gsap.from(paths, { opacity: 0, duration: 1.4, ease: 'power1.inOut', stagger: { each: .03, from: 'end' }, scrollTrigger: { trigger: story, start: 'top 70%', once: true } });
+      // first chapter lines play in as the story arrives
+      show(0, 1); tls[0].pause(0);
+      ScrollTrigger.create({ trigger: story, start: 'top 55%', once: true, onEnter: () => tls[0].play() });
+      return () => { story.classList.remove('is-pinned'); splits.forEach(s => s.revert()); gsap.set(chapters, { clearProps: 'all' }); };
+    });
+
+    /* ---------- everything else that moves with scroll (all widths) ---------- */
+    mm.add('(prefers-reduced-motion: no-preference)', () => {
+      // E1 line-mask reveals on headings
+      $$('.js-lines, .cat-head, .weekly h3, .day-list h3').forEach(el => {
+        SplitText.create(el, {
+          type: 'lines', mask: 'lines', autoSplit: true,
+          onSplit(self) {
+            self.masks?.forEach(m => { m.style.padding = '.1em .06em .14em'; m.style.margin = '-.1em -.06em -.14em'; });
+            return gsap.from(self.lines, { yPercent: 110, skewX: 8, scale: 1.04, transformOrigin: '0% 100%', duration: .8, ease: 'spring', stagger: .08, scrollTrigger: { trigger: el, start: 'top 90%', once: true } });
+          }
+        });
+      });
+
+      // stacked story (phones): cards block-tween in
+      if (innerWidth < 1000) {
+        $$('.chapter').forEach(ch => gsap.from($$('.ch-card', ch), { scale: .8, clipPath: 'inset(100% 0% 0% 0% round 16px)', duration: .8, ease: 'expo.out', stagger: .1, scrollTrigger: { trigger: ch, start: 'top 85%', once: true } }));
+      }
+
+      // E6 arch: scales in with scroll, quote lines scrub up inside it
+      const arch = $('#arch');
+      gsap.fromTo(arch, { scale: .18 }, { scale: 1, ease: 'expo.out', scrollTrigger: { trigger: '.archsec', start: 'top bottom-=120', end: 'top top+=12%', scrub: .5 } });
+      const q = SplitText.create('#arch-q p', { type: 'lines', mask: 'lines' });
+      q.masks?.forEach(m => { m.style.padding = '.08em .06em .14em'; m.style.margin = '-.08em -.06em -.14em'; });
+      gsap.from(q.lines, { yPercent: 110, skewX: 6, stagger: .12, ease: 'power2.out', scrollTrigger: { trigger: arch, start: 'top 70%', end: 'top 15%', scrub: .25 } });
+      gsap.fromTo('.arch svg.dash', { rotation: -6, scale: 1.1 }, { rotation: 4, scale: 1, transformOrigin: '50% 50%', ease: 'none', scrollTrigger: { trigger: '.archsec', start: 'top bottom', end: 'bottom top', scrub: true } });
+
+      // E15 parallax on [data-speed]
+      $$('[data-speed]').forEach(el => gsap.to(el, { yPercent: -100 * parseFloat(el.dataset.speed), ease: 'none', scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: true } }));
+
+      // Option B: the pint fills across the day
+      const liquid = $('#pint-liquid'), liqClip = $('#pint-liq-rect'), foam = $('#pint-foam');
+      const BOTTOM = 388, FULL = 73;
+      const state = { l: 0 };
+      function wave(y, h) { let d = `M0 ${y - h}`; for (let x = 0; x <= 280; x += 20) d += ` Q${x + 10} ${y - h - 5 + (x % 40 ? 2 : 0)} ${x + 20} ${y - h}`; return d + ` V${y + 7} H0 Z`; }
+      function render() {
+        const y = BOTTOM - state.l * (BOTTOM - FULL);
+        liquid.setAttribute('y', y.toFixed(1)); liqClip.setAttribute('y', y.toFixed(1));
+        const h = state.l < .02 ? 0 : 5 + 16 * Math.max(0, (state.l - .85) / .15);
+        foam.setAttribute('d', wave(y, h)); foam.style.opacity = state.l < .02 ? 0 : 1;
+      }
+      render();
+      const small = innerWidth < 1000;
+      gsap.to(state, { l: 1, ease: 'none', onUpdate: render, scrollTrigger: small ? { trigger: '.pint', start: 'top 85%', end: 'bottom 30%', scrub: .5 } : { trigger: '.day-grid', start: 'top 70%', end: 'bottom 80%', scrub: .5 } });
+      const bubbles = $$('#bubbles circle');
+      const btl = gsap.timeline({ paused: true });
+      bubbles.forEach((c, i) => {
+        const x = +c.getAttribute('cx');
+        btl.fromTo(c, { attr: { cy: 392 } }, { attr: { cy: 40 }, duration: gsap.utils.random(2.2, 4), ease: 'none', repeat: -1, delay: -gsap.utils.random(0, 4) }, 0);
+        btl.to(c, { attr: { cx: x + gsap.utils.random(-6, 6) }, duration: gsap.utils.random(.8, 1.4), ease: 'sine.inOut', yoyo: true, repeat: -1 }, 0);
+      });
+      ScrollTrigger.create({ trigger: '.pint', start: 'top bottom', end: 'bottom top', onToggle: s => s.isActive ? btl.play() : btl.pause() });
+
+      // E2 block tween for catalogue tiles
+      $$('.js-tiles').forEach(grid => gsap.from(grid.children, { scale: .82, skewX: 6, skewY: 4, clipPath: 'inset(100% 0% 0% 0% round 12px)', duration: .85, ease: 'expo.out', stagger: .07, clearProps: 'clipPath,transform', scrollTrigger: { trigger: grid, start: 'top 85%', once: true } }));
+
+      // E8 mosaic: title words rise, photos pop on a spring
+      const mt = SplitText.create('#wo-h', { type: 'words', mask: 'words' });
+      mt.masks?.forEach(m => { m.style.padding = '.06em .04em .16em'; m.style.margin = '-.06em -.04em -.16em'; });
+      gsap.from(mt.words, { yPercent: 110, duration: .75, ease: 'expo.out', stagger: .06, scrollTrigger: { trigger: '.mosaic', start: 'top 75%', once: true } });
+      gsap.from('.mph', { scale: .45, skewX: 12, duration: .6, ease: 'back.out(1.5)', stagger: .08, scrollTrigger: { trigger: '.mosaic', start: 'top 70%', once: true } });
+
+      // Melbourne Cup marker runs down the straight once
+      gsap.from('#cup-marker', { left: '0%', duration: 1.4, ease: 'expo.out', scrollTrigger: { trigger: '.cup', start: 'top 80%', once: true } });
+
+      // E9 prefooter: lines clip in, words part, photo opens between them
+      const pfl = $('.pf-l'), pfr = $('.pf-r'), pfp = $('.pf-photo');
+      const half = () => pfp.offsetWidth / 2 + 4;
+      gsap.timeline({ scrollTrigger: { trigger: '.prefoot', start: 'top 75%', once: true } })
+        .from('.pf-w', { yPercent: 105, duration: .6, ease: 'power2.inOut', stagger: .05 })
+        .from(pfl, { x: half, duration: .8, ease: 'expo.out' }, '-=.15')
+        .from(pfr, { x: () => -half(), duration: .8, ease: 'expo.out' }, '<')
+        .from(pfp, { clipPath: 'inset(100% 0% 0% 0% round .11em)', scale: .6, duration: .8, ease: 'expo.out' }, '<');
+
+      // footer badge ring turns with scroll
+      gsap.set('.fb-ring', { svgOrigin: '100 100' });
+      gsap.fromTo('.fb-ring', { rotation: -40, svgOrigin: '100 100' }, { rotation: 140, svgOrigin: '100 100', ease: 'none', scrollTrigger: { trigger: '.foot', start: 'top bottom', end: 'bottom top', scrub: true } });
+
+      // E10 velocity marquee, paused off-screen
+      const track = $('#mq');
+      const loop = gsap.to(track, { xPercent: -50, ease: 'none', duration: 26, repeat: -1, paused: true });
+      loop.totalTime(26 * 200);
+      let settle;
+      ScrollTrigger.create({
+        trigger: '.rail-band', start: 'top bottom', end: 'bottom top',
+        onToggle: s => s.isActive ? loop.play() : loop.pause(),
+        onUpdate: s => {
+          const v = s.getVelocity(); const dir = s.direction || 1;
+          loop.timeScale(dir * (1 + Math.min(Math.abs(v) / 260, 7)));
+          settle?.kill(); settle = gsap.to(loop, { timeScale: dir, duration: 1.1, ease: 'power2.out' });
+        }
+      });
+    });
+
+    /* ---------- The Pour stage (desktop): push-in + clip wipes ---------- */
+    mm.add({ motion: '(prefers-reduced-motion: no-preference)', desk: '(min-width: 1000px)' }, ctx => {
+      if (!ctx.conditions.desk) return;
+      const layers = $$('.pour-layer');
+      if (ctx.conditions.motion) {
+        gsap.fromTo('.pour-media', { scale: .9, '--r': '80px' }, { scale: 1, '--r': '0px', ease: 'power1.inOut', scrollTrigger: { trigger: '.pour-track', start: 'top bottom-=100', end: 'top top', scrub: true } });
+        gsap.set(layers.slice(1), { clipPath: 'inset(100% 0% 0% 0%)' });
+        const tl = gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { trigger: '.pour-track', start: 'top top', end: 'bottom bottom', scrub: .6 } });
+        layers.forEach(l => tl.fromTo(l.querySelector('img'), { scale: 1 }, { scale: 1.14, duration: 1 }, 0));
+        [.25, .5, .75].forEach((t, k) => tl.fromTo(layers[k + 1], { clipPath: 'inset(100% 0% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: .12, ease: 'power2.inOut' }, t - .06));
+      } else {
+        // reduced motion: swap layers with a short crossfade, no movement
+        const entries = $$('.pour-entry');
+        gsap.set(layers.slice(1), { opacity: 0 });
+        entries.slice(1).forEach((en, k) => ScrollTrigger.create({ trigger: en, start: 'top 55%', end: 'max',
+          onEnter: () => gsap.to(layers[k + 1], { opacity: 1, duration: .25, overwrite: true }),
+          onLeaveBack: () => gsap.to(layers[k + 1], { opacity: 0, duration: .25, overwrite: true }) }));
+      }
+      return () => gsap.set(layers, { clearProps: 'all' });
+    });
+
+    ScrollTrigger.refresh();
+  });
+
+  addEventListener('load', () => ScrollTrigger.refresh());
+})();
+</script>

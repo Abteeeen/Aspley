@@ -1,0 +1,1634 @@
+<title>Aspley Hotel Lookbook</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Aspley Hotel, the pub on the hill since 1935. Bistro, bar, deck, sports bar with TAB, gaming room, functions and a drive-through bottle shop at 1247 Gympie Road, Aspley.">
+<meta name="theme-color" content="#0d0b0a">
+<script>
+/* Hide the four hero pieces until the intro timeline takes over. Safety net: always reveal after 3s. */
+document.documentElement.classList.add('js','js-intro');
+setTimeout(function(){document.documentElement.classList.remove('js-intro')},3000);
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Inter+Tight:wght@500;700&display=swap">
+<style>
+/*
+  Variant D: the lookbook.
+  System borrowed from the Wolverine reference (structure, rhythm, type, motion vocabulary), rebuilt for the Aspley Hotel.
+  Monochrome warm black and white, one accent (Aspley red) for Book actions and the badge.
+  Inter Tight 500/700 for everything, Geist Mono for data (times, capacities, prices). Rounded inset media, glass over photos.
+*/
+:root{
+  color-scheme: light;
+  --ink:#0d0b0a;
+  --ink-2:#1c1916;
+  --paper:#fbfaf7;
+  --stone:#ece8e1;          /* light pill fill */
+  --line:#d9d5ce;           /* hairline */
+  --mute:#6b655e;           /* 5.6:1 on paper */
+  --mute-d:#a8a198;         /* 7:1 on ink */
+  --red:#C8102E;
+  --red-h:#a50d25;
+  --ring:#0d0b0a;
+
+  --sans:"Inter Tight","Helvetica Neue",Arial,sans-serif;
+  --mono:"Geist Mono",ui-monospace,Menlo,Consolas,monospace;
+
+  --ease-expo:cubic-bezier(.19,1,.22,1);
+  --ease-out:cubic-bezier(.23,1,.32,1);
+  --ease-p2:cubic-bezier(.215,.61,.355,1);
+
+  --m:clamp(16px,3.334vw,48px);   /* grid margin */
+  --g:20px;                        /* gutter */
+  --sp-sm:clamp(1rem,.8261rem + .8696vw,1.5rem);
+  --sp-md:clamp(1.5rem,1.3261rem + .8696vw,2rem);
+  --sp-lg:clamp(2rem,1.8261rem + .8696vw,2.5rem);
+  --sp-xl:clamp(2.5rem,2.1522rem + 1.7391vw,3.5rem);
+  --sp-2xl:clamp(3.5rem,2.7609rem + 3.6957vw,5.625rem);
+  --sp-3xl:clamp(5.625rem,4.3207rem + 6.5217vw,9.375rem);
+
+  --fs-dxl:clamp(3.125rem,.6rem + 11.1vw,10.5rem);
+  --fs-dlg:clamp(2.875rem,.92rem + 9.13vw,8rem);
+  --fs-hmd:clamp(1.75rem,.78rem + 3.59vw,3.5625rem);
+  --fs-hsm:clamp(1.375rem,.73rem + 2.61vw,2.75rem);
+  --fs-hxs:clamp(1.375rem,.97rem + 1.41vw,2.0625rem);
+  --fs-blg:clamp(1.0625rem,.87rem + .98vw,1.625rem);
+  --fs-bmd:clamp(1rem,.85rem + .45vw,1.1875rem);
+  --fs-bsm:.9375rem;
+  --fs-lab:.75rem;
+
+  --note-h:34px;
+  --z-dim:30; --z-bar:40; --z-cta:45; --z-header:50;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;background:var(--paper);scrollbar-color:var(--ink) var(--paper)}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto !important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:500 var(--fs-bmd)/1.4 var(--sans);letter-spacing:-.02em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:clip;font-kerning:normal}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-underline-offset:.2em;text-decoration-thickness:1px}
+a[href^="tel:"]{white-space:nowrap}
+button,input,select{font:inherit;color:inherit;letter-spacing:inherit}
+button{cursor:pointer}
+h1,h2,h3,p,ul,ol,dl,dd,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+::selection{background:var(--ink);color:var(--paper)}
+:focus-visible{outline:2px solid var(--ring);outline-offset:3px;border-radius:6px}
+.on-dark{--ring:#fbfaf7}
+input,select{caret-color:var(--red)}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--ink);color:var(--paper);padding:10px 14px;border-radius:10px;text-decoration:none}
+.skip:focus{top:12px}
+.mono{font-family:var(--mono);font-size:var(--fs-lab);font-weight:400;line-height:1.4;letter-spacing:.02em;text-transform:uppercase;font-variant-numeric:tabular-nums}
+.container{width:100%;max-width:1600px;margin-inline:auto;padding-inline:var(--m)}
+.grid12{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g)}
+.hair{display:block;height:1px;background:var(--line);transform-origin:0 50%}
+.h-xs{font-size:var(--fs-hxs);font-weight:700;letter-spacing:-.03em;line-height:1.02;text-wrap:balance}
+.h-sm{font-size:var(--fs-hsm);font-weight:700;letter-spacing:-.03em;line-height:.95;text-wrap:balance}
+.h-md{font-size:var(--fs-hmd);font-weight:700;letter-spacing:-.04em;line-height:.92;text-wrap:balance}
+.d-lg{font-size:var(--fs-dlg);font-weight:700;letter-spacing:-.05em;line-height:.8}
+.lead{font-size:var(--fs-hxs);font-weight:700;letter-spacing:-.03em;line-height:1.04;text-wrap:pretty}
+.ico{width:14px;height:14px;flex:none;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- Mock note ---------- */
+.mock-note{position:relative;z-index:1;text-wrap:balance;background:var(--ink);color:var(--paper);font:400 12px/1.4 var(--mono);letter-spacing:.01em;text-align:center;padding:9px var(--m)}
+
+@media (max-width:699px){.mock-note{font:500 12px/1.35 var(--sans);letter-spacing:0;padding:8px 16px}}
+
+/* ---------- Buttons: separate bg layer, arrow swap on hover, squash on press ---------- */
+.btn{--bg:var(--stone);--bg-h:var(--line);--fg:var(--ink);--bd:transparent;--px:20px;position:relative;isolation:isolate;display:inline-flex;align-items:center;min-height:52px;padding:0 var(--px);border:0;background:none;border-radius:12px;color:var(--fg);font:500 var(--fs-bsm)/1 var(--sans);letter-spacing:-.01em;text-decoration:none;white-space:nowrap;overflow:hidden;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.btn__bg{position:absolute;inset:0;z-index:-1;border-radius:inherit;background:var(--bg);box-shadow:inset 0 0 0 1px var(--bd);transition:transform .4s var(--ease-out),background-color .4s var(--ease-out)}
+.btn__in{position:relative;display:inline-flex;align-items:center;gap:16px;transition:transform .16s var(--ease-out)}
+.btn__label{transition:transform .4s var(--ease-out)}
+.btn__in .ico{transition:transform .4s var(--ease-out),opacity .3s var(--ease-out)}
+.btn__in .ico--in{position:absolute;left:0;top:50%;margin-top:-7px;transform:translateX(calc(-100% - var(--px) - 4px))}
+@media (hover:hover) and (pointer:fine){
+  .btn:hover .btn__bg{transform:scaleY(.95);background:var(--bg-h)}
+  .btn:hover .btn__label{transform:translateX(26px)}
+  .btn:hover .ico--in{transform:translateX(0);transition-delay:.075s}
+  .btn:hover .ico--out{transform:translateX(calc(100% + var(--px) + 8px));opacity:0}
+}
+.btn:focus-visible{outline:none}
+.btn:focus-visible .btn__bg{box-shadow:inset 0 0 0 1px var(--bd),0 0 0 2px var(--paper),0 0 0 4px var(--ink)}
+.on-dark .btn:focus-visible .btn__bg{box-shadow:0 0 0 2px var(--ink),0 0 0 4px var(--paper)}
+.btn:active .btn__bg{transform:scaleY(.925);transition-duration:.16s}
+.btn:active .btn__in{transform:translateX(2px)}
+.btn--red{--bg:var(--red);--bg-h:var(--red-h);--fg:#fff}
+.btn--white{--bg:#fff;--bg-h:var(--line);--fg:var(--ink)}
+.btn--black{--bg:var(--ink);--bg-h:#3a3530;--fg:var(--paper)}
+.btn--outline{--bg:transparent;--bg-h:var(--stone);--bd:var(--line)}
+.btn--glass{--bg:rgba(255,255,255,.12);--bg-h:rgba(255,255,255,.22);--bd:rgba(255,255,255,.16);--fg:#fff}
+.btn--glass .btn__bg{-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.btn--blur{--bg:rgba(13,11,10,.07);--bg-h:rgba(13,11,10,.14)}
+.btn--blur .btn__bg{-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.btn--sm{min-height:40px;--px:14px;font-size:14px;border-radius:10px}
+.btn[aria-disabled="true"],.btn:disabled{opacity:.45;pointer-events:none}
+
+/* ---------- Header: full bar at top, centred dark glass pill once scrolled (GSAP Flip) ---------- */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:var(--z-header);pointer-events:none;transition:transform .45s var(--ease-expo)}
+.hdr.is-hidden{transform:translateY(calc(-100% - 24px))}
+.hdr__wrap{position:relative;padding-inline:var(--m);transform:translateY(calc(var(--note-h) + var(--sp-sm)))}
+.hdr.is-pill .hdr__wrap{transform:translateY(12px)}
+.hdr__bar{--ring:#fbfaf7;position:relative;pointer-events:auto;display:flex;align-items:center;gap:clamp(16px,2vw,28px);width:100%;max-width:1600px;margin-inline:auto;min-height:48px;padding:4px 0;color:#fff}
+.hdr__bg{position:absolute;inset:0;z-index:-1;border-radius:12px;background:rgba(13,11,10,.8);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);opacity:0}
+.hdr__brand{display:inline-flex;align-items:center;gap:10px;margin-right:auto;text-decoration:none;min-height:40px;overflow:hidden;border-radius:8px}
+.hdr__word{font:700 15px/1 var(--sans);letter-spacing:.04em;white-space:nowrap}
+.hdr__badge{display:none;width:30px;height:30px;flex:none}
+.hdr__nav ul{display:flex;align-items:center;gap:clamp(12px,1.5vw,24px)}
+.hdr__link{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 2px;background:none;border:0;font:500 15px/1 var(--sans);letter-spacing:-.02em;color:inherit;text-decoration:none;white-space:nowrap}
+.hdr__link .ico{width:12px;height:12px;transition:transform .25s var(--ease-out)}
+.hdr__link[aria-expanded="true"] .ico{transform:rotate(180deg)}
+@media (hover:hover) and (pointer:fine){.hdr__link:hover{text-decoration:underline}}
+.hdr__menu-btn{display:none}
+.hdr.is-pill .hdr__bar{width:max-content;padding:4px 4px 4px 8px}
+.hdr.is-pill .hdr__bg{opacity:1}
+.hdr.is-pill .hdr__word{display:none}
+.hdr.is-pill .hdr__badge{display:block}
+.hdr.is-pill .hdr__brand{margin-right:0}
+.hdr.has-menu .hdr__bg,.hdr.has-mega .hdr__bg{opacity:1}
+@media (min-width:1000px){.hdr:not(.is-pill) .hdr__bg{inset:-2px -16px}}
+.today__cell dd{text-wrap:balance}
+
+/* Mega dropdown */
+.mega{--ring:#fbfaf7;position:absolute;top:calc(100% + 8px);left:50%;width:min(1120px,calc(100vw - 2 * var(--m)));translate:-50% 0;pointer-events:auto;color:#fff;background:rgba(13,11,10,.86);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-radius:12px;padding:8px;display:grid;grid-template-columns:1.1fr 1fr 1fr 1fr;gap:8px;clip-path:inset(0 round 12px)}
+.mega[hidden]{display:none}
+.mega__intro{display:flex;flex-direction:column;gap:12px;padding:16px 16px 12px}
+.mega__intro p{font-size:var(--fs-bsm);line-height:1.4;color:#d8d2c9;max-width:30ch}
+.mega__intro .btn{margin-top:auto;align-self:flex-start}
+.mega__help{font-size:var(--fs-lab)!important}
+.mega__help a{color:#fff}
+.tile{position:relative;display:block;aspect-ratio:1/1.05;border-radius:10px;overflow:hidden;text-decoration:none;color:#fff;background:var(--ink-2)}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease-expo)}
+.tile::after{content:"";position:absolute;inset:40% 0 0;background:linear-gradient(to top,rgba(13,11,10,.85),rgba(13,11,10,0))}
+.tile span{position:absolute;left:14px;right:14px;bottom:12px;z-index:1;font-size:var(--fs-hxs);font-weight:700;letter-spacing:-.03em;line-height:1}
+@media (hover:hover) and (pointer:fine){.tile:hover img{transform:scale(1.05)}}
+.dim{position:fixed;inset:0;z-index:var(--z-dim);background:rgba(13,11,10,.22);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);opacity:0;visibility:hidden;transition:opacity .25s var(--ease-out),visibility 0s linear .25s}
+.dim.is-on{opacity:1;visibility:visible;transition:opacity .3s var(--ease-out)}
+
+/* Mobile menu panel */
+.mmenu{--ring:#fbfaf7;position:absolute;top:calc(100% + 8px);left:var(--m);right:var(--m);pointer-events:auto;max-height:calc(100svh - var(--note-h) - 110px);overflow:auto;color:#fff;background:rgba(13,11,10,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-radius:12px;padding:8px 16px 16px}
+.mmenu[hidden]{display:none}
+.mmenu__list a{display:flex;justify-content:space-between;align-items:center;min-height:56px;border-bottom:1px solid rgba(255,255,255,.14);font-size:24px;font-weight:700;letter-spacing:-.03em;text-decoration:none}
+.mmenu__foot{display:grid;gap:8px;margin-top:16px}
+.mmenu__foot .btn{justify-content:center}
+.mmenu__hours{margin-top:16px;color:var(--mute-d)}
+
+@media (max-width:999px){
+  .hdr__nav,.hdr__cta{display:none}
+  .hdr__wrap{transform:translateY(calc(var(--note-h) + 8px));transition:transform .4s var(--ease-expo)}
+  .hdr.is-pill .hdr__wrap{transform:translateY(8px)}
+  .hdr__bar,.hdr.is-pill .hdr__bar{width:100%;padding:4px 4px 4px 14px}
+  .hdr__bg{opacity:1}
+  .hdr.is-pill .hdr__word{display:block}
+  .hdr.is-pill .hdr__badge{display:none}
+  .hdr.is-pill .hdr__brand{margin-right:auto}
+  .hdr__menu-btn{display:inline-flex;align-items:center;gap:12px;min-height:44px;padding:0 14px;border:0;border-radius:10px;background:rgba(255,255,255,.1);color:#fff;font:500 15px/1 var(--sans)}
+  .hdr__menu-btn .plus{position:relative;width:12px;height:12px;transition:transform .3s var(--ease-out)}
+  .hdr__menu-btn .plus::before,.hdr__menu-btn .plus::after{content:"";position:absolute;left:0;top:5.25px;width:12px;height:1.5px;background:currentColor;border-radius:1px}
+  .hdr__menu-btn .plus::after{transform:rotate(90deg)}
+  .hdr__menu-btn[aria-expanded="true"] .plus{transform:rotate(45deg)}
+}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;height:calc(100vh - var(--note-h));height:calc(100svh - var(--note-h));min-height:560px;padding:8px}
+.hero__media{position:relative;height:100%;border-radius:20px;overflow:hidden;background:var(--ink);transform-origin:50% 100%}
+.hero__frame{position:absolute;inset:-6% 0 0;will-change:transform}
+.hero__img{width:100%;height:100%;object-fit:cover;object-position:46% 58%}
+.hero__shade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(13,11,10,.42),rgba(13,11,10,0) 26%),linear-gradient(to top,rgba(13,11,10,.66),rgba(13,11,10,.2) 42%,rgba(13,11,10,0) 62%)}
+.hero__content{position:absolute;inset:auto 0 0 0;display:flex;align-items:flex-end;justify-content:space-between;gap:var(--g);padding:0 clamp(16px,2.8vw,40px) clamp(16px,3.4vw,48px);color:#fff}
+.hero__title{font-size:var(--fs-dxl);font-weight:700;letter-spacing:-.05em;line-height:.82;margin-left:-.04em}
+.hero__title .hl{display:block}
+.hero-card{--ring:#fbfaf7;flex:none;display:block;width:300px;padding:4px;border-radius:12px;background:rgba(13,11,10,.24);-webkit-backdrop-filter:blur(18px) saturate(1.2);backdrop-filter:blur(18px) saturate(1.2);color:#fff;text-decoration:none}
+.hero-card__img{aspect-ratio:1.6;border-radius:8px;overflow:hidden}
+.hero-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease-expo)}
+.hero-card__txt{position:relative;display:grid;gap:8px;padding:12px 40px 10px 8px}
+.hero-card__title{text-wrap:balance;font-size:22px;font-weight:700;letter-spacing:-.03em;line-height:1.02}
+.hero-card__meta{color:#e8e3db}
+.hero-card .ico{position:absolute;right:10px;bottom:12px;width:16px;height:16px;transition:transform .4s var(--ease-out)}
+@media (hover:hover) and (pointer:fine){.hero-card:hover .hero-card__img img{transform:scale(1.05)}.hero-card:hover .ico{transform:scale(1.25) translate(1px,-1px)}}
+
+@media (min-width:700px) and (max-width:999px){.hero__content{padding-bottom:88px}}
+@media (max-width:699px){
+  .hero{min-height:600px}
+  .hero__media{border-radius:14px}
+  .hero__content{flex-direction:column;align-items:stretch;gap:20px;padding:0 12px 80px}
+  .hero__title{padding-inline:4px}
+  .hero-card{width:auto;display:grid;grid-template-columns:42% 1fr;align-items:stretch}
+  .hero-card__img{aspect-ratio:auto;min-height:104px}
+  .hero-card__txt{align-content:space-between;padding:8px 36px 8px 12px}
+  .hero-card__title{font-size:19px}
+}
+
+/* ---------- Today strip (live from Brisbane time) ---------- */
+.today{padding-top:var(--sp-lg)}
+.today__row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-block:1px solid var(--line)}
+.today__cell{padding:16px 20px 18px 0;display:grid;gap:6px;align-content:start}
+.today__cell + .today__cell{padding-left:20px;border-left:1px solid var(--line)}
+.today__cell dt{color:var(--mute)}
+.today__cell dd{font-size:var(--fs-bmd);line-height:1.25}
+.today__cell dd small{display:block;margin-top:4px;font-size:13px;color:var(--mute)}
+.dot{display:inline-block;width:8px;height:8px;margin-right:8px;border-radius:50%;background:var(--mute);vertical-align:.1em}
+.is-open .dot{background:var(--ink);box-shadow:0 0 0 3px rgba(13,11,10,.12)}
+@media (max-width:899px){
+  .today__row{grid-template-columns:1fr 1fr}
+  .today__cell:nth-child(3){padding-left:0;border-left:0}
+  .today__cell:nth-child(n+3){border-top:1px solid var(--line)}
+}
+
+/* ---------- Two-column text ---------- */
+.twocol{margin-block:var(--sp-3xl)}
+.twocol__h{grid-column:1 / span 5}
+.twocol__body{grid-column:7 / span 6;display:grid;gap:var(--sp-md);justify-items:start}
+.twocol__body .lead{max-width:22em}
+.twocol__note{font-size:var(--fs-bsm);line-height:1.45;color:var(--mute);max-width:46ch}
+@media (max-width:699px){
+  .grid12{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .twocol__h,.twocol__body{grid-column:1 / -1}
+  .twocol__h{margin-bottom:var(--sp-md)}
+}
+
+/* ---------- Galaxy ---------- */
+.galaxy{position:relative;height:125vh;height:125svh;min-height:760px;overflow:hidden;background:var(--paper)}
+.galaxy__field{position:absolute;left:0;right:0;top:-25%;height:150%;perspective:800px;perspective-origin:50% 50%;pointer-events:none}
+.pt{position:absolute;top:0;width:clamp(50px,7.2vw,104px);aspect-ratio:1;transform-style:preserve-3d;will-change:transform;backface-visibility:hidden}
+.pt img{width:100%;height:100%;object-fit:cover;border-radius:3px}
+.pt::after{content:"";position:absolute;inset:0;border-radius:3px;background:var(--paper);opacity:var(--haze,0)}
+.galaxy__fade{position:absolute;inset:0 0 auto;height:160px;background:linear-gradient(var(--paper),rgba(251,250,247,0));pointer-events:none;z-index:1}
+.galaxy__fade--b{inset:auto 0 0;top:auto;background:linear-gradient(to top,var(--paper),rgba(251,250,247,0))}
+.galaxy__inner{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--sp-lg);text-align:center;padding-inline:var(--m)}
+.galaxy__title{display:flex;flex-direction:column;align-items:center}
+.gl{display:block;white-space:nowrap}
+.gl--1{margin-right:2.1em}
+.gl--2{margin-left:1.9em}
+.galaxy__sub{max-width:34ch;font-size:var(--fs-bmd);line-height:1.4;background:rgba(251,250,247,.72);border-radius:8px;padding:2px 6px}
+@media (max-width:699px){
+  .gl--1{margin-right:.9em}.gl--2{margin-left:.7em}
+}
+
+/* ---------- Rooms: stacked full-screen slides (desktop), stacked cards (below 1000px) ---------- */
+.rooms{position:relative}
+.slide{--ring:#fbfaf7;position:relative}
+.slide__frame{position:relative;overflow:hidden;background:var(--ink);color:#fff}
+.slide__media{position:relative;overflow:hidden}
+.slide__img{position:absolute;left:0;width:100%;object-fit:cover}
+.slide__veil{position:absolute;inset:0;background:var(--ink);opacity:0;pointer-events:none;z-index:3}
+.slide__name h3{font-size:var(--fs-hsm);font-weight:700;letter-spacing:-.03em;line-height:.95}
+.facts{display:grid;gap:4px;color:#e8e3db}
+.slide__text{font-size:var(--fs-bmd);line-height:1.4;max-width:42ch}
+.slide__help{font-size:13px;line-height:1.4;color:#e8e3db}
+.slide__help a{color:#fff}
+.slide__actions{display:flex;flex-wrap:wrap;gap:8px}
+@media (min-width:1000px){
+  .slide{position:sticky;top:0;height:100vh;height:100svh;padding:8px;background:var(--paper)}
+  .slide__frame{height:100%;border-radius:16px;transform-origin:50% 30%}
+  .slide__media{position:absolute;inset:0}
+  .slide__img{top:-14%;height:128%;will-change:transform}
+  .slide__media::after{content:"";position:absolute;inset:55% 0 0;background:linear-gradient(to top,rgba(13,11,10,.45),rgba(13,11,10,0))}
+  .slide__card{position:absolute;left:50%;bottom:80px;z-index:2;translate:-50% 0;width:min(720px,calc(100% - 48px));display:grid;grid-template-columns:200px 1fr;border-radius:12px;background:rgba(13,11,10,.5);-webkit-backdrop-filter:blur(24px) saturate(1.3);backdrop-filter:blur(24px) saturate(1.3);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
+  .slide__name{display:flex;align-items:flex-end;padding:20px 20px 22px 24px}
+  .slide__body{display:grid;gap:14px;padding:20px 24px 22px;border-left:1px solid rgba(255,255,255,.14)}
+}
+@media (max-width:999px){
+  .rooms{display:grid;gap:var(--g);padding-inline:var(--m);max-width:760px;margin-inline:auto}
+  .slide__frame{border-radius:14px}
+  .slide__media{aspect-ratio:4/3}
+  .slide__img{top:0;height:100%}
+  .slide__card{display:grid;gap:12px;padding:16px 16px 18px}
+  .slide__body{display:grid;gap:12px}
+}
+
+/* Rooms control bar (desktop only) */
+.roomsbar{--ring:#fbfaf7;position:fixed;left:50%;bottom:16px;z-index:var(--z-bar);translate:-50% 0;display:flex;align-items:stretch;gap:4px;color:#fff;opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .3s var(--ease-out),transform .4s var(--ease-out),visibility 0s linear .3s}
+.roomsbar.is-on{opacity:1;visibility:visible;transform:none;transition:opacity .3s var(--ease-out),transform .4s var(--ease-out)}
+.rb{display:inline-flex;align-items:center;gap:10px;min-height:40px;padding:0 14px;border:0;border-radius:10px;background:rgba(13,11,10,.8);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:#fff;font-family:var(--mono);font-size:12px;letter-spacing:.02em;text-transform:uppercase;white-space:nowrap;font-variant-numeric:tabular-nums;transition:background-color .2s var(--ease-out)}
+.rb--name{min-width:156px}
+.rb--count{min-width:72px;justify-content:center}
+button.rb:disabled{color:#7d766d;cursor:default}
+@media (hover:hover) and (pointer:fine){button.rb:not(:disabled):hover{background:rgba(58,53,48,.9)}}
+button.rb:active:not(:disabled){transform:scale(.97)}
+.rb .ico{width:14px;height:14px}
+.roomsbar__list{position:absolute;bottom:calc(100% + 6px);left:0;min-width:220px;padding:6px;border-radius:12px;background:rgba(13,11,10,.88);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.roomsbar__list[hidden]{display:none}
+.roomsbar__list button{display:flex;width:100%;justify-content:space-between;align-items:center;min-height:36px;padding:0 10px;border:0;border-radius:8px;background:none;color:#fff;font:500 15px/1 var(--sans);text-align:left}
+.roomsbar__list button span{font:400 12px/1 var(--mono);color:var(--mute-d)}
+.roomsbar__list button[aria-current="true"]{background:rgba(255,255,255,.12)}
+@media (hover:hover) and (pointer:fine){.roomsbar__list button:hover{background:rgba(255,255,255,.08)}}
+@media (max-width:999px){.roomsbar{display:none}}
+
+/* ---------- Functions: black split card with a live space finder ---------- */
+.fn{margin-top:var(--sp-3xl)}
+.fn__card{--ring:#fbfaf7;display:grid;grid-template-columns:1fr 1fr;gap:var(--g);padding:4px;border-radius:20px;background:var(--ink);color:var(--paper)}
+.fn__media{position:relative;border-radius:16px;overflow:hidden;min-height:100%;aspect-ratio:1}
+.fn__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fn__body{display:flex;flex-direction:column;gap:var(--sp-md);padding:clamp(16px,1.6vw,24px) clamp(12px,1.6vw,24px) clamp(12px,1.2vw,16px) 0}
+.fn__intro{font-size:var(--fs-bsm);line-height:1.45;color:#d8d2c9;max-width:44ch}
+.finder{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:flex-end;border:0;margin:0;padding:0}
+.finder fieldset{border:0;margin:0;padding:0;display:grid;gap:8px}
+.finder legend,.finder .flabel{padding:0;margin-bottom:8px;color:var(--mute-d)}
+.stepper{display:flex;align-items:center;gap:4px;padding:4px;border-radius:12px;background:rgba(255,255,255,.08)}
+.stepper button{width:44px;height:44px;border:0;border-radius:9px;background:rgba(255,255,255,.08);color:#fff;display:grid;place-items:center;transition:background-color .2s var(--ease-out),transform .16s var(--ease-out)}
+.stepper button:active{transform:scale(.95)}
+@media (hover:hover) and (pointer:fine){.stepper button:hover{background:rgba(255,255,255,.18)}}
+.stepper input{width:64px;height:44px;border:0;background:none;text-align:center;font:700 22px/1 var(--sans);letter-spacing:-.02em;color:#fff;font-variant-numeric:tabular-nums;-moz-appearance:textfield;appearance:textfield}
+.stepper input::-webkit-outer-spin-button,.stepper input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.seg{display:flex;gap:4px;padding:4px;border-radius:12px;background:rgba(255,255,255,.08)}
+.seg label{position:relative;display:block}
+.seg input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.seg span{display:flex;align-items:center;min-height:44px;padding:0 14px;border-radius:9px;font-size:var(--fs-bsm);color:#d8d2c9;transition:background-color .2s var(--ease-out),color .2s var(--ease-out)}
+.seg input:checked + span{background:var(--paper);color:var(--ink)}
+.seg input:focus-visible + span{outline:2px solid var(--paper);outline-offset:2px}
+.spaces{display:grid;gap:0;border-top:1px solid rgba(255,255,255,.14)}
+.space{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) auto;gap:6px 20px;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.14);transition:opacity .3s var(--ease-out)}
+.space__name{font-size:var(--fs-bmd);font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.space__cap{color:var(--mute-d);grid-column:1}
+.space__bar{position:relative;grid-column:2;grid-row:1 / span 2;height:6px;border-radius:3px;background:rgba(255,255,255,.1)}
+.space__fill{position:absolute;inset:0;border-radius:3px;background:var(--paper);transform-origin:0 50%;transform:scaleX(var(--cap,0));transition:transform .45s var(--ease-out)}
+.space__mark{position:absolute;top:-6px;bottom:-6px;width:2px;margin-left:-1px;border-radius:1px;background:var(--red);left:var(--n,0%);transition:left .35s var(--ease-out)}
+.space__fit{grid-column:3;grid-row:1 / span 2;text-align:right;min-width:9.5em;color:#fff}
+.space.is-out{opacity:.48}
+.space.is-out .space__fill{background:#8c857b}
+.fn__summary{font-size:var(--fs-bsm);line-height:1.45;color:#fff;min-height:1.45em}
+.fn__terms{color:var(--mute-d);line-height:1.6}
+.fn__foot{display:flex;gap:var(--g);align-items:stretch;justify-content:space-between;margin-top:auto}
+.fn__foot p{font-size:var(--fs-bsm);line-height:1.45;color:#d8d2c9;max-width:24ch;align-self:flex-end}
+.fn__foot a.plain{color:#fff}
+.fn__tile{position:relative;flex:0 1 340px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;min-height:160px;padding:16px;border-radius:16px;background:rgba(255,255,255,.1);color:#fff;text-decoration:none;overflow:hidden;transition:background-color .3s var(--ease-out),transform .16s var(--ease-out)}
+.fn__tile .mono{color:#e8e3db;text-transform:none;word-break:break-all}
+.fn__tile-cta{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;font-size:var(--fs-hxs);font-weight:700;letter-spacing:-.03em;line-height:1}
+.fn__tile-cta .ico{width:20px;height:20px;transition:transform .4s var(--ease-out)}
+@media (hover:hover) and (pointer:fine){.fn__tile:hover{background:rgba(255,255,255,.18)}.fn__tile:hover .ico{transform:translate(3px,-3px)}}
+.fn__tile:active{transform:scale(.98)}
+@media (max-width:999px){
+  .fn__card{grid-template-columns:1fr;border-radius:14px}
+  .fn__media{aspect-ratio:1.6;border-radius:11px}
+  .fn__body{padding:12px 12px 12px}
+  .space{grid-template-columns:minmax(0,1fr) auto}
+  .space__bar{grid-column:1 / -1;grid-row:auto}
+  .space__fit{grid-column:2;grid-row:1 / span 2;min-width:0}
+  .fn__foot{flex-direction:column}
+  .fn__foot p{align-self:flex-start;max-width:none}
+  .fn__tile{flex-basis:auto}
+}
+
+/* ---------- Star Rewards ---------- */
+.rewards .twocol__h p{margin-top:16px;font-size:var(--fs-bsm);color:var(--mute);max-width:30ch;line-height:1.45}
+.prices{width:100%;margin-top:var(--sp-md);border-top:1px solid var(--line)}
+.prices__head{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.prices__head h3{font-size:var(--fs-bmd);font-weight:700;letter-spacing:-.02em}
+.switch{display:inline-flex;align-items:center;gap:12px;cursor:pointer;font-size:var(--fs-bsm);min-height:44px}
+.switch input{position:absolute;opacity:0;width:1px;height:1px}
+.switch__track{position:relative;width:44px;height:26px;border-radius:13px;background:var(--line);transition:background-color .2s var(--ease-out);flex:none}
+.switch__track::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(13,11,10,.25);transition:transform .24s var(--ease-out)}
+.switch input:checked + .switch__track{background:var(--ink)}
+.switch input:checked + .switch__track::after{transform:translateX(18px)}
+.switch input:focus-visible + .switch__track{outline:2px solid var(--ink);outline-offset:3px}
+.price-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:var(--fs-bmd)}
+.price-row__name{line-height:1.25}
+.price-row__name small{display:block;font-size:13px;color:var(--mute);margin-top:2px}
+.price{font-family:var(--mono);font-size:16px;letter-spacing:0;font-variant-numeric:tabular-nums;display:inline-flex;line-height:1.2;white-space:nowrap}
+.price .ch{display:inline-block;height:1.2em;overflow:hidden;vertical-align:top}
+.price .ch > span{display:block;transition:transform .24s var(--ease-out)}
+.price .ch > span > span{display:block;height:1.2em}
+.prices.is-members .price .ch > span{transform:translateY(-1.2em)}
+.price__tag{margin-left:10px;color:var(--mute);font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.02em;transition:color .2s}
+.prices.is-members .price__tag{color:var(--ink)}
+
+/* ---------- Snapshot ---------- */
+.snap{margin-block:var(--sp-3xl)}
+.snap__grid{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line)}
+.snap__left{display:flex;flex-direction:column;justify-content:space-between;gap:var(--sp-lg);padding:24px 24px 28px 0}
+.snap__right{padding:24px 0 20px var(--g);border-left:1px solid var(--line);display:grid;gap:0}
+.snap__headrow{display:flex;justify-content:space-between;gap:16px;font-size:var(--fs-bsm)}
+.snap__num{display:flex;justify-content:center;align-items:baseline;gap:16px;padding:clamp(40px,7vw,104px) 0 clamp(32px,5vw,80px)}
+.snap__num b{font-size:var(--fs-dlg);font-weight:700;letter-spacing:-.05em;line-height:.8;font-variant-numeric:tabular-nums}
+.snap__num .mono{color:var(--mute)}
+.snap__dl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;padding-top:16px;border-top:1px solid var(--line)}
+.snap__dl div{display:grid;gap:4px;align-content:start}
+.snap__dl dt{color:var(--mute)}
+.snap__dl dd{font-size:var(--fs-bsm);line-height:1.3}
+.snap__dl div:last-child{text-align:right;border-left:1px solid var(--line);padding-left:16px}
+.snap__help{margin-top:16px;color:var(--mute)}
+.snap__help a{color:var(--ink)}
+.snap__src{margin-top:6px;font-size:13px;color:var(--mute)}
+@media (max-width:699px){
+  .snap__grid{grid-template-columns:1fr}
+  .snap__left{padding-right:0}
+  .snap__right{border-left:0;border-top:1px solid var(--line);padding-left:0}
+  .snap__num b{font-size:96px}
+  .snap__dl{grid-template-columns:1fr 1fr}
+  .snap__dl div:last-child{text-align:left;border-left:0;padding-left:0}
+}
+
+/* ---------- This week carousel ---------- */
+.week{margin-block:var(--sp-3xl) 0}
+.week__head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:var(--sp-md)}
+.week__head p{margin-top:10px;font-size:var(--fs-bsm);color:var(--mute);max-width:40ch;line-height:1.45}
+.week__nav{display:flex;gap:4px}
+.textbtn{min-height:44px;padding:0 10px;border:0;border-radius:10px;background:none;font:500 var(--fs-bsm)/1 var(--sans);color:var(--ink);transition:color .2s var(--ease-out),background-color .2s var(--ease-out)}
+.textbtn:disabled{color:#a49d94;cursor:default}
+@media (hover:hover) and (pointer:fine){.textbtn:not(:disabled):hover{background:var(--stone)}}
+.week__track{--edge:max(var(--m),calc((100vw - 1600px) / 2 + var(--m)));display:flex;gap:var(--g);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding-inline:var(--edge);padding:6px var(--edge) 8px;scrollbar-width:none;cursor:grab}
+.week__track::-webkit-scrollbar{display:none}
+.week__track.is-drag{scroll-snap-type:none;cursor:grabbing;user-select:none}
+.week__track:focus-visible{outline-offset:-2px}
+.ev{flex:0 0 clamp(270px,29vw,435px);scroll-snap-align:start;display:grid;gap:12px;align-content:start}
+.ev__img{position:relative;aspect-ratio:1.33;border-radius:12px;overflow:hidden;background:var(--stone)}
+.ev__img img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease-expo);-webkit-user-drag:none}
+.ev__chip{position:absolute;left:10px;top:10px;padding:6px 8px;border-radius:8px;background:var(--ink);color:var(--paper)}
+.ev__chip[hidden]{display:none}
+.ev h3{font-size:var(--fs-bmd);font-weight:700;letter-spacing:-.02em;line-height:1.15;padding-right:clamp(0px,4vw,64px)}
+.ev__when{color:var(--mute)}
+.ev p{font-size:var(--fs-bsm);line-height:1.45;color:var(--ink);max-width:36ch}
+.ev__help{font-size:13px!important;color:var(--mute)!important}
+.ev__help a,.ev a{color:var(--ink)}
+@media (hover:hover) and (pointer:fine){.ev:hover .ev__img img{transform:scale(1.04)}}
+@media (max-width:699px){.ev{flex-basis:76%}}
+
+/* ---------- Push / book ---------- */
+.push{--ring:#fbfaf7;position:relative;min-height:100vh;min-height:100svh;margin-top:var(--sp-3xl);border-radius:20px 20px 0 0;overflow:hidden;color:#fff;background:var(--ink);padding:var(--sp-3xl) var(--m) calc(var(--sp-3xl) + 20px)}
+.push__media{position:absolute;inset:0}
+.push__media img{width:100%;height:100%;object-fit:cover;will-change:transform}
+.push__media::after{content:"";position:absolute;inset:0;background:rgba(13,11,10,.6)}
+.push__inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:var(--sp-xl)}
+.push__title{font-size:var(--fs-dlg);font-weight:700;letter-spacing:-.05em;line-height:.8}
+.push__title .pl{display:block}
+.push__hours{max-width:34ch;font-size:var(--fs-bmd);line-height:1.45;color:#ece7df}
+.book{width:min(760px,100%);display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;padding:16px;border-radius:16px;background:rgba(13,11,10,.42);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);text-align:left}
+.field{display:grid;gap:6px;grid-column:span 2}
+.field--3{grid-column:span 3}
+.field label{color:#e8e3db}
+.field input,.field select{width:100%;min-height:48px;padding:0 12px;border-radius:10px;border:1px solid transparent;background:var(--paper);color:var(--ink);font-size:16px;letter-spacing:-.01em;appearance:none;-webkit-appearance:none}
+.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%230d0b0a' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px}
+.field input:focus-visible,.field select:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.field input[aria-invalid="true"]{border-color:var(--red);box-shadow:0 0 0 1px var(--red)}
+.field__err{font-size:13px;color:#ffd0d6;min-height:0}
+.book__actions{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-top:4px}
+.book__status{font-size:var(--fs-bsm);line-height:1.45;color:#fff;max-width:44ch}
+.book__note{grid-column:1 / -1;font-size:13px;color:#d8d2c9}
+.push__call{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+@media (max-width:699px){
+  .book{grid-template-columns:1fr 1fr;padding:12px}
+  .field,.field--3{grid-column:span 1}
+  .field--wide{grid-column:1 / -1}
+  .book__actions .btn{width:100%;justify-content:center}
+}
+
+/* ---------- Footer ---------- */
+.foot{--ring:#fbfaf7;position:relative;z-index:2;margin-top:-20px;background:var(--ink);color:var(--paper);border-radius:20px 20px 0 0;padding:48px 0 16px}
+.foot__inner{display:grid;row-gap:120px}
+.foot__top{align-items:start}
+.foot__badge{grid-column:1 / span 2;width:clamp(84px,8vw,120px);aspect-ratio:1}
+.foot__badge svg{width:100%;height:100%}
+.foot__menu{grid-column:4 / -1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:var(--g);row-gap:28px}
+.foot__menu li{position:relative;padding-bottom:12px;transition:opacity .3s var(--ease-out)}
+.foot__menu a{font-size:var(--fs-hxs);font-weight:700;letter-spacing:-.03em;line-height:1;text-decoration:none;display:inline-block;padding-block:4px}
+.foot__menu .hair{position:absolute;left:0;right:0;bottom:0;background:rgba(255,255,255,.2)}
+@media (hover:hover) and (pointer:fine){.foot__menu:has(a:hover) li:not(:has(a:hover)){opacity:.6}}
+.foot__about{grid-column:1 / span 4;display:grid;gap:16px;align-content:start;font-size:var(--fs-bsm);line-height:1.5;color:#d8d2c9}
+.foot__about address{font-style:normal;color:var(--paper)}
+.foot__about a{color:var(--paper)}
+.foot__social{display:flex;gap:16px}
+.foot__hours{grid-column:6 / -1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--g)}
+.foot__hours h3{font-size:var(--fs-bmd);font-weight:700;letter-spacing:-.02em;margin-bottom:12px}
+.foot__hours dl{display:grid;gap:10px}
+.foot__hours dt{color:var(--mute-d)}
+.foot__hours dd{font-size:var(--fs-bsm);line-height:1.35}
+.foot__hours .help{margin-top:12px;font-size:13px;line-height:1.45;color:#d8d2c9}
+.foot__hours .help a{color:var(--paper)}
+.foot__legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);color:var(--mute-d)}
+.foot__legal a{color:var(--paper)}
+@media (max-width:999px){
+  .foot__inner{row-gap:64px}
+  .foot__badge{grid-column:1 / -1;justify-self:center;width:88px;margin-bottom:28px}
+  .foot__menu{grid-column:1 / -1;grid-template-columns:1fr 1fr;row-gap:16px}
+  .foot__about,.foot__hours{grid-column:1 / -1}
+  .foot__mid{row-gap:48px}
+  .foot__hours{grid-template-columns:1fr;gap:28px}
+  .foot{padding-bottom:96px}
+}
+
+/* ---------- End curtain ---------- */
+.curtain{position:relative;z-index:1;height:80vh;height:80svh;background:var(--ink);clip-path:inset(0)}
+.curtain__wrap{position:absolute;left:0;right:0;bottom:0;height:180vh;height:180svh}
+.curtain__panel{position:sticky;top:20vh;top:20svh;height:80vh;height:80svh;overflow:hidden;border-radius:16px 16px 0 0}
+.curtain__panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;will-change:transform}
+.curtain__panel::after{content:"";position:absolute;inset:0;background:rgba(13,11,10,.22)}
+.curtain__word{position:absolute;left:0;right:0;top:7%;z-index:1;text-align:center;color:#fff;font-size:clamp(3rem,12.6vw,15rem);font-weight:700;letter-spacing:-.05em;line-height:.8;white-space:nowrap}
+.curtain__word span{display:inline-block}
+@media (max-width:699px){
+  .curtain__word{font-size:25vw;top:10%}
+  .curtain__word span{display:block}
+}
+
+/* ---------- Sticky Book / Call bar (phones and tablets) ---------- */
+.mbar{--ring:#fbfaf7;position:fixed;left:0;right:0;bottom:0;z-index:var(--z-cta);display:none;gap:8px;padding:8px 16px max(8px,env(safe-area-inset-bottom))}
+.mbar .btn{flex:1 1 0;justify-content:center;min-height:50px;padding:0 12px;font-size:15px}
+.mbar .btn--dark{--bg:rgba(13,11,10,.82);--bg-h:rgba(13,11,10,.9);--fg:#fff}
+.mbar .btn--dark .btn__bg{-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.mbar small{display:block;font:400 11px/1.2 var(--mono);opacity:.9;text-transform:uppercase;letter-spacing:.02em;margin-top:3px}
+.mbar .btn__label{display:grid;justify-items:center;line-height:1.1}
+@media (max-width:999px){.mbar{display:flex}}
+.mbar.is-away,.hdr.has-menu ~ .mbar{transform:translateY(110%)}
+.mbar{transition:transform .35s var(--ease-out)}
+
+/* Intro guard: only when motion is allowed */
+@media (prefers-reduced-motion:no-preference){
+  .js-intro .hero__media,.js-intro .hero-card,.js-intro .hero__title,.js-intro .hdr__bar{visibility:hidden}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;scroll-behavior:auto!important}
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="badge" viewBox="0 0 200 200">
+    <path id="badge-ring" d="M100,100 m-79,0 a79,79 0 1,1 158,0 a79,79 0 1,1 -158,0" fill="none"/>
+    <circle cx="100" cy="100" r="100" fill="#C8102E"/>
+    <circle cx="100" cy="100" r="66" fill="none" stroke="#fbfaf7" stroke-opacity=".55" stroke-width="1.5"/>
+    <text fill="#fbfaf7" font-family="Geist Mono, ui-monospace, monospace" font-size="11.5" font-weight="500"><textPath href="#badge-ring" textLength="492" lengthAdjust="spacing">EST 1935 · ASPLEY HOTEL · PUB ON THE HILL · GAMING BAR FOOD BOTTLESHOP ·</textPath></text>
+    <text x="100" y="98" text-anchor="middle" fill="#fbfaf7" font-family="Inter Tight, Arial, sans-serif" font-weight="700" font-size="27" letter-spacing="-1">ASPLEY</text>
+    <text x="100" y="124" text-anchor="middle" fill="#fbfaf7" font-family="Inter Tight, Arial, sans-serif" font-weight="700" font-size="20" letter-spacing="-.5">HOTEL</text>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></symbol>
+  <symbol id="i-out" viewBox="0 0 16 16"><path d="M5 11 11 5M5.5 5H11v5.5"/></symbol>
+  <symbol id="i-up" viewBox="0 0 16 16"><path d="M8 13.5v-11M3.5 7 8 2.5 12.5 7"/></symbol>
+  <symbol id="i-down" viewBox="0 0 16 16"><path d="M8 2.5v11M3.5 9 8 13.5 12.5 9"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></symbol>
+  <symbol id="i-list" viewBox="0 0 16 16"><path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 16 16"><path d="M3 8h10"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 16 16"><path d="M3 8h10M8 3v10"/></symbol>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+<div class="mock-note">Design mock, variant D (lookbook, Wolverine-inspired). Photos are enhanced versions of the venue's own photography. Forms are not connected.</div>
+
+<header class="hdr" id="hdr">
+  <div class="hdr__wrap">
+    <div class="hdr__bar">
+      <span class="hdr__bg" aria-hidden="true"></span>
+      <a class="hdr__brand" href="#top" aria-label="Aspley Hotel, back to top">
+        <span class="hdr__word">ASPLEY HOTEL</span>
+        <svg class="hdr__badge" aria-hidden="true"><use href="#badge"/></svg>
+      </a>
+      <nav class="hdr__nav" aria-label="Main">
+        <ul>
+          <li><button class="hdr__link hdr__trigger" type="button" aria-expanded="false" aria-controls="mega-eat">Eat &amp; Drink <svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg></button></li>
+          <li><button class="hdr__link hdr__trigger" type="button" aria-expanded="false" aria-controls="mega-sport">Sport &amp; Gaming <svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg></button></li>
+          <li><a class="hdr__link" href="#functions">Functions</a></li>
+          <li><a class="hdr__link" href="#week">What's On</a></li>
+          <li><a class="hdr__link" href="#rewards">Star Rewards</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--red btn--sm hdr__cta" href="#book" data-book><span class="btn__bg"></span><span class="btn__in"><svg class="ico ico--in" aria-hidden="true"><use href="#i-arrow"/></svg><span class="btn__label">Book a table</span><svg class="ico ico--out" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+      <button class="hdr__menu-btn" type="button" aria-expanded="false" aria-controls="mmenu">Menu <span class="plus" aria-hidden="true"></span></button>
+    </div>
+
+    <div class="mega on-dark" id="mega-eat" hidden>
+      <div class="mega__intro">
+        <h2 class="h-xs">Eat &amp; Drink</h2>
+        <p>Bistro, bar and deck. The kitchen opens at 11:30am every day, and members pay $1 less on every dish.</p>
+        <a class="btn btn--glass btn--sm" href="#room-bistro"><span class="btn__bg"></span><span class="btn__in"><svg class="ico ico--in" aria-hidden="true"><use href="#i-arrow"/></svg><span class="btn__label">View</span><svg class="ico ico--out" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+      </div>
+      <a class="tile" href="#room-bistro"><img src="img/drive/13-bistro-dining-room-view-05-sm.webp" width="900" height="600" alt="" decoding="async"><span>Bistro</span></a>
+      <a class="tile" href="#room-bar"><img src="img/drive/03-bar-counter-view-02-sm.webp" width="900" height="600" alt="" decoding="async"><span>Bar</span></a>
+      <a class="tile" href="#room-deck"><img src="img/drive/31-outdoor-deck-view-01-sm.webp" width="900" height="600" alt="" decoding="async"><span>Deck</span></a>
+    </div>
+
+    <div class="mega on-dark" id="mega-sport" hidden>
+      <div class="mega__intro">
+        <h2 class="h-xs">Sport &amp; Gaming</h2>
+        <p>TAB screens and Fox Sports in the sports bar all day. Gaming room open every day, 10am to 4am.</p>
+        <p class="mono mega__help">Gamble responsibly. Gambling Help <a href="tel:1800858858">1800 858 858</a></p>
+        <a class="btn btn--glass btn--sm" href="#room-sports"><span class="btn__bg"></span><span class="btn__in"><svg class="ico ico--in" aria-hidden="true"><use href="#i-arrow"/></svg><span class="btn__label">View</span><svg class="ico ico--out" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+      </div>
+      <a class="tile" href="#room-sports"><img src="img/drive/46-sports-bar-wide-view-01-sm.webp" width="900" height="600" alt="" decoding="async"><span>Sports Bar</span></a>
+      <a class="tile" href="#room-sports"><img src="img/drive/48-sports-bar-tab-screens-sm.webp" width="900" height="600" alt="" decoding="async"><span>TAB</span></a>
+      <a class="tile" href="#room-gaming"><img src="img/drive/40-gaming-lounge-wide-sm.webp" width="900" height="600" alt="" decoding="async"><span>Gaming</span></a>
+    </div>
+
+    <div class="mmenu on-dark" id="mmenu" hidden>
+      <nav aria-label="Mobile">
+        <ul class="mmenu__list">
+          <li><a href="#room-bistro">Eat &amp; Drink</a></li>
+          <li><a href="#room-sports">Sport &amp; Gaming</a></li>
+          <li><a href="#functions">Functions</a></li>
+          <li><a href="#week">What's On</a></li>
+          <li><a href="#rewards">Star Rewards</a></li>
+          <li><a href="#glance">Find us</a></li>
+        </ul>
+      </nav>
+      <div class="mmenu__foot">
+        <a class="btn btn--red" href="#book" data-book><span class="btn__bg"></span><span class="btn__in"><span class="btn__label">Book a table</span></span></a>
+        <a class="btn btn--glass" href="tel:+61732634040"><span class="btn__bg"></span><span class="btn__in"><span class="btn__label">Call (07) 3263 4040</span></span></a>
+      </div>
+      <p class="mono mmenu__hours">1247 Gympie Road, Aspley QLD 4034</p>
+    </div>
+  </div>
+</header>
+<div class="dim" aria-hidden="true"></div>
+
+<main id="main">
+  <!-- Hero -->
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="hero__media">
+      <div class="hero__frame"><img class="hero__img" src="img/drive/24-hotel-wide-exterior-hero.webp" width="1800" height="1168" alt="The Aspley Hotel on Gympie Road: a white two-storey Queenslander with a terracotta roof and Functions, Gaming, Bistro and TAB Bar signs, in late afternoon sun" fetchpriority="high" decoding="async"></div>
+      <div class="hero__shade" aria-hidden="true"></div>
+      <div class="hero__content">
+        <h1 class="hero__title" id="hero-title"><span class="hl">The pub</span> <span class="hl">on the hill.</span> <span class="hl">Since 1935.</span></h1>
+        <a class="hero-card" href="#book" data-cup>
+          <div class="hero-card__img"><img src="img/drive/05-bar-drinks-and-pour-sm.webp" width="900" height="506" alt="" decoding="async"></div>
+          <div class="hero-card__txt">
+            <span class="hero-card__title">Melbourne Cup lunch, 2&nbsp;courses $55</span>
+            <span class="mono hero-card__meta" data-cup-count>Tue 3 Nov 2026 · Bookings essential</span>
+            <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Today, from Brisbane time -->
+  <section class="today container" aria-labelledby="today-title">
+    <h2 class="sr-only" id="today-title">Today at the Aspley Hotel</h2>
+    <dl class="today__row" aria-live="polite">
+      <div class="today__cell"><dt class="mono">Brisbane time</dt><dd data-now>Hours for today</dd></div>
+      <div class="today__cell" data-kitchen-cell><dt class="mono">Kitchen</dt><dd><span class="dot" aria-hidden="true"></span><span data-kitchen>Opens 11:30am every day</span></dd></div>
+      <div class="today__cell" data-bottle-cell><dt class="mono">Drive-through bottle shop</dt><dd><span class="dot" aria-hidden="true"></span><span data-bottle>Opens 10am every day</span></dd></div>
+      <div class="today__cell"><dt class="mono">On today</dt><dd data-event>Sport on the sports bar screens, all day</dd></div>
+    </dl>
+  </section>
+
+  <!-- Est. 1935 -->
+  <section class="twocol container" aria-labelledby="est-title">
+    <div class="grid12">
+      <h2 class="twocol__h h-xs" id="est-title">Est. 1935.</h2>
+      <div class="twocol__body">
+        <p class="lead">The pub on the hill has looked over Gympie Road since 1935, and joined the Star Hotels family in November 2023. Come up for a cold one, a proper feed or a punt on the TAB.</p>
+        <a class="btn" href="#room-bistro"><span class="btn__bg"></span><span class="btn__in"><svg class="ico ico--in" aria-hidden="true"><use href="#i-arrow"/></svg><span class="btn__label">Bistro hours and menu</span><svg class="ico ico--out" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galaxy -->
+  <section class="galaxy" id="galaxy" aria-labelledby="galaxy-title">
+    <div class="galaxy__field" aria-hidden="true"></div>
+    <div class="galaxy__fade" aria-hidden="true"></div>
+    <div class="galaxy__fade galaxy__fade--b" aria-hidden="true"></div>
+    <div class="galaxy__inner">
+      <h2 class="galaxy__title d-lg" id="galaxy-title"><span class="gl gl--1">Seven rooms</span> <span class="gl gl--2">under one</span> <span class="gl gl--3">red roof.</span></h2>
+      <p class="galaxy__sub">Bistro, bar, deck, sports bar, gaming room, function spaces and a drive-through bottle shop, all at 1247 Gympie Road.</p>
+      <a class="btn btn--blur" href="#rooms"><span class="btn__bg"></span><span class="btn__in"><svg class="ico ico--in" aria-hidden="true"><use href="#i-arrow"/></svg><span class="btn__label">Explore the pub</span><svg class="ico ico--out" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+    </div>
+  </section>
+
+  <!-- Rooms -->
+  <section class="rooms" id="rooms" aria-labelledby="rooms-title">
+    <h2 class="sr-only" id="rooms-title">The seven rooms</h2>
+
+    <article class="slide" id="room-bistro" data-name="Bistro" aria-labelledby="r1">
+      <div class="slide__frame">
+        <div class="slide__media"><img class="slide__img" src="img/drive/07-bistro-wide-dining-room.webp" width="1800" height="1200" alt="The bistro dining room: round timber tables, navy walls and verandah windows" loading="lazy" decoding="async"></div>
+        <div class="slide__card">
+          <div class="slide__name"><h3 id="r1">Bistro</h3></div>
+          <div class="slide__body">
+            <ul class="facts mono"><li>Lunch Sun to Wed 11:30am to 2:30pm</li><li>Dinner Sun to Wed 5:30pm to 8:30pm</li><li>All day Thu to Sat 11:30am to 8:30pm</li></ul>
+            <p class="slide__text">Steaks off the grill, the Parmy Army and pub classics. Kids meals are $13.95 with a soft drink and ice cream.</p>
+            <div class="slide__actions">
+              <a class="btn btn--red btn--sm" href="#book" data-book><span class="btn__bg"></span><span class="btn__in"><svg class="ico ico--in" aria-hidden="true"><use href="#i-arrow"/></svg><span class="btn__label">Book a table</span><svg class="ico ico--out" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+              <a class="btn btn--glass btn--sm" href="#rewards"><span class="btn__bg"></span><span class="btn__in"><svg class="ico ico--in" aria-hidden="true"><use href="#i-arrow"/></svg><span class="btn__label">Members prices</span><svg class="ico ico--out" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+            </div>
+          </div>
+        </div>
+        <span class="slide__veil" aria-hidden="true"></span>
+      </div>
+    </article>
+
+    <article class="slide" id="room-bar" data-name="Bar" aria-labelledby="r2">
+      <div class="slide__frame">
+        <div class="slide__media"><img class="slide__img" src="img/drive/03-bar-counter-view-02.webp" width="1800" height="1200" alt="The main bar with a hand-drawn chalkboard cocktail mural above the back bar" loading="lazy" decoding="async"></div>
+        <div class="slide__card">
+          <div class="slide__name"><h3 id="r2">Bar</h3></div>
+          <div class="slide__body">
+            <ul class="facts mono"><li>Twelve cocktails on the list</li><li>Wine by the glass or the bottle</li></ul>
+            <p class="slide__text">A cold beer on tap or something off the chalkboard, from an Espresso Martini to an Aperol Spritz.</p>
+            <div class="slide__actions">
+              <a class="btn btn--glass btn--sm" href="#week"><span class="btn__bg"></span><span class="btn__in"><svg class="ico ico--in" aria-hidden="true"><use href="#i-arrow"/></svg><span class="btn__label">On this week</span><svg class="ico ico--out" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+            </div>
+          </div>
+        </div>
+        <span class="slide__veil" aria-hidden="true"></span>
+      </div>
+    </article>
+
+    <article class="slide" id="room-deck" data-name="Deck" aria-labelledby="r3">
+      <div class="slide__frame">
+        <div class="slide__media"><img class="slide__img" src="img/drive/31-outdoor-deck-view-01.webp" width="1800" height="1200" alt="The timber deck with high tables, looking out over the road" loading="lazy" decoding="async"></div>
+        <div class="slide__card">
+          <div class="slide__name"><h3 id="r3">Deck</h3></div>
+          <div class="slide__body">
+            <ul class="facts mono"><li>Open air, high tables</li><li>Above Gympie Road</li></ul>
+            <p class="slide__text">Grab a high table on the timber deck when the afternoon cools off.</p>
+            <div class="slide__actions">
+              <a class="btn btn--red btn--sm" href="#book" data-book><span class="btn__bg"></span><span class="btn__in"><svg class="ico ico--in" aria-hidden="true"><use href="#i-arrow"/></svg><span class="btn__label">Book a table</span><svg class="ico ico--out" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+            </div>
+          </div>
+        </div>
+        <span class="slide__veil" aria-hidden="true"></span>
+      </div>
+    </article>
+
+    <article class="slide" id="room-sports" data-name="Sports Bar" aria-labelledby="r4">
+      <div class="slide__frame">
+        <div class="slide__media"><img class="slide__img" src="img/drive/49-sports-bar-wide.webp" width="1800" height="1200" alt="The sports bar: long counter, high tables and screens showing live sport" loading="lazy" decoding="async"></div>
+        <div class="slide__card">
+          <div class="slide__name"><h3 id="r4">Sports Bar</h3></div>
+          <div class="slide__body">
+            <ul class="facts mono"><li>Dedicated TAB screens</li><li>Fox Sports all day, every day</li></ul>
+            <p class="slide__text">Gather your mates and pull on your team's jersey. Maroons and Blues banners hang on the walls.</p>
+            <div class="slide__actions">
+              <a class="btn btn--glass btn--sm" href="#week"><span class="btn__bg"></span><span class="btn__in"><svg class="ico ico--in" aria-hidden="true"><use href="#i-arrow"/></svg><span class="btn__label">This week</span><svg class="ico ico--out" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+            </div>
+          </div>
+        </div>
+        <span class="slide__veil" aria-hidden="true"></span>
+      </div>
+    </article>
+
+    <article class="slide" id="room-gaming" data-name="Gaming" aria-labelledby="r5">
+      <div class="slide__frame">
+        <div class="slide__media"><img class="slide__img" src="img/drive/40-gaming-lounge-wide.webp" width="1800" height="1200" alt="The gaming room with its own bar counter" loading="lazy" decoding="async"></div>
+        <div class="slide__card">
+          <div class="slide__name"><h3 id="r5">Gaming</h3></div>
+          <div class="slide__body">
+            <ul class="facts mono"><li>Every day 10am to 4am</li></ul>
+            <p class="slide__text">A separate gaming room with its own bar, and staff on the floor if you need a hand.</p>
+            <p class="slide__help mono">Gamble responsibly. Gambling Help <a href="tel:1800858858">1800 858 858</a></p>
+          </div>
+        </div>
+        <span class="slide__veil" aria-hidden="true"></span>
+      </div>
+    </article>
+
+    <article class="slide" id="room-functions" data-name="Functions" aria-labelledby="r6">
+      <div class="slide__frame">
+        <div class="slide__media"><img class="slide__img" src="img/drive/34-covered-function-terrace-wide.webp" width="1800" height="1200" alt="The covered function terrace set with tables beside the Herb Garden" loading="lazy" decoding="async"></div>
+        <div class="slide__card">
+          <div class="slide__name"><h3 id="r6">Functions</h3></div>
+          <div class="slide__body">
+            <ul class="facts mono"><li>Herb Garden 80 seated, 100 standing</li><li>Terrace 40 seated</li></ul>
+            <p class="slide__text">Three spaces for birthdays, engagements, anniversaries and work functions, with platters from $100.</p>
+            <div class="slide__actions">
+              <a class="btn btn--glass btn--sm" href="#functions"><span class="btn__bg"></span><span class="btn__in"><svg class="ico ico--in" aria-hidden="true"><use href="#i-arrow"/></svg><span class="btn__label">Find your space</span><svg class="ico ico--out" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+            </div>
+          </div>
+        </div>
+        <span class="slide__veil" aria-hidden="true"></span>
+      </div>
+    </article>
+
+    <article class="slide" id="room-bottleshop" data-name="Bottle Shop" aria-labelledby="r7">
+      <div class="slide__frame">
+        <div class="slide__media"><img class="slide__img" src="img/drive/42-bottleshop-interior-wide.webp" width="1800" height="1350" alt="Inside the Star Liquor Warehouse bottle shop: fridges of beer and wine" loading="lazy" decoding="async"></div>
+        <div class="slide__card">
+          <div class="slide__name"><h3 id="r7">Bottle Shop</h3></div>
+          <div class="slide__body">
+            <ul class="facts mono"><li>Drive-through</li><li>Sun to Thu 10am to 11pm</li><li>Fri and Sat 10am to midnight</li></ul>
+            <p class="slide__text">Drive up to the counter or park and browse. There are specials every week.</p>
+            <div class="slide__actions">
+              <a class="btn btn--glass btn--sm" href="https://www.google.com/maps/search/?api=1&amp;query=Aspley+Hotel+1247+Gympie+Road+Aspley+QLD+4034" target="_blank" rel="noopener"><span class="btn__bg"></span><span class="btn__in"><svg class="ico ico--in" aria-hidden="true"><use href="#i-out"/></svg><span class="btn__label">Directions</span><svg class="ico ico--out" aria-hidden="true"><use href="#i-out"/></svg></span></a>
+              <a class="btn btn--glass btn--sm" href="https://www.starliquor.com.au" target="_blank" rel="noopener"><span class="btn__bg"></span><span class="btn__in"><svg class="ico ico--in" aria-hidden="true"><use href="#i-out"/></svg><span class="btn__label">Star Liquor specials</span><svg class="ico ico--out" aria-hidden="true"><use href="#i-out"/></svg></span></a>
+            </div>
+          </div>
+        </div>
+        <span class="slide__veil" aria-hidden="true"></span>
+      </div>
+    </article>
+  </section>
+
+  <nav class="roomsbar" aria-label="Rooms">
+    <button class="rb" type="button" data-rb-all aria-expanded="false" aria-controls="rb-list"><svg class="ico" aria-hidden="true"><use href="#i-list"/></svg>All rooms</button>
+    <div class="roomsbar__list" id="rb-list" hidden></div>
+    <span class="rb rb--name" data-rb-name>Bistro</span>
+    <span class="rb rb--count" data-rb-count>1 / 7</span>
+    <button class="rb" type="button" data-rb-up aria-label="Previous room"><svg class="ico" aria-hidden="true"><use href="#i-up"/></svg></button>
+    <button class="rb" type="button" data-rb-down aria-label="Next room"><svg class="ico" aria-hidden="true"><use href="#i-down"/></svg></button>
+  </nav>
+
+  <!-- Functions -->
+  <section class="fn container" id="functions" aria-labelledby="fn-title">
+    <div class="fn__card on-dark">
+      <div class="fn__media"><img src="img/drive/36-terrace-evening-festoon-lights.webp" width="1800" height="1350" alt="The function terrace at dusk under festoon lights, tables set" loading="lazy" decoding="async"></div>
+      <div class="fn__body">
+        <h2 class="h-md" id="fn-title">Functions in the<br>Herb Garden</h2>
+        <p class="fn__intro">Three spaces for birthdays, engagements, anniversaries and work dos. Platters run from $100 to $145, and our team runs the day.</p>
+        <form class="finder" aria-label="Find a function space" onsubmit="return false">
+          <div>
+            <span class="flabel mono" id="g-lab">Guests</span>
+            <div class="stepper" role="group" aria-labelledby="g-lab">
+              <button type="button" data-step="-5" aria-label="Five fewer guests"><svg class="ico" aria-hidden="true"><use href="#i-minus"/></svg></button>
+              <input type="number" inputmode="numeric" min="1" max="300" value="40" id="guests" aria-labelledby="g-lab" data-guests>
+              <button type="button" data-step="5" aria-label="Five more guests"><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button>
+            </div>
+          </div>
+          <fieldset>
+            <legend class="mono">Style</legend>
+            <div class="seg">
+              <label><input type="radio" name="style" value="seated" checked><span>Seated</span></label>
+              <label><input type="radio" name="style" value="standing"><span>Standing</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend class="mono">Day</legend>
+            <div class="seg">
+              <label><input type="radio" name="day" value="mt" checked><span>Mon to Thu</span></label>
+              <label><input type="radio" name="day" value="fs"><span>Fri to Sun</span></label>
+            </div>
+          </fieldset>
+        </form>
+        <ul class="spaces" data-spaces>
+          <li class="space" data-space="terrace" data-seated="40">
+            <span class="space__name">Terrace</span>
+            <span class="space__cap mono">40 seated</span>
+            <span class="space__bar" aria-hidden="true"><span class="space__fill" style="--cap:.4"></span><span class="space__mark"></span></span>
+            <span class="space__fit mono" data-fit>Fits 40</span>
+          </li>
+          <li class="space" data-space="both" data-seated="60">
+            <span class="space__name">Terrace and Herb Garden</span>
+            <span class="space__cap mono">60 seated</span>
+            <span class="space__bar" aria-hidden="true"><span class="space__fill" style="--cap:.6"></span><span class="space__mark"></span></span>
+            <span class="space__fit mono" data-fit>Fits 40</span>
+          </li>
+          <li class="space" data-space="herb" data-seated="80" data-standing="100">
+            <span class="space__name">Herb Garden</span>
+            <span class="space__cap mono">80 seated · 100 standing</span>
+            <span class="space__bar" aria-hidden="true"><span class="space__fill" style="--cap:.8"></span><span class="space__mark"></span></span>
+            <span class="space__fit mono" data-fit>Fits 40</span>
+          </li>
+        </ul>
+        <p class="fn__summary" role="status" data-fn-summary>All three spaces seat 40 guests.</p>
+        <p class="fn__terms mono" data-fn-terms>Minimum spend $1,000 Mon to Thu, $2,000 Fri to Sun, or $250 room hire. $100 deposit. No 18th to 20th birthdays.</p>
+        <div class="fn__foot">
+          <p>Rather talk it through? Call <a class="plain" href="tel:+61732634040">(07) 3263 4040</a>.</p>
+          <a class="fn__tile" href="mailto:enquiries@aspleyhotel.com.au?subject=Function%20enquiry" data-fn-mail>
+            <span class="mono">enquiries@aspleyhotel.com.au</span>
+            <span class="fn__tile-cta">Plan your function <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Star Rewards -->
+  <section class="twocol rewards container" id="rewards" aria-labelledby="sr-title">
+    <div class="grid12">
+      <div class="twocol__h">
+        <h2 class="h-xs" id="sr-title">Star Rewards.</h2>
+        <p>Tap Join, fill out the registration form and receive your Star Rewards membership on the spot.</p>
+      </div>
+      <div class="twocol__body">
+        <p class="lead">Members pay $1 less on every dish, and collect points at every Star Hotels venue and Star Liquor store.</p>
+        <a class="btn" href="https://qrco.de/bbdyet" target="_blank" rel="noopener"><span class="btn__bg"></span><span class="btn__in"><svg class="ico ico--in" aria-hidden="true"><use href="#i-out"/></svg><span class="btn__label">Join Star Rewards</span><svg class="ico ico--out" aria-hidden="true"><use href="#i-out"/></svg></span></a>
+        <div class="prices" data-prices>
+          <div class="prices__head">
+            <h3>From the bistro menu</h3>
+            <label class="switch"><input type="checkbox" role="switch" data-members-toggle><span class="switch__track" aria-hidden="true"></span>Show members prices</label>
+          </div>
+          <ul>
+            <li class="price-row"><span class="price-row__name">Chicken Schnitzel<small>Parmy it up from +$5.72</small></span><span><span class="price" data-a="$27.73" data-b="$26.73">$27.73</span></span></li>
+            <li class="price-row"><span class="price-row__name">Famous Steak Sandwich</span><span><span class="price" data-a="$30.99" data-b="$29.99">$30.99</span></span></li>
+            <li class="price-row"><span class="price-row__name">Beer Battered Barramundi</span><span><span class="price" data-a="$32.94" data-b="$31.94">$32.94</span></span></li>
+            <li class="price-row"><span class="price-row__name">300g Rump<small>Locally sourced from JBS</small></span><span><span class="price" data-a="$41.93" data-b="$40.93">$41.93</span></span></li>
+            <li class="price-row"><span class="price-row__name">Coffee and cake</span><span><span class="price" data-a="$13.95" data-b="$12.95">$13.95</span></span></li>
+          </ul>
+          <p class="sr-only" role="status" data-members-status></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Snapshot -->
+  <section class="snap container" id="glance" aria-labelledby="glance-title">
+    <span class="hair"></span>
+    <div class="snap__grid">
+      <div class="snap__left">
+        <h2 class="h-xs" id="glance-title">The pub at a glance</h2>
+        <div><a class="btn btn--outline" href="https://www.google.com/maps/search/?api=1&amp;query=Aspley+Hotel+1247+Gympie+Road+Aspley+QLD+4034" target="_blank" rel="noopener"><span class="btn__bg"></span><span class="btn__in"><svg class="ico ico--in" aria-hidden="true"><use href="#i-out"/></svg><span class="btn__label">Directions</span><svg class="ico ico--out" aria-hidden="true"><use href="#i-out"/></svg></span></a></div>
+      </div>
+      <div class="snap__right">
+        <div class="snap__headrow"><span>Aspley Hotel, 1247 Gympie Road, Aspley</span><span>Est. 1935</span></div>
+        <p class="snap__num"><b data-rating>4.2</b><span class="mono">Google rating</span></p>
+        <dl class="snap__dl">
+          <div><dt class="mono">Reviews</dt><dd>791 on Google</dd></div>
+          <div><dt class="mono">Functions</dt><dd>Up to 100 standing</dd></div>
+          <div><dt class="mono">Gaming</dt><dd>10am to 4am daily</dd></div>
+          <div><dt class="mono">Bottle shop</dt><dd>Drive-through</dd></div>
+        </dl>
+        <p class="snap__help mono">Gamble responsibly. Gambling Help <a href="tel:1800858858">1800 858 858</a></p>
+        <p class="snap__src">Rating and review count from the venue's Google Maps listing, October 2026.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- This week -->
+  <section class="week" id="week" aria-labelledby="week-title">
+    <div class="container week__head">
+      <div>
+        <h2 class="h-xs" id="week-title">This week</h2>
+        <p>Trivia on Wednesday, Jag the Joker on Friday and sport on the screens every day.</p>
+      </div>
+      <div class="week__nav">
+        <button class="textbtn" type="button" data-prev aria-controls="week-track">Prev.</button>
+        <button class="textbtn" type="button" data-next aria-controls="week-track">Next</button>
+      </div>
+    </div>
+    <ul class="week__track" id="week-track" tabindex="0" aria-label="Events this week, scroll sideways" data-lenis-prevent-wheel>
+      <li class="ev" data-dow="3">
+        <div class="ev__img"><img src="img/drive/01-bar-counter-view-01-sm.webp" width="900" height="600" alt="The main bar counter with screens above" loading="lazy" decoding="async" draggable="false"><span class="ev__chip mono" hidden>Today</span></div>
+        <h3>Wednesday Trivia with Questionable Company</h3>
+        <p class="ev__when mono">Wed 6:30pm · Free</p>
+        <p>Quirky rounds and prizes. Grab a table in the bistro first and stay for the quiz.</p>
+      </li>
+      <li class="ev" data-dow="5">
+        <div class="ev__img"><img src="img/drive/05-bar-drinks-and-pour-sm.webp" width="900" height="506" alt="A beer being poured at the bar" loading="lazy" decoding="async" draggable="false"><span class="ev__chip mono" hidden>Today</span></div>
+        <h3>Jag the Joker</h3>
+        <p class="ev__when mono">Fri 3:30pm to 6:30pm</p>
+        <p>One entry for every drink you buy. The jackpot grows $100 a week until the Joker is found.</p>
+      </li>
+      <li class="ev" data-dow="6">
+        <div class="ev__img"><img src="img/drive/50-sports-bar-and-tab-alternate-sm.webp" width="900" height="675" alt="The sports bar and TAB area" loading="lazy" decoding="async" draggable="false"><span class="ev__chip mono" hidden>Today</span></div>
+        <h3>Saturday Members Jackpot draw</h3>
+        <p class="ev__when mono">Sat · From $400 · Must go by $4,000</p>
+        <p class="ev__help">Gamble responsibly. Gambling Help <a href="tel:1800858858">1800 858 858</a></p>
+      </li>
+      <li class="ev" data-dow="daily">
+        <div class="ev__img"><img src="img/drive/48-sports-bar-tab-screens-sm.webp" width="900" height="600" alt="A wall of TAB and sport screens" loading="lazy" decoding="async" draggable="false"><span class="ev__chip mono" hidden>Today</span></div>
+        <h3>Sport on every screen</h3>
+        <p class="ev__when mono">Daily · Fox Sports · TAB</p>
+        <p>Live sport in the sports bar all day, every day. <a href="#room-sports">See the sports bar</a></p>
+      </li>
+      <li class="ev" data-date="2026-11-03">
+        <div class="ev__img"><img src="img/drive/28-menu-food-spread-overhead-sm.webp" width="900" height="506" alt="An overhead spread of bistro dishes on a timber table" loading="lazy" decoding="async" draggable="false"><span class="ev__chip mono" hidden>Today</span></div>
+        <h3>Melbourne Cup lunch, 2&nbsp;courses $55</h3>
+        <p class="ev__when mono" data-cup-when>Tue 3 Nov 2026</p>
+        <p>Crispy Chicken Bites, Prawn Cocktail or Burrata, then Miso Salmon, Pork Piccata or Pumpkin and Sage Gnocchi. Sweeps, prizes and a lucky loser draw. <a href="#book" data-cup>Bookings essential</a></p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Push: book -->
+  <section class="push" id="book" aria-labelledby="book-title">
+    <div class="push__media" aria-hidden="true"><img src="img/drive/06-bistro-dining-room-view-01.webp" width="1800" height="1200" alt="" loading="lazy" decoding="async"></div>
+    <div class="push__inner">
+      <h2 class="push__title" id="book-title"><span class="pl">Book</span> <span class="pl">a table.</span></h2>
+      <p class="push__hours">Lunch Sunday to Wednesday 11:30am to 2:30pm, dinner 5:30pm to 8:30pm. All-day dining Thursday to Saturday, 11:30am to 8:30pm.</p>
+      <form class="book" novalidate data-book-form>
+        <div class="field"><label class="mono" for="b-date">Date</label><input id="b-date" name="date" type="date" required></div>
+        <div class="field"><label class="mono" for="b-time">Time</label><select id="b-time" name="time" required></select></div>
+        <div class="field field--wide"><label class="mono" for="b-guests">Guests</label><select id="b-guests" name="guests" required></select></div>
+        <div class="field field--3 field--wide"><label class="mono" for="b-name">Name</label><input id="b-name" name="name" type="text" autocomplete="name" required aria-describedby="b-name-err"><span class="field__err" id="b-name-err"></span></div>
+        <div class="field field--3 field--wide"><label class="mono" for="b-phone">Mobile</label><input id="b-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required aria-describedby="b-phone-err"><span class="field__err" id="b-phone-err"></span></div>
+        <div class="book__actions">
+          <p class="book__status" role="status" aria-live="polite" data-book-status></p>
+          <button class="btn btn--red" type="submit"><span class="btn__bg"></span><span class="btn__in"><svg class="ico ico--in" aria-hidden="true"><use href="#i-arrow"/></svg><span class="btn__label" data-book-label>Request a Booking</span><svg class="ico ico--out" aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
+        </div>
+        <p class="book__note">Mock only: this form is not connected to a booking system.</p>
+      </form>
+      <div class="push__call">
+        <a class="btn btn--white" href="tel:+61732634040"><span class="btn__bg"></span><span class="btn__in"><svg class="ico ico--in" aria-hidden="true"><use href="#i-arrow"/></svg><span class="btn__label">Call (07) 3263 4040</span><svg class="ico ico--out" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="container foot__inner">
+    <div class="grid12 foot__top">
+      <div class="foot__badge" aria-hidden="true"><svg><use href="#badge"/></svg></div>
+      <nav class="foot__menu-wrap" aria-label="Footer" style="display:contents">
+        <ul class="foot__menu">
+          <li><a href="#room-bistro">Eat</a><span class="hair"></span></li>
+          <li><a href="#room-bar">Drink</a><span class="hair"></span></li>
+          <li><a href="#room-sports">Sports Bar</a><span class="hair"></span></li>
+          <li><a href="#room-gaming">Gaming</a><span class="hair"></span></li>
+          <li><a href="#functions">Functions</a><span class="hair"></span></li>
+          <li><a href="#week">What's On</a><span class="hair"></span></li>
+          <li><a href="#rewards">Star Rewards</a><span class="hair"></span></li>
+          <li><a href="#book">Book</a><span class="hair"></span></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="grid12 foot__mid">
+      <div class="foot__about">
+        <p>The pub on the hill since 1935. Part of the Star Hotels Group.</p>
+        <address>1247 Gympie Road, Aspley QLD 4034<br><a href="tel:+61732634040">(07) 3263 4040</a><br><a href="mailto:enquiries@aspleyhotel.com.au">enquiries@aspleyhotel.com.au</a></address>
+        <p class="foot__social"><a href="https://www.facebook.com/AspleyHotel" target="_blank" rel="noopener">Facebook</a><a href="https://www.instagram.com/aspleyhotel/" target="_blank" rel="noopener">Instagram</a></p>
+      </div>
+      <div class="foot__hours">
+        <div>
+          <h3>Bistro</h3>
+          <dl>
+            <div><dt class="mono">Lunch, Sun to Wed</dt><dd>11:30am to 2:30pm</dd></div>
+            <div><dt class="mono">Dinner, Sun to Wed</dt><dd>5:30pm to 8:30pm</dd></div>
+            <div><dt class="mono">All day, Thu to Sat</dt><dd>11:30am to 8:30pm</dd></div>
+          </dl>
+        </div>
+        <div>
+          <h3>Gaming</h3>
+          <dl><div><dt class="mono">Every day</dt><dd>10am to 4am</dd></div></dl>
+          <p class="help">Gamble responsibly. Gambling Help <a href="tel:1800858858">1800 858 858</a></p>
+        </div>
+        <div>
+          <h3>Bottle shop</h3>
+          <dl>
+            <div><dt class="mono">Sun to Thu</dt><dd>10am to 11pm</dd></div>
+            <div><dt class="mono">Fri and Sat</dt><dd>10am to midnight</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div class="foot__legal mono">
+      <span>© 2026 Aspley Hotel</span>
+      <span>Part of the Star Hotels Group</span>
+      <span>We practise the responsible service of alcohol</span>
+      <span>Gamble responsibly · Gambling Help <a href="tel:1800858858">1800 858 858</a></span>
+      <span><a href="#top">Privacy</a></span>
+    </div>
+  </div>
+</footer>
+<div class="curtain" aria-hidden="true">
+  <div class="curtain__wrap">
+    <div class="curtain__panel">
+      <img src="img/drive/25-hotel-exterior-wide-hero-alternate.webp" width="1800" height="1010" alt="" loading="lazy" decoding="async">
+      <p class="curtain__word"><span>ASPLEY</span> <span>HOTEL</span></p>
+    </div>
+  </div>
+</div>
+
+<div class="mbar">
+  <a class="btn btn--red" href="#book" data-book><span class="btn__bg"></span><span class="btn__in"><span class="btn__label">Book a table<small data-mbar-kitchen>Kitchen from 11:30am</small></span></span></a>
+  <a class="btn btn--dark" href="tel:+61732634040"><span class="btn__bg"></span><span class="btn__in"><span class="btn__label">Call<small>(07) 3263 4040</small></span></span></a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/Flip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+'use strict';
+var root = document.documentElement;
+function $(s,c){return (c||document).querySelector(s)}
+function $$(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))}
+var reduceMQ = matchMedia('(prefers-reduced-motion: reduce)');
+var deskMQ = matchMedia('(min-width: 1000px)');
+var fineMQ = matchMedia('(pointer: fine)');
+var G = window.gsap;
+var hasG = !!(G && window.ScrollTrigger);
+var hasSplit = hasG && !!window.SplitText;
+var hasFlip = hasG && !!window.Flip;
+if (hasG) G.registerPlugin.apply(G, [ScrollTrigger].concat(hasSplit?[SplitText]:[], hasFlip?[Flip]:[]));
+var lenis = null;
+function motionOK(){return !reduceMQ.matches}
+
+/* ---------- Layout helpers ---------- */
+var note = $('.mock-note');
+function setNote(){root.style.setProperty('--note-h', note.offsetHeight + 'px')}
+setNote(); addEventListener('resize', setNote);
+function flowTop(el){var t=0; while(el){t+=el.offsetTop; el=el.offsetParent} return t}
+var rooms = $('#rooms'), slides = $$('.slide');
+function slideH(){return slides[0].offsetHeight}
+function scrollToY(y){
+  y = Math.max(0, y);
+  if (lenis) lenis.scrollTo(y, {duration:1.2});
+  else window.scrollTo({top:y, behavior: motionOK() ? 'smooth' : 'auto'});
+}
+function targetY(el){
+  if (el.id === 'top') return 0;
+  if (el.classList.contains('slide') && deskMQ.matches) return flowTop(rooms) + slides.indexOf(el) * slideH();
+  if (el.id === 'rooms') return flowTop(rooms);
+  if (el.id === 'book' || el.id === 'galaxy') return flowTop(el);
+  return flowTop(el) - 96;
+}
+
+/* ---------- Brisbane time: kitchen, bottle shop, what's on, Cup countdown ---------- */
+var DAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+var bneFmt = new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Brisbane',weekday:'short',year:'numeric',month:'numeric',day:'numeric',hour:'numeric',minute:'2-digit',hourCycle:'h23'});
+function bne(){
+  var p = {}; bneFmt.formatToParts(new Date()).forEach(function(x){p[x.type]=x.value});
+  var dow = DAYS.indexOf(String(p.weekday).slice(0,3));
+  return {dow:dow, y:+p.year, m:+p.month, d:+p.day, mins:((+p.hour)%24)*60 + (+p.minute)};
+}
+function t12(mins){var h=Math.floor(mins/60)%24, m=mins%60, ap=h>=12?'pm':'am', hh=h%12||12; return hh + (m?':'+String(m).padStart(2,'0'):'') + ap}
+function kitchen(dow, mins){
+  var allDay = dow>=4 && dow<=6;
+  if (mins < 690) return {open:false, text:'Opens 11:30am', short:'Kitchen from 11:30am'};
+  if (allDay){
+    if (mins < 1230) return {open:true, text:'Open till 8:30pm', short:'Kitchen open till 8:30pm'};
+    return {open:false, text:'Closed, opens 11:30am tomorrow', short:'Kitchen from 11:30am'};
+  }
+  if (mins < 870) return {open:true, text:'Lunch till 2:30pm', short:'Lunch till 2:30pm'};
+  if (mins < 1050) return {open:false, text:'Reopens 5:30pm for dinner', short:'Dinner from 5:30pm'};
+  if (mins < 1230) return {open:true, text:'Dinner till 8:30pm', short:'Dinner till 8:30pm'};
+  return {open:false, text:'Closed, opens 11:30am tomorrow', short:'Kitchen from 11:30am'};
+}
+function bottle(dow, mins){
+  var close = (dow===5 || dow===6) ? 1440 : 1380;
+  if (mins < 600) return {open:false, text:'Opens 10am'};
+  if (mins < close) return {open:true, text:'Open till ' + (close===1440 ? 'midnight' : '11pm')};
+  return {open:false, text:'Opens 10am tomorrow'};
+}
+function daysToCup(n){
+  var today = Date.UTC(n.y, n.m-1, n.d), cup = Date.UTC(2026, 10, 3);
+  return Math.round((cup - today) / 864e5);
+}
+function eventToday(n){
+  if (daysToCup(n) === 0) return 'Melbourne Cup lunch, 2 courses $55';
+  switch(n.dow){
+    case 3: return 'Trivia at 6:30pm, free';
+    case 5: return 'Jag the Joker, 3:30pm to 6:30pm';
+    case 6: return 'Members Jackpot draw<small>Gamble responsibly. Gambling Help 1800 858 858</small>';
+    default: return 'Sport on the sports bar screens, all day';
+  }
+}
+function updateToday(){
+  var n = bne(); if (n.dow < 0) return;
+  var k = kitchen(n.dow, n.mins), b = bottle(n.dow, n.mins);
+  $('[data-now]').textContent = DAYS[n.dow] + ' ' + t12(n.mins);
+  $('[data-kitchen]').textContent = k.text;
+  $('[data-kitchen-cell]').classList.toggle('is-open', k.open);
+  $('[data-bottle]').textContent = b.text;
+  $('[data-bottle-cell]').classList.toggle('is-open', b.open);
+  $('[data-event]').innerHTML = eventToday(n);
+  var mk = $('[data-mbar-kitchen]'); if (mk) mk.textContent = k.short;
+  var d = daysToCup(n), cupTxt = 'Tue 3 Nov 2026';
+  if (d > 1) cupTxt += ' · ' + d + ' days to go';
+  else if (d === 1) cupTxt += ' · Tomorrow';
+  else if (d === 0) cupTxt = 'Today · Tue 3 Nov';
+  $('[data-cup-count]').textContent = cupTxt;
+  $('[data-cup-when]').textContent = cupTxt;
+  return n;
+}
+var nowB = updateToday();
+setInterval(updateToday, 60000);
+
+/* This week: today first, then by days until */
+(function orderWeek(){
+  var track = $('#week-track'); if (!nowB) return;
+  var items = $$('.ev', track);
+  items.forEach(function(li){
+    var key;
+    if (li.dataset.dow === 'daily') key = 0.5;
+    else if (li.dataset.date) key = daysToCup(nowB) < 0 ? 99 : daysToCup(nowB) + 0.1;
+    else key = (+li.dataset.dow - nowB.dow + 7) % 7;
+    li.dataset.key = key;
+    var chip = $('.ev__chip', li);
+    if (key === 0 || (li.dataset.date && daysToCup(nowB) === 0)) chip.hidden = false;
+  });
+  items.sort(function(a,b){return a.dataset.key - b.dataset.key}).forEach(function(li){track.appendChild(li)});
+  /* re-ordering makes scroll snap keep the old first card; start at the new first card */
+  track.scrollLeft = 0; requestAnimationFrame(function(){ track.scrollLeft = 0 });
+})();
+
+/* ---------- Header: pill morph (Flip), hide on scroll down, mega menus, mobile menu ---------- */
+var hdr = $('#hdr'), bar = $('.hdr__bar'), dim = $('.dim');
+var pill = false, lastY = scrollY, openMega = null, mOpen = false;
+function setPill(on){
+  if (on === pill) return; pill = on;
+  if (hasFlip && deskMQ.matches && motionOK()){
+    var targets = $$('.hdr__bg, .hdr__brand, .hdr__nav, .hdr__cta');
+    var st = Flip.getState(targets, {props:'opacity,borderRadius'});
+    hdr.classList.toggle('is-pill', on);
+    Flip.from(st, {duration:.5, ease:'power3.out', scale:false, simple:true, overwrite:true});
+    if (on) G.fromTo('.hdr__badge', {rotate:-120, scale:.6, opacity:0}, {rotate:0, scale:1, opacity:1, duration:.6, ease:'expo.out'});
+    else G.fromTo('.hdr__word', {opacity:0, x:-8}, {opacity:1, x:0, duration:.5, ease:'power3.out'});
+  } else {
+    hdr.classList.toggle('is-pill', on);
+  }
+}
+function menusOpen(){return !!openMega || mOpen}
+function onScroll(){
+  var y = scrollY;
+  setPill(y > 40);
+  var dy = y - lastY;
+  if (Math.abs(dy) > 4){
+    var hide = dy > 0 && y > innerHeight && !menusOpen() && !hdr.matches(':focus-within');
+    hdr.classList.toggle('is-hidden', hide);
+    lastY = y;
+  }
+  roomsOnScroll(y);
+  mbarOnScroll(y);
+}
+addEventListener('scroll', onScroll, {passive:true});
+hdr.addEventListener('focusin', function(){hdr.classList.remove('is-hidden')});
+
+function dimOn(on){dim.classList.toggle('is-on', on)}
+function openM(btn){
+  closeM(true);
+  var p = document.getElementById(btn.getAttribute('aria-controls'));
+  p.hidden = false; btn.setAttribute('aria-expanded','true');
+  openMega = {btn:btn, p:p}; hdr.classList.add('has-mega'); dimOn(true);
+  hdr.classList.remove('is-hidden');
+  if (hasG && motionOK()){
+    G.fromTo(p, {clipPath:'inset(0% 20% 100% 20% round 12px)'}, {clipPath:'inset(0% 0% 0% 0% round 12px)', duration:.4, ease:'power3.out', overwrite:true});
+    G.fromTo($$('.tile, .mega__intro > *', p), {y:14}, {y:0, duration:.5, ease:'expo.out', stagger:.03, overwrite:true});
+  }
+}
+function closeM(instant){
+  if (!openMega) return;
+  var o = openMega; openMega = null;
+  o.btn.setAttribute('aria-expanded','false'); hdr.classList.remove('has-mega'); dimOn(false);
+  if (!instant && hasG && motionOK()){
+    G.to(o.p, {clipPath:'inset(0% 12% 100% 12% round 12px)', duration:.22, ease:'power2.out', overwrite:true, onComplete:function(){ if (openMega && openMega.p === o.p) return; o.p.hidden = true; }});
+  } else o.p.hidden = true;
+}
+$$('.hdr__trigger').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    if (openMega && openMega.btn === btn) closeM(); else openM(btn);
+  });
+});
+dim.addEventListener('click', function(){closeM(); closeMobile()});
+document.addEventListener('keydown', function(e){
+  if (e.key !== 'Escape') return;
+  if (openMega){var b = openMega.btn; closeM(); b.focus()}
+  if (mOpen){closeMobile(); $('.hdr__menu-btn').focus()}
+  closeRoomList();
+});
+hdr.addEventListener('focusout', function(e){
+  if (openMega && !hdr.contains(e.relatedTarget)) closeM();
+});
+
+var mBtn = $('.hdr__menu-btn'), mPanel = $('#mmenu');
+function openMobile(){
+  mOpen = true; mPanel.hidden = false; mBtn.setAttribute('aria-expanded','true'); mBtn.firstChild.nodeValue = 'Close ';
+  hdr.classList.add('has-menu'); dimOn(true); hdr.classList.remove('is-hidden');
+  if (lenis) lenis.stop();
+  root.style.overflow = 'hidden';
+  if (hasG && motionOK()){
+    G.fromTo(mPanel, {clipPath:'inset(0% 0% 100% 0% round 12px)'}, {clipPath:'inset(0% 0% 0% 0% round 12px)', duration:.4, ease:'power3.out'});
+    G.fromTo($$('.mmenu__list li, .mmenu__foot .btn', mPanel), {y:-10, opacity:0}, {y:0, opacity:1, duration:.4, ease:'power3.out', stagger:.03});
+  }
+  var first = $('a', mPanel); if (first) first.focus();
+}
+function closeMobile(){
+  if (!mOpen) return;
+  mOpen = false; mBtn.setAttribute('aria-expanded','false'); mBtn.firstChild.nodeValue = 'Menu ';
+  hdr.classList.remove('has-menu'); dimOn(false);
+  if (lenis) lenis.start();
+  root.style.overflow = '';
+  if (hasG && motionOK()) G.to(mPanel, {clipPath:'inset(0% 0% 100% 0% round 12px)', duration:.22, ease:'power2.out', onComplete:function(){ if (!mOpen) mPanel.hidden = true; }});
+  else mPanel.hidden = true;
+}
+mBtn.addEventListener('click', function(){ mOpen ? closeMobile() : openMobile() });
+mPanel.addEventListener('keydown', function(e){
+  if (e.key !== 'Tab') return;
+  var f = $$('a,button', mPanel).concat([mBtn]);
+  var i = f.indexOf(document.activeElement);
+  if (e.shiftKey && i === 0){e.preventDefault(); mBtn.focus()}
+  else if (!e.shiftKey && i === f.length - 2){e.preventDefault(); mBtn.focus()}
+});
+deskMQ.addEventListener('change', function(){ closeMobile(); closeM(true) });
+
+/* In-page links: smooth scroll via Lenis, close menus, move focus */
+document.addEventListener('click', function(e){
+  var a = e.target.closest('a[href^="#"]'); if (!a) return;
+  var id = a.getAttribute('href'); if (id.length < 2) return;
+  var t = document.querySelector(id); if (!t) return;
+  e.preventDefault();
+  if (a.hasAttribute('data-cup')) setBookDate('2026-11-03');
+  closeM(true); closeMobile(); closeRoomList();
+  scrollToY(targetY(t));
+  if (history.replaceState) history.replaceState(null, '', id);
+  if (!t.hasAttribute('tabindex')) t.setAttribute('tabindex','-1');
+  t.focus({preventScroll:true});
+});
+
+/* ---------- Rooms control bar ---------- */
+var rbar = $('.roomsbar'), rbName = $('[data-rb-name]'), rbCount = $('[data-rb-count]'), rbUp = $('[data-rb-up]'), rbDown = $('[data-rb-down]'), rbAll = $('[data-rb-all]'), rbList = $('#rb-list');
+var curRoom = -1;
+slides.forEach(function(s, i){
+  var b = document.createElement('button'); b.type = 'button';
+  b.innerHTML = s.dataset.name + '<span>' + (i+1) + ' / ' + slides.length + '</span>';
+  b.addEventListener('click', function(){ closeRoomList(); scrollToY(flowTop(rooms) + i*slideH()) });
+  rbList.appendChild(b);
+});
+function setRoom(i){
+  if (i === curRoom) return; curRoom = i;
+  rbName.textContent = slides[i].dataset.name;
+  rbCount.textContent = (i+1) + ' / ' + slides.length;
+  rbUp.disabled = i === 0; rbDown.disabled = i === slides.length - 1;
+  $$('button', rbList).forEach(function(b, j){ b.setAttribute('aria-current', j === i ? 'true' : 'false') });
+}
+function roomsOnScroll(y){
+  if (!deskMQ.matches){ rbar.classList.remove('is-on'); return }
+  var top = flowTop(rooms), h = slideH();
+  var p = (y - top + innerHeight*0.5) / h;
+  var on = y > top - innerHeight*0.35 && y < top + (slides.length - 1)*h + innerHeight*0.3;
+  rbar.classList.toggle('is-on', on);
+  if (!on) closeRoomList();
+  setRoom(Math.max(0, Math.min(slides.length - 1, Math.floor(p))));
+}
+function closeRoomList(){ rbList.hidden = true; rbAll.setAttribute('aria-expanded','false') }
+rbAll.addEventListener('click', function(){ var open = rbList.hidden; rbList.hidden = !open; rbAll.setAttribute('aria-expanded', String(open)) });
+rbUp.addEventListener('click', function(){ scrollToY(flowTop(rooms) + Math.max(0, curRoom - 1)*slideH()) });
+rbDown.addEventListener('click', function(){ scrollToY(flowTop(rooms) + Math.min(slides.length - 1, curRoom + 1)*slideH()) });
+setRoom(0);
+
+/* Sticky Book bar: step aside while the booking form itself is on screen */
+var book = $('#book');
+function mbarOnScroll(y){
+  var mb = $('.mbar'); var r = book.getBoundingClientRect();
+  mb.classList.toggle('is-away', r.top < innerHeight*0.5 && r.bottom > innerHeight*0.6);
+}
+
+/* ---------- Function finder ---------- */
+var SPACES = {terrace:{seated:40, standing:null}, both:{seated:60, standing:null}, herb:{seated:80, standing:100}};
+var gInput = $('[data-guests]'), spacesUl = $('[data-spaces]');
+function finderState(){
+  var n = Math.max(1, Math.min(300, parseInt(gInput.value, 10) || 1));
+  var style = $('input[name="style"]:checked').value, day = $('input[name="day"]:checked').value;
+  return {n:n, style:style, day:day};
+}
+function updateFinder(animate){
+  var s = finderState(), fits = 0, items = $$('.space', spacesUl);
+  var flipState = (animate && hasFlip && motionOK()) ? Flip.getState(items) : null;
+  items.forEach(function(li){
+    var sp = SPACES[li.dataset.space], cap = s.style === 'standing' ? sp.standing : sp.seated;
+    var fit = cap != null && s.n <= cap, fitEl = $('[data-fit]', li);
+    li.classList.toggle('is-out', !fit);
+    li.querySelector('.space__fill').style.setProperty('--cap', ((cap || sp.seated)/100).toFixed(2));
+    li.querySelector('.space__mark').style.setProperty('--n', Math.min(100, s.n) + '%');
+    if (cap == null) fitEl.textContent = 'Seated only';
+    else if (fit) fitEl.textContent = 'Fits ' + s.n;
+    else fitEl.textContent = 'Holds ' + cap + ', you’re ' + s.n;
+    li.dataset.order = fit ? cap : 1000 + (cap || 0);
+    if (fit) fits++;
+  });
+  items.sort(function(a,b){return a.dataset.order - b.dataset.order}).forEach(function(li){spacesUl.appendChild(li)});
+  if (flipState) Flip.from(flipState, {duration:.4, ease:'power3.out'});
+  var label = s.n + ' ' + s.style + ' guest' + (s.n === 1 ? '' : 's');
+  var sum;
+  if (s.n > 100) sum = 'Over 100 guests? Call (07) 3263 4040 and we’ll talk it through.';
+  else if (fits === 0) sum = 'None of the spaces lists ' + label + '. Call us and we’ll find a way.';
+  else if (fits === 3) sum = 'All three spaces fit ' + label + '.';
+  else sum = fits + ' of 3 spaces fit ' + label + '.';
+  $('[data-fn-summary]').textContent = sum;
+  var spend = s.day === 'mt' ? 'Minimum spend $1,000 Mon to Thu' : 'Minimum spend $2,000 Fri to Sun';
+  $('[data-fn-terms]').textContent = spend + ', or $250 room hire. $100 deposit. No 18th to 20th birthdays.';
+  var subj = 'Function enquiry: ' + s.n + ' guests, ' + s.style + ', ' + (s.day === 'mt' ? 'Mon to Thu' : 'Fri to Sun');
+  $('[data-fn-mail]').href = 'mailto:enquiries@aspleyhotel.com.au?subject=' + encodeURIComponent(subj);
+}
+var finderT;
+$$('[data-step]').forEach(function(b){ b.addEventListener('click', function(){
+  gInput.value = Math.max(1, Math.min(300, (parseInt(gInput.value,10)||0) + (+b.dataset.step)));
+  clearTimeout(finderT); finderT = setTimeout(function(){updateFinder(true)}, 120);
+})});
+gInput.addEventListener('input', function(){ clearTimeout(finderT); finderT = setTimeout(function(){updateFinder(true)}, 250) });
+$$('.finder input[type="radio"]').forEach(function(r){ r.addEventListener('change', function(){updateFinder(true)}) });
+updateFinder(false);
+
+/* ---------- Members price roller ---------- */
+var prices = $('[data-prices]');
+$$('.price', prices).forEach(function(el, row){
+  var a = el.dataset.a, b = el.dataset.b, html = '';
+  for (var i = 0; i < a.length; i++){
+    if (a[i] === b[i]) html += '<span class="ch" aria-hidden="true"><span><span>' + a[i] + '</span></span></span>';
+    else html += '<span class="ch" aria-hidden="true"><span style="transition-delay:' + (row*25 + i*15) + 'ms"><span>' + a[i] + '</span><span>' + b[i] + '</span></span></span>';
+  }
+  el.innerHTML = '<span class="sr-only" data-sr>' + a + '</span>' + html;
+  el.parentNode.insertAdjacentHTML('beforeend', '<span class="price__tag" aria-hidden="true">Public</span>');
+});
+$('[data-members-toggle]').addEventListener('change', function(e){
+  var on = e.target.checked;
+  prices.classList.toggle('is-members', on);
+  $$('.price', prices).forEach(function(el){ $('[data-sr]', el).textContent = on ? el.dataset.b : el.dataset.a });
+  $$('.price__tag', prices).forEach(function(t){ t.textContent = on ? 'Members' : 'Public' });
+  $('[data-members-status]').textContent = on ? 'Showing Star Rewards members prices, $1 less on every dish.' : 'Showing public prices.';
+});
+
+/* ---------- Booking form (mock) ---------- */
+var form = $('[data-book-form]'), fDate = $('#b-date'), fTime = $('#b-time'), fGuests = $('#b-guests');
+function isoB(n){return n.y + '-' + String(n.m).padStart(2,'0') + '-' + String(n.d).padStart(2,'0')}
+function slotsFor(iso){
+  var p = iso.split('-'), dow = new Date(+p[0], +p[1]-1, +p[2]).getDay(), s = [];
+  function add(a,b){for (var m = a; m <= b; m += 30) s.push(m)}
+  if (dow >= 4 && dow <= 6) add(690, 1200); else { add(690, 840); add(1050, 1200) }
+  return s;
+}
+function fillTimes(){
+  var keep = fTime.value; fTime.innerHTML = '';
+  slotsFor(fDate.value || isoB(nowB || {y:2026,m:10,d:12})).forEach(function(m){
+    var o = document.createElement('option'); o.value = t12(m); o.textContent = t12(m); fTime.appendChild(o);
+  });
+  if (keep && $$('option', fTime).some(function(o){return o.value === keep})) fTime.value = keep;
+  else { var six = $$('option', fTime).filter(function(o){return o.value === '6pm'})[0]; if (six) fTime.value = '6pm'; }
+}
+for (var gi = 1; gi <= 12; gi++){ var o = document.createElement('option'); o.value = gi; o.textContent = gi + (gi === 1 ? ' guest' : ' guests'); fGuests.appendChild(o) }
+var big = document.createElement('option'); big.value = '13+'; big.textContent = '13 or more, we’ll call you'; fGuests.appendChild(big);
+fGuests.value = '2';
+if (nowB){ fDate.value = isoB(nowB); fDate.min = isoB(nowB) }
+fillTimes();
+fDate.addEventListener('change', fillTimes);
+function setBookDate(iso){ fDate.value = iso; fillTimes(); fTime.value = '12pm' }
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  var bad = [];
+  [['b-name','Add the name for the booking.'],['b-phone','Add a mobile number so the venue can confirm.']].forEach(function(f){
+    var el = document.getElementById(f[0]), err = document.getElementById(f[0] + '-err');
+    var ok = el.value.trim().length > (f[0] === 'b-phone' ? 7 : 0);
+    el.setAttribute('aria-invalid', ok ? 'false' : 'true'); err.textContent = ok ? '' : f[1];
+    if (!ok) bad.push(el);
+  });
+  var status = $('[data-book-status]'), label = $('[data-book-label]');
+  if (bad.length){ status.textContent = ''; bad[0].focus(); return }
+  label.textContent = 'Sending…';
+  setTimeout(function(){
+    label.textContent = 'Request a Booking';
+    var name = $('#b-name').value.trim().split(' ')[0];
+    status.textContent = 'Thanks, ' + name + '. This is a design mock, so nothing was sent. To book ' + fGuests.value + ' for ' + fTime.value + ', call (07) 3263 4040.';
+  }, 600);
+});
+
+/* ---------- This week carousel: buttons, drag, snap ---------- */
+var track = $('#week-track'), prevB = $('[data-prev]'), nextB = $('[data-next]');
+function stepW(){ var c = $('.ev', track); return c.offsetWidth + 20 }
+function navState(){ prevB.disabled = track.scrollLeft < 4; nextB.disabled = track.scrollLeft > track.scrollWidth - track.clientWidth - 4 }
+prevB.addEventListener('click', function(){ track.scrollBy({left:-stepW(), behavior: motionOK()?'smooth':'auto'}) });
+nextB.addEventListener('click', function(){ track.scrollBy({left:stepW(), behavior: motionOK()?'smooth':'auto'}) });
+track.addEventListener('scroll', navState, {passive:true}); navState(); addEventListener('resize', navState);
+(function drag(){
+  var down = false, sx = 0, sl = 0, moved = 0;
+  track.addEventListener('pointerdown', function(e){ if (e.pointerType !== 'mouse' || e.button !== 0) return; down = true; moved = 0; sx = e.clientX; sl = track.scrollLeft; });
+  addEventListener('pointermove', function(e){ if (!down) return; var dx = e.clientX - sx; moved = Math.max(moved, Math.abs(dx)); if (moved > 4) track.classList.add('is-drag'); track.scrollLeft = sl - dx; });
+  addEventListener('pointerup', function(){ if (!down) return; down = false;
+    var x = track.scrollLeft; track.classList.remove('is-drag');
+    track.scrollLeft = x; var i = Math.round(x / stepW()); track.scrollTo({left: i*stepW(), behavior: motionOK()?'smooth':'auto'}); });
+  track.addEventListener('click', function(e){ if (moved > 4){ e.preventDefault(); e.stopPropagation(); moved = 0 } }, true);
+})();
+
+/* ---------- Galaxy particles ---------- */
+var gal = $('#galaxy'), field = $('.galaxy__field');
+var GSRC = ['05-bar-drinks-and-pour','12-bistro-bar-counter-view-02','29-parmigiana-portrait-view-01','26-cake-display-fridge','04-coffee-bar-counter','18-aspley-hotel-signage','01-bar-counter-view-01','45-sports-bar-table-detail','47-sports-bar-window-side','32-outdoor-deck-view-02','35-function-terrace-reverse-angle','21-bistro-doorway-and-steps-close','30-parmigiana-portrait-view-02','09-bistro-dining-room-view-03','02-bar-timber-and-counter-detail','16-hotel-front-square-view'];
+var ZS = [-200,-150,-100,-50,0,50,100,150,200], SPD = [.8,.9,1,1.1,1.2];
+function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+var pts = [], built = false, galActive = false, gTarget = 0, gCur = 0, gDir = 1, lastSY = scrollY, fieldH = 1;
+function buildGalaxy(){
+  if (built) return; built = true;
+  var rnd = mulberry(1935), mobile = innerWidth < 700;
+  for (var i = 0; i < 32; i++){
+    var el = document.createElement('span'); el.className = 'pt';
+    var z = ZS[Math.floor(rnd()*ZS.length)];
+    var left = mobile ? ((i%4)*25 + rnd()*20) : rnd()*95;
+    el.style.left = left.toFixed(2) + '%';
+    el.style.setProperty('--haze', (z < 0 ? 1 - Math.max(.5, 1 + z/250) : 0).toFixed(2));
+    var img = document.createElement('img');
+    img.src = 'img/drive/' + GSRC[i % GSRC.length] + '-sm.webp'; img.alt = ''; img.decoding = 'async'; img.width = 104; img.height = 104;
+    el.appendChild(img); field.appendChild(el);
+    pts.push({el:el, z:z, speed:SPD[Math.floor(rnd()*SPD.length)], base:rnd(), s:1});
+  }
+  fieldH = field.offsetHeight;
+  placeStatic();
+}
+function placeStatic(){
+  pts.forEach(function(p){
+    var y = p.base * fieldH * 0.9 + fieldH*0.05;
+    p.s = .55 + (y/fieldH)*.8;
+    p.el.style.transform = 'translate3d(0,' + y.toFixed(1) + 'px,' + p.z + 'px) scale(' + p.s.toFixed(3) + ')';
+  });
+}
+function galaxyTick(time, dt){
+  if (!galActive || !pts.length || !motionOK()) return;
+  dt = Math.min(dt || 16, 50);
+  var v = lenis ? lenis.velocity : (scrollY - lastSY); lastSY = scrollY;
+  if (Math.abs(v) > .5) gDir = v > 0 ? 1 : -1;
+  gTarget += .03*dt*gDir + v*.4;
+  gCur += (gTarget - gCur)*.1;
+  var H = fieldH, range = H*1.2;
+  for (var i = 0; i < pts.length; i++){
+    var p = pts[i];
+    var y = ((p.base*range - gCur*p.speed) % range + range) % range - H*0.1;
+    var ts = .5 + (y/H)*.9;
+    p.s += (ts - p.s)*.25;
+    p.el.style.transform = 'translate3d(0,' + y.toFixed(1) + 'px,' + p.z + 'px) scale(' + p.s.toFixed(3) + ')';
+  }
+}
+if ('IntersectionObserver' in window){
+  new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) buildGalaxy() }) }, {rootMargin:'800px 0px'}).observe(gal);
+  new IntersectionObserver(function(es){ es.forEach(function(e){ galActive = e.isIntersecting; lastSY = scrollY }) }).observe(gal);
+} else buildGalaxy();
+addEventListener('resize', function(){ if (built){ fieldH = field.offsetHeight; if (!motionOK()) placeStatic() } });
+reduceMQ.addEventListener('change', function(){ if (built && !motionOK()) placeStatic() });
+/* Let below-the-fold lazy images in sideways/clipped containers load ahead of time */
+if ('IntersectionObserver' in window){
+  new IntersectionObserver(function(es, ob){ es.forEach(function(e){ if (e.isIntersecting){ $$('img[loading="lazy"]', e.target).forEach(function(i){ i.loading = 'eager' }); ob.unobserve(e.target) } }) }, {rootMargin:'600px 0px'}).observe(track);
+}
+
+/* ---------- Motion (GSAP). Everything below is enhancement; the page is complete without it. ---------- */
+if (!hasG){ root.classList.remove('js-intro'); return; }
+G.ticker.add(galaxyTick);
+
+function heroIntro(){
+  var media = $('.hero__media'), img = $('.hero__img'), h1 = $('.hero__title'), card = $('.hero-card'), hb = $('.hdr__bar');
+  var desk = innerWidth >= 700, split = null;
+  if (hasSplit){
+    split = SplitText.create(h1, {type:'lines', mask:'lines'});
+    (split.masks || []).forEach(function(m){ m.style.paddingBottom = '.14em'; m.style.marginBottom = '-.14em' });
+  }
+  var tl = G.timeline({defaults:{ease:'expo.out', duration:1}, onComplete:function(){
+    if (split) split.revert();
+    G.set([media, img, card, hb], {clearProps:'transform,opacity,visibility'});
+  }});
+  root.classList.remove('js-intro');
+  if (desk){
+    tl.fromTo(media, {autoAlpha:0, yPercent:60, scale:.6}, {autoAlpha:1, yPercent:20, duration:.9})
+      .to(media, {scale:1, yPercent:0, duration:1.3}, '-=.45')
+      .fromTo(img, {scale:1.25}, {scale:1, duration:1.6}, '<');
+  } else {
+    tl.fromTo(media, {autoAlpha:0, scale:.6, yPercent:20}, {autoAlpha:1, scale:1, yPercent:0, duration:1.2})
+      .fromTo(img, {scale:1.15}, {scale:1, duration:1.2}, '<');
+  }
+  tl.fromTo(split ? split.lines : h1, {yPercent:135}, {yPercent:0, duration:.9, stagger:.1}, desk ? '<+0.6' : '<+0.4')
+    .fromTo(card, {autoAlpha:0, scale:.9, yPercent:10}, {autoAlpha:1, scale:1, yPercent:0, duration:.8}, '<+0.2')
+    .fromTo(hb, {autoAlpha:0, y:-12}, {autoAlpha:1, y:0, duration:.8}, '<');
+}
+
+var mm = G.matchMedia();
+mm.add({motion:'(prefers-reduced-motion: no-preference)', reduce:'(prefers-reduced-motion: reduce)', desk:'(min-width: 1000px)', fine:'(pointer: fine)'}, function(ctx){
+  var c = ctx.conditions, rafFn = null;
+  if (c.reduce){
+    root.classList.remove('js-intro');
+    if (built) placeStatic();
+    return;
+  }
+
+  /* Lenis smooth scroll on mouse/trackpad devices, wired to ScrollTrigger */
+  if (c.fine && window.Lenis && document.compatMode === 'CSS1Compat'){
+    lenis = new Lenis({lerp:.1, smoothWheel:true});
+    lenis.on('scroll', ScrollTrigger.update);
+    rafFn = function(t){ lenis.raf(t*1000) };
+    G.ticker.add(rafFn);
+    G.ticker.lagSmoothing(0);
+  }
+
+  /* Hero: rise-and-grow intro, then a gentle scrubbed drift as it leaves */
+  var fontsReady = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+  Promise.race([fontsReady, new Promise(function(r){setTimeout(r, 1200)})]).then(heroIntro);
+  G.to('.hero__frame', {yPercent:10, ease:'none', scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}});
+
+  /* Galaxy: staircase words settle from offsets of about a third of an em (always visible) */
+  if (hasSplit){
+    fontsReady.then(function(){
+      var pat = [[-1,0],[0,-1],[0,1],[1,0],[0,-1],[0,1]];
+      var fs = parseFloat(getComputedStyle($('.galaxy__title')).fontSize) * .3;
+      var gs = SplitText.create($$('.galaxy__title .gl'), {type:'words'});
+      G.from(gs.words, {x:function(i){return pat[i%6][0]*fs}, y:function(i){return pat[i%6][1]*fs}, duration:1, ease:'expo.out', stagger:.1,
+        scrollTrigger:{trigger:'.galaxy__title', start:'top 85%', once:true}});
+    });
+  }
+
+  /* Rooms: stacked sticky slides with scrubbed parallax; the covered slide recedes */
+  if (c.desk){
+    slides.forEach(function(s, i){
+      var img = $('.slide__img', s), frame = $('.slide__frame', s), veil = $('.slide__veil', s), card = $('.slide__card', s);
+      G.fromTo(img, {yPercent:-9, scale:1.12}, {yPercent:9, scale:1, ease:'none', scrollTrigger:{
+        start:function(){return flowTop(rooms) + (i-1)*slideH()}, end:function(){return flowTop(rooms) + (i+1)*slideH()}, scrub:true, invalidateOnRefresh:true}});
+      if (i > 0) G.fromTo(card, {y:70}, {y:0, ease:'none', scrollTrigger:{
+        start:function(){return flowTop(rooms) + (i-0.9)*slideH()}, end:function(){return flowTop(rooms) + i*slideH()}, scrub:.4, invalidateOnRefresh:true}});
+      if (i < slides.length - 1){
+        G.timeline({scrollTrigger:{start:function(){return flowTop(rooms) + i*slideH()}, end:function(){return flowTop(rooms) + (i+1)*slideH()}, scrub:true, invalidateOnRefresh:true}})
+          .fromTo(frame, {scale:1}, {scale:.9, ease:'none'}, 0)
+          .fromTo(veil, {opacity:0}, {opacity:.55, ease:'none'}, 0);
+      }
+    });
+  }
+
+  /* Functions image drifts inside its frame */
+  G.fromTo('.fn__media img', {scale:1.14, yPercent:-4}, {scale:1, yPercent:4, ease:'none', scrollTrigger:{trigger:'.fn__card', start:'top bottom', end:'bottom top', scrub:true}});
+
+  /* Snapshot: hairline draws, rating settles from 0.95 (visible throughout) */
+  G.from('.snap .hair', {scaleX:0, duration:.9, ease:'expo.out', scrollTrigger:{trigger:'.snap', start:'top 85%', once:true}});
+  G.from('[data-rating]', {scale:.95, duration:.7, ease:'power3.out', transformOrigin:'50% 80%', scrollTrigger:{trigger:'.snap__num', start:'top 85%', once:true}});
+
+  /* Push: image scales with scroll; headline lines slide up from a visible offset */
+  G.fromTo('.push__media img', {scale:1.18, yPercent:-6}, {scale:1, yPercent:6, ease:'none', scrollTrigger:{trigger:'.push', start:'top bottom', end:'bottom top', scrub:true}});
+  G.fromTo('.push__title .pl', {yPercent:40}, {yPercent:0, ease:'none', stagger:.15, scrollTrigger:{trigger:'.push', start:'top 90%', end:'top 30%', scrub:.6}});
+
+  /* Footer: menu hairlines draw in, badge turns with scroll */
+  G.from('.foot__menu .hair', {scaleX:0, duration:.8, ease:'expo.out', stagger:.05, scrollTrigger:{trigger:'.foot__menu', start:'top 90%', once:true}});
+  G.fromTo('.foot__badge', {rotate:-60}, {rotate:60, ease:'none', scrollTrigger:{trigger:'.foot', start:'top bottom', end:'bottom bottom', scrub:true}});
+
+  /* Curtain: the exterior rises from under the footer, 1.3 to 1 */
+  G.fromTo('.curtain__panel img', {scale:1.3}, {scale:1, ease:'none', scrollTrigger:{trigger:'.curtain', start:'top bottom', end:'bottom bottom', scrub:true}});
+  G.fromTo('.curtain__word', {yPercent:40}, {yPercent:0, ease:'none', scrollTrigger:{trigger:'.curtain', start:'top bottom', end:'bottom bottom', scrub:true}});
+
+  return function(){
+    if (lenis){ lenis.destroy(); lenis = null }
+    if (rafFn) G.ticker.remove(rafFn);
+  };
+});
+
+addEventListener('load', function(){ ScrollTrigger.refresh() });
+})();
+</script>
