@@ -1771,7 +1771,8 @@ mm.add(PHONE, function(ctx){
   var cleanups = [];
 
   /* Hero: intro, then the full-bleed photo folds back into a rounded card as it leaves */
-  Promise.race([fontsReady, new Promise(function(r){setTimeout(r, 1200)})]).then(function(){ ctx.add(function(){ heroIntroPhone(ctx) }) });
+  var heroImg = $('.hero__img'), heroReady = heroImg.decode ? heroImg.decode().catch(function(){}) : Promise.resolve();
+  Promise.race([Promise.all([fontsReady, heroReady]), new Promise(function(r){setTimeout(r, 2200)})]).then(function(){ ctx.add(function(){ heroIntroPhone(ctx) }) });
   G.fromTo('.hero', {'--hx':'0px', '--hrr':'0px'}, {'--hx':'14px', '--hrr':'30px', ease:'none', scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}});
   G.to('.hero__content', {y:-70, ease:'none', scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}});
 
