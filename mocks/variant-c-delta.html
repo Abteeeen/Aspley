@@ -83,8 +83,8 @@ p{text-wrap:pretty}
 section[id],[id].station{scroll-margin-top:110px}
 
 /* ---------- mock note ---------- */
-.mock-note{position:relative;z-index:var(--z-content);height:var(--note-h);display:flex;align-items:center;justify-content:center;padding:0 16px;background:var(--stout-deep);color:var(--muted);font:600 12px/1.2 var(--hanken);letter-spacing:.01em;text-align:center;border-bottom:1px solid rgba(241,228,209,.08)}
-.mock-note span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mock-note{position:relative;z-index:var(--z-content);min-height:var(--note-h);display:flex;align-items:center;justify-content:center;padding:0 16px;background:var(--stout-deep);color:var(--muted);font:600 12px/1.2 var(--hanken);letter-spacing:.01em;text-align:center;border-bottom:1px solid rgba(241,228,209,.08)}
+.mock-note span{padding:7px 0}
 
 /* ---------- type voices ---------- */
 .display{font-family:var(--hanken);font-weight:300;letter-spacing:-.03em;line-height:1;font-size:clamp(40px, 2.6vw + 22px, 64px)}
@@ -130,7 +130,7 @@ section[id],[id].station{scroll-margin-top:110px}
 .hv .side-pill.book:hover,.side-pill.book:focus-visible{background:#A90D27}
 .side-pill:active{transform:scale(.97)}
 .side-pill:focus-visible{border-radius:32px}
-.band{position:absolute;top:24px;left:50%;width:var(--band-w);height:46px;transform:translateX(-50%);display:grid;grid-template-columns:1fr var(--notch) 1fr;align-items:center}
+.band{position:absolute;top:24px;left:50%;width:var(--band-w);height:46px;transform:translateX(-50%);display:grid;grid-template-columns:1fr var(--notch) 1fr;grid-template-rows:46px;align-items:center}
 .nav-l,.nav-r{display:flex;align-items:center;gap:clamp(4px, 2.5vw - 26px, 12px);height:46px;position:relative;z-index:2}
 .nav-l{padding-left:clamp(8px, 1.5vw - 10px, 14px)}
 .nav-r{justify-content:flex-end;padding-right:clamp(8px, 1.5vw - 10px, 14px)}
@@ -141,7 +141,7 @@ section[id],[id].station{scroll-margin-top:110px}
 .pill-ind{position:absolute;z-index:1;top:5px;left:0;height:36px;width:var(--w,0px);border-radius:110px;transform:translateX(var(--x,0px));opacity:var(--o,0);pointer-events:none;transition:transform .5s var(--e-io),width .5s var(--e-io),opacity .5s var(--e-io)}
 .pill-hover{background:rgba(252,243,237,.16)}
 .pill-active{background:rgba(93,86,80,.55);box-shadow:inset 0 0 0 .8px rgba(241,228,209,.38)}
-.badge-link{position:relative;z-index:3;justify-self:center;width:88px;height:88px;border-radius:50%;display:block;transition:transform .5s var(--e-expo)}
+.badge-link{position:relative;z-index:3;justify-self:center;align-self:center;margin:-21px 0;width:88px;height:88px;border-radius:50%;display:block;transition:transform .5s var(--e-expo)}
 .badge-link svg{width:100%;height:100%;filter:drop-shadow(0 6px 14px rgba(0,0,0,.35))}
 .hv .badge-link:hover,.badge-link:focus-visible{transform:rotate(-8deg) scale(1.03)}
 .badge-link:focus-visible{border-radius:50%}
@@ -187,7 +187,7 @@ section[id],[id].station{scroll-margin-top:110px}
   .m-badge svg{width:100%;height:100%;filter:drop-shadow(0 5px 12px rgba(0,0,0,.35))}
   .msheet{position:fixed;z-index:var(--z-sheet);top:calc(var(--note-off) + 4px);left:8px;right:8px;max-height:calc(100dvh - var(--note-off) - 12px);display:flex;flex-direction:column;border-radius:18px;background:rgba(14,11,9,.62);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 30px 80px rgba(0,0,0,.55),inset 0 0 0 1px rgba(241,228,209,.08);overflow:hidden;transform-origin:top center;transform:translateY(-10px) scale(.96);opacity:0;visibility:hidden;transition:transform .32s var(--e-expo),opacity .2s ease,visibility 0s .32s}
   .msheet.open{transform:none;opacity:1;visibility:visible;transition:transform .32s var(--e-expo),opacity .2s ease}
-  .ms-scroll{position:relative;flex:1;overflow:auto;overscroll-behavior:contain;padding:86px 14px 14px}
+  .ms-scroll{position:relative;flex:1;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;padding:86px 14px 14px}
   .ms-level{display:flex;flex-direction:column;gap:6px;transition:transform .35s var(--e-expo),opacity .25s}
   .ms-row{position:relative;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;border-radius:40px;background:rgba(90,90,90,.2);font:700 19px/1 var(--oswald);letter-spacing:-.01em;text-transform:uppercase;color:var(--beer);text-decoration:none;width:100%;text-align:left}
   .ms-row::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(170deg, rgba(255,255,255,.2), rgba(255,255,255,0) 60%);-webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
@@ -228,7 +228,7 @@ html.intro-pending body::after{content:"";position:fixed;inset:0;z-index:var(--z
 .slide:nth-child(1) img{object-position:50% 40%}
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg, rgba(18,10,6,.62) 0, rgba(18,10,6,0) 26%),linear-gradient(0deg, rgba(20,14,10,.92) 0, rgba(20,14,10,.55) 34%, rgba(20,14,10,0) 66%),linear-gradient(90deg, rgba(20,14,10,.55) 0, rgba(20,14,10,0) 55%),rgba(0,0,0,.18)}
 .hero-main{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:40px;padding-top:160px}
-.hero h1{font:300 clamp(42px, 28.9px + 3.36vw, 86px)/1 var(--hanken);letter-spacing:-.03em;color:var(--beer);max-width:12.5em}
+.hero h1{font:300 clamp(42px, 28.9px + 3.36vw, 86px)/1 var(--hanken);letter-spacing:-.03em;color:var(--beer);max-width:10.2em;text-wrap:wrap}
 .hero h1 .ln{padding-bottom:.06em}
 .hero-sub{margin-top:18px;max-width:34ch;color:rgba(241,228,209,.9)}
 .hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:28px}
@@ -253,7 +253,8 @@ html.intro-pending body::after{content:"";position:fixed;inset:0;z-index:var(--z
 .b-img .ph{height:100%;border-radius:8px;overflow:hidden}
 .b-img img{width:100%;height:100%;object-fit:cover;transition:transform .75s var(--e-expo)}
 .hv .b-img:hover img,.b-img:focus-visible img{transform:scale(1.05)}
-.b-img span{position:absolute;left:18px;bottom:16px;font:550 15px/1.2 var(--hanken);text-shadow:0 1px 10px rgba(0,0,0,.6)}
+.b-img .ph::after{content:"";position:absolute;inset:6px;border-radius:8px;background:linear-gradient(0deg, rgba(18,14,11,.7), rgba(18,14,11,0) 45%)}
+.b-img span{position:absolute;z-index:1;left:18px;bottom:16px;font:550 15px/1.2 var(--hanken);text-shadow:0 1px 10px rgba(0,0,0,.6)}
 .b-card{grid-area:card;padding:16px;display:flex;flex-direction:column;justify-content:space-between}
 .b-card b{font:700 30px/.9 var(--oswald);text-transform:uppercase;letter-spacing:-.01em}
 .b-card span{font:550 14px/1.3 var(--hanken)}
@@ -793,30 +794,30 @@ dialog.book[open]{animation:dlg .32s var(--e-expo)}
     <div class="ms-sub" id="ms-eat" aria-label="Eat">
       <button class="ms-back" type="button"><svg aria-hidden="true"><use href="#i-right"/></svg>Back</button>
       <h2>Eat</h2>
-      <a class="ms-photo" href="#lunch"><img src="img/drive/07-bistro-wide-dining-room-sm.webp" width="900" height="600" alt="" loading="lazy" decoding="async"><span>The bistro<small>From 11:30am every day</small></span></a>
-      <a class="ms-photo" href="#lunch"><img src="img/drive/29-parmigiana-portrait-view-01-sm.webp" width="900" height="1200" alt="" loading="lazy" decoding="async"><span>Kids meals $13.95<small>Soft drink and ice cream included</small></span></a>
-      <a class="ms-photo" href="#arvo"><img src="img/drive/26-cake-display-fridge-sm.webp" width="900" height="600" alt="" loading="lazy" decoding="async"><span>Coffee and cake $13.95<small>$12.95 for members</small></span></a>
+      <a class="ms-photo" href="#lunch"><img src="img/drive/07-bistro-wide-dining-room-sm.webp" width="900" height="600" alt="" decoding="async"><span>The bistro<small>From 11:30am every day</small></span></a>
+      <a class="ms-photo" href="#lunch"><img src="img/drive/29-parmigiana-portrait-view-01-sm.webp" width="900" height="1200" alt="" decoding="async"><span>Kids meals $13.95<small>Soft drink and ice cream included</small></span></a>
+      <a class="ms-photo" href="#arvo"><img src="img/drive/26-cake-display-fridge-sm.webp" width="900" height="600" alt="" decoding="async"><span>Coffee and cake $13.95<small>$12.95 for members</small></span></a>
     </div>
     <div class="ms-sub" id="ms-drink" aria-label="Drink">
       <button class="ms-back" type="button"><svg aria-hidden="true"><use href="#i-right"/></svg>Back</button>
       <h2>Drink</h2>
-      <a class="ms-photo" href="#arvo"><img src="img/drive/03-bar-counter-view-02-sm.webp" width="900" height="600" alt="" loading="lazy" decoding="async"><span>Cocktails<small>Off the chalkboard</small></span></a>
-      <a class="ms-photo" href="#arvo"><img src="img/drive/12-bistro-bar-counter-view-02-sm.webp" width="900" height="600" alt="" loading="lazy" decoding="async"><span>On tap<small>Great Northern, Stone &amp; Wood, XXXX Gold</small></span></a>
-      <a class="ms-photo" href="#bottle"><img src="img/drive/42-bottleshop-interior-wide-sm.webp" width="900" height="675" alt="" loading="lazy" decoding="async"><span>Bottle shop<small>Drive-through, open till 11pm</small></span></a>
+      <a class="ms-photo" href="#arvo"><img src="img/drive/03-bar-counter-view-02-sm.webp" width="900" height="600" alt="" decoding="async"><span>Cocktails<small>Off the chalkboard</small></span></a>
+      <a class="ms-photo" href="#arvo"><img src="img/drive/12-bistro-bar-counter-view-02-sm.webp" width="900" height="600" alt="" decoding="async"><span>On tap<small>Great Northern, Stone &amp; Wood, XXXX Gold</small></span></a>
+      <a class="ms-photo" href="#bottle"><img src="img/drive/42-bottleshop-interior-wide-sm.webp" width="900" height="675" alt="" decoding="async"><span>Bottle shop<small>Drive-through, open till 11pm</small></span></a>
     </div>
     <div class="ms-sub" id="ms-on" aria-label="What's On">
       <button class="ms-back" type="button"><svg aria-hidden="true"><use href="#i-right"/></svg>Back</button>
       <h2>What's On</h2>
-      <a class="ms-photo" href="#whats-on"><img src="img/drive/01-bar-counter-view-01-sm.webp" width="900" height="600" alt="" loading="lazy" decoding="async"><span>Trivia<small>Wednesday 6:30pm, free</small></span></a>
-      <a class="ms-photo" href="#this-week"><img src="img/drive/11-bistro-bar-counter-view-01-sm.webp" width="900" height="600" alt="" loading="lazy" decoding="async"><span>Jag the Joker<small>Friday 3:30pm to 6:30pm</small></span></a>
-      <a class="ms-photo" href="#whats-on"><img src="img/drive/28-menu-food-spread-overhead-sm.webp" width="900" height="506" alt="" loading="lazy" decoding="async"><span>Melbourne Cup<small>Tue 3 Nov, two courses $55</small></span></a>
+      <a class="ms-photo" href="#whats-on"><img src="img/drive/01-bar-counter-view-01-sm.webp" width="900" height="600" alt="" decoding="async"><span>Trivia<small>Wednesday 6:30pm, free</small></span></a>
+      <a class="ms-photo" href="#this-week"><img src="img/drive/11-bistro-bar-counter-view-01-sm.webp" width="900" height="600" alt="" decoding="async"><span>Jag the Joker<small>Friday 3:30pm to 6:30pm</small></span></a>
+      <a class="ms-photo" href="#whats-on"><img src="img/drive/28-menu-food-spread-overhead-sm.webp" width="900" height="506" alt="" decoding="async"><span>Melbourne Cup<small>Tue 3 Nov, two courses $55</small></span></a>
     </div>
     <div class="ms-sub" id="ms-fn" aria-label="Functions">
       <button class="ms-back" type="button"><svg aria-hidden="true"><use href="#i-right"/></svg>Back</button>
       <h2>Functions</h2>
-      <a class="ms-photo" href="#herb-garden"><img src="img/drive/34-covered-function-terrace-wide-sm.webp" width="900" height="600" alt="" loading="lazy" decoding="async"><span>Herb Garden<small>80 seated, 100 standing</small></span></a>
-      <a class="ms-photo" href="#terrace"><img src="img/drive/35-function-terrace-reverse-angle-sm.webp" width="900" height="600" alt="" loading="lazy" decoding="async"><span>Terrace<small>40 seated</small></span></a>
-      <a class="ms-photo" href="#both-spaces"><img src="img/drive/36-terrace-evening-festoon-lights-sm.webp" width="900" height="675" alt="" loading="lazy" decoding="async"><span>Terrace and Herb Garden<small>60 seated</small></span></a>
+      <a class="ms-photo" href="#herb-garden"><img src="img/drive/34-covered-function-terrace-wide-sm.webp" width="900" height="600" alt="" decoding="async"><span>Herb Garden<small>80 seated, 100 standing</small></span></a>
+      <a class="ms-photo" href="#terrace"><img src="img/drive/35-function-terrace-reverse-angle-sm.webp" width="900" height="600" alt="" decoding="async"><span>Terrace<small>40 seated</small></span></a>
+      <a class="ms-photo" href="#both-spaces"><img src="img/drive/36-terrace-evening-festoon-lights-sm.webp" width="900" height="675" alt="" decoding="async"><span>Terrace and Herb Garden<small>60 seated</small></span></a>
     </div>
   </div>
   <div class="ms-foot">
@@ -1031,12 +1032,12 @@ dialog.book[open]{animation:dlg .32s var(--e-expo)}
       <p class="small muted">Coffee and cake is $12.95 for members.</p>
     </div>
     <div class="chips-grid" aria-hidden="true">
-      <img src="img/drive/29-parmigiana-portrait-view-01-sm.webp" width="900" height="1200" alt="" loading="lazy" decoding="async">
-      <img src="img/drive/26-cake-display-fridge-sm.webp" width="900" height="600" alt="" loading="lazy" decoding="async">
-      <img src="img/drive/05-bar-drinks-and-pour-sm.webp" width="900" height="506" alt="" loading="lazy" decoding="async">
-      <img src="img/drive/28-menu-food-spread-overhead-sm.webp" width="900" height="506" alt="" loading="lazy" decoding="async">
-      <img src="img/drive/04-coffee-bar-counter-sm.webp" width="900" height="600" alt="" loading="lazy" decoding="async">
-      <img src="img/drive/30-parmigiana-portrait-view-02-sm.webp" width="900" height="1200" alt="" loading="lazy" decoding="async">
+      <img src="img/drive/29-parmigiana-portrait-view-01-sm.webp" width="900" height="1200" alt="" decoding="async">
+      <img src="img/drive/26-cake-display-fridge-sm.webp" width="900" height="600" alt="" decoding="async">
+      <img src="img/drive/05-bar-drinks-and-pour-sm.webp" width="900" height="506" alt="" decoding="async">
+      <img src="img/drive/28-menu-food-spread-overhead-sm.webp" width="900" height="506" alt="" decoding="async">
+      <img src="img/drive/04-coffee-bar-counter-sm.webp" width="900" height="600" alt="" decoding="async">
+      <img src="img/drive/30-parmigiana-portrait-view-02-sm.webp" width="900" height="1200" alt="" decoding="async">
     </div>
   </div>
 </section>
@@ -1250,10 +1251,12 @@ function liveLines(){
 var NOW = liveLines();
 
 /* ---------- mock-note offset for fixed headers ---------- */
-var noteH = 30, ticking=false;
+var noteEl = $('.mock-note'), noteH = 30, ticking=false;
+function measureNote(){ noteH = noteEl.offsetHeight; root.style.setProperty('--note-h', noteH+'px'); noteOff(); }
+addEventListener('resize', measureNote);
 function noteOff(){ ticking=false; var o = Math.max(0, noteH - window.scrollY); root.style.setProperty('--note-off', o+'px'); }
 addEventListener('scroll', function(){ if(!ticking){ ticking=true; requestAnimationFrame(noteOff); } }, {passive:true});
-noteOff();
+measureNote();
 
 /* ---------- smooth anchor navigation ---------- */
 function headerOffset(){ return deskMQ.matches ? 104 : 86; }
@@ -1351,7 +1354,7 @@ function openMenu(){
   menuBtn.setAttribute('aria-expanded','true'); $('span',menuBtn).textContent='Close';
   ['#main','#foot','#tray'].forEach(function(s){ $(s).inert = true; });
   window.__lenis && window.__lenis.stop();
-  setTimeout(function(){ var f=$('.ms-level .ms-row',sheet); f && f.focus(); }, 60);
+  setTimeout(function(){ var f=$('.ms-level .ms-row',sheet); f && f.focus({preventScroll:true}); }, 60);
 }
 function closeMenu(returnFocus){
   if(!root.classList.contains('menu-open')) return;
@@ -1368,7 +1371,8 @@ $$('.ms-sub',sheet).forEach(function(s){ s.inert = true; });
 $$('[data-sub]',sheet).forEach(function(b){
   b.addEventListener('click', function(){
     var s = $('#'+b.dataset.sub); msScroll.classList.add('sub-open'); s.inert=false; s.classList.add('on');
-    setTimeout(function(){ $('.ms-back',s).focus(); }, 40);
+    msScroll.scrollLeft = 0; msScroll.scrollTop = 0;
+    setTimeout(function(){ $('.ms-back',s).focus({preventScroll:true}); msScroll.scrollLeft = 0; }, 40);
     s._from = b;
   });
 });
@@ -1547,7 +1551,7 @@ mm.add({
   if(c.reduce){ mqStatic(); return; }
 
   /* Lenis smooth scroll on fine pointers only */
-  if(c.fine && window.Lenis){
+  if(c.fine && window.Lenis && document.compatMode !== 'BackCompat'){
     var lenis = new Lenis({lerp:.1, smoothWheel:true});
     lenis.on('scroll', ScrollTrigger.update);
     var raf = function(t){ lenis.raf(t*1000); };
