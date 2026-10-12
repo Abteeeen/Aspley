@@ -648,6 +648,98 @@ dialog.book[open]{animation:dlg .32s var(--e-expo)}
   .m-pill{padding:0 13px;font-size:12px;letter-spacing:.02em}
   .m-pill.call svg{display:none}
 }
+/* ---------- PHONE SIGNATURE MOMENTS ----------
+   Everything below is scoped to .mfx, a class the phone motion branch (max-width 743.98px, motion allowed) adds to <html>.
+   Without it (desktop, tablets, reduced motion, no JS) the stacked phone layout above stays exactly as it was. */
+@media (max-width:743.98px){
+  .mfx{--e-spring:linear(0, .055, .181, .333, .485, .621, .735, .825, .893, .941, .974, .995, 1.007, 1.013, 1.015, 1.015, 1.013, 1.011, 1.008, 1.006, 1.004, 1.003, 1.002, 1.001, 1.001, 1);--e-drawer:cubic-bezier(.32,.72,0,1)}
+
+  /* 1. story hero: full-bleed stills, progress segments under the header, tap halves, hold to pause */
+  .mfx .hero{height:calc(100svh - var(--note-h));min-height:580px;padding-bottom:94px}
+  .mfx .hero-main{position:relative;z-index:1;padding-top:0;pointer-events:none;transition:opacity .25s ease}
+  .mfx .hero-main a,.mfx .hero-main button{pointer-events:auto}
+  .mfx .hero-copy{display:flex;flex-direction:column;align-items:flex-start}
+  .mfx .hero .status{order:-1;margin:0 0 16px;padding:8px 14px 8px 12px;border-radius:30px;background:rgba(18,14,11,.5);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1px rgba(241,228,209,.16);font-size:13px;color:var(--foam)}
+  .mfx .hero-sub{margin-top:14px}
+  .mfx .hero-cta{margin-top:22px}
+  .mfx .m-zones{position:absolute;inset:0;z-index:0;touch-action:pan-y;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+  .mfx .thumbs{position:absolute;z-index:2;left:var(--gm);right:var(--gm);top:86px;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;overflow:visible;transition:opacity .25s ease}
+  .mfx .thumb{width:auto;height:3px;padding:0;display:block;scroll-snap-align:none}
+  .mfx .thumb::before{content:"";position:absolute;inset:-14px 0 -27px}
+  .mfx .thumb .bar{height:3px;border-radius:3px;background:rgba(241,228,209,.32)}
+  .mfx .thumb .bar i{border-radius:3px}
+  .mfx .thumb .tph,.mfx .thumb>span:last-child{display:none}
+  .mfx .thumb.seen .bar i{transform:scaleX(1)}
+  .mfx .hplay{position:absolute;right:-8px;top:12px;width:44px;height:44px;margin:0;background:none;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+  .mfx .m-cap{position:absolute;left:0;right:44px;top:17px;display:flex;align-items:baseline;gap:8px;font:550 13.5px/1.2 var(--hanken);color:var(--foam);text-shadow:0 1px 12px rgba(0,0,0,.55);white-space:nowrap;overflow:hidden;pointer-events:none}
+  .mfx .m-cap span{color:rgba(241,228,209,.72);overflow:hidden;text-overflow:ellipsis}
+  .mfx .hero.held .hero-main,.mfx .hero.held .thumbs{opacity:0}
+  .mfx .hero.held .thumb.is-on .bar i{animation-play-state:paused}
+
+  /* 2. since 1935: a pile of tilted prints you flick through */
+  .mfx .story{padding-bottom:64px}
+  .mfx .scatter{--cw:min(74vw,300px);position:relative;display:block;height:calc(var(--cw) * .8 + 104px);margin:34px calc(var(--gm) * -1) 0;touch-action:pan-y;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+  .mfx .sc,.mfx .sc:nth-child(n+7){position:absolute;display:block;left:50%;top:22px;width:var(--cw);margin-left:calc(var(--cw) / -2);padding:8px 8px 0;border-radius:6px;background:#F3EADD;box-shadow:0 26px 50px -20px rgba(0,0,0,.8),0 2px 6px rgba(0,0,0,.28);transition:transform .6s var(--e-expo);cursor:grab}
+  .mfx .sc .ph{border-radius:3px;box-shadow:none}
+  .mfx .sc img{aspect-ratio:5/4;pointer-events:none;-webkit-user-drag:none}
+  .mfx .sc figcaption{position:static;opacity:1;transform:none;background:none;padding:10px 4px 12px;color:#3A2C24;font:italic 300 18px/1.15 var(--serif);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mfx .sc:focus-visible{outline:2px solid var(--beer);outline-offset:4px}
+  .mfx .sc:focus-visible .ph{outline:none}
+  .mfx .m-deckbar{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:4px}
+  .mfx .m-db{width:44px;height:44px;flex:none;border-radius:50%;display:grid;place-items:center;background:rgba(241,228,209,.1);color:var(--beer);transition:transform .16s var(--e-out),background-color .2s}
+  .mfx .m-db:active{transform:scale(.94);background:rgba(241,228,209,.18)}
+  .mfx .m-db:focus-visible{border-radius:50%}
+  .mfx .m-db svg{width:16px;height:16px}
+  .mfx .m-db.prev svg{transform:rotate(180deg)}
+  .mfx .m-dpill{height:44px;display:inline-flex;align-items:center;gap:10px;padding:0 18px;border-radius:30px;background:rgba(18,14,11,.55);box-shadow:inset 0 0 0 1px rgba(241,228,209,.12);font:550 13.5px/1 var(--hanken);color:rgba(241,228,209,.82);white-space:nowrap}
+  .mfx .m-dpill b{font:600 14px/1 var(--oswald);letter-spacing:.06em;color:var(--beer);font-variant-numeric:tabular-nums}
+
+  /* 3. a day at the aspley: one short pinned scene, the hand turns and the stations swap */
+  .mfx .m-dayscene{height:100svh;display:flex;flex-direction:column;justify-content:center;gap:20px;padding:84px 0 92px;margin-top:22px}
+  .mfx .m-dayscene .dial{display:block;flex:none;align-self:center;width:min(70vw,37svh)}
+  .mfx .m-daytitle{align-self:center;font:600 13px/1 var(--oswald);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .mfx .dial .mk-l{display:none}
+  .mfx .dial .mk{stroke-width:3}
+  .mfx .dial-read b{font-size:30px}
+  .mfx .dial-read span{font-size:13px;margin-top:5px}
+  .mfx .m-dayscene .day-list{display:grid;margin:0;padding:0}
+  .mfx .m-dayscene .day-list::before,.mfx .m-dayscene .rail-fill{display:none}
+  .mfx .m-dayscene .station{grid-area:1/1;align-self:start;background:rgba(241,228,209,.07);opacity:0;transform:translateY(18px) scale(.97);transition:opacity .3s ease,transform .55s var(--e-out)}
+  .mfx .m-dayscene .station.is-now{opacity:1;transform:none}
+
+  /* 4. sports bar: the two photo rows run against each other as you scroll */
+  .mfx .prow{width:max-content;overflow:visible;padding:0;gap:12px;scroll-snap-type:none}
+  .mfx .prow figure{width:40vw}
+  .mfx .rows{gap:12px}
+
+  /* 5. star rewards: a ring of dishes you spin with your thumb, $1 in the middle */
+  .mfx .orbit{--R:min(37vw,150px);--chip:clamp(64px,19vw,78px);--cy:calc(var(--R) + var(--chip) / 2 + 12px);padding-top:calc(var(--R) * 2 + var(--chip) + 44px);touch-action:pan-y;-webkit-user-select:none;user-select:none}
+  .mfx .orbit .ring,.mfx .orbit .disc{display:block}
+  .mfx .orbit .ring{top:var(--cy)}
+  .mfx .orbit .disc{top:var(--cy);width:calc(var(--R) * 1.2);margin:calc(var(--R) * -.6) 0 0 calc(var(--R) * -.6);display:grid;place-items:center}
+  .mfx .orb .chip-ph{width:var(--chip);margin:calc(var(--chip) / -2) 0 0 calc(var(--chip) / -2);border-width:4px}
+  .mfx .chips-grid{display:none}
+  .mfx .m-dollar{display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--ink);text-align:center}
+  .mfx .m-dollar b{font:700 calc(var(--R) * .52)/.82 var(--oswald);letter-spacing:-.02em}
+  .mfx .m-dollar span{font:600 12px/1.1 var(--oswald);letter-spacing:.08em;text-transform:uppercase}
+  .mfx .m-dollar i{font:550 11.5px/1 var(--hanken);font-style:normal;color:var(--ink-muted);margin-top:4px}
+
+  /* 6. scroll-scrubbed photo reveals on paper and gaming */
+  .mfx .entry img,.mfx .card img,.mfx .gaming img{transition:none;will-change:transform}
+
+  /* 7. the menu becomes a bottom sheet: spring rise, drag handle, swipe down to close */
+  .mfx .msheet{top:auto;bottom:calc(8px + env(safe-area-inset-bottom));max-height:calc(100dvh - var(--note-off) - 96px);border-radius:24px;background:rgba(20,16,13,.86);opacity:1;transform:translate3d(0,calc(100% + 24px),0);transform-origin:50% 100%;transition:transform .34s var(--e-drawer),visibility 0s .34s}
+  .mfx .msheet.open{transform:none;transition:transform .62s var(--e-spring)}
+  .mfx .ms-scroll{padding:0 14px 14px}
+  .mfx .ms-sub{top:0}
+  .mfx .m-grab{flex:none;height:44px;display:grid;place-items:center;touch-action:none;cursor:grab;-webkit-tap-highlight-color:transparent}
+  .mfx .m-grab i{width:40px;height:5px;border-radius:5px;background:rgba(241,228,209,.38);transition:background-color .2s,transform .2s var(--e-out)}
+  .mfx .m-grab:active i{background:rgba(241,228,209,.6);transform:scaleX(1.12)}
+  .mfx .m-grab:focus-visible{outline-offset:-6px;border-radius:20px}
+  .mfx .m-veil{position:fixed;inset:0;z-index:calc(var(--z-sheet) - 1);background:rgba(10,7,5,.55);opacity:0;visibility:hidden;transition:opacity .3s ease,visibility 0s .3s}
+  .mfx.menu-open .m-veil{opacity:1;visibility:visible;transition:opacity .3s ease}
+}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important}
   .slide,.slide img,.mega,.msheet,.ms-row,.pill-ind,.split::before,.split-i,.split-i svg{transition-duration:.01ms!important}
@@ -1410,6 +1502,7 @@ $$('.fg-toggle').forEach(function(b){
 var hero = $('#top'), slides = $$('.slide',hero), thumbs = $$('.thumb',hero), cur = 0;
 var userPaused = false, hoverPause=false, focusPause=false, offscreen=false;
 var bento = $('#bento'), layouts=['','l2','l3'];
+var slideHook = null; /* set only by the phone branch */
 function syncPause(){ hero.classList.toggle('paused', userPaused||hoverPause||focusPause||offscreen||document.hidden); }
 function go(n, fromUser){
   if(n===cur) return;
@@ -1422,6 +1515,7 @@ function go(n, fromUser){
     var apply = function(){ bento.classList.remove('l2','l3'); if(layouts[cur]) bento.classList.add(layouts[cur]); };
     if(window.Flip && !reduceMQ.matches){ var st = Flip.getState(bento.children); apply(); Flip.from(st,{duration:.75, ease:'power4.inOut'}); } else apply();
   }
+  if(slideHook) slideHook(cur);
 }
 thumbs.forEach(function(t,i){
   t.addEventListener('click', function(){ go(i,true); });
@@ -1599,7 +1693,7 @@ mm.add({
   var dayST;
   if(c.lg && c.tall){
     dayST = ScrollTrigger.create({trigger:'#dayStage', start:'top top', end:'+=170%', pin:true, scrub:true, onUpdate:function(s){ setDay(s.progress); }});
-  } else {
+  } else if(c.wide || !c.motion){ /* phones get their own pinned dial scene below */
     dayST = ScrollTrigger.create({trigger: c.wide ? '#day' : '#dayList', start: c.wide ? 'top 70%' : 'top 75%', end: c.wide ? 'bottom 60%' : 'bottom 55%', scrub:true, onUpdate:function(s){ setDay(s.progress); }});
   }
   setDay(0);
@@ -1643,6 +1737,181 @@ mm.add({
   gsap.fromTo('.pre-title .ov',{opacity:0},{opacity:.2, ease:'none', scrollTrigger:{trigger:'#foot', start:'top top', end:'bottom bottom', scrub:true}});
 
   return function(){ cleanups.forEach(function(f){ f(); }); };
+});
+
+/* ---------- PHONE ONLY: signature moments (touch first, desktop never runs this) ---------- */
+mm.add('(max-width: 743.98px) and (prefers-reduced-motion: no-preference)', function(){
+  var undo = [];
+  root.classList.add('mfx');
+  undo.push(function(){ root.classList.remove('mfx'); });
+  var svgArrow = '<svg aria-hidden="true"><use href="#i-arrow"/></svg>';
+
+  /* 1. story hero: segments under the header, tap left or right, hold to pause */
+  var thumbsEl = $('.thumbs', hero), heroMain = $('.hero-main', hero);
+  var cap = document.createElement('p'); cap.className = 'm-cap'; cap.setAttribute('aria-hidden','true');
+  thumbsEl.appendChild(cap);
+  var zones = document.createElement('div'); zones.className = 'm-zones'; zones.setAttribute('aria-hidden','true');
+  hero.insertBefore(zones, heroMain);
+  function caption(n){
+    var src = thumbs[n].children[2], b = document.createElement('b'), sp = document.createElement('span');
+    b.textContent = src.firstChild.textContent.trim(); sp.textContent = $('small', src).textContent;
+    cap.replaceChildren(b, sp);
+    cap.animate && cap.animate([{opacity:0, transform:'translateY(4px)'},{opacity:1, transform:'none'}],{duration:320, easing:'cubic-bezier(.23,1,.32,1)'});
+  }
+  function seen(n){ thumbs.forEach(function(t,k){ t.classList.toggle('seen', k<n); }); caption(n); }
+  slideHook = seen; seen(cur);
+  var holdT, held = false, zd = null;
+  function endHold(){ clearTimeout(holdT); held = false; hero.classList.remove('held'); }
+  zones.addEventListener('pointerdown', function(e){
+    if(!e.isPrimary) return;
+    zd = {x:e.clientX, y:e.clientY}; clearTimeout(holdT);
+    holdT = setTimeout(function(){ held = true; hero.classList.add('held'); }, 240);
+  });
+  zones.addEventListener('pointerup', function(e){
+    if(!zd) return; var d = zd, wasHeld = held; zd = null; endHold();
+    if(wasHeld || Math.abs(e.clientX-d.x) > 12 || Math.abs(e.clientY-d.y) > 12) return;
+    var r = hero.getBoundingClientRect(), n = slides.length;
+    go(e.clientX - r.left > r.width/2 ? (cur+1)%n : (cur-1+n)%n, true);
+  });
+  zones.addEventListener('pointercancel', function(){ zd = null; endHold(); });
+  zones.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+  undo.push(function(){ slideHook = null; endHold(); cap.remove(); zones.remove(); thumbs.forEach(function(t){ t.classList.remove('seen'); }); });
+
+  /* 2. since 1935: flick the top print away to reveal the next */
+  var scat = $('#scatter'), cards = $$('.sc', scat), order = cards.slice(), busy = false;
+  var tilts = cards.map(function(c){ return parseFloat(c.style.getPropertyValue('--r'))||0; });
+  var bar = document.createElement('div'); bar.className = 'm-deckbar';
+  bar.innerHTML = '<button class="m-db prev" type="button" aria-label="Previous photo">'+svgArrow+'</button><p class="m-dpill" aria-live="polite"><b>01 / 08</b><span>Swipe the photos</span></p><button class="m-db next" type="button" aria-label="Next photo">'+svgArrow+'</button>';
+  scat.after(bar);
+  var pillB = $('b', bar), pillS = $('span', bar), touched = false;
+  function lay(){
+    order.forEach(function(c,k){
+      var i = cards.indexOf(c), kk = Math.min(k,3), sp = k - 3.5, t = k===0 ? tilts[i]*.35 : tilts[i];
+      c.style.transition = ''; c.style.zIndex = String(20-k);
+      c.style.transform = 'translate3d(calc('+(sp*18)+'px * (var(--fan,1) - 1)),'+(kk*9)+'px,0) rotate(calc('+t+'deg + '+(sp*5)+'deg * (var(--fan,1) - 1))) scale('+(1-kk*.045)+')';
+    });
+    var top = order[0];
+    pillB.textContent = String(cards.indexOf(top)+1).padStart(2,'0')+' / '+String(cards.length).padStart(2,'0');
+    if(touched) pillS.textContent = $('figcaption', top).textContent;
+  }
+  function next(dir){
+    if(busy) return; busy = true; touched = true; dir = dir || 1;
+    var el = order[0];
+    el.style.transition = 'transform .32s cubic-bezier(.4,0,1,1)';
+    el.style.transform = 'translate3d('+(dir*115)+'vw,-24px,0) rotate('+(dir*24)+'deg)';
+    setTimeout(function(){ order.push(order.shift()); lay(); busy = false; }, 300);
+  }
+  function prev(){
+    if(busy) return; busy = true; touched = true;
+    var el = order.pop();
+    el.style.transition = 'none'; el.style.zIndex = '30';
+    el.style.transform = 'translate3d(-115vw,-24px,0) rotate(-24deg)';
+    void el.offsetWidth; order.unshift(el); lay();
+    setTimeout(function(){ busy = false; }, 320);
+  }
+  scat.style.setProperty('--fan', 1); lay();
+  var dd = null;
+  function dpd(e){ if(!e.isPrimary || busy || !order[0].contains(e.target)) return; dd = {x:e.clientX, t:performance.now(), dx:0, el:order[0]}; }
+  function dpm(e){
+    if(!dd) return; var dx = e.clientX - dd.x, i = cards.indexOf(dd.el); dd.dx = dx;
+    dd.el.style.transition = 'none';
+    dd.el.style.transform = 'translate3d('+dx+'px,'+(-Math.abs(dx)*.06)+'px,0) rotate('+(tilts[i]*.35 + dx*.07)+'deg)';
+  }
+  function dpu(){
+    if(!dd) return; var d = dd; dd = null;
+    var v = Math.abs(d.dx) / Math.max(1, performance.now()-d.t);
+    if(Math.abs(d.dx) > 90 || (v > .11 && Math.abs(d.dx) > 24)) next(d.dx > 0 ? 1 : -1);
+    else if(Math.abs(d.dx) < 6) next(1);
+    else lay();
+  }
+  function dpc(){ if(dd){ dd = null; lay(); } }
+  function dkey(e){ if(e.key==='ArrowRight'){ e.preventDefault(); next(1); } else if(e.key==='ArrowLeft'){ e.preventDefault(); prev(); } else if((e.key==='Enter'||e.key===' ') && e.target.classList.contains('sc')){ e.preventDefault(); next(1); } }
+  scat.addEventListener('pointerdown', dpd); scat.addEventListener('pointermove', dpm); scat.addEventListener('pointerup', dpu); scat.addEventListener('pointercancel', dpc); scat.addEventListener('keydown', dkey);
+  $('.next', bar).addEventListener('click', function(){ next(1); });
+  $('.prev', bar).addEventListener('click', prev);
+  gsap.fromTo(scat, {'--fan':2.3}, {'--fan':1, ease:'none', scrollTrigger:{trigger:scat, start:'top bottom', end:'top 40%', scrub:true}});
+  undo.push(function(){
+    scat.removeEventListener('pointerdown', dpd); scat.removeEventListener('pointermove', dpm); scat.removeEventListener('pointerup', dpu); scat.removeEventListener('pointercancel', dpc); scat.removeEventListener('keydown', dkey);
+    bar.remove(); scat.style.removeProperty('--fan');
+    cards.forEach(function(c){ c.style.transition = ''; c.style.transform = ''; c.style.zIndex = ''; });
+  });
+
+  /* 3. a day at the aspley: a short pinned scene, the hand turns and the stations swap */
+  var dayStage = $('#dayStage'), dialEl = $('#dial'), dayListEl = $('#dayList'), dayCopy = $('.day-copy', dayStage);
+  var scene = document.createElement('div'); scene.className = 'm-dayscene';
+  var sceneT = document.createElement('p'); sceneT.className = 'm-daytitle'; sceneT.setAttribute('aria-hidden','true'); sceneT.textContent = 'A day at the Aspley';
+  $('.day-hours', dayCopy).after(scene); scene.appendChild(sceneT); scene.appendChild(dialEl); scene.appendChild(dayListEl);
+  setDay(0);
+  /* lunch holds for a beat at the start and Late holds at the end, so every station gets read */
+  var dayPin = ScrollTrigger.create({trigger:scene, start:'top top', end:'+=150%', pin:true, scrub:true, refreshPriority:1, onUpdate:function(s){ setDay((s.progress - .06) / .78); }});
+  undo.push(function(){ dayPin.kill(); dayStage.insertBefore(dialEl, dayStage.firstChild); dayCopy.appendChild(dayListEl); scene.remove(); });
+
+  /* 4. sports bar rows run against each other */
+  gsap.fromTo('#row1', {xPercent:0}, {xPercent:-32, ease:'none', scrollTrigger:{trigger:'#sports', start:'top bottom', end:'bottom top', scrub:true}});
+  gsap.fromTo('#row2', {xPercent:-32}, {xPercent:0, ease:'none', scrollTrigger:{trigger:'#sports', start:'top bottom', end:'bottom top', scrub:true}});
+
+  /* 5. star rewards: spin the ring of dishes with a thumb; scroll turns it too */
+  var orbitEl = $('#orbit'), discEl = $('#disc'), ringEl = $('#ring'), chipEls = $$('.chip-ph', ringEl);
+  var ctilts = chipEls.map(function(o){ return parseFloat(o.style.getPropertyValue('--t'))||0; });
+  var dollar = document.createElement('span'); dollar.className = 'm-dollar';
+  dollar.innerHTML = '<b>$1</b><span>off every dish</span><i>Swipe to spin</i>';
+  discEl.appendChild(dollar);
+  var setRing = gsap.quickSetter(ringEl, 'rotation', 'deg'), chipSet = chipEls.map(function(o){ return gsap.quickSetter(o, 'rotation', 'deg'); });
+  var scrollRot = -40, userRot = 0, spinV = 0, spinning = false, od = null;
+  function paint(){ var r = scrollRot + userRot; setRing(r); chipSet.forEach(function(s,i){ s(ctilts[i] - r); }); }
+  function spinTick(){ userRot += spinV; spinV *= .94; paint(); if(Math.abs(spinV) < .04) stopSpin(); }
+  function stopSpin(){ if(spinning){ spinning = false; gsap.ticker.remove(spinTick); } }
+  ScrollTrigger.create({trigger:'#rewards', start:'top bottom', end:'bottom top', onUpdate:function(s){ scrollRot = -40 + s.progress*130; paint(); }, onToggle:function(s){ if(!s.isActive){ stopSpin(); } }});
+  paint();
+  function opd(e){ if(!e.isPrimary || e.target.closest('.orbit-txt')) return; stopSpin(); od = {lx:e.clientX, lt:performance.now(), v:0}; }
+  function opm(e){ if(!od) return; var now = performance.now(), dx = e.clientX - od.lx; userRot += dx*.5; od.v = dx*.5 / Math.max(1, now-od.lt) * 16.7; od.lx = e.clientX; od.lt = now; paint(); }
+  function opu(){ if(!od) return; spinV = Math.max(-18, Math.min(18, od.v)); od = null; if(Math.abs(spinV) > .3 && !spinning){ spinning = true; gsap.ticker.add(spinTick); } }
+  orbitEl.addEventListener('pointerdown', opd); orbitEl.addEventListener('pointermove', opm); orbitEl.addEventListener('pointerup', opu); orbitEl.addEventListener('pointercancel', opu);
+  undo.push(function(){
+    stopSpin(); dollar.remove();
+    orbitEl.removeEventListener('pointerdown', opd); orbitEl.removeEventListener('pointermove', opm); orbitEl.removeEventListener('pointerup', opu); orbitEl.removeEventListener('pointercancel', opu);
+    gsap.set([ringEl].concat(chipEls), {clearProps:'transform'});
+  });
+
+  /* 6. photos on paper open from an inset and settle from a slight zoom */
+  $$('.entry .ph, .card .ph, .gaming .ph').forEach(function(p){
+    var r = getComputedStyle(p).borderTopLeftRadius || '0px', im = $('img', p);
+    gsap.fromTo(p, {clipPath:'inset(5% 7% 5% 7% round 22px)'}, {clipPath:'inset(0% 0% 0% 0% round '+r+')', ease:'none', scrollTrigger:{trigger:p, start:'top 96%', end:'top 50%', scrub:true}});
+    gsap.fromTo(im, {scale:1.16}, {scale:1, ease:'none', scrollTrigger:{trigger:p, start:'top bottom', end:'bottom top', scrub:true}});
+  });
+
+  /* bottle shop: the poster words slide against each other, the three photos tilt in like prints dropped on a counter */
+  var bRows = $$('#bs-h .row');
+  gsap.fromTo(bRows[0], {xPercent:-16}, {xPercent:8, ease:'none', scrollTrigger:{trigger:'#bottle', start:'top bottom', end:'center top', scrub:true}});
+  gsap.fromTo(bRows[1], {xPercent:16}, {xPercent:-8, ease:'none', scrollTrigger:{trigger:'#bottle', start:'top bottom', end:'center top', scrub:true}});
+  $$('.floaty').forEach(function(f, i){
+    var end = [-4, 5, 3][i] || 0;
+    gsap.fromTo(f, {rotation:end + (i===1 ? 14 : -14), yPercent:28}, {rotation:end, yPercent:0, ease:'none', scrollTrigger:{trigger:f, start:'top bottom', end:'top 62%', scrub:true}});
+  });
+  undo.push(function(){ gsap.set(bRows.concat($$('.floaty')), {clearProps:'transform'}); });
+
+  /* 7. menu as a native bottom sheet: veil, drag handle, swipe down to close */
+  var grab = document.createElement('button'); grab.type = 'button'; grab.className = 'm-grab'; grab.setAttribute('aria-label','Close menu'); grab.innerHTML = '<i aria-hidden="true"></i>';
+  sheet.insertBefore(grab, sheet.firstChild);
+  var mveil = document.createElement('div'); mveil.className = 'm-veil'; mveil.setAttribute('aria-hidden','true');
+  sheet.parentNode.insertBefore(mveil, sheet);
+  var sd = null;
+  function veilClick(){ closeMenu(true); }
+  function gpd(e){ if(!e.isPrimary) return; sd = {y:e.clientY, t:performance.now(), dy:0}; try{ grab.setPointerCapture(e.pointerId); }catch(_){} sheet.style.transition = 'none'; }
+  function gpm(e){ if(!sd) return; var dy = e.clientY - sd.y; sd.dy = dy; sheet.style.transform = 'translate3d(0,'+(dy < 0 ? dy*.15 : dy)+'px,0)'; }
+  function gpu(){
+    if(!sd) return; var d = sd; sd = null;
+    var v = d.dy / Math.max(1, performance.now()-d.t);
+    sheet.style.transition = ''; sheet.style.transform = '';
+    if(d.dy > 110 || (v > .11 && d.dy > 14) || Math.abs(d.dy) < 5) closeMenu(true);
+  }
+  function gclick(e){ if(e.detail === 0) closeMenu(true); }
+  mveil.addEventListener('click', veilClick);
+  grab.addEventListener('pointerdown', gpd); grab.addEventListener('pointermove', gpm); grab.addEventListener('pointerup', gpu); grab.addEventListener('pointercancel', gpu); grab.addEventListener('click', gclick);
+  undo.push(function(){ grab.remove(); mveil.remove(); sheet.style.transition = ''; sheet.style.transform = ''; });
+
+  requestAnimationFrame(function(){ ScrollTrigger.refresh(); });
+  return function(){ undo.forEach(function(f){ f(); }); };
 });
 
 /* header state that is not motion: top gradient and active-section pill */
