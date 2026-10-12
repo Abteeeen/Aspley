@@ -602,7 +602,7 @@ html{scrollbar-color:var(--ink) var(--paper-2)}
   .wgrid>.wtext .wtext__big{font-size:34px;line-height:.9}
   .wgrid>.wtext p{color:rgba(255,255,255,.9)}
   .wgrid>.wtext .pill{white-space:normal;align-self:flex-start;text-align:left}
-  .wgrid .card__zoom,.wgrid .card--w .card__zoom{aspect-ratio:4/5;min-height:0;overflow:hidden}
+  .wgrid .card__zoom,.wgrid .card--w .card__zoom{display:block;aspect-ratio:4/5;min-height:0;overflow:hidden}
   .wgrid .card__zoom img{position:absolute;inset:0}
   .card__data{display:flex;left:14px;right:14px;top:14px}
   .card__media::after{background:linear-gradient(to bottom,rgba(0,0,0,.62),rgba(0,0,0,0) 46%);transition:opacity .45s var(--ease-dul)}
@@ -1675,6 +1675,8 @@ pm.add({phone:'(max-width:760px)',motion:'(prefers-reduced-motion: no-preference
     on(deck,'scroll',deckQ,{passive:true});on(window,'resize',deckQ);
     on(dprev,'click',function(){deckGo(-1)});on(dnext,'click',function(){deckGo(1)});
     deckUpdate();
+    /* Deck photos load as the section approaches: lazy loading inside a horizontal scroller can lag behind a fast swipe */
+    ScrollTrigger.create({trigger:'.week',start:'top 250%',once:true,onEnter:function(){$$('img',deck).forEach(function(i){i.loading='eager'})}});
   }
 
   /* Menu chips: keep the pressed chip in view, with a small pop */
@@ -1753,11 +1755,16 @@ pm.add({phone:'(max-width:760px)',motion:'(prefers-reduced-motion: no-preference
   });
   list.appendChild(th);
   var yTo=gsap.quickTo(th,'y',{duration:.55,ease:'power3'}),rTo=gsap.quickTo(th,'rotation',{duration:.6,ease:'power3'});
-  function focusRow(i){
-    if(i===cur)return;
+  var shown=-1;
+  function hideThumb(){if(shown>-1){gsap.to(its[shown].wrap,{clipPath:'inset(0% 0% 100% 0%)',duration:.3,ease:'dul',overwrite:true});shown=-1}}
+  function focusRow(i,force){
+    if(i===cur&&!force)return;
     btns.forEach(function(b,k){b.classList.toggle('is-focus',k===i)});
-    if(cur>-1)gsap.to(its[cur].wrap,{clipPath:'inset(0% 0% 100% 0%)',duration:.3,ease:'dul',overwrite:true});
-    cur=i;if(i<0)return;
+    cur=i;
+    /* an open row already shows its own photo in the panel, so the floating one steps aside */
+    if(i<0||btns[i].getAttribute('aria-expanded')==='true'){hideThumb();return}
+    if(shown===i)return;
+    hideThumb();shown=i;
     var b=btns[i],y=b.offsetTop+b.offsetHeight/2-th.offsetHeight/2,rot=i%2?3:-3;
     if(firstF){gsap.set(th,{y:y,rotation:rot});firstF=false}else{yTo(y);rTo(rot)}
     var it=its[i];it.wrap.style.zIndex=++tz;
@@ -1766,6 +1773,7 @@ pm.add({phone:'(max-width:760px)',motion:'(prefers-reduced-motion: no-preference
   }
   btns.forEach(function(b,i){
     actv[i]=false;
+    on(b,'click',function(){focusRow(cur,true)});
     ScrollTrigger.create({trigger:b,start:'top 54%',end:'bottom 54%',onToggle:function(self){
       actv[i]=self.isActive;
       if(!rq)rq=requestAnimationFrame(function(){rq=0;focusRow(actv.indexOf(true))});
