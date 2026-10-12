@@ -1,0 +1,109 @@
+{
+  "slug": "aspley-motor-inn",
+  "pages": {
+    "home": {
+      "title": "Aspley Motor Inn — Motel Accommodation on Gympie Rd, Aspley QLD",
+      "metaDesc": "Aspley Motor Inn — warm, well-kept motel rooms on Gympie Road, Aspley. Minutes from Westfield Chermside, Prince Charles Hospital, Brisbane Airport and the CBD. Free WiFi and free on-site parking. Book direct for the best rate.",
+      "ogImage": true,
+      "canonical": null,
+      "h1": [
+        "ASPLEY\nMOTOR INN"
+      ],
+      "ldTypes": [],
+      "generator": null,
+      "wordpress": false,
+      "nextjs": false,
+      "nuxt": false,
+      "webflow": false,
+      "squarespace": false,
+      "wix": false,
+      "shopify": false,
+      "video": 0,
+      "imgs": 29,
+      "lazyImgs": 16,
+      "webp": 0,
+      "fonts": [
+        "Times New Roman",
+        "Jost",
+        "Righteous",
+        "Lucida Console"
+      ],
+      "gsap": false,
+      "lenis": false,
+      "swiper": false,
+      "framer": false,
+      "lottie": false,
+      "animCount": 39,
+      "reviews": false,
+      "bookingEngines": [
+        "rmscloud"
+      ],
+      "text": "HOME ROOMS OUR STORY LOCATION GALLERY CONTACT BOOK NOW menu × HOME ROOMS OUR STORY LOCATION GALLERY CONTACT BOOK NOW Welcome to ASPLEY MOTOR INN BOOK NOW MOTOR INN · ASPLEY · BRISBANE · GYMPIE RD · SETTLE INTO A BRIGHT, EASY STAY ON GYMPIE ROAD — MOMENTS FROM CHERMSIDE, THE HOSPITAL AND THE RUN INTO BRISBANE. a warm welcome COMFORTABLE ACCOMMODATION Aspley Motor Inn provides the perfect combination of a handy northern-suburbs location and warm, well-kept rooms — a bright, easy-going place to land whether you're here overnight, with family, or for work. If you love clean, comfortable and genuinely convenient, please — let us look after you. Free WiFi, free parking and kitchenette options included. BOOK NOW our story EASY COMFORT, THOUGHTFULLY KEPT With bright, tidy interiors and a genuinely convenient setting just off the M7 corridor, our welcoming rooms are made for real trips — a comfortable base that blends practical value with a relaxed, homey feel. VIEW ROOMS stay with us OUR ROOMS SLEEPS 2 STANDARD QUEEN ROOM An air-conditioned room with a comfy double bed, flat-screen TV, fridge and tea & coffee — ideal for a short stay. 1 double bed 20 m² Free WiFi Air-con VIEW DETAILS SLEEPS 3 DOUBLE OR TWIN ROOM A single and a double bed with a seating area — great for friends, colleagues or a small family. 1 single + 1 double Seating area 20 m² Free WiFi VIEW DETAILS SLEEPS 5 FAMILY ROOM Two singles and a large double give families room to spread out, with kitchenware and a private ",
+      "links": [
+        "ROOMS|https://www.aspleymotorinn.com.au/#rooms",
+        "BOOK NOW|https://bookings.rmscloud.com/Search/Index/5438A0A4C2060A1C/1/",
+        "ROOMS|https://www.aspleymotorinn.com.au/#rooms",
+        "BOOK NOW|https://bookings.rmscloud.com/Search/Index/5438A0A4C2060A1C/1/",
+        "BOOK NOW|https://bookings.rmscloud.com/Search/Index/5438A0A4C2060A1C/1/",
+        "BOOK NOW|https://bookings.rmscloud.com/Search/Index/5438A0A4C2060A1C/1/",
+        "VIEW ROOMS|https://www.aspleymotorinn.com.au/#rooms",
+        "VIEW DETAILS|https://www.aspleymotorinn.com.au/#booking",
+        "VIEW DETAILS|https://www.aspleymotorinn.com.au/#booking",
+        "VIEW DETAILS|https://www.aspleymotorinn.com.au/#booking",
+        "VIEW DETAILS|https://www.aspleymotorinn.com.au/#booking",
+        "BOOK NOW|https://bookings.rmscloud.com/Search/Index/5438A0A4C2060A1C/1/",
+        "ROOMS|https://www.aspleymotorinn.com.au/#rooms",
+        "BOOK NOW|https://bookings.rmscloud.com/Search/Index/5438A0A4C2060A1C/1/"
+      ],
+      "htmlBytes": 53944,
+      "status": 200,
+      "finalUrl": "https://www.aspleymotorinn.com.au/",
+      "loadMs": 2522,
+      "networkIdleMs": 4597,
+      "pageHeight": 9363
+    },
+    "booking": {
+      "title": "Online Bookings",
+      "metaDesc": null,
+      "ogImage": false,
+      "canonical": null,
+      "h1": [
+        "Aspley Motor Inn"
+      ],
+      "ldTypes": [],
+      "generator": null,
+      "wordpress": false,
+      "nextjs": false,
+      "nuxt": false,
+      "webflow": false,
+      "squarespace": false,
+      "wix": false,
+      "shopify": false,
+      "video": 0,
+      "imgs": 4,
+      "lazyImgs": 0,
+      "webp": 0,
+      "fonts": [
+        "Open Sans"
+      ],
+      "gsap": false,
+      "lenis": false,
+      "swiper": false,
+      "framer": false,
+      "lottie": false,
+      "animCount": 22,
+      "reviews": false,
+      "bookingEngines": [
+        "rmscloud"
+      ],
+      "text": "Aspley Motor Inn Cart (0) Book your accommodation Dates Check In Check Out Guests ​ Guests Search 1159 Gympie Rd, Aspley QLD 4034, Australia +61 7 3864 4966 https://www.aspleymotorinn.com.au Guest Portal Property Description Terms & Conditions Cancellation Policy 5.26.285.1.78856T Your cart is currently empty Close",
+      "links": [],
+      "htmlBytes": 39538,
+      "status": 200,
+      "finalUrl": "https://ibe12.rmscloud.com/5438A0A4C2060A1C/1",
+      "loadMs": 2575,
+      "networkIdleMs": 3740,
+      "pageHeight": 900
+    }
+  }
+}
