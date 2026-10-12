@@ -19,7 +19,17 @@ Full verbatim content, menus and prices: `research/aspley-current-site/content-a
 - Function spaces: Herb Garden 80 seated / 100 standing; Terrace and Herb Garden 60 seated; Terrace 40 seated. Platters $100 to $145. Minimum spend $1,000 Mon to Thu, $2,000 Fri to Sun, or $250 room hire; $100 deposit.
 - Brand red is around #C8102E. The badge reads "EST 1935, ASPLEY HOTEL, PUB ON THE HILL, GAMING BAR FOOD BOTTLESHOP".
 
-## Images (all real, from the venue's September 2026 shoot)
+## Primary images: the owner's enhanced set (use these first)
+
+Folder: `mocks/img/drive/`, referenced from pages as `img/drive/<name>.webp` (1800px) or `img/drive/<name>-sm.webp` (900px). These are the owner's warm, cinematic, AI-enhanced versions of the venue photos (the README says fine details may differ from the originals). Most are 3:2 landscape; `16-hotel-front-square-view` is square; `29-`, `30-` (parmigiana) and `41-` (gaming) are 3:4 portrait; `05-`, `25-`, `28-` are 16:9; `36-`, `42-`, `50-` are 4:3.
+
+Highlights: hero exteriors `24-hotel-wide-exterior-hero`, `25-hotel-exterior-wide-hero-alternate`, `16-hotel-front-square-view`, `22-hotel-front-facade-and-sign`, `23-front-veranda-street-perspective`; brand sign `18-aspley-hotel-signage`; food `28-menu-food-spread-overhead` (overhead table of a dozen dishes), `29-parmigiana-portrait-view-01`, `30-parmigiana-portrait-view-02`; drinks `05-bar-drinks-and-pour`, `03-bar-counter-view-02` (chalkboard cocktails), `12-bistro-bar-counter-view-02` (taps); evening mood `36-terrace-evening-festoon-lights`; bottle shop `42-bottleshop-interior-wide` (Star Liquor Warehouse); functions `34-covered-function-terrace-wide`, `35-function-terrace-reverse-angle`, `33-indoor-function-room`, `17-indoor-function-room-alternate`; deck `31-outdoor-deck-view-01`, `32-outdoor-deck-view-02`; sports bar `46-`, `47-`, `48-sports-bar-tab-screens`, `49-sports-bar-wide`, `50-`; gaming `37-` to `41-`; coffee and cake `04-coffee-bar-counter`, `26-cake-display-fridge`; access `15-entrance-access-ramp`.
+
+Full list: `01-bar-counter-view-01`, `02-bar-timber-and-counter-detail`, `03-bar-counter-view-02`, `04-coffee-bar-counter`, `05-bar-drinks-and-pour`, `06-bistro-dining-room-view-01`, `07-bistro-wide-dining-room`, `08-bistro-dining-room-view-02`, `09-bistro-dining-room-view-03`, `10-bistro-dining-room-view-04`, `11-bistro-bar-counter-view-01`, `12-bistro-bar-counter-view-02`, `13-bistro-dining-room-view-05`, `14-gaming-lounge-entrance`, `15-entrance-access-ramp`, `16-hotel-front-square-view`, `17-indoor-function-room-alternate`, `18-aspley-hotel-signage`, `19-bistro-entrance-wide-approach`, `20-bistro-entrance-side-approach`, `21-bistro-doorway-and-steps-close`, `22-hotel-front-facade-and-sign`, `23-front-veranda-street-perspective`, `24-hotel-wide-exterior-hero`, `25-hotel-exterior-wide-hero-alternate`, `26-cake-display-fridge`, `28-menu-food-spread-overhead`, `29-parmigiana-portrait-view-01`, `30-parmigiana-portrait-view-02`, `31-outdoor-deck-view-01`, `32-outdoor-deck-view-02`, `33-indoor-function-room`, `34-covered-function-terrace-wide`, `35-function-terrace-reverse-angle`, `36-terrace-evening-festoon-lights`, `37-gaming-lounge-view-01`, `38-gaming-machines-detail`, `39-gaming-lounge-bar`, `40-gaming-lounge-wide`, `41-gaming-lounge-portrait`, `42-bottleshop-interior-wide`, `45-sports-bar-table-detail`, `46-sports-bar-wide-view-01`, `47-sports-bar-window-side`, `48-sports-bar-tab-screens`, `49-sports-bar-wide`, `50-sports-bar-and-tab-alternate`
+
+The older set below (`mocks/img/*.webp`) is the unenhanced originals; use it only if a shot is missing above.
+
+## Older images (original, unenhanced, from the venue's September 2026 shoot)
 
 Folder: `mocks/img/`. Every file has a 1600px version and an 800px `-sm` version. Pages live in `mocks/` and reference images as `img/<name>.webp`.
 
@@ -69,7 +79,7 @@ There is no logo file. Set the name in type, or draw a simple circular badge in 
 - The page must be complete at rest: everything readable without scrolling triggers. Animations may move or reveal from a visible state, or play in on load, but never leave real content at opacity 0 waiting for a scroll observer. Use `gsap.matchMedia()` and honour `prefers-reduced-motion: reduce` (render final state, no smooth scroll).
 - Phone width ~390px must work with no horizontal page scroll, a side gutter of at least 16px, and a sticky "Book a table / Call" bar. Pinned and horizontal sections must fall back to a normal stacked layout on phones.
 - A single committed look is fine (set `color-scheme` and every colour explicitly; body background set).
-- Add a slim note at the very top: "Design mock, variant X. Photos from the venue's September 2026 shoot. Forms are not connected."
+- Add a slim note at the very top: "Design mock, variant X. Photos are enhanced versions of the venue's own photography. Forms are not connected."
 - Do not modify `mocks/variant-a.html`, `mocks/variant-b.html` or anything they use. Do not delete or edit files in `mocks/img/`.
 
 ## Using a reference site
