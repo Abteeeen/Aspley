@@ -1,5 +1,20 @@
 # Aspley Hotel design mocks
 
+## Round 2: four reference-inspired variants (owner's enhanced photos)
+
+| Variant | File | Inspired by | Signature |
+|---|---|---|---|
+| C, Glasshouse | `variant-c-delta.html` | deltacafes.com (header and footer structure) | Notched glass header with the red EST 1935 badge, photo mega menus, badge-mask intro, velocity marquee, heritage photo scatter, pinned day-clock, Star Rewards orbit, sticky "Pub on the Hill" CTA with the glass footer card sliding over it |
+| D, Lookbook | `variant-d-wolverine.html` | wolverineworldwide.com | Rise-and-grow hero, header that morphs into a glass pill, 3D photo galaxy, seven stacked room slides, function finder, footer curtain |
+| E, Editorial | `variant-e-dulcedo.html` | dulcedo.com | Caps plus one serif italic word, canvas sign rings, giant room list with cursor-following photos, Flip menu with odometer member prices, function finder |
+| F, After Dark | `variant-f-aupale.html` | aupalevodka.com | Pinned story chapters over hill contours, arch doorway, The Pour photo stage, a pint that fills through the trading day, cocktail spec dialogs, word-split prefooter |
+
+All four use `img/drive/` (the owner's AI-enhanced venue photos), GSAP 3.13 with ScrollTrigger, SplitText and Flip, and Lenis smooth scroll. They compute live venue status in Brisbane time, respect reduced motion, and have a sticky Book/Call bar on phones. Research behind each one is in `research/references/<site>/analysis.md`; the growth brainstorm is `research/growth-plan.md`.
+
+Opened directly from disk without a doctype, the pages render in quirks mode, so Lenis is switched off and native scroll is used; published versions get a doctype and smooth scroll.
+
+## Round 1
+
 Two complete single-page mocks with entirely different looks, built on the same real content.
 
 | | Variant A: Verandah | Variant B: Tonight |
