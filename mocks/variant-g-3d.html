@@ -1,0 +1,2108 @@
+<title>Aspley Hotel Hilltop</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Aspley Hotel, the pub on the hill since 1935. Bistro, bars, sports bar, gaming, functions and a drive-through bottle shop at 1247 Gympie Road, Aspley.">
+<meta name="theme-color" content="#1C1714">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300..700&family=Oswald:wght@500..700&display=swap">
+<link rel="preload" as="image" imagesrcset="img/drive/24-hotel-wide-exterior-hero-sm.webp 900w, img/drive/24-hotel-wide-exterior-hero.webp 1556w" imagesizes="100vw" fetchpriority="high">
+<script>
+/* Variant G decides its mode before first paint so the layout never jumps (core-web-vitals: CLS).
+   g3d    : WebGL2 is available and motion is allowed, the page is laid out as a 3D journey.
+   g3d-off: reduced motion or no WebGL2, the page is a complete static layout with poster images. */
+(function(){
+  var d = document.documentElement, ok = false, info = '';
+  d.classList.add('js');
+  var still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches) d.classList.add('hv');
+  if (!still) {
+    try {
+      var c = document.createElement('canvas'), gl = c.getContext('webgl2');
+      if (gl) {
+        ok = true;
+        var dbg = gl.getExtension('WEBGL_debug_renderer_info');
+        info = dbg ? String(gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL)) : '';
+        var lose = gl.getExtension('WEBGL_lose_context'); if (lose) lose.loseContext();
+      }
+    } catch (e) { ok = false; }
+  }
+  window.__glInfo = info;
+  d.classList.add(ok ? 'g3d' : 'g3d-off');
+})();
+</script>
+<style>
+/* Variant G, "Up the hill". One fixed WebGL canvas, one camera that climbs the hill, walks through the door,
+   pours a pint, spins a Star Rewards coin, steps onto the terrace and pulls back over the hill at night.
+   Header, footer, palette and type come from variant C (Delta): stout, porter, beer-head creme, brand red.
+   Red contour lines come from variant F (Aupale), kinetic type from E (Dulcedo), the photo walk from D (Wolverine). */
+:root{
+  color-scheme: dark;
+  --stout:#1C1714;
+  --stout-deep:#120E0B;
+  --porter:#251D18;
+  --porter-2:#33271F;
+  --beer:#F1E4D1;
+  --foam:#FCF3ED;
+  --muted:#B9A48C;
+  --paper:#F6EFE4;
+  --ink:#2A201B;
+  --red:#C8102E;
+  --red-deep:#8F0A1F;
+  --red-lift:#E0475E;
+  --gold:#E8B23A;
+  --amber:#E2A33B;
+  --night:#0A0F1E;
+  --dusk-1:#1A1633;
+  --dusk-2:#4A2A4A;
+  --dusk-3:#C8613F;
+  --panel:rgba(18,14,11,.84);
+  --panel-line:rgba(241,228,209,.09);
+  --hanken:"Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --oswald:"Oswald", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --gm:clamp(16px, 8.4px + .92vw, 24px);
+  --e-expo:cubic-bezier(.19,1,.22,1);
+  --e-io:cubic-bezier(.77,0,.175,1);
+  --e-out:cubic-bezier(.23,1,.32,1);
+  --e-back:cubic-bezier(.68,-.55,.265,1.55);
+  --note-h:30px;
+  --note-off:30px;
+  --band-w:clamp(830px, 92.9vw - 285px, 1060px);
+  --notch:104px;
+  --z-canvas:0; --z-content:1; --z-foot:2; --z-tray:30; --z-glass:39; --z-hdr:40; --z-sheet:45; --z-mhdr:46;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scrollbar-color:#5A4A3E var(--stout);background:var(--stout)}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:hidden}
+body{margin:0;background:var(--stout);color:var(--beer);font:500 17px/1.5 var(--hanken);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:clip;caret-color:var(--gold);accent-color:var(--beer)}
+::selection{background:var(--beer);color:var(--stout)}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:var(--stout)}
+::-webkit-scrollbar-thumb{background:#4A3C32;border-radius:10px;border:2px solid var(--stout)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:1px}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+h1,h2,h3,h4,p,ul,ol,dl,dd,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+.num{font-variant-numeric:tabular-nums}
+:focus-visible{outline:2px solid var(--beer);outline-offset:3px;border-radius:6px}
+.sr{position:absolute!important;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:fixed;left:16px;top:-80px;z-index:200;background:var(--beer);color:var(--stout);padding:12px 18px;border-radius:40px;font-weight:650;text-decoration:none;transition:top .2s var(--e-out)}
+.skip:focus{top:12px}
+section[id],[id].room,[id].stop,[id].fcard{scroll-margin-top:96px}
+
+/* ---------- the canvas: fixed behind the DOM, sized to the large viewport so the URL bar never forces a resize ---------- */
+#g3d{position:fixed;left:0;top:0;width:100vw;height:100vh;height:100lvh;z-index:var(--z-canvas);display:none;pointer-events:none;background:#140F14}
+.g3d #g3d{display:block}
+.g3d-sizer{position:fixed;left:0;top:0;width:1px;height:100vh;height:100lvh;visibility:hidden;pointer-events:none}
+/* a soft read-scrim on the left (desktop) or bottom (phone) keeps DOM copy legible over any frame */
+.g3d .scrim{position:fixed;inset:0;z-index:var(--z-canvas);pointer-events:none;background:linear-gradient(90deg, rgba(14,10,8,.55), rgba(14,10,8,0) 46%),linear-gradient(0deg, rgba(14,10,8,.5), rgba(14,10,8,0) 30%)}
+.scrim{display:none}
+.g3d .scrim{display:block}
+
+/* ---------- mock note ---------- */
+.mock-note{position:relative;z-index:var(--z-content);min-height:var(--note-h);display:flex;align-items:center;justify-content:center;padding:0 16px;background:var(--stout-deep);color:var(--muted);font:600 12px/1.2 var(--hanken);letter-spacing:.01em;text-align:center;border-bottom:1px solid rgba(241,228,209,.08)}
+.mock-note span{padding:7px 0}
+
+/* ---------- split pill button (variant C, Delta's two-piece) ---------- */
+.split{--h:52px;--ic:62px;--fill:var(--beer);--tx:var(--stout);--chip:#3D2F26;--chip-ink:var(--beer);position:relative;display:inline-flex;align-items:center;width:fit-content;flex:none;height:var(--h);border-radius:60px;text-decoration:none;color:var(--tx);isolation:isolate;-webkit-tap-highlight-color:transparent;transition:transform .2s var(--e-out);white-space:nowrap}
+.split::before{content:"";position:absolute;inset:0;border-radius:60px;background:var(--fill);clip-path:inset(0 calc(var(--ic) + 2px) 0 0 round 60px);transition:clip-path .325s cubic-bezier(.86,0,.07,1);z-index:-1}
+.split-l{padding:0 26px;font:600 15px/1 var(--hanken);letter-spacing:.01em}
+.split-i{position:relative;width:var(--ic);height:var(--h);margin-left:2px;border-radius:60px;background:var(--chip);color:var(--chip-ink);display:grid;place-items:center;overflow:hidden;transition:transform .45s var(--e-back)}
+.split-i svg{width:15px;height:15px;transition:transform .45s var(--e-expo)}
+.split-i svg+svg{position:absolute;transform:translateX(-50px)}
+.hv .split:hover::before,.split:focus-visible::before{clip-path:inset(0 0 0 0 round 60px)}
+.hv .split:hover .split-i,.split:focus-visible .split-i{transform:scale(.84)}
+.hv .split:hover .split-i svg:first-child,.split:focus-visible .split-i svg:first-child{transform:translateX(34px)}
+.hv .split:hover .split-i svg+svg,.split:focus-visible .split-i svg+svg{transform:translateX(0)}
+.split:active{transform:scale(.97)}
+.split:focus-visible{outline-offset:4px;border-radius:60px}
+.split.md{--h:46px;--ic:54px}
+.split.md .split-l{padding:0 20px;font-size:14px}
+.split.red{--fill:var(--red);--tx:#FFF8F0;--chip:var(--red-deep);--chip-ink:#FFF8F0}
+.split.gold{--fill:var(--gold);--tx:var(--stout);--chip:var(--stout);--chip-ink:var(--gold)}
+.split.ghost{--fill:rgba(241,228,209,.12);--tx:var(--beer);--chip:rgba(241,228,209,.12)}
+.split.dark{--fill:rgba(18,14,11,.86);--tx:var(--foam);--chip:rgba(18,14,11,.86);--chip-ink:var(--foam)}
+
+/* ---------- desktop header (variant C structure: phone pill, notched glass band with the badge, Book pill) ---------- */
+.g-band{position:fixed;z-index:var(--z-glass);top:calc(30px + var(--note-off));left:50%;width:var(--band-w);height:46px;margin-left:calc(var(--band-w) / -2);border-radius:23px;background:rgba(16,12,10,.62);-webkit-mask:radial-gradient(circle at 50% 50%, transparent 47px, #000 47.5px);mask:radial-gradient(circle at 50% 50%, transparent 47px, #000 47.5px);box-shadow:inset 0 0 0 1px rgba(241,228,209,.08);pointer-events:none}
+.hdr{position:fixed;z-index:var(--z-hdr);top:calc(6px + var(--note-off));left:0;right:0;height:94px;pointer-events:none}
+.hdr a,.hdr button,.hdr .band{pointer-events:auto}
+.side-pill{position:absolute;top:24px;height:46px;display:inline-flex;align-items:center;gap:8px;border-radius:32px;font:650 12px/1 var(--hanken);letter-spacing:.05em;text-transform:uppercase;text-decoration:none;color:var(--foam);transition:transform .2s var(--e-out),background-color .3s}
+.side-pill svg{width:15px;height:15px;flex:none}
+.side-pill.phone{left:var(--gm);padding:0 16px 0 14px;background:rgba(10,10,10,.62);box-shadow:inset 0 0 0 1px rgba(241,228,209,.1);letter-spacing:.03em}
+.side-pill.book{right:var(--gm);padding:0 18px 0 20px;background:var(--red);color:#FFF8F0}
+.hv .side-pill.phone:hover,.side-pill.phone:focus-visible{background:rgba(40,32,27,.86)}
+.hv .side-pill.book:hover,.side-pill.book:focus-visible{background:#A90D27}
+.side-pill:active{transform:scale(.97)}
+.side-pill:focus-visible{border-radius:32px}
+.band{position:absolute;top:24px;left:50%;width:var(--band-w);height:46px;transform:translateX(-50%);display:grid;grid-template-columns:1fr var(--notch) 1fr;align-items:center}
+.nav-l,.nav-r{display:flex;align-items:center;gap:clamp(4px, 2.5vw - 26px, 12px);height:46px;position:relative;z-index:2}
+.nav-l{padding-left:clamp(8px, 1.5vw - 10px, 14px)}
+.nav-r{justify-content:flex-end;padding-right:clamp(8px, 1.5vw - 10px, 14px)}
+.nav-i{position:relative;display:inline-flex;align-items:center;height:36px;padding:0 clamp(8px, .9vw - 3px, 12px);border-radius:40px;font:650 clamp(11px, .42vw + 6px, 12px)/1 var(--hanken);letter-spacing:.06em;text-transform:uppercase;color:var(--foam);text-decoration:none;white-space:nowrap}
+.nav-i:focus-visible{outline-offset:1px;border-radius:40px}
+.pill-ind{position:absolute;z-index:1;top:5px;left:0;height:36px;width:var(--w,0px);border-radius:110px;transform:translateX(var(--x,0px));opacity:var(--o,0);pointer-events:none;transition:transform .5s var(--e-io),width .5s var(--e-io),opacity .5s var(--e-io)}
+.pill-hover{background:rgba(252,243,237,.16)}
+.pill-active{background:rgba(93,86,80,.55);box-shadow:inset 0 0 0 .8px rgba(241,228,209,.38)}
+.badge-link{position:relative;z-index:3;justify-self:center;align-self:center;margin:-21px 0;width:88px;height:88px;border-radius:50%;display:block;transition:transform .5s var(--e-expo)}
+.badge-link svg{width:100%;height:100%;filter:drop-shadow(0 6px 14px rgba(0,0,0,.35))}
+.hv .badge-link:hover,.badge-link:focus-visible{transform:rotate(-8deg) scale(1.03)}
+.badge-link:focus-visible{border-radius:50%}
+.socials{display:flex;gap:12px;align-items:center}
+.soc{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:rgba(241,228,209,.86);color:var(--stout);transition:background-color .3s,transform .2s var(--e-out)}
+.soc svg{width:16px;height:16px}
+.hv .soc:hover,.soc:focus-visible{background:var(--beer);transform:translateY(-1px)}
+.soc:focus-visible{border-radius:50%}
+
+/* ---------- mobile header + menu sheet (variant C) ---------- */
+.mhdr,.msheet{display:none}
+@media (max-width:1199.98px){
+  .g-band,.hdr{display:none}
+  .mhdr{position:fixed;z-index:var(--z-mhdr);top:calc(10px + var(--note-off));left:12px;right:12px;height:64px;display:grid;grid-template-columns:1fr 64px 1fr;align-items:center;pointer-events:none}
+  .mhdr>*{pointer-events:auto}
+  .m-pill{height:44px;display:inline-flex;align-items:center;gap:7px;padding:0 16px;border-radius:32px;background:rgba(10,10,10,.72);box-shadow:inset 0 0 0 1px rgba(241,228,209,.14);font:650 12.5px/1 var(--hanken);letter-spacing:.04em;text-transform:uppercase;color:var(--foam);text-decoration:none;justify-self:start;white-space:nowrap;transition:transform .2s var(--e-out)}
+  .m-pill svg{width:14px;height:14px}
+  .m-pill:active{transform:scale(.97)}
+  .m-pill:focus-visible{border-radius:32px}
+  .menu-btn{justify-self:end;min-width:86px;justify-content:center}
+  .m-badge{width:64px;height:64px;border-radius:50%;display:block}
+  .m-badge svg{width:100%;height:100%;filter:drop-shadow(0 5px 12px rgba(0,0,0,.35))}
+  .msheet{position:fixed;z-index:var(--z-sheet);top:calc(var(--note-off) + 4px);left:8px;right:8px;max-height:calc(100dvh - var(--note-off) - 12px);display:flex;flex-direction:column;border-radius:18px;background:#0F0C0A;box-shadow:0 30px 80px rgba(0,0,0,.55),inset 0 0 0 1px rgba(241,228,209,.08);overflow:hidden;transform-origin:top center;transform:translateY(-10px) scale(.96);opacity:0;visibility:hidden;transition:transform .32s var(--e-expo),opacity .2s ease,visibility 0s .32s}
+  .msheet.open{transform:none;opacity:1;visibility:visible;transition:transform .32s var(--e-expo),opacity .2s ease}
+  .ms-scroll{flex:1;overflow-y:auto;overscroll-behavior:contain;padding:86px 14px 14px;display:flex;flex-direction:column;gap:6px}
+  .ms-row{position:relative;min-height:52px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 22px;border-radius:40px;background:rgba(90,90,90,.2);font:700 19px/1 var(--oswald);letter-spacing:-.01em;text-transform:uppercase;color:var(--beer);text-decoration:none}
+  .ms-row small{font:600 12.5px/1.2 var(--hanken);letter-spacing:0;text-transform:none;color:var(--muted);text-align:right}
+  .ms-row:focus-visible{border-radius:40px;outline-offset:-2px}
+  .msheet .ms-row{opacity:0;transform:translateX(10px);transition:opacity .3s ease calc(var(--i,0) * 30ms + 60ms),transform .45s var(--e-expo) calc(var(--i,0) * 30ms + 60ms)}
+  .msheet.open .ms-row{opacity:1;transform:none}
+  .ms-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px calc(14px + env(safe-area-inset-bottom));border-top:1px solid rgba(0,0,0,.3);box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+  .ms-foot p{font-size:12.5px;color:var(--muted)}
+  html.menu-open .tray{transform:translateY(140%)}
+}
+
+/* ---------- shared chapter type ---------- */
+main{position:relative;z-index:var(--z-content)}
+.display{font:300 clamp(40px, 3.4vw + 22px, 78px)/1 var(--hanken);letter-spacing:-.03em;color:var(--foam)}
+.lead{font:500 clamp(17px, .35vw + 15.5px, 20px)/1.45 var(--hanken);color:rgba(241,228,209,.92);max-width:38ch}
+.poster-t{font-family:var(--oswald);font-weight:700;text-transform:uppercase;letter-spacing:-.01em;line-height:.86}
+.panel{background:var(--panel);border-radius:14px;box-shadow:inset 0 0 0 1px var(--panel-line),0 24px 60px -30px rgba(0,0,0,.7);padding:22px 22px 24px}
+.meta{font:600 13.5px/1.35 var(--hanken);color:var(--muted)}
+.gamble{font:650 13px/1.35 var(--hanken);color:var(--beer)}
+.gamble a{white-space:nowrap}
+.status{display:inline-flex;align-items:center;gap:9px;font:600 14px/1.3 var(--hanken);color:rgba(241,228,209,.92)}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--muted);flex:none}
+.status.open i{background:#7FC08A;box-shadow:0 0 0 4px rgba(127,192,138,.2)}
+.ch-head{padding:0 var(--gm)}
+.g3d .ch-head,.g3d .wk-head,.g3d .part{text-shadow:0 2px 24px rgba(10,7,6,.75)}
+.ch-head .display{max-width:12ch}
+.ch-head .lead{margin-top:18px}
+.poster-img{position:relative;overflow:hidden;background:var(--porter)}
+.poster-img img{width:100%;height:100%;object-fit:cover}
+.g3d .poster-img{display:none}
+
+/* ---------- 1. hero, the climb ---------- */
+.climb{position:relative}
+.climb-stage{position:relative;min-height:calc(100svh - var(--note-h));display:flex;flex-direction:column;justify-content:flex-end;padding:0 var(--gm) clamp(28px, 6vh, 64px);overflow:clip;isolation:isolate}
+.hero-poster{position:absolute;inset:0;z-index:-2}
+.hero-poster img{width:100%;height:100%;object-fit:cover;object-position:38% 40%}
+.hero-poster::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(26,22,51,.55) 0, rgba(26,22,51,0) 30%),linear-gradient(0deg, rgba(20,14,10,.94) 0, rgba(20,14,10,.6) 36%, rgba(20,14,10,0) 68%),linear-gradient(90deg, rgba(20,14,10,.5), rgba(20,14,10,0) 60%)}
+.g3d .hero-poster{display:block;transition:opacity 1.2s var(--e-io)}
+.g3d-ready .hero-poster{opacity:0;visibility:hidden;transition:opacity 1.2s var(--e-io),visibility 0s 1.2s}
+.hero-h1{font:300 clamp(46px, 6.2vw + 22px, 112px)/.96 var(--hanken);letter-spacing:-.035em;color:var(--foam);max-width:9.5em}
+.hero-h1 .ln{display:block;overflow:clip;padding-bottom:.06em;margin-bottom:-.06em}
+.hero-h1 .ln>span{display:inline-block;will-change:transform}
+.hero-sub{margin-top:20px}
+.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:26px}
+.rating{display:inline-flex;align-items:center;gap:8px;min-height:44px;font:600 14px/1.2 var(--hanken);color:var(--beer);text-decoration:none}
+.rating .stars{display:inline-flex;gap:2px;color:var(--gold)}
+.rating .stars svg{width:13px;height:13px}
+.rating u{text-decoration:underline;text-decoration-color:rgba(241,228,209,.4)}
+.hv .rating:hover u,.rating:focus-visible u{text-decoration-color:var(--beer)}
+.hero-status{margin-top:14px}
+.cue{display:none}
+.g3d .cue{position:absolute;right:var(--gm);bottom:clamp(28px, 6vh, 64px);display:flex;align-items:center;gap:12px;font:600 13px/1 var(--hanken);color:rgba(241,228,209,.8)}
+.cue i{position:relative;width:1px;height:46px;background:rgba(241,228,209,.25);overflow:hidden}
+.cue i::after{content:"";position:absolute;left:0;top:0;width:1px;height:16px;background:var(--beer);animation:cue 2.2s var(--e-io) infinite}
+@keyframes cue{from{transform:translateY(-18px)}to{transform:translateY(48px)}}
+.tilt{display:none}
+.g3d.touch .tilt[data-ok]{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 16px;margin-top:14px;border-radius:30px;background:rgba(18,14,11,.7);box-shadow:inset 0 0 0 1px rgba(241,228,209,.16);font:600 13.5px/1 var(--hanken);color:var(--beer);width:fit-content}
+.tilt svg{width:16px;height:16px}
+.tilt[aria-pressed="true"]{background:rgba(200,16,46,.85);box-shadow:none}
+/* g3d: the hero sticks while the camera climbs; copy sits low so the hill and the pub fill the top of the frame */
+.g3d .climb{height:240vh;height:240svh}
+.g3d .climb-stage{position:sticky;top:0;height:100vh;height:100svh;min-height:0}
+
+/* ---------- 2. through the door, the lookbook ---------- */
+.inside{position:relative;padding:clamp(80px, 14vh, 140px) 0 clamp(40px, 8vh, 80px)}
+.rooms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px, 2vw, 28px);padding:clamp(36px, 6vh, 60px) var(--gm) 0}
+.room figure{display:flex;flex-direction:column;gap:14px}
+.room-ph{border-radius:14px;overflow:hidden;aspect-ratio:3/2;background:var(--porter)}
+.room-ph img{width:100%;height:100%;object-fit:cover}
+.room h3{font:600 22px/1.15 var(--hanken);letter-spacing:-.01em;color:var(--foam)}
+.room p{margin-top:6px;color:rgba(241,228,209,.86);font-size:16px}
+.room .meta{margin-top:10px}
+.room .gamble{margin-top:10px}
+.g3d .inside{padding-top:clamp(120px, 22vh, 220px)}
+.g3d .rooms{display:block;padding:0}
+.g3d .room{min-height:88vh;min-height:88svh;display:flex;align-items:center;padding:0 var(--gm)}
+.g3d .room-ph{display:none}
+.g3d .room figure{width:min(400px, 100%)}
+.g3d .room figcaption{padding:22px 22px 24px;border-radius:14px;background:var(--panel);box-shadow:inset 0 0 0 1px var(--panel-line),0 24px 60px -30px rgba(0,0,0,.7)}
+.room-n{display:block;font:600 13px/1 var(--hanken);color:var(--muted);margin-bottom:12px}
+.room-n b{color:var(--beer);font-weight:700}
+
+/* ---------- 3. the pour ---------- */
+.pour{position:relative;padding:clamp(80px, 14vh, 140px) 0 clamp(40px, 8vh, 80px)}
+.pour-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px, 4vw, 64px);align-items:start;padding:0 var(--gm)}
+.pour-poster{border-radius:14px;aspect-ratio:16/10;position:sticky;top:110px}
+.stops{display:flex;flex-direction:column;gap:18px;margin-top:clamp(28px, 5vh, 48px)}
+.stop h3{font:600 24px/1.15 var(--hanken);letter-spacing:-.01em;color:var(--foam)}
+.stop p{margin-top:8px;color:rgba(241,228,209,.88)}
+.stop .status{margin-top:14px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tags li{padding:7px 12px;border-radius:30px;background:rgba(241,228,209,.08);font:600 13px/1.1 var(--hanken);color:var(--beer)}
+.pour-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+.g3d .pour-grid{display:block;padding:0}
+.g3d .pour .ch-head{min-height:60vh}
+.g3d .stops{gap:0;margin:0}
+.g3d .stop{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:0 var(--gm)}
+.g3d .stop .panel{width:min(420px, 100%)}
+
+/* fill gauge: one line that reports the same progress the glass shows */
+.gauge{display:none}
+.g3d .gauge{position:fixed;z-index:var(--z-content);right:var(--gm);top:50%;display:flex;flex-direction:column;align-items:center;gap:10px;transform:translateY(-50%);opacity:0;transition:opacity .4s var(--e-out);pointer-events:none}
+.g3d .gauge.on{opacity:1}
+.gauge i{position:relative;width:2px;height:160px;border-radius:2px;background:rgba(241,228,209,.18);overflow:hidden}
+.gauge i::after{content:"";position:absolute;inset:0;background:var(--amber);transform-origin:50% 100%;transform:scaleY(var(--fill,0))}
+.gauge span{font:600 12px/1 var(--hanken);color:var(--muted);writing-mode:vertical-rl;transform:rotate(180deg)}
+
+/* ---------- 4. this week: 3D swipe deck ---------- */
+.week{position:relative;padding:clamp(80px, 14vh, 140px) 0 clamp(60px, 10vh, 110px)}
+.wk-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;padding:0 var(--gm)}
+.deck-nav{display:flex;align-items:center;gap:10px}
+.deck-btn{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:rgba(241,228,209,.1);box-shadow:inset 0 0 0 1px rgba(241,228,209,.14);transition:background-color .2s,transform .16s var(--e-out)}
+.deck-btn svg{width:16px;height:16px}
+.deck-btn.prev svg{transform:rotate(180deg)}
+.deck-btn:active{transform:scale(.94)}
+.hv .deck-btn:hover,.deck-btn:focus-visible{background:rgba(241,228,209,.2)}
+.deck-btn:focus-visible{border-radius:50%}
+.deck-count{min-width:54px;text-align:center;font:600 14px/1 var(--hanken);color:var(--muted)}
+.deck-count b{color:var(--beer)}
+.deck{--cw:min(78vw, 400px);display:flex;gap:18px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-inline:calc(50% - var(--cw) / 2);padding:46px calc(50% - var(--cw) / 2) 54px;perspective:1100px;scrollbar-width:none;overscroll-behavior-x:contain;touch-action:pan-x pan-y}
+.deck::-webkit-scrollbar{display:none}
+.deck:focus-visible{outline-offset:-4px;border-radius:14px}
+.card{flex:none;width:var(--cw);scroll-snap-align:center;transform-style:preserve-3d;will-change:transform}
+.card-in{position:relative;height:100%;display:flex;flex-direction:column;border-radius:16px;overflow:hidden;background:#241B16;box-shadow:inset 0 0 0 1px rgba(241,228,209,.1),0 30px 60px -28px rgba(0,0,0,.85);transform:rotateX(var(--tx,0deg)) rotateY(var(--ty,0deg));transition:transform .5s var(--e-out)}
+.card-in::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:16px;background:radial-gradient(120% 70% at var(--gx,30%) var(--gy,0%), rgba(255,240,220,.16), rgba(255,240,220,0) 55%);mix-blend-mode:screen}
+.card-ph{aspect-ratio:4/3;overflow:hidden;background:var(--porter)}
+.card-ph img{width:100%;height:100%;object-fit:cover}
+.card-b{display:flex;flex-direction:column;gap:8px;padding:18px 20px 22px;flex:1}
+.card-day{font:700 14px/1 var(--oswald);letter-spacing:.02em;text-transform:uppercase;color:var(--red-lift)}
+.card h3{font:600 24px/1.1 var(--hanken);letter-spacing:-.015em;color:var(--foam)}
+.card p{font-size:15.5px;line-height:1.45;color:rgba(241,228,209,.88)}
+.card .gamble{margin-top:auto;padding-top:8px;font-size:12.5px}
+.card-cta{margin-top:auto;padding-top:10px}
+.card.cup .card-in{background:var(--red-deep)}
+.card.cup .card-day{color:#FFD7DD}
+.chip-now{display:inline-block;margin-left:8px;padding:3px 8px;border-radius:20px;background:var(--red);color:#FFF8F0;font:700 11.5px/1.2 var(--hanken);letter-spacing:.02em;text-transform:none;vertical-align:2px}
+
+/* ---------- 5. Star Rewards coin ---------- */
+.rewards{position:relative;padding:clamp(80px, 14vh, 140px) var(--gm) clamp(60px, 10vh, 110px)}
+.rw-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px, 4vw, 64px);align-items:center}
+.coin-poster{display:grid;place-items:center;background:none}
+.coin-poster svg{width:min(78vw, 420px);height:auto;filter:drop-shadow(0 30px 50px rgba(0,0,0,.5))}
+.rw-copy .display{max-width:11ch}
+.steps{display:grid;gap:10px;margin-top:24px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:baseline;font-size:16.5px;color:rgba(241,228,209,.9)}
+.steps li::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:rgba(232,178,58,.16);color:var(--gold);font:700 14px/1 var(--hanken)}
+.rw-ctas{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin-top:26px}
+.rw-note{margin-top:16px}
+.flick{display:none}
+.g3d .rewards{min-height:230vh;min-height:230svh;padding-top:0;padding-bottom:40px;display:flex;flex-direction:column;justify-content:flex-end}
+.g3d .rw-grid{display:contents}
+.g3d .rw-copy{position:sticky;bottom:40px;z-index:2;width:min(440px, 100%)}
+.g3d .flick{position:sticky;z-index:1;top:12vh;top:12svh;height:52vh;height:52svh;display:flex;align-items:flex-end;justify-content:center;margin-bottom:auto;touch-action:pan-y;cursor:grab;-webkit-user-select:none;user-select:none}
+.g3d .flick:active{cursor:grabbing}
+.flick-hint{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:30px;background:rgba(18,14,11,.66);font:600 13px/1 var(--hanken);color:var(--beer);pointer-events:none}
+.flick-hint svg{width:18px;height:18px}
+
+/* ---------- 6. functions: stacking cards ---------- */
+.funcs{position:relative;padding:clamp(80px, 14vh, 140px) 0 clamp(60px, 10vh, 110px)}
+.stack{display:flex;flex-direction:column;gap:24px;padding:clamp(36px, 6vh, 60px) var(--gm) 0}
+.fcard{position:sticky;top:calc(96px + var(--i) * 16px);transform-origin:50% 0}
+.fcard-in{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);border-radius:16px;overflow:hidden;background:#211915;box-shadow:inset 0 0 0 1px rgba(241,228,209,.1),0 -20px 50px -30px rgba(0,0,0,.8)}
+.fcard-ph{min-height:100%;aspect-ratio:3/2;overflow:hidden}
+.fcard-ph img{width:100%;height:100%;object-fit:cover}
+.fcard-b{display:flex;flex-direction:column;gap:12px;padding:clamp(22px, 2.6vw, 36px)}
+.fcard h3{font:300 clamp(30px, 1.6vw + 20px, 46px)/1 var(--hanken);letter-spacing:-.03em;color:var(--foam)}
+.cap{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:4px}
+.cap span{display:flex;align-items:baseline;gap:8px;font:600 15px/1 var(--hanken);color:var(--muted)}
+.cap b{font:700 clamp(44px, 2.4vw + 26px, 64px)/.9 var(--oswald);color:var(--beer)}
+.fcard p{color:rgba(241,228,209,.88)}
+.fcard .split{margin-top:auto}
+.fn-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:clamp(32px, 6vh, 56px) var(--gm) 0}
+.fn-facts div{padding:18px 18px 20px;border-radius:14px;background:var(--panel);box-shadow:inset 0 0 0 1px var(--panel-line)}
+.fn-facts dt{font:600 13.5px/1.2 var(--hanken);color:var(--muted)}
+.fn-facts dd{margin-top:8px;font:500 17px/1.35 var(--hanken);color:var(--foam)}
+.fn-note{margin:18px var(--gm) 0;max-width:62ch}
+.g3d .fcard{margin-bottom:28vh}
+.g3d .fcard:last-child{margin-bottom:0}
+
+/* ---------- 7. after dark ---------- */
+.night{position:relative;overflow:clip}
+.night-stage{position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:120px var(--gm) 110px;text-align:center;isolation:isolate}
+.night-poster{position:absolute;inset:0;z-index:-1}
+.night-poster::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 45% at 50% 50%, rgba(10,15,30,.45), rgba(10,15,30,0)),linear-gradient(180deg, rgba(10,15,30,.65), rgba(10,15,30,.35) 40%, rgba(10,15,30,.92))}
+.night-poster img{filter:saturate(.8) brightness(.72)}
+.part{display:flex;flex-direction:column;align-items:center;font-size:clamp(66px, 9vw + 30px, 190px);color:var(--foam);text-shadow:0 4px 40px rgba(0,0,0,.35)}
+.part .w{display:block;will-change:transform}
+.part .w2{font-size:.42em;font-weight:500;line-height:1.1;letter-spacing:.01em;color:var(--beer)}
+.night-lead{max-width:40ch;color:rgba(241,228,209,.92)}
+.night-ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.g3d .night{height:220vh;height:220svh}
+.g3d .night-stage{position:sticky;top:0;height:100vh;height:100svh;min-height:0;justify-content:flex-start;padding-top:clamp(110px, 16vh, 160px)}
+.g3d .night-stage .night-lead{margin-top:auto}
+
+/* ---------- footer (variant C: glass card; here it rides over the night scene) ---------- */
+.foot{position:relative;z-index:var(--z-foot);padding:0 var(--gm);background:var(--stout)}
+.g3d .foot{background:linear-gradient(180deg, rgba(10,15,30,0), rgba(10,15,30,.85) 30%, #0A0F1E)}
+.foot-card{position:relative;border-radius:12px;background:rgba(18,14,11,.78);padding:clamp(28px,2.4vw,34px) clamp(22px,2.4vw,34px);color:#F8EAE0;box-shadow:inset 0 0 0 1px rgba(241,228,209,.07)}
+.fc-top{display:grid;grid-template-columns:minmax(150px,.75fr) minmax(0,2.6fr) minmax(240px,1fr);gap:clamp(18px,4vw,64px)}
+.fc-badge{width:72px;height:72px;display:block;border-radius:50%}
+.fc-badge svg{width:100%;height:100%}
+.fc-nav{display:flex;gap:clamp(18px,4vw,64px);padding-top:30px}
+.fgroup h3,.fg-toggle{font:700 16px/1 var(--oswald);letter-spacing:-.01em;text-transform:uppercase;color:#F8EAE0}
+.fg-toggle{display:none}
+.fg-list{margin-top:16px;display:flex;flex-direction:column}
+.fg-list a,.f-sec a{display:inline-block;padding:4px 0;font:550 14.5px/1.35 var(--hanken);text-decoration:none;transition:opacity .4s var(--e-out),transform .4s var(--e-out)}
+.f-singles{display:flex;flex-direction:column;gap:14px}
+.f-singles a{font:700 16px/1 var(--oswald);letter-spacing:-.01em;text-transform:uppercase;text-decoration:none;transition:opacity .4s var(--e-out),transform .4s var(--e-out)}
+.hv .foot-card a:not(.soc):hover,.foot-card a:not(.soc):focus-visible{opacity:.65;transform:translateX(2px)}
+.f-contact{display:flex;flex-direction:column;gap:22px;padding-top:30px}
+.f-contact dt{font:700 12px/1 var(--oswald);letter-spacing:.02em;text-transform:uppercase}
+.f-contact dd{margin-top:6px;font:420 clamp(18px, .5vw + 13px, 22px)/1.2 var(--hanken);letter-spacing:-.02em}
+.f-contact dd a{text-decoration:none;display:inline-block}
+.f-note{font-size:13.5px;line-height:1.5;color:rgba(248,234,224,.86)}
+.fc-bot{display:grid;grid-template-columns:minmax(150px,.75fr) minmax(0,3.6fr);gap:clamp(18px,4vw,64px);align-items:end;margin-top:56px}
+.f-sec{display:flex;flex-wrap:wrap;gap:6px 24px;align-items:center}
+.under{display:grid;grid-template-columns:1fr 2fr 1fr;align-items:center;gap:16px;padding:22px 0 26px;font:600 12px/1.4 var(--oswald);letter-spacing:.03em;text-transform:uppercase}
+.under .l{color:var(--muted)}
+.under .c{color:var(--beer);text-align:center}
+.under .r{color:var(--muted);text-align:right}
+
+/* ---------- sticky Book / Call tray (phones and tablets) ---------- */
+.tray{display:none}
+@media (max-width:1199.98px){
+  .tray{position:fixed;z-index:var(--z-tray);left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:6px;border-radius:32px;background:rgba(18,14,11,.86);box-shadow:0 16px 40px rgba(0,0,0,.45),inset 0 0 0 1px rgba(241,228,209,.1);transition:transform .3s var(--e-expo)}
+  .tray a{height:48px;border-radius:26px;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font:650 14px/1 var(--hanken);white-space:nowrap;transition:transform .16s var(--e-out)}
+  .tray a:active{transform:scale(.97)}
+  .tray a svg{width:15px;height:15px}
+  .tray .t-book{background:var(--red);color:#FFF8F0}
+  .tray .t-call{background:rgba(241,228,209,.1);color:var(--beer)}
+  .tray a:focus-visible{border-radius:26px}
+  .under{padding-bottom:96px}
+}
+
+/* ---------- dialogs: centred card on desktop, native-feeling bottom sheet on phones ---------- */
+dialog.sheet{width:min(540px, calc(100vw - 24px));max-height:calc(100dvh - 24px);padding:0;border:0;border-radius:18px;background:#1E1713;color:var(--beer);box-shadow:0 40px 100px rgba(0,0,0,.6),inset 0 0 0 1px rgba(241,228,209,.1);overflow:auto;overscroll-behavior:contain}
+dialog.sheet::backdrop{background:rgba(10,7,6,.66)}
+dialog.sheet[open]{animation:dlg .34s var(--e-expo)}
+@keyframes dlg{from{opacity:0;transform:translateY(12px) scale(.97)}}
+.sh-grip{display:none}
+.sh-form{padding:26px 26px 24px;display:flex;flex-direction:column;gap:16px}
+.sh-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.sh-head h2{font:300 34px/1 var(--hanken);letter-spacing:-.03em;color:var(--foam)}
+.sh-head p{font-size:14.5px;color:var(--muted);margin-top:8px}
+.x{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:rgba(241,228,209,.08);flex:none}
+.x svg{width:14px;height:14px}
+.x:focus-visible{border-radius:50%}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+.field label{font:600 13px/1 var(--hanken);color:var(--muted)}
+.field input,.field select,.field textarea{min-height:48px;border-radius:10px;border:1px solid rgba(241,228,209,.2);background:#16110E;color:var(--beer);font:500 16px/1.3 var(--hanken);padding:0 12px;color-scheme:dark}
+.field textarea{padding:12px;min-height:86px;resize:vertical}
+.field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible{outline:2px solid var(--beer);outline-offset:1px;border-color:transparent}
+.sh-status{font-size:14.5px;line-height:1.45;min-height:1.45em;color:var(--beer)}
+.sh-form .split{align-self:flex-start}
+@media (max-width:760px){
+  dialog.sheet{width:100vw;max-width:100vw;margin:auto 0 0;max-height:92dvh;border-radius:22px 22px 0 0;padding-bottom:env(safe-area-inset-bottom)}
+  dialog.sheet[open]{animation:sheetUp .42s var(--e-expo)}
+  @keyframes sheetUp{from{transform:translateY(100%)}}
+  .sh-grip{display:block;position:sticky;top:0;z-index:2;height:28px;margin-bottom:-28px;touch-action:none;cursor:grab;background:linear-gradient(#1E1713 60%, rgba(30,23,19,0))}
+  .sh-grip::before{content:"";position:absolute;left:50%;top:10px;width:42px;height:5px;margin-left:-21px;border-radius:5px;background:rgba(241,228,209,.3)}
+  .sh-form{padding:30px 18px 22px}
+  .fields{grid-template-columns:1fr}
+}
+
+/* ---------- responsive ---------- */
+@media (min-width:761px){
+  .g3d .flick{margin-left:46%;width:50%}
+}
+@media (min-width:1200px){
+  .g3d .room,.g3d .stop{padding-left:calc(var(--gm) + 2vw)}
+  .g3d .rw-copy{margin-left:2vw}
+  .g3d .flick{margin-left:48%;width:48%}
+}
+@media (max-width:1023.98px){
+  .rooms{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pour-grid{grid-template-columns:1fr}
+  .pour-poster{position:relative;top:0}
+  .rw-grid{grid-template-columns:1fr}
+  .fcard-in{grid-template-columns:1fr}
+  .fn-facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fc-top{grid-template-columns:1fr;gap:28px}
+  .fc-nav{padding-top:0}
+  .fc-bot{grid-template-columns:1fr;gap:20px;margin-top:36px}
+  .under{grid-template-columns:1fr;text-align:left}
+  .under .c,.under .r{text-align:left}
+}
+@media (max-width:760px){
+  body{font-size:16.5px}
+  .g3d .scrim{background:linear-gradient(0deg, rgba(14,10,8,.72), rgba(14,10,8,.2) 46%, rgba(14,10,8,0) 64%)}
+  .hero-sub{max-width:30ch}
+  .hero-cta .split{display:none}
+  .g3d .cue{display:none}
+  .climb-stage{padding-bottom:calc(92px + env(safe-area-inset-bottom))}
+  .g3d .climb-stage{padding-bottom:calc(92px + var(--note-h) + env(safe-area-inset-bottom))}
+  .mock-note{font-size:11.5px}
+  /* phones: copy cards sit in the lower half, the 3D focal object in the upper half */
+  .g3d .room,.g3d .stop{align-items:flex-end;padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+  .g3d .room figcaption,.g3d .stop .panel{padding:18px 18px 20px}
+  .rooms{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:6px;scrollbar-width:none;touch-action:pan-x pan-y}
+  .rooms::-webkit-scrollbar{display:none}
+  .g3d-off .room{flex:none;width:80vw;scroll-snap-align:center}
+  .gauge{display:none!important}
+  .wk-head .deck-nav{display:none}
+  .deck{gap:12px}
+  .stack{gap:18px}
+  .fcard{top:calc(84px + var(--i) * 12px)}
+  .fcard-b{padding:20px 18px 22px}
+  .fn-facts{grid-template-columns:1fr;gap:10px}
+  .g3d .rw-copy{width:100%;bottom:calc(88px + env(safe-area-inset-bottom));padding:18px 18px 20px}
+  .g3d .rw-copy .display{font-size:34px}
+  .g3d .rw-copy .lead{font-size:15.5px;margin-top:10px!important}
+  .g3d .rw-copy .steps{margin-top:14px;gap:6px}
+  .g3d .rw-copy .steps li{font-size:15px}
+  .g3d .rw-copy .rw-ctas{margin-top:16px}
+  .g3d .rw-copy .rw-note{display:none}
+  .g3d .flick{top:11svh;height:30svh}
+  .g3d .night-stage{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+  .night-stage{padding-bottom:140px}
+  .fc-nav{flex-direction:column;gap:0}
+  .fgroup{border-top:1px solid rgba(241,228,209,.12)}
+  .fgroup h3{display:none}
+  .fg-toggle{display:flex;width:100%;min-height:52px;align-items:center;justify-content:space-between}
+  .fg-toggle svg{width:12px;height:12px;transition:transform .3s var(--e-expo)}
+  .fgroup.open .fg-toggle svg{transform:rotate(180deg)}
+  .fg-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s var(--e-expo)}
+  .fg-body>div{overflow:hidden}
+  .fgroup.open .fg-body{grid-template-rows:1fr}
+  .fg-list{margin:0 0 14px}
+  .fg-list a{padding:9px 0}
+  .f-singles{border-top:1px solid rgba(241,228,209,.12);padding-top:18px;gap:0}
+  .f-singles a{display:block;padding:11px 0}
+}
+
+/* ---------- reduced motion: final states, no smooth scroll, no pinning ---------- */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .fcard{position:relative;top:0}
+  .card-in{transform:none!important}
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <path id="ringpath" d="M60,60 m-48.5,0 a48.5,48.5 0 1,1 97,0 a48.5,48.5 0 1,1 -97,0"/>
+  </defs>
+  <symbol id="i-badge" viewBox="0 0 120 120">
+    <circle cx="60" cy="60" r="59" fill="#C8102E"/>
+    <circle cx="60" cy="60" r="40.5" fill="none" stroke="#FFF4EA" stroke-width="1.1"/>
+    <circle cx="60" cy="60" r="57" fill="none" stroke="#FFF4EA" stroke-opacity=".35" stroke-width=".7"/>
+    <text font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="600" font-size="8.4" fill="#FFF4EA" letter-spacing=".5"><textPath href="#ringpath" textLength="300" lengthAdjust="spacing">ASPLEY HOTEL · PUB ON THE HILL · GAMING · BAR · FOOD · BOTTLESHOP ·</textPath></text>
+    <text x="60" y="51" text-anchor="middle" font-family="'Hanken Grotesk', Arial, sans-serif" font-weight="700" font-size="7.4" letter-spacing="2.2" fill="#FFF4EA">EST</text>
+    <text x="60" y="77" text-anchor="middle" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="25" fill="#FFF4EA">1935</text>
+  </symbol>
+  <symbol id="i-badge-line" viewBox="0 0 120 120">
+    <circle cx="60" cy="60" r="58.5" fill="none" stroke="#F8EAE0" stroke-width="1.2"/>
+    <circle cx="60" cy="60" r="40.5" fill="none" stroke="#F8EAE0" stroke-width="1"/>
+    <text font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="600" font-size="8.4" fill="#F8EAE0" letter-spacing=".5"><textPath href="#ringpath" textLength="300" lengthAdjust="spacing">ASPLEY HOTEL · PUB ON THE HILL · GAMING · BAR · FOOD · BOTTLESHOP ·</textPath></text>
+    <text x="60" y="51" text-anchor="middle" font-family="'Hanken Grotesk', Arial, sans-serif" font-weight="700" font-size="7.4" letter-spacing="2.2" fill="#F8EAE0">EST</text>
+    <text x="60" y="77" text-anchor="middle" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="25" fill="#F8EAE0">1935</text>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M1.5 8h12.2M9 3.2 13.8 8 9 12.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 10 10"><path d="M2 3.6 5 6.6l3-3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 16 16"><path d="M5.2 1.8 6.6 5 5.3 6.2a8.4 8.4 0 0 0 4.5 4.5l1.2-1.3 3.2 1.4-.5 2.6c-.1.5-.5.8-1 .8C6.9 14.2 1.8 9.1 1.8 3.3c0-.5.3-.9.8-1z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></symbol>
+  <symbol id="i-x" viewBox="0 0 14 14"><path d="M2.5 2.5l9 9m0-9-9 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-star" viewBox="0 0 14 14"><path d="M7 1.2l1.7 3.6 3.9.5-2.9 2.7.8 3.9L7 10l-3.5 1.9.8-3.9-2.9-2.7 3.9-.5z" fill="currentColor"/></symbol>
+  <symbol id="i-tilt" viewBox="0 0 16 16"><rect x="4.5" y="1.8" width="7" height="12.4" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M1.6 6.2c-.6 1.2-.6 2.4 0 3.6M14.4 6.2c.6 1.2.6 2.4 0 3.6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-swipe" viewBox="0 0 18 18"><path d="M2.5 9h13M5.5 6 2.5 9l3 3M12.5 6l3 3-3 3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 16 16"><path d="M9.2 15V9.1h2l.3-2.3H9.2V5.3c0-.7.2-1.1 1.2-1.1h1.2V2.1a16 16 0 0 0-1.8-.1c-1.8 0-3 1.1-3 3.1v1.7h-2v2.3h2V15z" fill="currentColor"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="12" rx="3.6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8" r="2.8" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="11.6" cy="4.4" r=".9" fill="currentColor"/></symbol>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+<p class="mock-note"><span>Design mock, variant G (3D journey). Photos are enhanced versions of the venue's own photography. Forms are not connected.</span></p>
+
+<canvas id="g3d" aria-hidden="true"></canvas>
+<div class="g3d-sizer" aria-hidden="true"></div>
+<div class="scrim" aria-hidden="true"></div>
+
+<div class="g-band" aria-hidden="true"></div>
+<header class="hdr" id="hdr">
+  <a class="side-pill phone" href="tel:+61732634040"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="num">(07) 3263 4040</span></a>
+  <nav class="band" id="band" aria-label="Main">
+    <span class="pill-ind pill-active" aria-hidden="true"></span>
+    <span class="pill-ind pill-hover" aria-hidden="true"></span>
+    <ul class="nav-l">
+      <li><a class="nav-i" href="#inside" data-key="inside">Eat</a></li>
+      <li><a class="nav-i" href="#bar" data-key="bar">Drink</a></li>
+      <li><a class="nav-i" href="#whats-on" data-key="whats-on">What's On</a></li>
+      <li><a class="nav-i" href="#functions" data-key="functions">Functions</a></li>
+    </ul>
+    <a class="badge-link" href="#top" aria-label="Aspley Hotel, est. 1935, back to top"><svg aria-hidden="true"><use href="#i-badge"/></svg></a>
+    <ul class="nav-r">
+      <li><a class="nav-i" href="#room-gaming" data-key="gaming">Gaming</a></li>
+      <li><a class="nav-i" href="#room-sports" data-key="sports">Sports Bar</a></li>
+      <li><a class="nav-i" href="#bottle" data-key="bottle">Bottle Shop</a></li>
+      <li><a class="nav-i" href="#rewards" data-key="rewards">Star Rewards</a></li>
+    </ul>
+  </nav>
+  <a class="side-pill book" href="#book" data-book>Book a table<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+</header>
+
+<div class="mhdr" id="mhdr">
+  <a class="m-pill call" href="tel:+61732634040"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="num">(07) 3263 4040</span></a>
+  <a class="m-badge" href="#top" aria-label="Aspley Hotel, est. 1935, back to top"><svg aria-hidden="true"><use href="#i-badge"/></svg></a>
+  <button class="m-pill menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="msheet"><span>Menu</span></button>
+</div>
+<div class="msheet" id="msheet" role="dialog" aria-modal="true" aria-label="Site menu" inert>
+  <nav class="ms-scroll" aria-label="Mobile">
+    <a class="ms-row" href="#inside" style="--i:0">Eat<small>Bistro from 11:30am</small></a>
+    <a class="ms-row" href="#bar" style="--i:1">Drink<small>Bar and cocktails</small></a>
+    <a class="ms-row" href="#whats-on" style="--i:2">What's On<small>Trivia, Jag the Joker, the Cup</small></a>
+    <a class="ms-row" href="#functions" style="--i:3">Functions<small>Up to 100 standing</small></a>
+    <a class="ms-row" href="#room-gaming" style="--i:4">Gaming<small>10am to 4am daily</small></a>
+    <a class="ms-row" href="#room-sports" style="--i:5">Sports Bar<small>TAB and Fox Sports</small></a>
+    <a class="ms-row" href="#bottle" style="--i:6">Bottle Shop<small>Drive-through</small></a>
+    <a class="ms-row" href="#rewards" style="--i:7">Star Rewards<small>$1 less on every dish</small></a>
+  </nav>
+  <div class="ms-foot">
+    <a class="split red md" href="#book" data-book><span class="split-l">Book a table</span><span class="split-i" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span></a>
+    <p>© 2026 Aspley Hotel</p>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- 1. THE CLIMB. Camera rises up the contour hill to the pub; the poster is the LCP and the no-WebGL view. -->
+<section class="climb" id="top" data-scene aria-labelledby="h1">
+  <div class="climb-stage" id="climbStage">
+    <div class="poster-img hero-poster"><img src="img/drive/24-hotel-wide-exterior-hero.webp" srcset="img/drive/24-hotel-wide-exterior-hero-sm.webp 900w, img/drive/24-hotel-wide-exterior-hero.webp 1556w" sizes="100vw" width="1556" height="1011" alt="The Aspley Hotel, a white two-storey Queenslander with a terracotta roof, on its hill above Gympie Road" fetchpriority="high" decoding="async"></div>
+    <div class="hero-copy">
+      <h1 id="h1" class="hero-h1"><span class="ln"><span>The pub</span></span> <span class="ln"><span>on the hill</span></span> <span class="ln"><span>since 1935.</span></span></h1>
+      <p class="hero-sub lead">Bistro, bars, sports bar, gaming and a drive-through bottle shop at 1247 Gympie Road, Aspley.</p>
+      <div class="hero-cta">
+        <a class="split red" href="#book" data-book><span class="split-l">Book a table</span><span class="split-i" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span></a>
+        <a class="rating" href="https://www.google.com/maps/search/?api=1&amp;query=Aspley+Hotel+1247+Gympie+Road+Aspley"><span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg style="opacity:.35"><use href="#i-star"/></svg></span><span><b class="num">4.2</b> on Google from <u class="num">791 reviews</u></span></a>
+      </div>
+      <p class="status hero-status" id="bistroStatus"><i aria-hidden="true"></i><span>Bistro from 11:30am every day</span></p>
+      <button class="tilt" id="tiltBtn" type="button" aria-pressed="false"><svg aria-hidden="true"><use href="#i-tilt"/></svg><span>Tilt your phone to look around</span></button>
+    </div>
+    <p class="cue" aria-hidden="true"><i></i>Scroll to climb the hill</p>
+  </div>
+</section>
+
+<!-- 2. THROUGH THE DOOR. A walk past the rooms; in 3D the photos hang along a curved hall, captions stay in the DOM. -->
+<section class="inside" id="inside" data-scene aria-labelledby="in-h">
+  <header class="ch-head">
+    <h2 id="in-h" class="display kin">Step inside</h2>
+    <p class="lead">The bar, the bistro, the deck, the sports bar, the gaming room and two function spaces, all under one terracotta roof.</p>
+  </header>
+  <ol class="rooms" id="rooms">
+    <li class="room" id="room-bar"><figure>
+      <div class="room-ph"><img src="img/drive/01-bar-counter-view-01-sm.webp" width="900" height="600" alt="The front bar: a long timber counter with beer taps and screens" loading="lazy" decoding="async"></div>
+      <figcaption><span class="room-n"><b>1</b> of 6</span><h3>The front bar</h3><p>Cold beer on tap, a wine list from Grant Burge Prosecco to St Hugo Shiraz, and cocktails off the chalkboard.</p></figcaption>
+    </figure></li>
+    <li class="room" id="room-bistro"><figure>
+      <div class="room-ph"><img src="img/drive/07-bistro-wide-dining-room-sm.webp" width="900" height="600" alt="The bistro: navy walls, round timber tables and verandah windows" loading="lazy" decoding="async"></div>
+      <figcaption><span class="room-n"><b>2</b> of 6</span><h3>The bistro</h3><p>Steaks, parmys and pub classics. Kids meals are $13.95 with a soft drink and ice cream.</p><p class="meta num">Lunch Sun to Wed 11:30am to 2:30pm, dinner 5:30pm to 8:30pm. Thu to Sat 11:30am to 8:30pm.</p></figcaption>
+    </figure></li>
+    <li class="room" id="room-deck"><figure>
+      <div class="room-ph"><img src="img/drive/31-outdoor-deck-view-01-sm.webp" width="900" height="600" alt="The timber deck with high tables looking out over Gympie Road" loading="lazy" decoding="async"></div>
+      <figcaption><span class="room-n"><b>3</b> of 6</span><h3>The deck</h3><p>High tables in the open air, looking out over Gympie Road. Good for an arvo coffee and cake, $13.95 or $12.95 for members.</p></figcaption>
+    </figure></li>
+    <li class="room" id="room-sports"><figure>
+      <div class="room-ph"><img src="img/drive/46-sports-bar-wide-view-01-sm.webp" width="900" height="600" alt="The sports bar with TAB screens above the bar and high tables" loading="lazy" decoding="async"></div>
+      <figcaption><span class="room-n"><b>4</b> of 6</span><h3>The sports bar</h3><p>Dedicated TAB screens and Fox Sports on all day, every day. Pull on your team's jersey and bring your mates.</p></figcaption>
+    </figure></li>
+    <li class="room" id="room-gaming"><figure>
+      <div class="room-ph"><img src="img/drive/37-gaming-lounge-view-01-sm.webp" width="900" height="600" alt="The gaming room, a row of lit machines with padded chairs" loading="lazy" decoding="async"></div>
+      <figcaption><span class="room-n"><b>5</b> of 6</span><h3>The gaming room</h3><p>Open every day from 10am to 4am, with staff on the floor if you need a hand.</p><p class="gamble">Gamble responsibly. Gambling Help <a href="tel:1800858858" class="num">1800 858 858</a></p></figcaption>
+    </figure></li>
+    <li class="room" id="room-functions"><figure>
+      <div class="room-ph"><img src="img/drive/34-covered-function-terrace-wide-sm.webp" width="900" height="600" alt="The covered function terrace with timber battens and long tables" loading="lazy" decoding="async"></div>
+      <figcaption><span class="room-n"><b>6</b> of 6</span><h3>The function spaces</h3><p>The Herb Garden and the Terrace, for birthdays, engagements and work functions of up to 100 standing.</p></figcaption>
+    </figure></li>
+  </ol>
+</section>
+
+<!-- 3. THE POUR. One normalised progress fills the 3D pint (scroll-scrubbed-visual-sequence: sticky stage, copy stops). -->
+<section class="pour" id="bar" data-scene aria-labelledby="pour-h">
+  <header class="ch-head">
+    <h2 id="pour-h" class="display kin">Pull up a stool</h2>
+    <p class="lead">Keep scrolling and the bar pours you one.</p>
+  </header>
+  <div class="pour-grid">
+    <div class="poster-img pour-poster"><img src="img/drive/05-bar-drinks-and-pour-sm.webp" srcset="img/drive/05-bar-drinks-and-pour-sm.webp 900w, img/drive/05-bar-drinks-and-pour.webp 1672w" sizes="(max-width: 1023px) 100vw, 45vw" width="900" height="506" alt="A bartender pulling a beer at the front bar" loading="lazy" decoding="async"></div>
+    <div class="stops">
+      <article class="stop" id="stop-bar"><div class="panel">
+        <h3>The bar</h3>
+        <p>Beer on tap at the front bar and the bistro counter. The wine list runs from Tatachilla by the glass to Mumm Cordon Rouge by the bottle.</p>
+      </div></article>
+      <article class="stop" id="cocktails"><div class="panel">
+        <h3>Cocktails</h3>
+        <p>Twelve on the chalkboard at the main bar.</p>
+        <ul class="tags" aria-label="Cocktail list">
+          <li>Margarita</li><li>Espresso Martini</li><li>Flavoured Mojito</li><li>Pina Colada</li><li>Pornstar Martini</li><li>Cosmopolitan</li><li>Fruit Tingle</li><li>Aperol Spritz</li><li>Mojito</li><li>French Martini</li><li>Long Island Iced Tea</li><li>Whiskey Sour</li>
+        </ul>
+      </div></article>
+      <article class="stop" id="bottle"><div class="panel">
+        <h3>Drive-through bottle shop</h3>
+        <p>Beer, wine and spirits with specials every week. Park and browse, or drive up to the counter.</p>
+        <p class="meta num">Sun to Thu 10am to 11pm. Fri and Sat 10am to midnight.</p>
+        <p class="status" id="bottleStatus"><i aria-hidden="true"></i><span>Drive-through from 10am every day</span></p>
+      </div></article>
+    </div>
+  </div>
+  <div class="gauge" id="gauge" aria-hidden="true"><i></i><span>Pouring</span></div>
+</section>
+
+<!-- 4. THIS WEEK. A 3D swipe deck: cards rotate with their distance from centre and tilt with the phone. -->
+<section class="week" id="whats-on" data-scene aria-labelledby="wk-h">
+  <div class="wk-head">
+    <div>
+      <h2 id="wk-h" class="display kin">This week</h2>
+      <p class="lead" style="margin-top:16px">Trivia on Wednesday, the Joker on Friday, the members draw on Saturday and the Cup on Tuesday 3 November.</p>
+    </div>
+    <div class="deck-nav">
+      <button class="deck-btn prev" type="button" id="deckPrev" aria-label="Previous event"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      <span class="deck-count num" id="deckCount" aria-live="polite"><b>1</b> / 5</span>
+      <button class="deck-btn next" type="button" id="deckNext" aria-label="Next event"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+    </div>
+  </div>
+  <ul class="deck" id="deck" tabindex="0" aria-label="Events this week, swipe or use the arrow keys">
+    <li class="card" id="trivia"><div class="card-in">
+      <div class="card-ph"><img src="img/drive/03-bar-counter-view-02-sm.webp" width="900" height="600" alt="The main bar with its hand-drawn chalkboard" loading="lazy" decoding="async"></div>
+      <div class="card-b"><p class="card-day">Wednesday 6:30pm<span class="chip-now" id="triviaNow" hidden>Tonight</span></p><h3>Trivia</h3><p>Free to play, hosted by Questionable Company. Quirky rounds and good prizes.</p></div>
+    </div></li>
+    <li class="card" id="joker"><div class="card-in">
+      <div class="card-ph"><img src="img/drive/11-bistro-bar-counter-view-01-sm.webp" width="900" height="600" alt="The bistro bar counter" loading="lazy" decoding="async"></div>
+      <div class="card-b"><p class="card-day">Friday 3:30 to 6:30pm</p><h3>Jag the Joker</h3><p>One entry for every drink you buy. The jackpot grows $100 every week until the Joker is found.</p></div>
+    </div></li>
+    <li class="card" id="jackpot"><div class="card-in">
+      <div class="card-ph"><img src="img/drive/40-gaming-lounge-wide-sm.webp" width="900" height="600" alt="The gaming lounge" loading="lazy" decoding="async"></div>
+      <div class="card-b"><p class="card-day">Saturday</p><h3>Members Jackpot</h3><p>The draw starts at $400 and must go by $4,000.</p><p class="gamble">Gamble responsibly. Gambling Help <a href="tel:1800858858" class="num">1800 858 858</a></p></div>
+    </div></li>
+    <li class="card cup" id="cup"><div class="card-in">
+      <div class="card-ph"><img src="img/drive/28-menu-food-spread-overhead-sm.webp" width="900" height="506" alt="A table of bistro dishes from above" loading="lazy" decoding="async"></div>
+      <div class="card-b"><p class="card-day">Tuesday 3 November 2026 <span class="num" id="cupDays"></span></p><h3>Melbourne Cup lunch, $55</h3><p>Two courses: Crispy Chicken Bites, Prawn Cocktail or Burrata, then Miso Salmon, Pork Piccata or Pumpkin and Sage Gnocchi. Sweeps, prizes and a lucky loser draw. Bookings essential.</p><div class="card-cta"><a class="split md" href="#book" data-book data-cup><span class="split-l">Book for the Cup</span><span class="split-i" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span></a></div></div>
+    </div></li>
+    <li class="card" id="sport"><div class="card-in">
+      <div class="card-ph"><img src="img/drive/45-sports-bar-table-detail-sm.webp" width="900" height="600" alt="A high table in the sports bar under the screens" loading="lazy" decoding="async"></div>
+      <div class="card-b"><p class="card-day">Every day</p><h3>Sport on the screens</h3><p>TAB and Fox Sports live in the sports bar, all day.</p></div>
+    </div></li>
+  </ul>
+</section>
+
+<!-- 5. STAR REWARDS. A 3D coin spins with scroll and can be flicked. The SVG coin is the fallback poster. -->
+<section class="rewards" id="rewards" data-scene aria-labelledby="sr-h">
+  <div class="flick" id="flick" aria-hidden="true"><span class="flick-hint"><svg><use href="#i-swipe"/></svg>Flick the coin</span></div>
+  <div class="rw-grid">
+    <div class="poster-img coin-poster" aria-hidden="true">
+      <svg viewBox="0 0 240 240" role="presentation">
+        <defs>
+          <radialGradient id="cg-e" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#E0233F"/><stop offset="1" stop-color="#7E0819"/></radialGradient>
+          <linearGradient id="cg-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7D27A"/><stop offset=".5" stop-color="#E8B23A"/><stop offset="1" stop-color="#9C6A16"/></linearGradient>
+          <path id="cg-arc" d="M120,120 m-78,0 a78,78 0 1,1 156,0"/>
+        </defs>
+        <circle cx="120" cy="120" r="116" fill="url(#cg-g)"/>
+        <circle cx="120" cy="120" r="100" fill="url(#cg-e)"/>
+        <circle cx="120" cy="120" r="94" fill="none" stroke="#F7D27A" stroke-width="1.5"/>
+        <text font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="17" letter-spacing="3" fill="#F7D27A"><textPath href="#cg-arc" startOffset="50%" text-anchor="middle">STAR REWARDS</textPath></text>
+        <path d="M120 70l10.6 22.4 24.4 3-18 16.8 4.8 24.2L120 124.6l-21.8 11.8 4.8-24.2-18-16.8 24.4-3z" fill="url(#cg-g)"/>
+        <text x="120" y="166" text-anchor="middle" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="700" font-size="30" fill="#FFF4EA">$1 LESS</text>
+        <text x="120" y="186" text-anchor="middle" font-family="'Hanken Grotesk', Arial, sans-serif" font-weight="700" font-size="11" letter-spacing="1.6" fill="#FFF4EA">ON EVERY DISH</text>
+      </svg>
+    </div>
+    <div class="rw-copy panel">
+      <h2 id="sr-h" class="display kin">Pay $1 less on every dish.</h2>
+      <p class="lead" style="margin-top:16px">Star Rewards members collect points at every Star Hotels venue and Star Liquor store, and hear about offers and events first.</p>
+      <ol class="steps">
+        <li>Tap Join Star Rewards.</li>
+        <li>Fill out the registration form.</li>
+        <li>Get your membership on the spot.</li>
+      </ol>
+      <div class="rw-ctas">
+        <a class="split gold" href="https://qrco.de/bbdyet" rel="noopener"><span class="split-l">Join Star Rewards</span><span class="split-i" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span></a>
+      </div>
+      <p class="meta rw-note">Coffee and cake is $12.95 for members, $13.95 for everyone else.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. FUNCTIONS. Stacking cards over the festoon-lit terrace. -->
+<section class="funcs" id="functions" data-scene aria-labelledby="fn-h">
+  <header class="ch-head">
+    <h2 id="fn-h" class="display kin">Have it on the hill</h2>
+    <p class="lead">Birthdays, engagements, anniversaries and work functions, with platters from the kitchen and a team that runs the night.</p>
+  </header>
+  <div class="stack" id="stack">
+    <article class="fcard" id="herb-garden" style="--i:0"><div class="fcard-in">
+      <div class="fcard-ph"><img src="img/drive/34-covered-function-terrace-wide-sm.webp" srcset="img/drive/34-covered-function-terrace-wide-sm.webp 900w, img/drive/34-covered-function-terrace-wide.webp 1536w" sizes="(max-width: 1023px) 100vw, 55vw" width="900" height="600" alt="The Herb Garden: a covered terrace with long tables under timber battens" loading="lazy" decoding="async"></div>
+      <div class="fcard-b"><h3>Herb Garden</h3><p class="cap"><span><b class="num">80</b>seated</span><span><b class="num">100</b>standing</span></p><p>The biggest space, set for a seated dinner or a stand-up party.</p><button class="split red md" type="button" data-enquire="Herb Garden"><span class="split-l">Enquire about the Herb Garden</span><span class="split-i" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span></button></div>
+    </div></article>
+    <article class="fcard" id="both-spaces" style="--i:1"><div class="fcard-in">
+      <div class="fcard-ph"><img src="img/drive/36-terrace-evening-festoon-lights-sm.webp" srcset="img/drive/36-terrace-evening-festoon-lights-sm.webp 900w, img/drive/36-terrace-evening-festoon-lights.webp 1448w" sizes="(max-width: 1023px) 100vw, 55vw" width="900" height="675" alt="The terrace at night under strings of festoon lights" loading="lazy" decoding="async"></div>
+      <div class="fcard-b"><h3>Terrace and Herb Garden</h3><p class="cap"><span><b class="num">60</b>seated</span></p><p>Both spaces opened up together for a long sit-down dinner.</p><button class="split red md" type="button" data-enquire="Terrace and Herb Garden"><span class="split-l">Enquire about both spaces</span><span class="split-i" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span></button></div>
+    </div></article>
+    <article class="fcard" id="terrace" style="--i:2"><div class="fcard-in">
+      <div class="fcard-ph"><img src="img/drive/35-function-terrace-reverse-angle-sm.webp" srcset="img/drive/35-function-terrace-reverse-angle-sm.webp 900w, img/drive/35-function-terrace-reverse-angle.webp 1536w" sizes="(max-width: 1023px) 100vw, 55vw" width="900" height="600" alt="The Terrace seen from the far end" loading="lazy" decoding="async"></div>
+      <div class="fcard-b"><h3>Terrace</h3><p class="cap"><span><b class="num">40</b>seated</span></p><p>The smaller room for a family lunch or a team breakup.</p><button class="split red md" type="button" data-enquire="Terrace"><span class="split-l">Enquire about the Terrace</span><span class="split-i" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span></button></div>
+    </div></article>
+  </div>
+  <dl class="fn-facts">
+    <div><dt>Platters</dt><dd class="num">$100 to $145</dd></div>
+    <div><dt>Minimum spend</dt><dd class="num">$1,000 Mon to Thu, $2,000 Fri to Sun</dd></div>
+    <div><dt>Or room hire</dt><dd class="num">$250</dd></div>
+    <div><dt>Deposit</dt><dd class="num">$100</dd></div>
+  </dl>
+  <p class="meta fn-note">The enquiry form on this mock is not connected. Email <a href="mailto:enquiries@aspleyhotel.com.au">enquiries@aspleyhotel.com.au</a> or call <a href="tel:+61732634040" class="num">(07) 3263 4040</a>.</p>
+</section>
+
+<!-- 7. AFTER DARK. The camera lifts off the terrace and pulls back over the hill at night; the words part to show it. -->
+<section class="night" id="after-dark" data-scene aria-labelledby="nt-h">
+  <div class="night-stage">
+    <div class="poster-img night-poster"><img src="img/drive/25-hotel-exterior-wide-hero-alternate-sm.webp" srcset="img/drive/25-hotel-exterior-wide-hero-alternate-sm.webp 900w, img/drive/25-hotel-exterior-wide-hero-alternate.webp 1672w" sizes="100vw" width="900" height="505" alt="" loading="lazy" decoding="async"></div>
+    <h2 id="nt-h" class="part poster-t"><span class="w w1">The pub</span><span class="w w2">on the</span><span class="w w3">hill</span></h2>
+    <p class="lead night-lead">Gaming until 4am every night. The bottle shop drive-through stays open until midnight on Friday and Saturday.</p>
+    <div class="night-ctas">
+      <a class="split red" href="#book" data-book><span class="split-l">Book a table</span><span class="split-i" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span></a>
+      <a class="split dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=Aspley+Hotel+1247+Gympie+Road+Aspley+QLD+4034"><span class="split-l">Get directions</span><span class="split-i" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot" id="foot" data-scene>
+  <div class="foot-card">
+    <div class="fc-top">
+      <div class="fc-head"><a class="fc-badge" href="#top" aria-label="Aspley Hotel, back to top"><svg aria-hidden="true"><use href="#i-badge-line"/></svg></a></div>
+      <nav class="fc-nav" aria-label="Footer">
+        <div class="fgroup">
+          <h3>Eat &amp; Drink</h3>
+          <button class="fg-toggle" type="button" aria-expanded="false" aria-controls="fg1">Eat &amp; Drink<svg aria-hidden="true"><use href="#i-chev"/></svg></button>
+          <div class="fg-body" id="fg1"><div><ul class="fg-list">
+            <li><a href="#room-bistro">Bistro</a></li><li><a href="#room-bistro">Kids meals</a></li><li><a href="#room-deck">Coffee and cake</a></li><li><a href="#stop-bar">Wine list</a></li><li><a href="#cocktails">Cocktails</a></li>
+          </ul></div></div>
+        </div>
+        <div class="fgroup">
+          <h3>What's On</h3>
+          <button class="fg-toggle" type="button" aria-expanded="false" aria-controls="fg2">What's On<svg aria-hidden="true"><use href="#i-chev"/></svg></button>
+          <div class="fg-body" id="fg2"><div><ul class="fg-list">
+            <li><a href="#trivia">Trivia</a></li><li><a href="#joker">Jag the Joker</a></li><li><a href="#jackpot">Members Jackpot</a></li><li><a href="#cup">Melbourne Cup</a></li>
+          </ul></div></div>
+        </div>
+        <ul class="f-singles">
+          <li><a href="#functions">Functions</a></li><li><a href="#room-gaming">Gaming</a></li><li><a href="#room-sports">Sports Bar</a></li><li><a href="#bottle">Bottle Shop</a></li><li><a href="#rewards">Star Rewards</a></li><li><a href="#book" data-book>Book a Table</a></li>
+        </ul>
+      </nav>
+      <dl class="f-contact">
+        <div><dt>Phone</dt><dd><a href="tel:+61732634040" class="num">(07) 3263 4040</a></dd></div>
+        <div><dt>Functions</dt><dd><a href="mailto:enquiries@aspleyhotel.com.au">enquiries@aspleyhotel.com.au</a></dd></div>
+        <div><dt>Address</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Aspley+Hotel+1247+Gympie+Road+Aspley">1247 Gympie Road, Aspley QLD 4034</a></dd></div>
+        <p class="f-note num">Bistro lunch Sun to Wed 11:30am to 2:30pm, dinner 5:30pm to 8:30pm. Thu to Sat 11:30am to 8:30pm. Gaming 10am to 4am daily. Bottle shop Sun to Thu 10am to 11pm, Fri and Sat to midnight.</p>
+      </dl>
+    </div>
+    <div class="fc-bot">
+      <div class="socials"><a class="soc" href="https://www.facebook.com/AspleyHotel" aria-label="Aspley Hotel on Facebook"><svg aria-hidden="true"><use href="#i-fb"/></svg></a><a class="soc" href="https://www.instagram.com/aspleyhotel/" aria-label="Aspley Hotel on Instagram"><svg aria-hidden="true"><use href="#i-ig"/></svg></a></div>
+      <div class="f-sec"><a href="https://starhotels.com.au/star-hotels/">Part of the Star Hotels Group</a><a href="https://starhotels.com.au/star-hotels/">Find a Star Rewards venue</a><a href="#foot">Privacy policy</a></div>
+    </div>
+  </div>
+  <div class="under">
+    <p class="l">© 2026 Aspley Hotel. Design mock</p>
+    <p class="c">Gamble responsibly. Gambling Help <a href="tel:1800858858" class="num">1800 858 858</a></p>
+    <p class="r">We practise the responsible service of alcohol</p>
+  </div>
+</footer>
+
+<div class="tray" id="tray">
+  <a class="t-book" href="#book" data-book>Book a table</a>
+  <a class="t-call" href="tel:+61732634040"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="num">Call (07) 3263 4040</span></a>
+</div>
+
+<dialog class="sheet" id="book" aria-labelledby="bk-h">
+  <div class="sh-grip" aria-hidden="true"></div>
+  <form class="sh-form" id="bkForm" method="dialog" novalidate>
+    <div class="sh-head">
+      <div><h2 id="bk-h">Book a table</h2><p>Pick a day, a time and how many are coming.</p></div>
+      <button class="x" type="button" data-close aria-label="Close booking form"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="fields">
+      <div class="field full"><label for="bk-name">Name</label><input id="bk-name" name="name" autocomplete="name" required></div>
+      <div class="field full"><label for="bk-tel">Mobile</label><input id="bk-tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" required></div>
+      <div class="field"><label for="bk-date">Date</label><input id="bk-date" name="date" type="date" required></div>
+      <div class="field"><label for="bk-time">Time</label><select id="bk-time" name="time"><option>11:30am</option><option>12:00pm</option><option>12:30pm</option><option>1:00pm</option><option>1:30pm</option><option>5:30pm</option><option selected>6:00pm</option><option>6:30pm</option><option>7:00pm</option><option>7:30pm</option></select></div>
+      <div class="field full"><label for="bk-ppl">Guests</label><select id="bk-ppl" name="ppl"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11 or more</option></select></div>
+    </div>
+    <p class="sh-status" id="bkStatus" role="status" aria-live="polite"></p>
+    <button class="split red" type="submit"><span class="split-l">Request this booking</span><span class="split-i" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span></button>
+  </form>
+</dialog>
+
+<dialog class="sheet" id="enquire" aria-labelledby="en-h">
+  <div class="sh-grip" aria-hidden="true"></div>
+  <form class="sh-form" id="enForm" method="dialog" novalidate>
+    <div class="sh-head">
+      <div><h2 id="en-h">Function enquiry</h2><p>Tell the team what you are planning. They will come back to you about the space, the date and catering.</p></div>
+      <button class="x" type="button" data-close aria-label="Close enquiry form"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="fields">
+      <div class="field full"><label for="en-name">Full name</label><input id="en-name" name="name" autocomplete="name" required></div>
+      <div class="field"><label for="en-mail">Email</label><input id="en-mail" name="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="en-tel">Phone</label><input id="en-tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" required></div>
+      <div class="field"><label for="en-date">Preferred date</label><input id="en-date" name="date" type="date" required></div>
+      <div class="field"><label for="en-ppl">Number of people</label><input id="en-ppl" name="ppl" type="number" inputmode="numeric" min="1" max="100" required></div>
+      <div class="field full"><label for="en-space">Function space</label><select id="en-space" name="space"><option>Herb Garden (80 seated, 100 standing)</option><option>Terrace and Herb Garden (60 seated)</option><option>Terrace (40 seated)</option></select></div>
+      <div class="field full"><label for="en-occ">Occasion</label><select id="en-occ" name="occasion"><option>Birthday</option><option>Engagement Party</option><option>Wedding Reception</option><option>Corporate Event</option><option>Social Event</option><option>Anniversary</option><option>Other</option></select></div>
+      <div class="field full"><label for="en-msg">Your enquiry</label><textarea id="en-msg" name="msg"></textarea></div>
+    </div>
+    <p class="sh-status" id="enStatus" role="status" aria-live="polite"></p>
+    <button class="split red" type="submit"><span class="split-l">Send enquiry</span><span class="split-i" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span></button>
+  </form>
+</dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+'use strict';
+var $ = function(s,c){return (c||document).querySelector(s)};
+var $$ = function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+var root = document.documentElement;
+var reduceMQ = matchMedia('(prefers-reduced-motion: reduce)');
+var deskMQ = matchMedia('(min-width: 1200px)');
+var coarse = matchMedia('(pointer: coarse)').matches;
+if (coarse) root.classList.add('touch');
+var hasG = !!(window.gsap && window.ScrollTrigger);
+
+/* ---------- Brisbane time, one source of truth for hours (variant C) ---------- */
+var HOURS = {
+  bistro: function(dow){ return dow>=4 && dow<=6 ? [[690,1230]] : [[690,870],[1050,1230]]; },
+  bottle: function(dow){ return (dow===5||dow===6) ? [600,1440] : [600,1380]; }
+};
+function bne(){
+  var parts = new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Brisbane',weekday:'short',year:'numeric',month:'numeric',day:'numeric',hour:'numeric',minute:'numeric',hourCycle:'h23'}).formatToParts(new Date());
+  var o={}; parts.forEach(function(p){o[p.type]=p.value});
+  var dows={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+  return {dow:dows[o.weekday], mins:(+o.hour%24)*60 + (+o.minute), y:+o.year, m:+o.month, d:+o.day};
+}
+function fmt(m){ if(m>=1440) return 'midnight'; var h=Math.floor(m/60), mm=m%60, ap=h>=12?'pm':'am', hh=h%12||12; return hh+(mm?':'+String(mm).padStart(2,'0'):'')+ap; }
+function liveLines(){
+  var t = bne();
+  var el = $('#bistroStatus');
+  if(el){
+    var s = HOURS.bistro(t.dow), txt, open=false;
+    for(var i=0;i<s.length;i++){ if(t.mins>=s[i][0] && t.mins<s[i][1]){ txt='Kitchen open now until '+fmt(s[i][1]); open=true; } }
+    if(!open){
+      if(t.mins < s[0][0]) txt='Kitchen opens today at 11:30am';
+      else if(s.length>1 && t.mins>=s[0][1] && t.mins<s[1][0]) txt='Kitchen reopens today at 5:30pm';
+      else txt='Kitchen opens tomorrow at 11:30am';
+    }
+    el.classList.toggle('open',open); $('span',el).textContent = txt;
+  }
+  var bs = $('#bottleStatus');
+  if(bs){
+    var b = HOURS.bottle(t.dow), bo = t.mins>=b[0] && t.mins<b[1];
+    bs.classList.toggle('open',bo);
+    $('span',bs).textContent = bo ? 'Drive-through open now until '+fmt(b[1]) : (t.mins<b[0] ? 'Drive-through opens today at 10am' : 'Drive-through opens tomorrow at 10am');
+  }
+  var cd = $('#cupDays');
+  if(cd){
+    var today = Date.UTC(t.y,t.m-1,t.d), cup = Date.UTC(2026,10,3), days = Math.round((cup-today)/864e5);
+    cd.textContent = days>1 ? '('+days+' days to go)' : days===1 ? '(tomorrow)' : days===0 ? '(today)' : '';
+  }
+  var tn = $('#triviaNow'); if(tn) tn.hidden = t.dow!==3;
+  return t;
+}
+var NOW = liveLines();
+setInterval(liveLines, 60000);
+
+/* ---------- mock-note offset for the fixed headers ---------- */
+var noteEl = $('.mock-note'), noteH = 30, ticking = false;
+function noteOff(){ ticking=false; root.style.setProperty('--note-off', Math.max(0, noteH - window.scrollY)+'px'); }
+function measureNote(){ noteH = noteEl.offsetHeight; root.style.setProperty('--note-h', noteH+'px'); noteOff(); }
+addEventListener('resize', measureNote);
+addEventListener('scroll', function(){ if(!ticking){ ticking=true; requestAnimationFrame(noteOff); } }, {passive:true});
+measureNote();
+
+/* ---------- anchors go through Lenis when it runs (awwwards-3d anti-pattern 20) ---------- */
+function headerOffset(){ return deskMQ.matches ? 100 : 86; }
+function goTo(target){
+  var lenis = window.__lenis;
+  if(lenis){ lenis.scrollTo(target,{offset:-headerOffset(), duration:1.6}); }
+  else { var y = target.getBoundingClientRect().top + scrollY - headerOffset(); scrollTo({top:Math.max(0,y), behavior: reduceMQ.matches ? 'auto' : 'smooth'}); }
+}
+document.addEventListener('click', function(e){
+  var a = e.target.closest('a[href^="#"]'); if(!a || a.hasAttribute('data-book')) return;
+  var id = a.getAttribute('href'); if(id.length<2) return;
+  var t = document.querySelector(id); if(!t) return;
+  e.preventDefault(); closeMenu(false);
+  if(id==='#top'){ var l=window.__lenis; l ? l.scrollTo(0,{duration:1.6}) : scrollTo({top:0,behavior:reduceMQ.matches?'auto':'smooth'}); }
+  else goTo(t);
+  history.replaceState(null,'',id);
+});
+
+/* ---------- desktop header: sliding hover pill and active-section pill (variant C) ---------- */
+var band = $('#band'), hoverPill = $('.pill-hover'), activePill = $('.pill-active'), navItems = $$('.nav-i', band);
+function placePill(pill, item, on){
+  if(!item || !on){ pill.style.setProperty('--o',0); return; }
+  var br = band.getBoundingClientRect(), r = item.getBoundingClientRect();
+  pill.style.setProperty('--x', (r.left-br.left)+'px'); pill.style.setProperty('--w', r.width+'px'); pill.style.setProperty('--o',1);
+}
+navItems.forEach(function(it){
+  it.addEventListener('pointerenter', function(){ placePill(hoverPill,it,true); });
+  it.addEventListener('focus', function(){ placePill(hoverPill,it,true); });
+  it.addEventListener('blur', function(){ placePill(hoverPill,null,false); });
+});
+band.addEventListener('pointerleave', function(){ placePill(hoverPill,null,false); });
+var activeKey = null;
+function setActive(key){ if(key===activeKey) return; activeKey = key; var it = key ? $('.nav-i[data-key="'+key+'"]', band) : null; placePill(activePill, it, !!it); }
+addEventListener('resize', function(){ var k=activeKey; activeKey=null; setActive(k); });
+
+/* ---------- mobile menu sheet ---------- */
+var menuBtn = $('#menuBtn'), sheet = $('#msheet');
+function openMenu(){
+  root.classList.add('menu-open'); sheet.inert=false; sheet.classList.add('open');
+  menuBtn.setAttribute('aria-expanded','true'); $('span',menuBtn).textContent='Close';
+  ['#main','#foot','#tray'].forEach(function(s){ $(s).inert = true; });
+  window.__lenis && window.__lenis.stop();
+  setTimeout(function(){ var f=$('.ms-row',sheet); f && f.focus({preventScroll:true}); }, 60);
+}
+function closeMenu(returnFocus){
+  if(!root.classList.contains('menu-open')) return;
+  root.classList.remove('menu-open'); sheet.classList.remove('open'); sheet.inert = true;
+  menuBtn.setAttribute('aria-expanded','false'); $('span',menuBtn).textContent='Menu';
+  ['#main','#foot','#tray'].forEach(function(s){ $(s).inert = false; });
+  window.__lenis && window.__lenis.start();
+  if(returnFocus) menuBtn.focus();
+}
+menuBtn.addEventListener('click', function(){ root.classList.contains('menu-open') ? closeMenu(true) : openMenu(); });
+document.addEventListener('keydown', function(e){ if(e.key==='Escape' && root.classList.contains('menu-open')) closeMenu(true); });
+deskMQ.addEventListener('change', function(){ closeMenu(false); });
+
+/* ---------- dialogs: booking and function enquiry. Native <dialog> gives Esc and focus; phones get a draggable sheet ---------- */
+function isoToday(){ return new Date(Date.UTC(NOW.y,NOW.m-1,NOW.d)).toISOString().slice(0,10); }
+['#bk-date','#en-date'].forEach(function(s){ var i=$(s); i.min = isoToday(); });
+$('#bk-date').value = isoToday();
+var lastTrigger = null;
+function openDialog(dlg, focusSel){
+  if(!dlg.showModal) return;
+  closeMenu(false);
+  dlg.showModal(); window.__lenis && window.__lenis.stop();
+  $('.sh-status',dlg).textContent='';
+  setTimeout(function(){ var f=$(focusSel,dlg); f && f.focus(); }, 40);
+}
+$$('dialog.sheet').forEach(function(dlg){
+  $$('[data-close]',dlg).forEach(function(b){ b.addEventListener('click', function(){ dlg.close(); }); });
+  dlg.addEventListener('close', function(){ window.__lenis && window.__lenis.start(); dlg.style.transform=''; if(lastTrigger && document.contains(lastTrigger)) lastTrigger.focus({preventScroll:true}); });
+  dlg.addEventListener('click', function(e){ if(e.target===dlg) dlg.close(); });
+  /* drag the grip down to dismiss (emil-design-eng: momentum dismissal, pointer capture) */
+  var grip = $('.sh-grip',dlg), y0=0, dy=0, t0=0, dragging=false;
+  grip.addEventListener('pointerdown', function(e){ dragging=true; y0=e.clientY; dy=0; t0=performance.now(); grip.setPointerCapture(e.pointerId); dlg.style.transition='none'; });
+  grip.addEventListener('pointermove', function(e){ if(!dragging) return; dy=Math.max(0,e.clientY-y0); dlg.style.transform='translateY('+dy+'px)'; });
+  function end(){
+    if(!dragging) return; dragging=false;
+    var v = dy/Math.max(1, performance.now()-t0);
+    dlg.style.transition='transform .32s cubic-bezier(.23,1,.32,1)';
+    if(dy>120 || v>.6){ dlg.style.transform='translateY(100%)'; setTimeout(function(){ dlg.close(); dlg.style.transition=''; },260); }
+    else dlg.style.transform='';
+  }
+  grip.addEventListener('pointerup', end); grip.addEventListener('pointercancel', end);
+});
+document.addEventListener('click', function(e){
+  var a = e.target.closest('[data-book]');
+  if(a){ e.preventDefault(); lastTrigger=a; if(a.hasAttribute('data-cup')) $('#bk-date').value='2026-11-03'; openDialog($('#book'),'#bk-name'); return; }
+  var en = e.target.closest('[data-enquire]');
+  if(en){ lastTrigger=en; var sel=$('#en-space'), want=en.getAttribute('data-enquire'); $$('option',sel).forEach(function(o,i){ if(o.textContent.indexOf(want+' (')===0) sel.selectedIndex=i; }); openDialog($('#enquire'),'#en-name'); }
+});
+$('#bkForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var name=$('#bk-name'), tel=$('#bk-tel'), st=$('#bkStatus');
+  if(!name.value.trim()){ st.textContent='Add a name for the booking.'; name.focus(); return; }
+  if(tel.value.replace(/\D/g,'').length<8){ st.textContent='Add a mobile number so the team can confirm.'; tel.focus(); return; }
+  st.textContent='Mock only: this form is not connected. To book now, call (07) 3263 4040.';
+});
+$('#enForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var name=$('#en-name'), mail=$('#en-mail'), st=$('#enStatus');
+  if(!name.value.trim()){ st.textContent='Add your name.'; name.focus(); return; }
+  if(!/^\S+@\S+\.\S+$/.test(mail.value)){ st.textContent='Add an email address the team can reply to.'; mail.focus(); return; }
+  st.textContent='Mock only: this form is not connected. Email enquiries@aspleyhotel.com.au or call (07) 3263 4040.';
+});
+
+/* ---------- footer accordions (phones) ---------- */
+$$('.fg-toggle').forEach(function(b){
+  b.addEventListener('click', function(){ var g=b.closest('.fgroup'), on=!g.classList.contains('open'); g.classList.toggle('open',on); b.setAttribute('aria-expanded',String(on)); });
+});
+
+/* ---------- look input shared with the 3D scene: cursor on desktop, horizontal drag or gyro on phones ---------- */
+var look = window.__look = {x:0, y:0, gyro:false};
+if(!coarse){
+  addEventListener('pointermove', function(e){ if(e.pointerType!=='mouse') return; look.x = e.clientX/innerWidth*2-1; look.y = -(e.clientY/innerHeight*2-1); }, {passive:true});
+} else {
+  var dx0=null, base=0;
+  addEventListener('touchstart', function(e){ if(look.gyro) return; dx0 = e.touches[0].clientX; base = look.x; }, {passive:true});
+  addEventListener('touchmove', function(e){ if(dx0===null || look.gyro) return; look.x = Math.max(-1, Math.min(1, base + (e.touches[0].clientX-dx0)/innerWidth*1.6)); }, {passive:true});
+  addEventListener('touchend', function(){ dx0=null; if(!look.gyro){ window.gsap ? gsap.to(look,{x:0, duration:1.4, ease:'power3.out'}) : (look.x=0); } }, {passive:true});
+}
+var tiltBtn = $('#tiltBtn');
+if(coarse && window.DeviceOrientationEvent && !reduceMQ.matches){
+  tiltBtn.setAttribute('data-ok','');
+  var b0=null, g0=null;
+  var onOri = function(e){
+    if(e.beta==null) return;
+    if(b0===null){ b0=e.beta; g0=e.gamma; }
+    look.x = Math.max(-1, Math.min(1, (e.gamma-g0)/22));
+    look.y = Math.max(-1, Math.min(1, -(e.beta-b0)/22));
+  };
+  tiltBtn.addEventListener('click', function(){
+    if(look.gyro){ look.gyro=false; removeEventListener('deviceorientation', onOri); tiltBtn.setAttribute('aria-pressed','false'); look.x=0; look.y=0; return; }
+    var start = function(){ look.gyro=true; b0=null; addEventListener('deviceorientation', onOri); tiltBtn.setAttribute('aria-pressed','true'); };
+    /* iOS asks permission only after this tap; Android starts straight away */
+    if(typeof DeviceOrientationEvent.requestPermission === 'function'){
+      DeviceOrientationEvent.requestPermission().then(function(r){ if(r==='granted') start(); }).catch(function(){});
+    } else start();
+  });
+}
+
+/* ---------- This week: 3D coverflow driven by the deck's own scroll position, tilt from drag or gyro ---------- */
+var deck = $('#deck'), cards = $$('.card', deck), countEl = $('#deckCount'), deckQueued=false, curCard=0;
+function deckFrame(){
+  deckQueued=false;
+  var dr = deck.getBoundingClientRect(), mid = dr.left + dr.width/2, best=0, bestD=1e9;
+  cards.forEach(function(c,i){
+    var r = c.getBoundingClientRect(), off = (r.left + r.width/2 - mid)/r.width, a = Math.min(1.4, Math.abs(off));
+    if(Math.abs(off)<bestD){ bestD=Math.abs(off); best=i; }
+    if(reduceMQ.matches){ c.style.transform=''; c.style.opacity=''; return; }
+    c.style.transform = 'translateZ('+(-a*120).toFixed(1)+'px) rotateY('+(Math.max(-1.2,Math.min(1.2,-off))*30).toFixed(2)+'deg) scale('+(1-a*.05).toFixed(3)+')';
+    c.style.opacity = (1-Math.min(a,1)*.32).toFixed(3);
+  });
+  if(best!==curCard){ curCard=best; }
+  countEl.innerHTML = '<b>'+(best+1)+'</b> / '+cards.length;
+  cards.forEach(function(c,i){ c.classList.toggle('is-on', i===best); });
+}
+function queueDeck(){ if(!deckQueued){ deckQueued=true; requestAnimationFrame(deckFrame); } }
+deck.addEventListener('scroll', queueDeck, {passive:true});
+addEventListener('resize', queueDeck);
+function deckTo(i){ i=Math.max(0,Math.min(cards.length-1,i)); var c=cards[i]; deck.scrollTo({left: c.offsetLeft - (deck.clientWidth-c.offsetWidth)/2, behavior: reduceMQ.matches?'auto':'smooth'}); }
+$('#deckPrev').addEventListener('click', function(){ deckTo(curCard-1); });
+$('#deckNext').addEventListener('click', function(){ deckTo(curCard+1); });
+deck.addEventListener('keydown', function(e){ if(e.target!==deck) return; if(e.key==='ArrowRight'){ e.preventDefault(); deckTo(curCard+1); } if(e.key==='ArrowLeft'){ e.preventDefault(); deckTo(curCard-1); } });
+/* mouse drag on desktop decks (touch already scrolls natively) */
+(function(){
+  var down=false, sx=0, sl=0, moved=0;
+  deck.addEventListener('pointerdown', function(e){ if(e.pointerType!=='mouse' || e.button) return; down=true; sx=e.clientX; sl=deck.scrollLeft; moved=0; deck.style.scrollSnapType='none'; });
+  addEventListener('pointermove', function(e){ if(!down) return; var d=e.clientX-sx; moved=Math.max(moved,Math.abs(d)); deck.scrollLeft = sl - d; });
+  addEventListener('pointerup', function(){ if(!down) return; down=false; deck.style.scrollSnapType=''; deckTo(curCard); });
+  deck.addEventListener('click', function(e){ if(moved>6){ e.preventDefault(); e.stopPropagation(); moved=0; } }, true);
+})();
+/* tilt the centred card toward the cursor / phone angle; the sheen follows */
+function tiltLoop(){
+  var c = cards[curCard]; if(c && !reduceMQ.matches){
+    var inn = c.firstElementChild;
+    inn.style.setProperty('--tx', (look.y*7).toFixed(2)+'deg');
+    inn.style.setProperty('--ty', (look.x*9).toFixed(2)+'deg');
+    inn.style.setProperty('--gx', (50+look.x*40).toFixed(1)+'%');
+    inn.style.setProperty('--gy', (20-look.y*30).toFixed(1)+'%');
+  }
+  cards.forEach(function(k,i){ if(i!==curCard){ var n=k.firstElementChild; n.style.setProperty('--tx','0deg'); n.style.setProperty('--ty','0deg'); } });
+}
+var deckIO = new IntersectionObserver(function(es){ es.forEach(function(e){ deck._vis = e.isIntersecting; }); });
+deckIO.observe(deck);
+queueDeck();
+
+/* ---------- GSAP: scroll-linked motion lives in matchMedia; reduced motion gets the final state ---------- */
+if(!hasG){ return; }
+gsap.registerPlugin(ScrollTrigger);
+if(window.SplitText) gsap.registerPlugin(SplitText);
+gsap.ticker.add(function(){ if(deck._vis) tiltLoop(); });
+
+/* active nav pill follows the chapter in view */
+[['#inside','inside'],['#bar','bar'],['#whats-on','whats-on'],['#rewards','rewards'],['#functions','functions'],['#room-gaming','gaming'],['#room-sports','sports'],['#bottle','bottle']].forEach(function(p){
+  ScrollTrigger.create({trigger:p[0], start:'top 55%', end:'bottom 55%', onToggle:function(s){ if(s.isActive) setActive(p[1]); else if(activeKey===p[1]) setActive(null); }});
+});
+
+var mm = gsap.matchMedia();
+mm.add({ motion:'(prefers-reduced-motion: no-preference)', fine:'(pointer: fine)', phone:'(max-width: 760px)' }, function(ctx){
+  var c = ctx.conditions, cleanups = [];
+  if(!c.motion) return;
+  var g3d = root.classList.contains('g3d');
+
+  /* Lenis on fine pointers only, wired exactly like variants C to F; touch keeps native momentum (syncTouch off) */
+  if(c.fine && window.Lenis){
+    var lenis = new Lenis({lerp:.1, smoothWheel:true});
+    lenis.on('scroll', ScrollTrigger.update);
+    var raf = function(t){ lenis.raf(t*1000); };
+    gsap.ticker.add(raf); gsap.ticker.lagSmoothing(0);
+    window.__lenis = lenis;
+    cleanups.push(function(){ gsap.ticker.remove(raf); lenis.destroy(); window.__lenis = null; });
+  }
+
+  /* hero: lines rise on load (variant E kinetic type), then drift apart as the camera climbs */
+  var lines = $$('.hero-h1 .ln>span');
+  gsap.from(lines, {yPercent:110, rotate:4, duration:1.15, ease:'expo.out', stagger:.09, delay:.15});
+  gsap.from('.hero-sub, .hero-cta, .hero-status, .tilt', {y:18, duration:1, ease:'expo.out', stagger:.07, delay:.45});
+  if(g3d){
+    var climbTl = gsap.timeline({scrollTrigger:{trigger:'#top', start:'top top', end:'bottom bottom', scrub:true}});
+    climbTl.to(lines[0], {xPercent:-26, ease:'none'}, 0)
+           .to(lines[1], {xPercent:18, ease:'none'}, 0)
+           .to(lines[2], {xPercent:-12, ease:'none'}, 0)
+           .to('.hero-copy', {opacity:0, y:-40, ease:'power1.in', duration:.4}, .6)
+           .to('.cue', {opacity:0, ease:'none', duration:.2}, 0);
+  }
+
+  /* chapter headings: words arrive spread and skewed and settle as they reach the middle of the screen; always visible */
+  var fontsReady = document.fonts ? document.fonts.ready : Promise.resolve();
+  var killed = false; cleanups.push(function(){ killed = true; });
+  fontsReady.then(function(){ if(killed) return; $$('.kin').forEach(function(h){
+    if(!window.SplitText) return;
+    var st = SplitText.create(h, {type:'words', wordsClass:'kw'});
+    gsap.fromTo(st.words, {xPercent:function(i){ return (i%2?1:-1)*(40+i*12); }, rotateX:-50, skewX:function(i){ return i%2?-10:10; }},
+      {xPercent:0, rotateX:0, skewX:0, ease:'none', stagger:.04, scrollTrigger:{trigger:h, start:'top 98%', end:'top 45%', scrub:true}});
+    cleanups.push(function(){ st.revert(); });
+  }); ScrollTrigger.refresh(); });
+
+  /* lookbook captions and pour stops swing in on a hinge as they cross the screen (scrubbed, start visible) */
+  $$('.g3d .room figcaption, .g3d .stop .panel, .g3d .rw-copy').forEach(function(p){
+    gsap.fromTo(p, {x:c.phone?0:-40, y:c.phone?40:0, rotateY:c.phone?0:14, rotateX:c.phone?-10:0, transformPerspective:900},
+      {x:0, y:0, rotateY:0, rotateX:0, ease:'none', scrollTrigger:{trigger:p, start:'top bottom', end:'top 60%', scrub:true}});
+  });
+
+  /* deck cards rise into place with a stagger the first time the week comes up (play-in, from a visible state) */
+  gsap.from('.deck .card-in', {y:40, rotateX:-12, duration:1, ease:'expo.out', stagger:.08, scrollTrigger:{trigger:'#deck', start:'top 85%', once:true}});
+
+  /* functions: stacking cards, the card underneath eases back and dims as the next one lands (variants E and F) */
+  var fcs = $$('.fcard');
+  fcs.forEach(function(card, i){
+    if(i===fcs.length-1) return;
+    gsap.to(card.firstElementChild, {scale:.93, filter:'brightness(.55)', ease:'none', scrollTrigger:{trigger:fcs[i+1], start:'top bottom', end:'top '+(96+(i+1)*16)+'px', scrub:true}});
+  });
+
+  /* after dark: the words part to show the hill (variant F pre-footer, made kinetic) */
+  if(g3d){
+    var nt = gsap.timeline({scrollTrigger:{trigger:'#after-dark', start:'top top', end:'bottom bottom', scrub:true}});
+    nt.to('.part .w1', {x:c.phone?'-6vw':'-26vw', y:c.phone?'-2vh':'4vh', ease:'none'}, 0)
+      .to('.part .w3', {x:c.phone?'8vw':'26vw', y:c.phone?'14vh':'-4vh', scale:c.phone?1.15:1, ease:'none'}, 0)
+      .to('.part .w2', {letterSpacing:c.phone?'.3em':'.6em', ease:'none'}, 0)
+      .fromTo('.night-lead, .night-ctas', {y:30}, {y:0, ease:'none'}, .2);
+  } else {
+    gsap.from('.part .w', {y:60, duration:1.2, ease:'expo.out', stagger:.1, scrollTrigger:{trigger:'.part', start:'top 85%', once:true}});
+  }
+
+  /* velocity skew on chapter headings: the faster you scroll the more the type leans (variant E) */
+  var skewTo = gsap.quickTo('.display', 'skewY', {duration:.5, ease:'power3.out'});
+  var vt = ScrollTrigger.create({onUpdate:function(s){ var v = gsap.utils.clamp(-4, 4, s.getVelocity()/-400); skewTo(v); }});
+  cleanups.push(function(){ vt.kill(); });
+
+  return function(){ cleanups.forEach(function(f){ f(); }); };
+});
+
+addEventListener('load', function(){ ScrollTrigger.refresh(); });
+document.fonts && document.fonts.ready.then(function(){ ScrollTrigger.refresh(); });
+})();
+</script>
+
+<script type="importmap">
+{ "imports": { "three": "https://unpkg.com/three@0.170.0/build/three.module.js", "three/addons/": "https://unpkg.com/three@0.170.0/examples/jsm/" } }
+</script>
+<script type="module">
+/* ============================================================================================
+   Variant G 3D journey. awwwards-3d workflow: archetype "flyover / ascent".
+   One renderer, one scene, one camera on one Catmull-Rom spline. Inputs write targets, the loop
+   damps them with a framerate-independent lerp (awwwards-3d rule 11), render reads the damped values.
+   The DOM never depends on this canvas: if anything here fails the page drops to its static layout.
+   ============================================================================================ */
+const root = document.documentElement;
+const G = window.__g3d = { ok:false, tier:'', frames:0, error:'' };
+
+function fail(err){
+  G.ok = false; G.error = String(err && err.message || err);
+  root.classList.remove('g3d','g3d-ready'); root.classList.add('g3d-off');
+  try { G.dispose && G.dispose(); } catch(e) {}
+  if (window.ScrollTrigger) { window.ScrollTrigger.refresh(); }
+}
+
+if (root.classList.contains('g3d')) {
+  try { await boot(); } catch (e) { fail(e); }
+}
+
+async function boot(){
+const THREE = await import('three');
+const { RoomEnvironment } = await import('three/addons/environments/RoomEnvironment.js');
+const gsap = window.gsap;
+if (!gsap) throw new Error('GSAP missing');
+
+/* ---------- tiers (core-web-vitals + awwwards-3d rule 3: cap pixel ratio; post on desktop only) ---------- */
+const qs = new URLSearchParams(location.search);
+const coarse = matchMedia('(pointer: coarse)').matches;
+const PHONE = coarse || innerWidth <= 760;
+const SOFT = /swiftshader|llvmpipe|software/i.test(window.__glInfo || '');
+const FORCE_FULL = qs.get('g3d') === 'full';
+const POST = !PHONE && (!SOFT || FORCE_FULL);
+const DPR_CAP = PHONE ? 1.5 : (SOFT && !FORCE_FULL ? 1 : 2);
+const Q = PHONE ? 0.55 : 1;               /* particle budget scale */
+G.tier = PHONE ? 'phone' : (POST ? 'desktop' : 'desktop-lite');
+
+/* ---------- renderer ---------- */
+const canvas = document.getElementById('g3d');
+const sizer = document.querySelector('.g3d-sizer');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: !POST, powerPreference: 'high-performance', stencil: false, alpha: false });
+renderer.setClearColor(0x140F14, 1);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;    /* awwwards-3d rule 5 */
+renderer.toneMappingExposure = 1;
+renderer.localClippingEnabled = true;
+let shaderBroken = false;
+renderer.debug.onShaderError = function(gl, prog, vs, fs){ shaderBroken = true; G.shaderLog = (G.shaderLog || '') + '[' + (gl.getProgramInfoLog(prog) || '') + ' / ' + (gl.getShaderInfoLog(vs) || '') + ' / ' + (gl.getShaderInfoLog(fs) || '') + ' / ' + (gl.getShaderSource(vs) || '').slice(-400) + ']'; };
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x2B1B2A, 0.012);
+const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 900);
+
+const pmrem = new THREE.PMREMGenerator(renderer);
+const envRT = pmrem.fromScene(new RoomEnvironment(), 0.04);
+scene.environment = envRT.texture;                     /* awwwards-3d rule 6: metals and glass need an env map */
+pmrem.dispose();
+
+/* ---------- shared helpers ---------- */
+const clamp = (v,a,b) => Math.min(b, Math.max(a, v));
+const lerp = (a,b,t) => a + (b-a)*t;
+const smooth = (a,b,v) => { const t = clamp((v-a)/(b-a),0,1); return t*t*(3-2*t); };
+const damp = (s, dt) => { s.c += (s.t - s.c) * (1 - Math.pow(1 - s.e, dt*60)); };   /* framerate-independent lerp */
+const col = (h) => new THREE.Color(h);
+const FOGV = '\n#include <fog_pars_vertex>\n';
+const FOGF = '\n#include <fog_pars_fragment>\n';
+const OUT = '\n#include <tonemapping_fragment>\n#include <colorspace_fragment>\n#include <fog_fragment>\n';
+const fogU = () => THREE.UniformsUtils.clone(THREE.UniformsLib.fog);
+let seed = 7;
+const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+function glowTexture(){
+  const c = document.createElement('canvas'); c.width = c.height = 128;
+  const x = c.getContext('2d'), g = x.createRadialGradient(64,64,0,64,64,64);
+  g.addColorStop(0,'rgba(255,255,255,1)'); g.addColorStop(.22,'rgba(255,255,255,.55)'); g.addColorStop(.6,'rgba(255,255,255,.1)'); g.addColorStop(1,'rgba(255,255,255,0)');
+  x.fillStyle = g; x.fillRect(0,0,128,128);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
+}
+const GLOW = glowTexture();
+const disposables = [GLOW, envRT];
+const texLoader = new THREE.TextureLoader();
+function loadTex(url){
+  return new Promise((res) => texLoader.load(url, (t) => { t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = Math.min(4, renderer.capabilities.getMaxAnisotropy()); disposables.push(t); res(t); }, undefined, () => res(null)));
+}
+const IMG = (n) => 'img/drive/' + n + (PHONE ? '-sm' : '') + '.webp';
+
+/* point-sprite shader used by dust, bokeh, bulbs, fireflies, town lights, bubbles and stars */
+function pointsMaterial(opts){
+  return new THREE.ShaderMaterial({
+    uniforms: Object.assign(fogU(), { uTime:{value:0}, uAlpha:{value:1}, uScale:{value:1}, uPR:{value:1}, uRing:{value:opts.ring||0} }, opts.uniforms || {}),
+    vertexShader: (opts.vhead || '') + `
+      attribute float aSize; attribute vec3 aCol; attribute vec4 aSeed;
+      uniform float uTime, uScale, uPR;
+      varying vec3 vCol; varying float vTw;
+      ${FOGV}
+      void main(){
+        vec3 p = position;
+        ${opts.move || ''}
+        vec4 mvPosition = modelViewMatrix * vec4(p, 1.0);
+        gl_Position = projectionMatrix * mvPosition;
+        vTw = 0.6 + 0.4 * sin(uTime * (1.0 + aSeed.y * 2.5) + aSeed.x * 40.0);
+        ${opts.tw || ''}
+        vCol = aCol;
+        gl_PointSize = ${opts.fixed ? 'aSize * uPR' : 'aSize * uScale * uPR / max(0.5, -mvPosition.z)'};
+        #include <fog_vertex>
+      }`,
+    fragmentShader: `precision mediump float;
+      uniform float uAlpha, uRing;
+      varying vec3 vCol; varying float vTw;
+      ${FOGF}
+      void main(){
+        vec2 d = gl_PointCoord - 0.5; float r = length(d) * 2.0;
+        if (r > 1.0) discard;
+        float core = exp(-r * r * 7.0);
+        float halo = exp(-r * 2.6) * 0.45;
+        float ring = smoothstep(0.62, 0.9, r) * (1.0 - smoothstep(0.9, 1.0, r));
+        float disc = (1.0 - smoothstep(0.82, 1.0, r)) * 0.35;
+        float a = mix(core + halo, disc + ring * 0.6, uRing) * vTw * uAlpha;
+        gl_FragColor = vec4(vCol * a, a);
+        ${OUT}
+      }`,
+    transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, fog: opts.fog !== false, depthTest: opts.depthTest !== false
+  });
+}
+function pointsGeometry(n, fill){
+  const pos = new Float32Array(n*3), size = new Float32Array(n), colr = new Float32Array(n*3), sd = new Float32Array(n*4);
+  for (let i=0;i<n;i++){ const o = fill(i); pos.set(o.p, i*3); size[i] = o.s; colr.set(o.c, i*3); sd.set([rnd(),rnd(),rnd(),rnd()], i*4); }
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.BufferAttribute(pos,3));
+  g.setAttribute('aSize', new THREE.BufferAttribute(size,1));
+  g.setAttribute('aCol', new THREE.BufferAttribute(colr,3));
+  g.setAttribute('aSeed', new THREE.BufferAttribute(sd,4));
+  return g;
+}
+const C3 = (h, k=1) => { const c = col(h); return [c.r*k, c.g*k, c.b*k]; };
+
+/* ============================================================================================
+   SET 1. THE HILL. Procedural heightfield; contour lines are drawn in the fragment shader from the
+   world height (fwidth keeps them a constant 1 to 2 px), so they read as real topography (variant F rings).
+   ============================================================================================ */
+const HP = 6.4;      /* plateau height */
+function hash2(x,y){ const s = Math.sin(x*127.1 + y*311.7) * 43758.5453; return s - Math.floor(s); }
+function vnoise(x,y){ const xi=Math.floor(x), yi=Math.floor(y), xf=x-xi, yf=y-yi, u=xf*xf*(3-2*xf), v=yf*yf*(3-2*yf);
+  const a=hash2(xi,yi), b=hash2(xi+1,yi), c=hash2(xi,yi+1), d=hash2(xi+1,yi+1); return (a+(b-a)*u+(c-a)*v+(a-b-c+d)*u*v)*2-1; }
+function fbm(x,y){ let s=0, a=.5, f=1; for (let i=0;i<4;i++){ s += a*vnoise(x*f+11.3*i, y*f-7.1*i); f*=2.03; a*=.5; } return s; }
+function smin(a,b,k){ const h = clamp(.5+.5*(b-a)/k,0,1); return lerp(b,a,h) - k*h*(1-h); }
+function hillH(x,z){
+  const r = Math.hypot(x, z*0.85);
+  let h = 7.6*Math.exp(-Math.pow(r/14,2)) + 1.3*Math.exp(-Math.pow(r/30,2)) - 0.7;
+  h = smin(h, HP, 0.9);
+  h += fbm(x*.065, z*.065) * 1.7 * smooth(5, 12, r) + fbm(x*.22, z*.22) * .16 * smooth(4, 8, r);
+  return h;
+}
+const FLOOR = hillH(0,0);
+const BASE_DUSK = col('#1A1220'), BASE_NIGHT = col('#0B0E1C');
+const hill = new THREE.Group(); hill.name = 'hill'; scene.add(hill);
+
+const TSEG = PHONE ? 150 : 230, TSIZE = 170;
+const tGeo = new THREE.PlaneGeometry(TSIZE, TSIZE, TSEG, TSEG); tGeo.rotateX(-Math.PI/2);
+{ const p = tGeo.attributes.position; for (let i=0;i<p.count;i++){ p.setY(i, hillH(p.getX(i), p.getZ(i))); } tGeo.computeVertexNormals(); }
+const terrainMat = new THREE.ShaderMaterial({
+  uniforms: Object.assign(fogU(), {
+    uBase:{value:col('#1A1220')}, uRim:{value:col('#C8613F')}, uLine:{value:col('#C8102E')}, uHot:{value:col('#FF7A45')},
+    uSpacing:{value:.42}, uClimb:{value:0}, uPulse:{value:-5}, uReveal:{value:20}, uGain:{value:2.2}, uOutdoor:{value:1}, uNight:{value:0}, uTime:{value:0}
+  }),
+  vertexShader: `varying float vH; varying vec3 vN; varying float vR; ${FOGV}
+    void main(){ vH = position.y; vN = normal; vR = length(position.xz);
+      vec4 mvPosition = modelViewMatrix * vec4(position,1.0); gl_Position = projectionMatrix * mvPosition;
+      #include <fog_vertex>
+    }`,
+  fragmentShader: `precision mediump float;
+    uniform vec3 uBase, uRim, uLine, uHot; uniform float uSpacing, uClimb, uPulse, uReveal, uGain, uOutdoor, uNight, uTime;
+    varying float vH; varying vec3 vN; varying float vR; ${FOGF}
+    float iso(float f, float w){ float fw = max(fwidth(f), 1e-4); float d = abs(fract(f - .5) - .5) / fw; return (1. - smoothstep(0., w, d)) * (1. - smoothstep(.18, .55, fw)); }
+    float halo(float f){ float fw = max(fwidth(f), 1e-4); float d = abs(fract(f - .5) - .5) / fw; return exp(-d * .5) * (1. - smoothstep(.08, .3, fw)); }
+    void main(){
+      float f = vH / uSpacing;
+      float minor = iso(f, 1.1);
+      float major = iso(f * .25, 1.6);
+      float lines = max(minor * .5, major) + halo(f) * .4;
+      float heat = smoothstep(uClimb + 1.4, uClimb - .8, vH);
+      float pulse = exp(-pow((vH - uPulse) * 2.4, 2.));
+      float reveal = smoothstep(uReveal, uReveal - .8, vH);
+      vec3 lc = mix(uLine * .62, uHot, clamp(heat * .8 + pulse * .7, 0., 1.));
+      vec3 n = normalize(vN);
+      float lam = clamp(dot(n, normalize(vec3(-.35, .55, -.75))), 0., 1.);
+      float rim = pow(1. - clamp(n.y, 0., 1.), 2.2);
+      vec3 c = uBase * (.5 + .7 * lam) + uRim * rim * .28 * (1. - uNight * .6);
+      c += lc * lines * reveal * uGain * (1. + pulse * 1.6) * uOutdoor;
+      gl_FragColor = vec4(c, 1.);
+      ${OUT}
+    }`,
+  fog: true, extensions: {}
+});
+const terrain = new THREE.Mesh(tGeo, terrainMat); terrain.frustumCulled = false; hill.add(terrain);
+
+/* the pub on the summit: the real exterior photo with its sky keyed out, so the building stands against the 3D sky */
+const BBW = 8.4, BBH = BBW / 1.54, BB_Y = HP - .5 + BBH/2, DOOR = new THREE.Vector2(.36, .36);
+const bbMat = new THREE.ShaderMaterial({
+  uniforms: Object.assign(fogU(), { uMap:{value:null}, uHas:{value:0}, uNight:{value:0}, uHole:{value:0}, uDoor:{value:DOOR}, uAspect:{value:1.54}, uOpacity:{value:1}, uTime:{value:0} }),
+  vertexShader: `varying vec2 vUv; ${FOGV} void main(){ vUv = uv; vec4 mvPosition = modelViewMatrix * vec4(position,1.0); gl_Position = projectionMatrix * mvPosition;
+    #include <fog_vertex>
+  }`,
+  fragmentShader: `precision mediump float;
+    uniform sampler2D uMap; uniform float uHas, uNight, uHole, uAspect, uOpacity, uTime; uniform vec2 uDoor;
+    varying vec2 vUv; ${FOGF}
+    void main(){
+      vec3 c = texture2D(uMap, vUv).rgb;
+      vec3 s = pow(max(c, 0.), vec3(.4545));
+      float lum = dot(s, vec3(.299,.587,.114));
+      float sky = smoothstep(.02, .11, s.b - s.r) * smoothstep(.36, .56, lum) * smoothstep(.3, .62, vUv.y);
+      float a = (1. - sky) * smoothstep(0., .07, vUv.x) * smoothstep(1., .93, vUv.x) * smoothstep(.0, .2, vUv.y) * smoothstep(1., .96, vUv.y);
+      c *= mix(vec3(1.18, .98, .86), vec3(1.0), .25);                     /* dusk warmth */
+      float l = dot(c, vec3(.2126,.7152,.0722));
+      vec3 night = vec3(l) * vec3(.32, .4, .7) * .55 + c * vec3(1.0,.62,.3) * smoothstep(.5, .9, l) * .9;   /* bright walls catch a warm wash */
+      c = mix(c, night, uNight);
+      vec2 dv = (vUv - uDoor) * vec2(uAspect, 1.);
+      float dd = length(dv);
+      float hole = smoothstep(uHole, uHole + .05, dd);
+      float edge = (1. - smoothstep(0., .07, abs(dd - uHole - .02))) * step(.001, uHole);
+      c += vec3(1., .62, .3) * edge * 1.1;
+      a *= hole;
+      a = max(a * uHas, edge * .9) * uOpacity;
+      if (a < .004) discard;
+      gl_FragColor = vec4(c, a);
+      ${OUT}
+    }`,
+  transparent: true, depthWrite: false, fog: true
+});
+const billboard = new THREE.Mesh(new THREE.PlaneGeometry(BBW, BBH), bbMat);
+billboard.position.set(0, BB_Y, 0); hill.add(billboard);
+const pubGlow = new THREE.Sprite(new THREE.SpriteMaterial({ map: GLOW, color: col('#FF9A55'), transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, opacity: .55, fog: true }));
+pubGlow.scale.set(16, 9, 1); pubGlow.position.set(0, BB_Y - .4, -1.2); hill.add(pubGlow);
+
+/* town lights on the slopes and the flats below: the north side of Brisbane coming on at dusk */
+const townN = Math.round(900*Q);
+const townGeo = pointsGeometry(townN, () => {
+  const a = rnd()*Math.PI*2, r = 16 + Math.pow(rnd(), .7)*62, x = Math.cos(a)*r, z = Math.sin(a)*r;
+  const warm = rnd() < .75;
+  return { p:[x, hillH(x,z)+.08, z], s: 1.2 + rnd()*2.4, c: warm ? C3('#FFB765', 1.4) : C3('#CFE1FF', 1.1) };
+});
+const townMat = pointsMaterial({ fixed: true });
+const town = new THREE.Points(townGeo, townMat); town.frustumCulled = false; hill.add(town);
+
+/* festoon canopy on the terrace behind the pub (photo 36): strings sag between posts, bulbs chase along them */
+const canopy = new THREE.Group(); hill.add(canopy);
+const CAN = { x: 3.6, z0: -1.4, z1: -7.2, y: FLOOR + 2.7 };
+{
+  const wirePts = [], bulbs = [];
+  const posts = [];
+  for (let k=0;k<=3;k++){ const z = lerp(CAN.z0, CAN.z1, k/3); posts.push([-CAN.x, z], [CAN.x, z]); }
+  const postGeo = new THREE.CylinderGeometry(.045, .055, 1, 6); postGeo.translate(0,.5,0);
+  const postMat = new THREE.MeshStandardMaterial({ color: 0x2A2018, roughness: .8 });
+  posts.forEach(([x,z]) => { const base = hillH(x,z); const m = new THREE.Mesh(postGeo, postMat); m.position.set(x, base, z); m.scale.y = CAN.y + .25 - base; canopy.add(m); });
+  const strings = [];
+  for (let k=0;k<3;k++){ const za = lerp(CAN.z0, CAN.z1, k/3), zb = lerp(CAN.z0, CAN.z1, (k+1)/3);
+    strings.push([[-CAN.x,za],[CAN.x,zb]], [[CAN.x,za],[-CAN.x,zb]]); }
+  for (let k=0;k<=3;k++){ const z = lerp(CAN.z0, CAN.z1, k/3); strings.push([[-CAN.x,z],[CAN.x,z]]); }
+  strings.push([[-CAN.x,CAN.z0],[-CAN.x,CAN.z1]], [[CAN.x,CAN.z0],[CAN.x,CAN.z1]]);
+  let order = 0;
+  strings.forEach(([a,b]) => {
+    const len = Math.hypot(b[0]-a[0], b[1]-a[1]), n = Math.max(6, Math.round(len/.5)), sag = .35 + len*.04;
+    let prev = null;
+    for (let i=0;i<=n;i++){
+      const t = i/n, x = lerp(a[0],b[0],t), z = lerp(a[1],b[1],t), y = CAN.y - sag*4*t*(1-t);
+      if (prev) wirePts.push(prev[0],prev[1],prev[2], x,y,z);
+      prev = [x,y,z];
+      if (i>0 && i<n) bulbs.push({ p:[x, y-.06, z], o: order++ });
+    }
+  });
+  const wg = new THREE.BufferGeometry(); wg.setAttribute('position', new THREE.Float32BufferAttribute(wirePts, 3));
+  canopy.add(new THREE.LineSegments(wg, new THREE.LineBasicMaterial({ color: 0x3A2A1E, transparent: true, opacity: .8, fog: true })));
+  const bg = pointsGeometry(bulbs.length, (i) => ({ p: bulbs[i].p, s: 80 + rnd()*30, c: C3('#FFC27A', 1.8) }));
+  const ord = new Float32Array(bulbs.length); bulbs.forEach((b,i) => ord[i] = b.o / bulbs.length); bg.setAttribute('aOrd', new THREE.BufferAttribute(ord,1));
+  const bm = pointsMaterial({ vhead: 'attribute float aOrd; uniform float uChase;\n', tw: 'vTw = 0.55 + 0.45 * smoothstep(0.75, 1.0, cos((aOrd - uChase) * 18.85)) + 0.12 * sin(uTime*3. + aSeed.x*30.);', uniforms: { uChase:{value:0} } });
+  canopy.userData.bulbs = new THREE.Points(bg, bm); canopy.userData.bulbs.frustumCulled = false; canopy.add(canopy.userData.bulbs);
+}
+
+/* fireflies over the summit after dark */
+const ffN = Math.round(140*Q);
+const ffGeo = pointsGeometry(ffN, () => { const a = rnd()*6.283, r = 2 + rnd()*13; return { p:[Math.cos(a)*r, 0, Math.sin(a)*r], s: 70 + rnd()*60, c: C3(rnd()<.5 ? '#FFE08A' : '#D8FF9A', 1.6) }; });
+const ffMat = pointsMaterial({ move: `p.y = ${FLOOR.toFixed(2)} + 0.4 + aSeed.z * 3.6 + sin(uTime * (.3 + aSeed.w * .5) + aSeed.x * 20.) * .6;
+  p.x += sin(uTime * .21 + aSeed.y * 30.) * 1.2; p.z += cos(uTime * .17 + aSeed.w * 30.) * 1.2;`,
+  tw: 'vTw = pow(0.5 + 0.5 * sin(uTime * (1.4 + aSeed.y * 2.) + aSeed.x * 60.), 3.0);' });
+const fireflies = new THREE.Points(ffGeo, ffMat); fireflies.frustumCulled = false; hill.add(fireflies);
+
+/* ============================================================================================
+   SKY. Gradient dome that follows the camera; stars fade in after dark.
+   ============================================================================================ */
+const skyMat = new THREE.ShaderMaterial({
+  uniforms: { uTop:{value:col('#1A1633')}, uMid:{value:col('#4A2A4A')}, uHor:{value:col('#C8613F')}, uGround:{value:col('#140F14')}, uSun:{value:1}, uTime:{value:0} },
+  vertexShader: `varying vec3 vDir; void main(){ vDir = normalize(position); vec4 p = projectionMatrix * modelViewMatrix * vec4(position, 1.0); gl_Position = p.xyww; }`,
+  fragmentShader: `precision mediump float;
+    uniform vec3 uTop, uMid, uHor, uGround; uniform float uSun, uTime; varying vec3 vDir;
+    void main(){
+      vec3 d = normalize(vDir); float y = d.y;
+      vec3 c = mix(uHor, uMid, smoothstep(-.02, .22, y));
+      c = mix(c, uTop, smoothstep(.18, .75, y));
+      c = mix(c, uGround, smoothstep(-.01, -.16, y));
+      float sun = pow(max(dot(d, normalize(vec3(-.45, .05, -1.))), 0.), 14.);
+      c += vec3(1., .55, .28) * sun * .55 * uSun;
+      float band = exp(-pow(y * 9., 2.)) * .18 * uSun;
+      c += vec3(1., .5, .3) * band;
+      gl_FragColor = vec4(c, 1.);
+      #include <tonemapping_fragment>
+      #include <colorspace_fragment>
+    }`,
+  side: THREE.BackSide, depthWrite: false, fog: false
+});
+const sky = new THREE.Mesh(new THREE.SphereGeometry(500, 32, 16), skyMat); sky.renderOrder = -10; sky.frustumCulled = false; scene.add(sky);
+const starGeo = pointsGeometry(Math.round(1100*Q), () => { const u = rnd(), v = .04 + rnd()*.96, th = u*6.283, ph = Math.acos(v); return { p:[Math.sin(ph)*Math.cos(th)*400, Math.cos(ph)*400, Math.sin(ph)*Math.sin(th)*400], s: 1 + rnd()*1.8, c: C3('#FFF4E2', 1.2) }; });
+const starMat = pointsMaterial({ fixed: true, fog: false });
+const stars = new THREE.Points(starGeo, starMat); stars.frustumCulled = false; scene.add(stars);
+
+/* ============================================================================================
+   SET 2. THE HALL. Six venue photos hang along the walk. Vertex shader bows them with scroll velocity,
+   fragment shader splits RGB with it (D lookbook + Codrops grid). Lazy textures (core-web-vitals).
+   ============================================================================================ */
+const hall = new THREE.Group(); hall.name = 'hall'; scene.add(hall);
+const ROOMS = ['01-bar-counter-view-01','07-bistro-wide-dining-room','31-outdoor-deck-view-01','46-sports-bar-wide-view-01','37-gaming-lounge-view-01','34-covered-function-terrace-wide'];
+const PW = 3.0, PH = 2.0, Y0 = HP - .5 + DOOR.y*BBH;   /* walk at door height */
+const photoGeo = new THREE.PlaneGeometry(PW, PH, 28, 18);
+const photos = ROOMS.map((name, i) => {
+  const m = new THREE.ShaderMaterial({
+    uniforms: Object.assign(fogU(), { uMap:{value:null}, uHas:{value:0}, uVel:{value:0}, uReveal:{value:0}, uFocus:{value:0}, uTime:{value:0}, uImgA:{value:1.5} }),
+    vertexShader: `uniform float uVel, uTime, uReveal; varying vec2 vUv; ${FOGV}
+      void main(){ vUv = uv; vec3 p = position;
+        float bow = sin(uv.x * 3.14159);
+        p.z += bow * uVel * .55 + sin(uv.y * 3.14159) * uVel * .15;
+        p.y += sin(uv.x * 6.283 + uTime * 1.2) * .02 * (1. - uReveal);
+        p.xy *= .86 + .14 * uReveal;
+        vec4 mvPosition = modelViewMatrix * vec4(p,1.0); gl_Position = projectionMatrix * mvPosition;
+        #include <fog_vertex>
+      }`,
+    fragmentShader: `precision mediump float;
+      uniform sampler2D uMap; uniform float uHas, uFocus, uImgA; uniform highp float uVel, uReveal, uTime; varying vec2 vUv; ${FOGF}
+      float rr(vec2 p, vec2 b, float r){ vec2 q = abs(p) - b + r; return length(max(q,0.)) + min(max(q.x,q.y),0.) - r; }
+      void main(){
+        vec2 p = (vUv - .5) * vec2(1.5, 1.);
+        float sd = rr(p, vec2(.75, .5), .045);
+        if (sd > 0.) discard;
+        float wipe = smoothstep(uReveal * 1.25 - .2, uReveal * 1.25, (vUv.x * .7 + (1. - vUv.y) * .3));
+        vec2 uv = (vUv - .5) * (1. - .06 * uFocus) + .5;
+        float sh = uVel * .018 + .002;
+        vec3 c = vec3(texture2D(uMap, uv + vec2(sh, 0.)).r, texture2D(uMap, uv).g, texture2D(uMap, uv - vec2(sh, 0.)).b);
+        c = mix(vec3(.09,.06,.05), c * (1.05 + .25 * uFocus), uHas);
+        float vig = smoothstep(.95, .3, length(vUv - .5));
+        c *= mix(.45, 1., vig) * (.55 + .45 * uFocus);
+        vec3 ghost = vec3(dot(c, vec3(.3,.59,.11))) * vec3(.55,.36,.26) * .7;   /* far photos wait as warm monochrome ghosts */
+        float edgeW = 1. - smoothstep(0., .035, abs(wipe - .5) * 2.);
+        vec3 frame = vec3(1., .55, .32) * (1. - smoothstep(0., .012, abs(sd + .004))) * (.5 + wipe);
+        c = mix(c, ghost, wipe) + vec3(1., .6, .35) * edgeW * .5 * step(.001, uReveal) * (1. - step(.999, uReveal)) + frame;
+        gl_FragColor = vec4(c, 1.);
+        ${OUT}
+      }`,
+    fog: true
+  });
+  const mesh = new THREE.Mesh(photoGeo, m); mesh.frustumCulled = false; hall.add(mesh);
+  const spot = new THREE.Sprite(new THREE.SpriteMaterial({ map: GLOW, color: col('#FFB36B'), transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, opacity: .35, fog: true }));
+  spot.scale.set(5.5, 4, 1); hall.add(spot);
+  return { mesh, mat: m, spot, name, i };
+});
+let texRoomsStarted = false;
+function loadRooms(){
+  if (texRoomsStarted) return; texRoomsStarted = true;
+  photos.reduce((p, ph) => p.then(() => loadTex(IMG(ph.name)).then((t) => { if (t){ ph.mat.uniforms.uMap.value = t; ph.mat.uniforms.uHas.value = 1; } })), Promise.resolve());
+}
+function layoutHall(P){
+  photos.forEach((ph) => {
+    const side = ph.i % 2 ? -1 : 1, x = side * (P ? .5 : 1.75), z = -12 - 10.5*ph.i, yaw = -side * (P ? .3 : .5);
+    ph.mesh.position.set(x, Y0 + (P ? .25 : .1), z); ph.mesh.rotation.y = yaw;
+    ph.spot.position.set(x + Math.sin(yaw)*-.6, Y0 + 2.1, z - .4);
+    ph.n = new THREE.Vector3(Math.sin(yaw), 0, Math.cos(yaw));
+  });
+}
+
+/* interior dust: warm motes that drift through every indoor chapter */
+const dustN = Math.round(1300*Q);
+const dustGeo = pointsGeometry(dustN, () => ({ p:[(rnd()-.5)*12, Y0 - 3 + rnd()*7, -4 - rnd()*130], s: 14 + rnd()*22, c: C3('#FFCF9A', 1.1) }));
+const dustMat = pointsMaterial({ move: 'p.x += sin(uTime*.13 + aSeed.x*40.)*.5; p.y += sin(uTime*.09 + aSeed.y*40.)*.35;' });
+const dust = new THREE.Points(dustGeo, dustMat); dust.frustumCulled = false; scene.add(dust);
+
+/* ============================================================================================
+   SET 3. THE POUR. A nonic pint (LatheGeometry) in MeshPhysicalMaterial transmission over RoomEnvironment.
+   Beer, head and bubbles all read one normalised progress (scroll-scrubbed-visual-sequence).
+   ============================================================================================ */
+const bar = new THREE.Group(); bar.name = 'bar'; scene.add(bar);
+const GLASS_POS = new THREE.Vector3(0, HP, -84);
+bar.position.copy(GLASS_POS);
+const glassProfile = [[0,0],[.6,0],[.635,.03],[.645,.13],[.82,2.04],[.875,2.22],[.85,2.46],[.835,2.5],[.815,2.485],[.828,2.22],[.782,2.05],[.592,.27],[0,.25]].map(([x,y]) => new THREE.Vector2(x,y));
+const RIN = [[.27,.585],[2.05,.775],[2.22,.82],[2.47,.806]];
+const innerR = (y) => { if (y <= RIN[0][0]) return RIN[0][1]; for (let i=1;i<RIN.length;i++){ if (y <= RIN[i][0]){ const a = RIN[i-1], b = RIN[i]; return lerp(a[1], b[1], (y-a[0])/(b[0]-a[0])); } } return RIN[RIN.length-1][1]; };
+const glassMat = new THREE.MeshPhysicalMaterial({ color: 0xffffff, metalness: 0, roughness: .04, transmission: 1, thickness: .35, ior: 1.5, dispersion: PHONE ? 0 : .6, envMapIntensity: 1.35, specularIntensity: 1, clearcoat: .4, clearcoatRoughness: .05, attenuationColor: col('#FFF6EA'), attenuationDistance: 3 });
+const glass = new THREE.Mesh(new THREE.LatheGeometry(glassProfile, PHONE ? 64 : 96), glassMat); glass.renderOrder = 2; bar.add(glass);
+const levelPlane = new THREE.Plane(new THREE.Vector3(0,-1,0), 0);
+const foamTop = new THREE.Plane(new THREE.Vector3(0,-1,0), 0), foamBottom = new THREE.Plane(new THREE.Vector3(0,1,0), 0);
+const beerProfile = [[0,.262],[.578,.272],[.768,2.05],[.812,2.22],[.798,2.462],[0,2.462]].map(([x,y]) => new THREE.Vector2(x,y));
+const beerGeo = new THREE.LatheGeometry(beerProfile, 64);
+{ const p = beerGeo.attributes.position, c = new Float32Array(p.count*3); const lo = col('#7A3A08'), hi = col('#E89A2E');
+  for (let i=0;i<p.count;i++){ const t = clamp((p.getY(i)-.25)/2.2, 0, 1); const k = lo.clone().lerp(hi, Math.pow(t,.8)); c.set([k.r,k.g,k.b], i*3); }
+  beerGeo.setAttribute('color', new THREE.BufferAttribute(c,3)); }
+const beerMat = new THREE.MeshPhysicalMaterial({ vertexColors: true, roughness: .18, metalness: 0, emissive: col('#5A2600'), emissiveIntensity: .22, clearcoat: .6, clippingPlanes: [levelPlane], side: THREE.DoubleSide });
+const beer = new THREE.Mesh(beerGeo, beerMat); bar.add(beer);
+const beerTop = new THREE.Mesh(new THREE.CircleGeometry(1, 48).rotateX(-Math.PI/2), new THREE.MeshPhysicalMaterial({ color: col('#E8A33A'), roughness: .12, emissive: col('#7A3A00'), emissiveIntensity: .2 }));
+bar.add(beerTop);
+const foamMat = new THREE.MeshStandardMaterial({ color: col('#F4E7CC'), roughness: .85, metalness: 0, emissive: col('#3A2A14'), emissiveIntensity: .25, clippingPlanes: [foamTop, foamBottom], side: THREE.DoubleSide });
+const foam = new THREE.Mesh(beerGeo, foamMat); foam.scale.set(1.004, 1, 1.004); bar.add(foam);
+const foamCapGeo = new THREE.CircleGeometry(1, 48, 0, Math.PI*2).rotateX(-Math.PI/2);
+{ const p = foamCapGeo.attributes.position; for (let i=0;i<p.count;i++){ const x = p.getX(i), z = p.getZ(i), r = Math.hypot(x,z); p.setY(i, (1-r*r)*.07 + fbm(x*6, z*6)*.025*(1-r)); } foamCapGeo.computeVertexNormals(); }
+const foamCap = new THREE.Mesh(foamCapGeo, new THREE.MeshStandardMaterial({ color: col('#FBF1DC'), roughness: .9, emissive: col('#3A2A14'), emissiveIntensity: .3 }));
+bar.add(foamCap);
+const streamGeo = new THREE.CylinderGeometry(1, 1, 1, 14, 1, true); streamGeo.translate(0, -.5, 0);
+const stream = new THREE.Mesh(streamGeo, new THREE.MeshPhysicalMaterial({ color: col('#E39A2C'), roughness: .1, emissive: col('#6A3000'), emissiveIntensity: .6, clearcoat: 1 }));
+bar.add(stream);
+const bubN = Math.round(110*Q);
+const bubGeo = pointsGeometry(bubN, () => ({ p:[0,0,0], s: 14 + rnd()*20, c: C3('#FFF0C8', 1.3) }));
+const bubMat = pointsMaterial({ ring: .85, depthTest: false, fog: false, uniforms: { uL:{value:.3}, uOn:{value:0} },
+  vhead: 'uniform float uL, uOn;\n',
+  move: `float yb = .32, span = max(uL - yb - .05, 0.01);
+    float y = yb + fract(aSeed.x + uTime * (.08 + aSeed.y * .14) / span) * span;
+    float rmax = mix(.56, .74, clamp((y - .27) / 1.8, 0., 1.)) * .9;
+    float ang = aSeed.z * 6.283 + uTime * .2 * (aSeed.w - .5);
+    float rr = rmax * sqrt(aSeed.w);
+    p = vec3(cos(ang) * rr, y, sin(ang) * rr);`,
+  tw: 'vTw = uOn * smoothstep(0., .08, p.y - .3) * (1. - smoothstep(uL - .12, uL, p.y));' });
+const bubbles = new THREE.Points(bubGeo, bubMat); bubbles.renderOrder = 5; bubbles.frustumCulled = false; bar.add(bubbles);
+const woodTex = (() => { const c = document.createElement('canvas'); c.width = 1024; c.height = 256; const x = c.getContext('2d');
+  x.fillStyle = '#3A2214'; x.fillRect(0,0,1024,256);
+  for (let i=0;i<260;i++){ const yy = rnd()*256, a = .04 + rnd()*.12; x.strokeStyle = rnd() < .5 ? 'rgba(20,10,4,'+a+')' : 'rgba(120,70,36,'+a+')'; x.lineWidth = 1 + rnd()*3; x.beginPath(); x.moveTo(0, yy); for (let k=0;k<=8;k++) x.lineTo(k*128, yy + Math.sin(k*.9 + i)*3*rnd()); x.stroke(); }
+  for (let k=1;k<6;k++){ x.fillStyle = 'rgba(10,5,2,.5)'; x.fillRect(0, k*256/6, 1024, 1.5); }
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(2, 1); t.anisotropy = 4; disposables.push(t); return t; })();
+const counter = new THREE.Mesh(new THREE.BoxGeometry(18, .6, 6), new THREE.MeshStandardMaterial({ map: woodTex, color: col('#B08A70'), roughness: .38, metalness: 0, envMapIntensity: .12 }));
+counter.position.set(0, -.3, .4); bar.add(counter);
+const shadow = new THREE.Mesh(new THREE.PlaneGeometry(3.4, 3.4).rotateX(-Math.PI/2), new THREE.MeshBasicMaterial({ map: GLOW, color: 0x000000, transparent: true, opacity: .7, depthWrite: false }));
+shadow.position.y = .005; bar.add(shadow);
+const backMat = new THREE.ShaderMaterial({
+  uniforms: Object.assign(fogU(), { uMap:{value:null}, uHas:{value:0}, uTime:{value:0}, uFill:{value:0}, uFade:{value:0}, uFadeCol:{value:col('#140A0C')} }),
+  vertexShader: `varying vec2 vUv; ${FOGV} void main(){ vUv = uv; vec4 mvPosition = modelViewMatrix * vec4(position,1.0); gl_Position = projectionMatrix * mvPosition;
+    #include <fog_vertex>
+  }`,
+  fragmentShader: `precision mediump float; uniform sampler2D uMap; uniform float uHas, uTime, uFill, uFade; uniform vec3 uFadeCol; varying vec2 vUv; ${FOGF}
+    void main(){
+      vec2 uv = vUv * vec2(.8, .9) + vec2(.1, .05) + vec2(sin(uTime * .05) * .02, 0.);
+      vec3 c = texture2D(uMap, uv, 5.0).rgb * uHas;
+      vec2 q = vUv - .5;
+      float b = 0.;
+      for (int i = 0; i < 7; i++){ float fi = float(i); vec2 o = vec2(fract(sin(fi * 12.9) * 43.7) - .5, fract(sin(fi * 7.3) * 91.1) * .5 - .1); b += smoothstep(.065, .05, length(q - o * vec2(1., .7))) * (.5 + .5 * sin(uTime * .7 + fi)); }
+      c = c * vec3(1.15, .8, .55) * .5 + vec3(1., .62, .3) * b * .28 + vec3(.06, .03, .02);
+      c *= smoothstep(.85, .2, length(q * vec2(1., 1.3)));
+      c = mix(c, uFadeCol * .5, uFade);
+      gl_FragColor = vec4(c, 1.);
+      ${OUT}
+    }`,
+  fog: false
+});
+const backdrop = new THREE.Mesh(new THREE.PlaneGeometry(30, 17), backMat); backdrop.position.set(0, 2.2, -8); bar.add(backdrop);
+const key = new THREE.DirectionalLight(0xffe2b8, 2.4); key.position.set(-3, 6, 4); bar.add(key); bar.add(key.target);
+const rim1 = new THREE.PointLight(0xff9a4a, 26, 14, 1.6); rim1.position.set(2.6, 2.6, -2.2); bar.add(rim1);
+const rim2 = new THREE.PointLight(0x9ab8ff, 10, 12, 1.6); rim2.position.set(-2.8, 1.8, -1.8); bar.add(rim2);
+
+/* ============================================================================================
+   SET 4. THIS WEEK. Out-of-focus bar lights behind the DOM deck; lens-ring bokeh that drifts.
+   ============================================================================================ */
+const bokehGeo = pointsGeometry(Math.round(170*Q), () => ({ p:[(rnd()-.5)*20, Y0 - 4 + rnd()*10, -96 - rnd()*30], s: 260 + rnd()*620, c: C3(['#FF9A4A','#C8102E','#FFD39A','#E2A33B','#FF6A3D'][Math.floor(rnd()*5)], .9) }));
+const bokehMat = pointsMaterial({ ring: .7, move: 'p.x += sin(uTime * .11 + aSeed.x * 30.) * .9; p.y += cos(uTime * .08 + aSeed.y * 30.) * .5;' });
+const bokeh = new THREE.Points(bokehGeo, bokehMat); bokeh.frustumCulled = false; scene.add(bokeh);
+
+/* ============================================================================================
+   SET 5. STAR REWARDS COIN. Canvas-drawn faces with metalness and bump maps; spins with scroll, flicks with a finger.
+   ============================================================================================ */
+const coinSet = new THREE.Group(); coinSet.position.set(0, Y0 + .3, -128); scene.add(coinSet);
+const coinSpin = new THREE.Group(); coinSet.add(coinSpin);
+let coinMesh = null;
+function coinFace(front, kind){
+  const S = PHONE ? 512 : 1024, c = document.createElement('canvas'); c.width = c.height = S;
+  const x = c.getContext('2d'), m = S/2;
+  const gold = kind === 'color' ? '#E8B23A' : (kind === 'metal' ? '#FFFFFF' : '#4A4A4A'), enamel = kind === 'metal' ? '#000000' : '#8C8C8C';
+  x.translate(m, m); x.rotate(-Math.PI/2);   /* cylinder cap UVs run u along local z and v along local x, so pre-rotate a quarter turn */
+  x.fillStyle = gold; x.beginPath(); x.arc(0,0,m,0,6.283); x.fill();
+  if (kind === 'color'){ const g = x.createRadialGradient(-m*.2,-m*.25,m*.1,0,0,m*.86); g.addColorStop(0, front ? '#E3233F' : '#2A1D17'); g.addColorStop(1, front ? '#86091C' : '#120C09'); x.fillStyle = g; }
+  else x.fillStyle = enamel;
+  x.beginPath(); x.arc(0,0,m*.84,0,6.283); x.fill();
+  x.strokeStyle = gold; x.lineWidth = S*.008; x.beginPath(); x.arc(0,0,m*.79,0,6.283); x.stroke();
+  for (let i=0;i<120;i++){ const a = i/120*6.283; x.beginPath(); x.moveTo(Math.cos(a)*m*.9, Math.sin(a)*m*.9); x.lineTo(Math.cos(a)*m*.97, Math.sin(a)*m*.97); x.lineWidth = S*.004; x.strokeStyle = kind === 'color' ? 'rgba(120,80,10,.55)' : gold; x.stroke(); }
+  x.fillStyle = gold; x.textAlign = 'center'; x.textBaseline = 'middle';
+  const arc = (txt, r, size, start) => { x.font = '700 ' + size + 'px Oswald, "Arial Narrow", sans-serif'; const chars = txt.split(''); const step = .085; let a = start - (chars.length-1)*step/2; chars.forEach((ch) => { x.save(); x.rotate(a); x.translate(0, -r); x.fillText(ch, 0, 0); x.restore(); a += step; }); };
+  if (front){
+    arc('STAR REWARDS', m*.66, S*.075, 0);
+    x.save(); x.scale(S/240, S/240); x.translate(-120, -128);
+    x.beginPath(); const P = [[120,74],[130.6,96.4],[155,99.4],[137,116.2],[141.8,140.4],[120,128.6],[98.2,140.4],[103,116.2],[85,99.4],[109.4,96.4]]; P.forEach((p,i) => i ? x.lineTo(p[0],p[1]) : x.moveTo(p[0],p[1])); x.closePath(); x.fill(); x.restore();
+    x.font = '700 ' + (S*.12) + 'px Oswald, "Arial Narrow", sans-serif'; x.fillStyle = kind === 'color' ? '#FFF4EA' : gold; x.fillText('$1 LESS', 0, m*.36);
+    x.font = '700 ' + (S*.045) + 'px "Hanken Grotesk", Arial, sans-serif'; x.fillText('ON EVERY DISH', 0, m*.56);
+  } else {
+    arc('ASPLEY HOTEL', m*.66, S*.07, 0);
+    x.font = '700 ' + (S*.05) + 'px "Hanken Grotesk", Arial, sans-serif'; x.fillText('EST', 0, -m*.18);
+    x.font = '700 ' + (S*.17) + 'px Oswald, "Arial Narrow", sans-serif'; x.fillText('1935', 0, m*.06);
+    x.font = '700 ' + (S*.045) + 'px "Hanken Grotesk", Arial, sans-serif'; x.fillText('PUB ON THE HILL', 0, m*.36);
+  }
+  const t = new THREE.CanvasTexture(c); t.anisotropy = 4; if (kind === 'color') t.colorSpace = THREE.SRGBColorSpace; disposables.push(t); return t;
+}
+function buildCoin(){
+  if (coinMesh) return;
+  const geo = new THREE.CylinderGeometry(1.35, 1.35, .14, 128, 1);
+  const ridge = (() => { const c = document.createElement('canvas'); c.width = 512; c.height = 8; const x = c.getContext('2d'); for (let i=0;i<128;i++){ x.fillStyle = i%2 ? '#FFFFFF' : '#000000'; x.fillRect(i*4,0,4,8); } const t = new THREE.CanvasTexture(c); t.wrapS = THREE.RepeatWrapping; t.repeat.set(2,1); disposables.push(t); return t; })();
+  const edge = new THREE.MeshStandardMaterial({ color: col('#E8B23A'), metalness: 1, roughness: .28, bumpMap: ridge, bumpScale: 2, envMapIntensity: 1.4 });
+  const face = (front) => new THREE.MeshStandardMaterial({ map: coinFace(front,'color'), metalnessMap: coinFace(front,'metal'), metalness: 1, roughnessMap: coinFace(front,'rough'), roughness: 1, bumpMap: coinFace(front,'metal'), bumpScale: 1.6, envMapIntensity: 1.1 });
+  coinMesh = new THREE.Mesh(geo, [edge, face(true), face(false)]);
+  coinMesh.rotation.x = Math.PI/2; coinSpin.add(coinMesh);
+}
+const coinKey = new THREE.DirectionalLight(0xfff0d8, 2.2); coinKey.position.set(-3, 4, 5); coinSet.add(coinKey); coinSet.add(coinKey.target);
+const coinRim = new THREE.PointLight(0xff5a6a, 18, 10, 1.6); coinRim.position.set(2.5, 1.5, -2); coinSet.add(coinRim);
+const sparkGeo = pointsGeometry(Math.round(160*Q), () => { const a = rnd()*6.283, r = 1.7 + rnd()*1.6; return { p:[Math.cos(a)*r, (rnd()-.5)*2.6, Math.sin(a)*r*.4 - .3], s: 26 + rnd()*36, c: C3('#FFD27A', 1.3) }; });
+const sparkMat = pointsMaterial({ move: 'float a = atan(p.y, p.x) + uTime * (.12 + aSeed.y * .2); float r = length(p.xy); p.xy = vec2(cos(a), sin(a)) * r;', tw: 'vTw = pow(.5 + .5 * sin(uTime * (2. + aSeed.y * 3.) + aSeed.x * 50.), 4.) * 1.4;' });
+const sparks = new THREE.Points(sparkGeo, sparkMat); sparks.frustumCulled = false; coinSet.add(sparks);
+
+/* ============================================================================================
+   POST (desktop only): HDR target, bloom, OutputPass, then grain. awwwards-3d step 4 order.
+   ============================================================================================ */
+let composer = null, bloom = null, grain = null;
+if (POST){
+  const [{ EffectComposer }, { RenderPass }, { UnrealBloomPass }, { OutputPass }, { ShaderPass }] = await Promise.all([
+    import('three/addons/postprocessing/EffectComposer.js'), import('three/addons/postprocessing/RenderPass.js'),
+    import('three/addons/postprocessing/UnrealBloomPass.js'), import('three/addons/postprocessing/OutputPass.js'), import('three/addons/postprocessing/ShaderPass.js')]);
+  const rt = new THREE.WebGLRenderTarget(2, 2, { type: THREE.HalfFloatType, samples: 4 });
+  composer = new EffectComposer(renderer, rt);
+  composer.addPass(new RenderPass(scene, camera));
+  bloom = new UnrealBloomPass(new THREE.Vector2(256, 256), .6, .55, .82); composer.addPass(bloom);
+  composer.addPass(new OutputPass());
+  grain = new ShaderPass({ uniforms: { tDiffuse:{value:null}, uTime:{value:0}, uAmt:{value:.045}, uVig:{value:.55} },
+    vertexShader: 'varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.); }',
+    fragmentShader: `precision mediump float; uniform sampler2D tDiffuse; uniform float uTime, uAmt, uVig; varying vec2 vUv;
+      float rnd(vec2 p){ return fract(sin(dot(p, vec2(12.9898,78.233))) * 43758.5453); }
+      void main(){ vec4 c = texture2D(tDiffuse, vUv); float v = smoothstep(.85, .3, length(vUv - .5)); c.rgb *= mix(1. - uVig, 1., v); c.rgb += (rnd(vUv + fract(uTime)) - .5) * uAmt; gl_FragColor = c; }` });
+  composer.addPass(grain);
+  disposables.push(rt);
+}
+
+/* ============================================================================================
+   THE PATH. 24 keypoints, one Catmull-Rom for position and one for the look target.
+   Chapters map their DOM scroll range onto keypoint ranges, so the camera always matches the copy.
+   ============================================================================================ */
+let P = false, posCurve, lookCurve, frames = [];
+const HILL_A = { pos: new THREE.Vector3(0,0,0), rot: 0 };
+const HILL_B = { pos: new THREE.Vector3(0,0,-154), rot: Math.PI };
+function buildPath(){
+  P = innerHeight > innerWidth * 1.05;
+  layoutHall(P);
+  const V = (x,y,z) => new THREE.Vector3(x,y,z);
+  const bb = V(0, BB_Y, 0), door = V((DOOR.x-.5)*BBW, Y0, 0);
+  const pos = [], look = [];
+  const k = (p, l) => { pos.push(p); look.push(l); };
+  /* 0..4 the climb */
+  k(V(0, 1.6, P ? 44 : 38), V(0, 5.4, 0));
+  k(V(P ? -2.2 : -3.4, 3.2, P ? 32 : 27), V(0, 6.6, 0));
+  k(V(P ? 1.8 : 2.8, 5.4, P ? 21 : 17), V(0, 7.3, 0));
+  k(V(.5, BB_Y + .1, P ? 12 : 9.2), bb.clone());
+  k(V(door.x, door.y, 3.2), V(door.x, door.y, -4));
+  /* 5 inside the door */
+  k(V(door.x*.5, Y0 + .05, -2.4), V(photos[0].mesh.position.x*.6, Y0, -12));
+  /* 6..11 the hall stations */
+  photos.forEach((ph) => { const d = P ? 6.3 : 4.6; k(ph.mesh.position.clone().addScaledVector(ph.n, d), ph.mesh.position.clone()); });
+  /* 12..14 the pour: a slow orbit that ends on a low hero angle */
+  const C = GLASS_POS.clone().add(V(0, 1.25, 0));
+  const orbit = (a, d, h) => V(Math.sin(a)*d, C.y + h, C.z + Math.cos(a)*d);
+  const s = P ? 1.32 : 1;
+  k(orbit(0, 7.2*s, .9), C.clone().add(V(0,-.1,0)));
+  k(orbit(.55, 6.3*s, 1.1), C.clone());
+  k(orbit(1.05, 5.5*s, .2), C.clone().add(V(0,.15,0)));
+  /* 15..16 this week: drifting through the bokeh */
+  k(V(0, Y0 + .3, -93), V(0, Y0, -106));
+  k(V(-.9, Y0 + .8, -99), V(.6, Y0 + .3, -114));
+  /* 17..18 the coin */
+  const cz = coinSet.position.z, cy = coinSet.position.y;
+  k(V(0, cy + .2, cz + (P ? 10.5 : 6.6)), V(0, cy, cz));
+  k(V(.9, cy - .1, cz + (P ? 9.8 : 6.0)), V(0, cy, cz));
+  /* 19..21 out onto the terrace (hill in pose B: rotated, summit at z -154) */
+  const f = FLOOR, tz = HILL_B.pos.z;
+  k(V(0, f + 1.3, tz + 18), V(0, f + 2.1, tz + 5));
+  k(V(1.0, f + 1.1, tz + 12), V(0, f + 2.6, tz + 2));
+  k(V(-.6, f + 1.2, tz + 7.5), V(.4, f + 3.0, tz - 4));
+  /* 22..23 after dark: lift off, arc over the summit, settle on the pub's lit front */
+  k(V(7, f + 6.5, tz - 6), V(0, f + .8, tz));
+  k(P ? V(-4.5, f + 11, tz - 36) : V(-5.5, f + 8.4, tz - 27), V(0, f + (P ? 1.4 : .6), tz));
+  posCurve = new THREE.CatmullRomCurve3(pos, false, 'centripetal');
+  lookCurve = new THREE.CatmullRomCurve3(look, false, 'centripetal');
+  /* framing per keypoint: where the focal point sits on screen (fx right, fy up), so DOM copy never sits on it */
+  frames = P
+    ? [[0,.2],[0,.2],[0,.2],[0,.18],[0,0],[0,.1],[0,.12],[0,.12],[0,.12],[0,.12],[0,.12],[0,.12],[0,.2],[0,.2],[0,.2],[0,.14],[0,.14],[0,.26],[0,.26],[0,.12],[0,.12],[0,.12],[0,.14],[0,.17]]
+    : [[.14,.06],[.14,.06],[.14,.06],[.12,.04],[0,0],[.08,0],[.16,0],[.16,0],[.16,0],[.16,0],[.16,0],[.16,0],[.2,0],[.2,0],[.2,0],[.08,0],[.08,0],[.2,0],[.2,0],[.16,0],[.16,0],[.14,0],[.05,.02],[0,.04]];
+}
+const NK = 24;
+
+/* mood keyframes: sky, fog, light and how much of the outdoors is visible, by keypoint */
+const M = (u, top, mid, hor, fog, fd, out, night, exp, gain, bloomS) => ({ u, top: col(top), mid: col(mid), hor: col(hor), fog: col(fog), fd, out, night, exp, gain, bloomS });
+const MOODS = [
+  M(0,    '#1A1633','#4A2A4A','#D9734A','#2E1C2A', .011, 1, 0,  1.0, 2.3, .55),
+  M(3,    '#151230','#3E2444','#C8613F','#2A1A28', .013, 1, .05, 1.0, 2.6, .6),
+  M(3.9,  '#151230','#3E2444','#C8613F','#2A1A28', .016, 1, .05, 1.12, 2.6, .62),
+  M(4.7,  '#120C09','#1A110C','#2A1A10','#150E0B', .055, 0, 0,  1.05, 2, .5),
+  M(11,   '#100A08','#170F0B','#24160E','#140D0A', .05,  0, 0,  1.0, 2, .55),
+  M(12,   '#140C07','#1E120A','#2E1A0E','#160E09', .03,  0, 0,  1.0, 2, .32),
+  M(14.4, '#140C07','#1E120A','#2E1A0E','#160E09', .03,  0, 0,  1.0, 2, .32),
+  M(15,   '#140A0C','#1E0E12','#2A1216','#170B0E', .04,  0, 0,  1.0, 2, .8),
+  M(16.5, '#140A0C','#1E0E12','#2A1216','#170B0E', .04,  0, 0,  1.0, 2, .8),
+  M(17,   '#1A080C','#260A10','#3A0E16','#1A090D', .035, 0, 0,  1.05, 2, .7),
+  M(18.2, '#1A080C','#260A10','#3A0E16','#1A090D', .035, 0, 0,  1.05, 2, .7),
+  M(19,   '#0B1024','#1E1A3A','#6A3240','#141224', .016, 1, .6, 1.0, 2.2, .9),
+  M(21,   '#091022','#171838','#4A2638','#11112A', .014, 1, .75, 1.0, 2.2, 1),
+  M(22.2, '#050814','#0B1228','#2A1830','#0A0D1A', .011, 1, 1,  1.0, 2.4, 1.05),
+  M(23,   '#050814','#0B1228','#2A1830','#0A0D1A', .010, 1, 1,  1.0, 2.4, 1.05)
+];
+const mood = { top: col(0), mid: col(0), hor: col(0), fog: col(0), fd: 0, out: 1, night: 0, exp: 1, gain: 2, bloomS: .6 };
+function moodAt(u){
+  let i = 0; while (i < MOODS.length-2 && u > MOODS[i+1].u) i++;
+  const a = MOODS[i], b = MOODS[i+1], t = smooth(a.u, b.u, u);
+  ['top','mid','hor','fog'].forEach((k2) => mood[k2].copy(a[k2]).lerp(b[k2], t));
+  ['fd','out','night','exp','gain','bloomS'].forEach((k2) => mood[k2] = lerp(a[k2], b[k2], t));
+}
+
+/* scroll anchors: document y to keypoint u, rebuilt on every ScrollTrigger refresh */
+let anchors = [], pourR = [0,1], coinR = [0,1], weekR = [0,1];
+const absTop = (el) => el.getBoundingClientRect().top + scrollY;
+function buildAnchors(){
+  const vh = innerHeight, A = [];
+  const top = document.getElementById('top'), th = top.offsetHeight;
+  A.push([0,0], [Math.max(1, th - vh*1.05), 3], [th - vh*.3, 4]);
+  const rooms = document.querySelectorAll('#rooms .room');
+  rooms.forEach((r, i) => A.push([absTop(r) + r.offsetHeight/2 - vh/2, 6 + i]));
+  const stops = document.querySelectorAll('#bar .stop');
+  stops.forEach((s, i) => A.push([absTop(s) + s.offsetHeight/2 - vh/2, 12 + i]));
+  pourR = [absTop(stops[0]) - vh*.6, absTop(stops[2]) + stops[2].offsetHeight/2 - vh/2];
+  const wk = document.getElementById('whats-on'); weekR = [absTop(wk) - vh*.4, absTop(wk) + wk.offsetHeight - vh];
+  A.push([weekR[0], 15], [Math.max(weekR[0] + 10, weekR[1]), 16]);
+  const rw = document.getElementById('rewards'); coinR = [absTop(rw) - vh*.2, absTop(rw) + rw.offsetHeight - vh];
+  A.push([coinR[0] + vh*.1, 17], [coinR[1], 18]);
+  const fn = document.getElementById('functions'), ft = absTop(fn);
+  A.push([ft - vh*.15, 19], [ft + fn.offsetHeight*.45, 20], [ft + fn.offsetHeight - vh, 21]);
+  const nt = document.getElementById('after-dark'), ntt = absTop(nt);
+  A.push([ntt + vh*.05, 21.6], [ntt + nt.offsetHeight - vh, 23]);
+  for (let i=1;i<A.length;i++){ if (A[i][0] <= A[i-1][0]) A[i][0] = A[i-1][0] + 1; }
+  anchors = A;
+}
+function uAt(y){
+  const A = anchors; if (!A.length) return 0;
+  if (y <= A[0][0]) return A[0][1];
+  for (let i=1;i<A.length;i++){ if (y <= A[i][0]){ const a = A[i-1], b = A[i]; return lerp(a[1], b[1], (y - a[0])/(b[0]-a[0])); } }
+  return A[A.length-1][1];
+}
+
+/* ---------- state: inputs write .t, the loop damps .c (awwwards-3d ARCHITECTURE section 2) ---------- */
+const S = {
+  u:    { c:0, t:0, e:.055 },
+  lx:   { c:0, t:0, e:.08 },
+  ly:   { c:0, t:0, e:.08 },
+  pour: { c:0, t:0, e:.07 },
+  coin: { c:0, t:0, e:.08 },
+  week: { c:0, t:0, e:.06 },
+  intro:{ c:1, t:1, e:1 }
+};
+let flickV = 0, flickA = 0;
+
+/* flick the coin: the coin follows the finger while dragging and keeps the release speed as momentum
+   (emil-design-eng: momentum-based dismissal maths). Horizontal only, so vertical scroll stays native (touch-action: pan-y). */
+(function(){
+  const z = document.getElementById('flick'); if (!z) return;
+  let down = false, x0 = 0, xs = 0, ts = 0;
+  z.addEventListener('pointerdown', (e) => { if (e.pointerType === 'mouse') e.preventDefault(); down = true; x0 = xs = e.clientX; ts = performance.now(); flickV *= .3; try { z.setPointerCapture(e.pointerId); } catch (err) {} });
+  addEventListener('pointermove', (e) => { if (!down) return; flickA += (e.clientX - x0) * .012; x0 = e.clientX; }, { passive: true });
+  const up = (e) => { if (!down) return; down = false; const dt = Math.max(16, performance.now() - ts), v = ((e.clientX || x0) - xs) / dt; flickV = clamp(flickV + v * 2.4, -7, 7); };
+  addEventListener('pointerup', up); addEventListener('pointercancel', () => { down = false; });
+})();
+
+/* ---------- resize: rAF-coalesced, large-viewport height so the phone URL bar never re-allocates the canvas ---------- */
+let W = 0, Hh = 0, resizeQ = false;
+function resize(){
+  resizeQ = false;
+  const w = document.documentElement.clientWidth, h = Math.max(sizer.offsetHeight, innerHeight);
+  const prevP = P;
+  if (w !== W || Math.abs(h - Hh) > 1){
+    W = w; Hh = h;
+    const pr = Math.min(window.devicePixelRatio || 1, DPR_CAP);
+    renderer.setPixelRatio(pr); renderer.setSize(W, Hh, false);
+    if (composer){ composer.setPixelRatio(pr); composer.setSize(W, Hh); bloom.resolution.set(W*.5, Hh*.5); }
+    camera.aspect = W/Hh; camera.fov = (Hh > W*1.05) ? 54 : 40; camera.updateProjectionMatrix();
+    [townMat, starMat, bubMat, dustMat, bokehMat, ffMat, sparkMat, canopy.userData.bulbs.material].forEach((m) => { m.uniforms.uPR.value = pr; m.uniforms.uScale.value = Hh / 900; });
+  }
+  buildPath(); buildAnchors();
+  if (prevP !== P) lastFx = -9;
+}
+addEventListener('resize', () => { if (!resizeQ){ resizeQ = true; requestAnimationFrame(resize); } });
+if (window.ScrollTrigger) window.ScrollTrigger.addEventListener('refresh', buildAnchors);
+
+/* ---------- visibility: pause when hidden or when no 3D chapter is on screen ---------- */
+let onScreen = true, hidden = document.hidden;
+document.addEventListener('visibilitychange', () => { hidden = document.hidden; });
+const vis = new Set();
+const io = new IntersectionObserver((es) => { es.forEach((e) => e.isIntersecting ? vis.add(e.target) : vis.delete(e.target)); onScreen = vis.size > 0; });
+document.querySelectorAll('[data-scene]').forEach((el) => io.observe(el));
+
+/* ---------- the loop ---------- */
+const tmpP = new THREE.Vector3(), tmpL = new THREE.Vector3(), tmpR = new THREE.Vector3(), tmpU = new THREE.Vector3(), UPV = new THREE.Vector3(0,1,0);
+const introPos = new THREE.Vector3(), introLook = new THREE.Vector3();
+let time = 0, lastFx = -9, lastFy = -9, poseB = false, ready = false;
+const gauge = document.getElementById('gauge');
+function setHillPose(b){
+  if (b === poseB) return; poseB = b;
+  const p = b ? HILL_B : HILL_A; hill.position.copy(p.pos); hill.rotation.y = p.rot; hill.updateMatrixWorld(true);
+}
+function frame(dt){
+  time += dt;
+  /* 1. inputs to targets */
+  const y = window.scrollY;
+  S.u.t = uAt(y);
+  S.pour.t = clamp((y - pourR[0]) / Math.max(1, pourR[1] - pourR[0]), 0, 1);
+  S.coin.t = clamp((y - coinR[0]) / Math.max(1, coinR[1] - coinR[0]), 0, 1);
+  S.week.t = clamp((y - weekR[0]) / Math.max(1, weekR[1] - weekR[0]), 0, 1);
+  const L = window.__look || { x:0, y:0 };
+  S.lx.t = L.x; S.ly.t = L.y;
+  /* 2. damp */
+  for (const k2 in S) if (k2 !== 'intro') damp(S[k2], dt);
+  const u = clamp(S.u.c, 0, NK - 1), vel = clamp((S.u.t - S.u.c) * 1.3, -1.6, 1.6);
+  moodAt(u);
+  setHillPose(u > 12);
+
+  /* 3. camera on the spline, with the intro pull-back, look parallax and a never-still idle drift */
+  const t = u / (NK - 1);
+  posCurve.getPoint(t, tmpP); lookCurve.getPoint(t, tmpL);
+  const it = S.intro.c;
+  if (it > 0.0001){
+    introPos.set(0, BB_Y + .2, P ? 12.5 : 8.6); introLook.set(0, BB_Y, 0);
+    const e = it*it*(3-2*it);
+    tmpP.lerp(introPos, e); tmpL.lerp(introLook, e);
+  }
+  camera.position.copy(tmpP); camera.lookAt(tmpL);
+  tmpR.setFromMatrixColumn(camera.matrix, 0); tmpU.setFromMatrixColumn(camera.matrix, 1);
+  const pa = (u < 4.4 || u > 21.5) ? (P ? .9 : .7) : .3;
+  const driftX = Math.sin(time*.23)*.16 + Math.sin(time*.61)*.04, driftY = Math.sin(time*.17)*.1;
+  camera.position.addScaledVector(tmpR, S.lx.c*pa + driftX).addScaledVector(tmpU, S.ly.c*pa*.55 + driftY);
+  camera.lookAt(tmpL);
+  camera.rotateZ(Math.sin(time*.13)*.006 - vel*.02);
+  /* framing offset, eased by u */
+  const i0 = Math.min(NK-2, Math.floor(u)), fr = u - i0, f0 = frames[i0], f1 = frames[i0+1];
+  const fx = lerp(f0[0], f1[0], fr) * (1-it), fy = lerp(f0[1], f1[1], fr) * (1-it) + (P ? .14 : .04) * it;
+  if (Math.abs(fx-lastFx) > 1e-4 || Math.abs(fy-lastFy) > 1e-4){ camera.setViewOffset(W, Hh, -fx*W, fy*Hh, W, Hh); lastFx = fx; lastFy = fy; }
+  sky.position.copy(camera.position); stars.position.copy(camera.position);
+
+  /* 4. mood */
+  skyMat.uniforms.uTop.value.copy(mood.top); skyMat.uniforms.uMid.value.copy(mood.mid); skyMat.uniforms.uHor.value.copy(mood.hor);
+  skyMat.uniforms.uSun.value = mood.out * (1 - mood.night);
+  skyMat.uniforms.uGround.value.copy(mood.fog);
+  scene.fog.color.copy(mood.fog); scene.fog.density = mood.fd;
+  renderer.setClearColor(mood.fog);
+  renderer.toneMappingExposure = mood.exp;
+  if (bloom) bloom.strength = mood.bloomS;
+  starMat.uniforms.uAlpha.value = mood.out * (mood.night * 1.1 + .08);
+
+  /* 5. sets: visibility windows keep draw calls low, uniforms read damped state */
+  hill.visible = mood.out > .003;
+  if (hill.visible){
+    const tu = terrainMat.uniforms;
+    tu.uOutdoor.value = mood.out; tu.uNight.value = mood.night; tu.uGain.value = mood.gain;
+    tu.uClimb.value = camera.position.y - hill.position.y; tu.uTime.value = time;
+    tu.uPulse.value = ((time * 1.6) % 14) - 3;
+    tu.uReveal.value = lerp(HP + 9, -1, Math.pow(it, 1.4));
+    tu.uLine.value.set(mood.night > .5 ? '#B00C28' : '#C8102E'); tu.uHot.value.set(mood.night > .5 ? '#FF5468' : '#FF7A45');
+    tu.uBase.value.copy(BASE_DUSK).lerp(BASE_NIGHT, mood.night);
+    bbMat.uniforms.uNight.value = mood.night; bbMat.uniforms.uTime.value = time;
+    const dz = camera.position.z - hill.position.z;
+    bbMat.uniforms.uHole.value = poseB ? 0 : smooth(5.2, .9, dz) * 1.1;
+    billboard.visible = poseB || dz > -.2;
+    pubGlow.material.opacity = (.35 + mood.night * .5) * mood.out;
+    townMat.uniforms.uAlpha.value = mood.out * (.45 + mood.night * .75); townMat.uniforms.uTime.value = time;
+    const cb = canopy.userData.bulbs.material.uniforms; cb.uTime.value = time; cb.uChase.value = (time * .07) % 1; cb.uAlpha.value = smooth(.4, 1, mood.out) * (.55 + mood.night * .6);
+    canopy.visible = poseB && mood.out > .35;
+    fireflies.visible = mood.night > .05; ffMat.uniforms.uAlpha.value = mood.night; ffMat.uniforms.uTime.value = time;
+  }
+  hall.visible = u > 3.4 && u < 12.8;
+  if (hall.visible){
+    if (!texRoomsStarted) loadRooms();
+    photos.forEach((ph) => {
+      const m = ph.mat.uniforms, d = camera.position.distanceTo(ph.mesh.position);
+      m.uVel.value = vel; m.uTime.value = time;
+      m.uReveal.value = 1 - smooth(9, 24, d);
+      m.uFocus.value = 1 - smooth(0, 1.1, Math.abs(u - (6 + ph.i)));
+      ph.spot.material.opacity = .12 + .3 * m.uFocus.value;
+    });
+  }
+  dust.visible = mood.out < .995; dustMat.uniforms.uAlpha.value = (1 - mood.out) * .9; dustMat.uniforms.uTime.value = time;
+  bar.visible = u > 10.6 && u < 15.8;
+  if (bar.visible){
+    const p = S.pour.c, fill = smooth(.04, .86, p), Lv = lerp(.3, 2.28, fill);
+    const head = fill > .05 ? lerp(.04, .2, smooth(.45, .98, p)) : 0;
+    const base = bar.position.y;
+    levelPlane.constant = base + Lv;
+    foamBottom.constant = -(base + Lv); foamTop.constant = base + Lv + head;
+    beer.visible = fill > .01; foam.visible = head > .01; foamCap.visible = head > .01;
+    beerTop.visible = beer.visible && !foamCap.visible;
+    const r0 = innerR(Lv) - .008; beerTop.position.y = Lv; beerTop.scale.setScalar(r0);
+    const rh = innerR(Lv + head) - .006; foamCap.position.y = Lv + head - .01; foamCap.scale.set(rh, 1 + head*2, rh); foamCap.rotation.y = time*.05;
+    const pouring = clamp((S.pour.t - S.pour.c) * 40, 0, 1) * (p < .9 ? 1 : 0) + (p > .02 && p < .88 ? .35 : 0);
+    stream.visible = pouring > .02;
+    stream.position.set(Math.sin(time*7)*.01, 6.5, 0); stream.scale.set(.05*Math.min(1,pouring), 6.5 - Lv - head*.5, .05*Math.min(1,pouring));
+    bubMat.uniforms.uL.value = Lv; bubMat.uniforms.uOn.value = smooth(.05, .2, fill); bubMat.uniforms.uTime.value = time;
+    backMat.uniforms.uTime.value = time; backMat.uniforms.uFill.value = fill; backMat.uniforms.uFade.value = smooth(14.2, 14.8, u); backMat.uniforms.uFadeCol.value.copy(mood.fog);
+    glass.rotation.y = time * .1;
+    if (gauge){ gauge.style.setProperty('--fill', fill.toFixed(3)); gauge.classList.toggle('on', u > 11.5 && u < 14.8); }
+    if (!backMat.uniforms.uHas.value && !bar.userData.loading){ bar.userData.loading = true; loadTex(IMG('12-bistro-bar-counter-view-02')).then((tx) => { if (tx){ backMat.uniforms.uMap.value = tx; backMat.uniforms.uHas.value = 1; } }); }
+  } else if (gauge) gauge.classList.remove('on');
+  bokeh.visible = u > 13.6 && u < 18.4;
+  if (bokeh.visible){ bokehMat.uniforms.uTime.value = time; bokehMat.uniforms.uAlpha.value = smooth(13.6, 14.8, u) * (1 - smooth(17.6, 18.4, u)); }
+  coinSet.visible = u > 15.6 && u < 19.4;
+  if (coinSet.visible){
+    buildCoin();
+    flickV *= Math.exp(-dt * 1.5); flickA += flickV * dt * 6;
+    coinSpin.rotation.y = S.coin.c * Math.PI * 4 + flickA;
+    coinSpin.rotation.x = Math.sin(time * .7) * .12 + clamp(flickV, -1, 1) * .15;
+    coinSpin.position.y = Math.sin(time * .9) * .08;
+    const away = smooth(17.95, 18.45, u); coinSet.scale.setScalar(Math.max(.001, 1 - away)); coinSpin.rotation.y += away * 4;
+    sparkMat.uniforms.uTime.value = time; sparkMat.uniforms.uAlpha.value = .6 + Math.min(1, Math.abs(flickV)) * .8;
+  }
+  if (grain) grain.uniforms.uTime.value = time;
+
+  /* 6. draw */
+  if (composer) composer.render(dt); else renderer.render(scene, camera);
+  G.frames++;
+}
+
+/* ---------- start: size, path, first frame, then hand over from the poster with an establishing pull-back ---------- */
+resize();
+let started = false;
+const tick = (tm, dms) => {
+  if (hidden || !onScreen) return;
+  const dt = Math.min((dms || 16.7) / 1000, .1);
+  frame(dt);
+};
+frame(1/60);
+if (shaderBroken) throw new Error('shader compile failed');
+G.ok = true;
+gsap.ticker.add(tick);
+requestAnimationFrame(() => {
+  root.classList.add('g3d-ready'); ready = true;
+  if (scrollY < 20){ gsap.to(S.intro, { c: 0, duration: 3.4, ease: 'power2.inOut', delay: .15 }); }
+  else S.intro.c = 0;
+  loadTex(IMG('24-hotel-wide-exterior-hero')).then((t) => { if (t){ bbMat.uniforms.uMap.value = t; gsap.to(bbMat.uniforms.uHas, { value: 1, duration: 1.2, ease: 'power2.out' }); } });
+  const idle = window.requestIdleCallback || ((f) => setTimeout(f, 1200));
+  idle(() => loadRooms(), { timeout: 4000 });
+  idle(() => buildCoin(), { timeout: 7000 });
+});
+
+/* test and QA hooks */
+G.renderer = renderer;
+G.capabilities = { isWebGL2: renderer.capabilities.isWebGL2, maxTextureSize: renderer.capabilities.maxTextureSize, precision: renderer.capabilities.precision, renderer: window.__glInfo };
+G.state = () => ({ flick: +flickV.toFixed(3), flickA: +flickA.toFixed(3), cam: camera.position.toArray().map((v) => +v.toFixed(2)), u: S.u.c, uT: S.u.t, pour: S.pour.c, coin: S.coin.c, intro: S.intro.c, tier: G.tier, frames: G.frames, poseB, anchors: anchors.length });
+G.settle = () => { for (const k2 in S) S[k2].c = S[k2].t; S.intro.c = 0; gsap.killTweensOf(S.intro); };
+G.probe = () => {
+  frame(1/60);
+  const gl = renderer.getContext(), w = gl.drawingBufferWidth, h = gl.drawingBufferHeight, px = new Uint8Array(4);
+  let sum = 0, sum2 = 0, n = 0;
+  for (let i=0;i<12;i++) for (let j=0;j<12;j++){ gl.readPixels(Math.floor((i+.5)/12*w), Math.floor((j+.5)/12*h), 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px); const l = (px[0]+px[1]+px[2])/3; sum += l; sum2 += l*l; n++; }
+  const mean = sum/n; return { mean, sd: Math.sqrt(Math.max(0, sum2/n - mean*mean)) };
+};
+G.dispose = () => {
+  gsap.ticker.remove(tick); io.disconnect();
+  scene.traverse((o) => { if (o.geometry) o.geometry.dispose(); if (o.material){ (Array.isArray(o.material) ? o.material : [o.material]).forEach((m) => m.dispose()); } });
+  disposables.forEach((d) => d.dispose && d.dispose());
+  if (composer) composer.dispose();
+  renderer.dispose();
+};
+addEventListener('pagehide', (e) => { if (!e.persisted) G.dispose(); });
+}
+</script>
