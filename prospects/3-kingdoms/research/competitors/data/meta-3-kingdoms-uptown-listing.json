@@ -1,0 +1,91 @@
+{
+  "slug": "3-kingdoms-uptown-listing",
+  "id": "local-00",
+  "checked": "2026-10-13",
+  "summary": {
+    "name": "3 Kingdoms (Uptown store listing, the only web page about the venue)",
+    "type": "Sichuan mini hot pot",
+    "platform": "Uptown/Vicinity centre site (not owned by 3 Kingdoms)",
+    "ordering": "Uber Eats (third party, found via search); no direct ordering",
+    "note": "Venue image on the listing fails to load (alt text shows). No menu, no prices, no photos of food.",
+    "url": "https://www.uptownbrisbane.com.au/stores/3-kingdoms",
+    "title": "3 Kingdoms - Uptown",
+    "metaDescription": null,
+    "loadEventMs_desktop": 4578,
+    "networkIdleMs_desktop": 24579,
+    "transferKB_desktop": 6919,
+    "transferKB_mobile": 6922,
+    "cmsDetected": [],
+    "generator": null
+  },
+  "method": "Playwright Chromium via network proxy, 1440x900 desktop and 390x844 mobile, wait for networkidle (max 20s) + 2s. Transfer size = sum of CDP encodedDataLength for the page load, one sample. Provider and motion-library detection is a keyword scan and can have false positives.",
+  "pages": {
+    "home": {
+      "desktop": {
+        "url": "https://www.uptownbrisbane.com.au/stores/3-kingdoms",
+        "finalUrl": "https://www.uptownbrisbane.com.au/stores/3-kingdoms",
+        "status": 200,
+        "err": null,
+        "dclMs": 3016,
+        "loadMs": 4578,
+        "networkIdleMs": 24579,
+        "cookieDismissed": null,
+        "pageHeight": 3087,
+        "info": {
+          "title": "3 Kingdoms - Uptown",
+          "metaDesc": null,
+          "ogImage": false,
+          "lang": "en-us",
+          "hreflang": [],
+          "hasChinese": false,
+          "chineseCharCount": 0,
+          "generator": null,
+          "cms": [],
+          "h1": [],
+          "ldTypes": [],
+          "videos": 0,
+          "canvas": 0,
+          "imgs": 14,
+          "pdfLinks": [],
+          "orderingProviders": [],
+          "telLinks": 2,
+          "loadedFonts": [
+            "Primary"
+          ],
+          "computedFonts": [
+            "Primary",
+            "Arial"
+          ],
+          "bodyBg": "rgba(0, 0, 0, 0)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": false,
+          "textSample": "Search Everything Uptown Open Today: 9:00am - 5:30pm LIVE:Off peak time SHOPPING FOOD DIRECTIONS & MAPS WHAT'S ON CENTRE INFO PARKING DiningFood & DiningCafes & Restaurants3 Kingdoms 3 Kingdoms Location: Level A Monday 02 Nov 11:00am - 7:00pm Tuesday 03 Nov 11:00am - 7:00pm Wednesday 04 Nov 11:00am - 7:00pm Thursday 05 Nov 11:00am - 7:00pm Friday 06 Nov 11:00am - 7:30pm Saturday 07 Nov 11:00am - 7:00pm Sunday 08 Nov 11:00am - 7:00pm Monday 12 Oct 11:00am - 7:00pm Today 13 Oct 11:00am - 7:00pm Tomorrow 14 Oct 11:00am - 7:00pm Thursday 15 Oct 11:00am - 7:00pm Friday 16 Oct 11:00am - 7:30pm Saturday 17 Oct 11:00am - 7:00pm Sunday 18 Oct 11:00am - 7:00pm Monday 19 Oct 11:00am - 7:00pm Tuesday 20 Oct 11:00am - 7:00pm Wednesday 21 Oct 11:00am - 7:00pm Thursday 22 Oct 11:00am - 7:00pm Friday 23 Oct 11:00am - 7:30pm Saturday 24 Oct 11:00am - 7:00pm Sunday 25 Oct 11:00am - 7:00pm Monday 26 Oct 11:00am - 7:00pm Tuesday 27 Oct 11:00am - 7:00pm Wednesday 28 Oct 11:00am - 7:00pm Thursday 29 Oct 11:00am - 7:00pm Friday 30 Oct 11:00am - 7:30pm Saturday 31 Oct 11:00am - 7:00pm Sunday 01 Nov 11:00am - 7:00pm Monday 02 Nov 11:00am - 7:00pm Tuesday 03 Nov 11:00am - 7:00pm Wednesday 04 Nov 11:00am - 7:00pm Thursday 05 Nov 11:00am - 7:00pm Friday 06 Nov 11:00am - 7:30pm Saturday 07 Nov 11:00am - 7:00pm Sunday 08 Nov 11:00am - 7:00pm Monday 12 Oct 11:00am - 7:00pm Today 13 Oct 11:00am - 7:00pm Tomorrow 14 Oct 11:00am - 7:00pm Thursday 15 Oct 11:00am - 7:00pm Friday 16 Oct 11:00am - 7:30pm Saturday"
+        },
+        "transferBytes": 7085187,
+        "requests": 165,
+        "motionLibsInScripts": [
+          "swiper",
+          "WebGLRenderer"
+        ]
+      },
+      "mobile": {
+        "url": "https://www.uptownbrisbane.com.au/stores/3-kingdoms",
+        "finalUrl": "https://www.uptownbrisbane.com.au/stores/3-kingdoms",
+        "status": 200,
+        "err": null,
+        "dclMs": 2937,
+        "loadMs": 4662,
+        "networkIdleMs": 24662,
+        "cookieDismissed": null,
+        "pageHeight": 4180,
+        "transferBytes": 7088589,
+        "requests": 165,
+        "motionLibsInScripts": [
+          "swiper",
+          "WebGLRenderer"
+        ]
+      }
+    }
+  }
+}

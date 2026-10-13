@@ -1,0 +1,180 @@
+{
+  "slug": "davids-master-pot",
+  "id": "local-03",
+  "checked": "2026-10-13",
+  "summary": {
+    "name": "David's Master Pot",
+    "type": "Sichuan malatang, assisted self-serve hot pot chain",
+    "platform": "WordPress 6.7 + Elementor",
+    "ordering": "None on site (no online order or booking link found)",
+    "note": "Hero is a 40-second brand video file of 92 MB (content-length 92,085,556). Headless Chromium cannot play H.264, so the captured hero uses a frame extracted from that video. Meta description targets franchise buyers, not diners.",
+    "url": "https://davidsmasterpot.com.au/",
+    "title": "Authentic Sichuan Hot Pot Buffet & Asian Hotpot Restaurant",
+    "metaDescription": "Bring an authentic hotpot buffet Aussies love to your community with a proven hospitality model and full support. Enquire with David’s Master Hotpot today.",
+    "loadEventMs_desktop": 4516,
+    "networkIdleMs_desktop": 6177,
+    "transferKB_desktop": 26676,
+    "transferKB_mobile": 26064,
+    "cmsDetected": [
+      "wordpress",
+      "elementor"
+    ],
+    "generator": "WordPress 6.7.10"
+  },
+  "method": "Playwright Chromium via network proxy, 1440x900 desktop and 390x844 mobile, wait for networkidle (max 20s) + 2s. Transfer size = sum of CDP encodedDataLength for the page load, one sample. Provider and motion-library detection is a keyword scan and can have false positives.",
+  "pages": {
+    "home": {
+      "desktop": {
+        "url": "https://davidsmasterpot.com.au/",
+        "finalUrl": "https://davidsmasterpot.com.au/",
+        "status": 200,
+        "err": null,
+        "dclMs": 4482,
+        "loadMs": 4516,
+        "networkIdleMs": 6177,
+        "cookieDismissed": null,
+        "modalsClosed": [],
+        "pageHeight": 7187,
+        "info": {
+          "title": "Authentic Sichuan Hot Pot Buffet & Asian Hotpot Restaurant",
+          "metaDesc": "Bring an authentic hotpot buffet Aussies love to your community with a proven hospitality model and full support. Enquire with David’s Master Hotpot today.",
+          "ogImage": false,
+          "lang": "en-AU",
+          "hreflang": [],
+          "hasChinese": true,
+          "chineseCharCount": 3,
+          "generator": "WordPress 6.7.10",
+          "cms": [
+            "wordpress",
+            "elementor"
+          ],
+          "h1": [
+            "BUILD YOUR OWN HOT POT"
+          ],
+          "ldTypes": [
+            "Place",
+            "Restaurant",
+            "Organization",
+            "WebSite",
+            "ImageObject",
+            "WebPage"
+          ],
+          "videos": 0,
+          "canvas": 0,
+          "imgs": 57,
+          "pdfLinks": [],
+          "orderingProviders": [],
+          "telLinks": 0,
+          "loadedFonts": [
+            "Poppins",
+            "Archivo"
+          ],
+          "computedFonts": [
+            "Archivo",
+            "Poppins"
+          ],
+          "bodyBg": "rgb(243, 233, 210)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": false,
+          "textSample": "Skip to content DAVID'S MASTER POT HOME MENU STORES PROMOTIONS WHAT'S NEW FRANCHISE CLUB DAVID DAVID'S MASTER POT BUILD YOUR OWN HOT POT SINCE 2018 SEE THE MENU FIND A STORE AUTHENTIC SICHUAN FLAVOURS ASSISTED SELF-SERVE HOTPOT BUFFET LOVED ACROSS AUSTRALIA EAT AS YOU WISH BRAND STORY EVERY BOWL TELLS A STORY At David's Master Pot, every bowl tells a story. One of spice, comfort, and community. Now, we're sharing that success, one franchise at a time. Since 2018, we've grown into one of Australia's best-loved hotpot buffets, bringing authentic Sichuan flavours to the land down under. With an assisted self-serve model customers love, guests can eat as they wish. From the first sizzling spoonful to the last sip, our tables are always open, our broth is always bubbling, and the flavours are always unforgettable. MENU DAVID’S MASTER POT MENU Build your bowl with signature soup bases, snacks, and comforting rice sides. SIGNATURE STIR-FRYSPICY POT Contains: Gluten, Crustaceans, Fish, Peanuts, Sesame, Soy and Beef SIGNATURE SPICY MALATANG Contains: Crustaceans, Milk, Peanuts, Sesame, Soy, Beef and Pork SICHUAN DRY MIX Contains: Gluten, Crustaceans, Peanuts, Sesame, Soy and Beef PORK BONE SOUP Contains: Crustaceans, Milk, Peanuts, Sesame, Soy, Beef GOLDEN PICKLED SOUP Contains: Sesame, Soy and Pork SWEET & SAVORY TOMATO SOUP Contains: Sesame, Soy and Pork FRAGRANT COCONUT LAKSA SOUP Contains: Gluten, Crustaceans, Fish, Peanuts, Egg, Sesame, Soy and Beef MENU SMALL BITES 01 SNACK MENU"
+        },
+        "transferBytes": 27316723,
+        "requests": 88,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      },
+      "mobile": {
+        "url": "https://davidsmasterpot.com.au/",
+        "finalUrl": "https://davidsmasterpot.com.au/",
+        "status": 200,
+        "err": null,
+        "dclMs": 3321,
+        "loadMs": 3354,
+        "networkIdleMs": 4666,
+        "cookieDismissed": null,
+        "modalsClosed": [],
+        "pageHeight": 10746,
+        "transferBytes": 26689046,
+        "requests": 83,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      }
+    },
+    "menu": {
+      "desktop": {
+        "url": "https://davidsmasterpot.com.au/menu/",
+        "finalUrl": "https://davidsmasterpot.com.au/menu/",
+        "status": 200,
+        "err": null,
+        "dclMs": 4015,
+        "loadMs": 4018,
+        "networkIdleMs": 12421,
+        "cookieDismissed": null,
+        "modalsClosed": [],
+        "pageHeight": 3964,
+        "info": {
+          "title": "Menu | David's Master Pot",
+          "metaDesc": "Create Your Perfect Mini Hot Pot Enjoy Us Anywhere Across Australia! Soup Bases Sichuan Snackie Dessert Drinks",
+          "ogImage": false,
+          "lang": "en-AU",
+          "hreflang": [],
+          "hasChinese": true,
+          "chineseCharCount": 3,
+          "generator": "WordPress 6.7.10",
+          "cms": [
+            "wordpress",
+            "elementor"
+          ],
+          "h1": [
+            "BUILD YOUR BOWL.\nMAKE IT YOURS."
+          ],
+          "ldTypes": [],
+          "videos": 0,
+          "canvas": 0,
+          "imgs": 20,
+          "pdfLinks": [],
+          "orderingProviders": [],
+          "telLinks": 0,
+          "loadedFonts": [
+            "Poppins",
+            "Archivo"
+          ],
+          "computedFonts": [
+            "Archivo",
+            "Poppins"
+          ],
+          "bodyBg": "rgb(243, 233, 210)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": false,
+          "textSample": "Skip to content DAVID'S MASTER POT HOME MENU STORES PROMOTIONS WHAT'S NEW FRANCHISE CLUB DAVID MENU BUILD YOUR BOWL. MAKE IT YOURS. Choose from 100+ ingredients, pick your favourite broth and create a hot pot made exactly your way. SOUP BASES SIGNATURE STIR-FRYSPICY POT Contains: Gluten, Crustaceans, Fish, Peanuts, Sesame, Soy and Beef SIGNATURE SPICY MALATANG Contains: Crustaceans, Milk, Peanuts, Sesame, Soy, Beef and Pork SICHUAN DRY MIX Contains: Gluten, Crustaceans, Peanuts, Sesame, Soy and Beef PORK BONE SOUP Contains: Crustaceans, Milk, Peanuts, Sesame, Soy, Beef GOLDEN PICKLED SOUP Contains: Sesame, Soy and Pork SWEET & SAVORY TOMATO SOUP Contains: Sesame, Soy and Pork FRAGRANT COCONUT LAKSA SOUP Contains: Gluten, Crustaceans, Fish, Peanuts, Egg, Sesame, Soy and Beef SNACK MENUS CRISPY PRAWN SPRING ROLLS Light, golden, and shatteringly crisp pastry sheets wrapped around a juicy, seasoned prawn filling. The perfect crunchy bite to start your meal. FRIED CRISPY PORK BELL Premium pork neck pieces lightly battered and fried to a perfect golden crunch, then tossed in a subtle, aromatic spice seasoning. Highlighting a wonderful contrast of crispy outside and tender inside. GOLDEN RED BEAN SESAME DOUGHNUTI Golden, crispy pastry puffs coated in toasted sesame seeds, opening up to a warm, sweet, and smooth red bean paste center. CRISPY MOCHI WITH STICKY BROWN SUGAR GLAZE Crispy on the outside with a wonderfully chewy, mochi-like center, generously drizzled with a rich, sticky b"
+        },
+        "transferBytes": 43863701,
+        "requests": 73,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      },
+      "mobile": {
+        "url": "https://davidsmasterpot.com.au/menu/",
+        "finalUrl": "https://davidsmasterpot.com.au/menu/",
+        "status": 200,
+        "err": null,
+        "dclMs": 18906,
+        "loadMs": 18918,
+        "networkIdleMs": 20527,
+        "cookieDismissed": null,
+        "modalsClosed": [],
+        "pageHeight": 9396,
+        "transferBytes": 43835966,
+        "requests": 72,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      }
+    }
+  }
+}

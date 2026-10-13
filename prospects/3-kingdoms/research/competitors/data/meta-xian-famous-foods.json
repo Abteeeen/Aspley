@@ -1,0 +1,181 @@
+{
+  "slug": "xian-famous-foods",
+  "id": "benchmark-05",
+  "checked": "2026-10-13",
+  "summary": {
+    "name": "Xi'an Famous Foods",
+    "type": "Chinese hand-pulled noodles fast casual (NYC)",
+    "platform": "Webflow (+ Shopify for shop)",
+    "ordering": "order.online (pickup/delivery), Toast catering, rewards app",
+    "note": "Every dish shows its Chinese name above the English name and a menu code (A1, B2). Spicy and not-spicy nutrition PDFs.",
+    "url": "https://www.xianfoods.com/",
+    "title": "Xi'an Famous Foods: specialty Chinese restaurants serving Xi'an dishes based on family recipes",
+    "metaDescription": "Learn about the story, menu, and locations of the NYC fast-casual Chinese specialty restaurant chain known as Xi'an Famous Foods, serving Chinese dishes based on family recipes of favorite noodles and dishes from Xi'an, Shaanxi, China.",
+    "loadEventMs_desktop": 1970,
+    "networkIdleMs_desktop": 2666,
+    "transferKB_desktop": 3714,
+    "transferKB_mobile": 2648,
+    "cmsDetected": [
+      "shopify",
+      "webflow"
+    ],
+    "generator": null
+  },
+  "method": "Playwright Chromium via network proxy, 1440x900 desktop and 390x844 mobile, wait for networkidle (max 20s) + 2s. Transfer size = sum of CDP encodedDataLength for the page load, one sample. Provider and motion-library detection is a keyword scan and can have false positives.",
+  "pages": {
+    "home": {
+      "desktop": {
+        "url": "https://www.xianfoods.com/",
+        "finalUrl": "https://www.xianfoods.com/",
+        "status": 200,
+        "err": null,
+        "dclMs": 1031,
+        "loadMs": 1970,
+        "networkIdleMs": 2666,
+        "cookieDismissed": null,
+        "pageHeight": 9037,
+        "info": {
+          "title": "Xi'an Famous Foods: specialty Chinese restaurants serving Xi'an dishes based on family recipes",
+          "metaDesc": "Learn about the story, menu, and locations of the NYC fast-casual Chinese specialty restaurant chain known as Xi'an Famous Foods, serving Chinese dishes based on family recipes of favorite noodles and dishes from Xi'an, Shaanxi, China.",
+          "ogImage": true,
+          "lang": null,
+          "hreflang": [],
+          "hasChinese": true,
+          "chineseCharCount": 77,
+          "generator": null,
+          "cms": [
+            "shopify",
+            "webflow"
+          ],
+          "h1": [
+            "THE XI'AN CLASSICS",
+            "The Xi’an Classics"
+          ],
+          "ldTypes": [],
+          "videos": 1,
+          "canvas": 0,
+          "imgs": 158,
+          "pdfLinks": [],
+          "orderingProviders": [
+            "toasttab",
+            "order.online"
+          ],
+          "telLinks": 0,
+          "loadedFonts": [
+            "Roboto",
+            "PP Supply Sans",
+            "Merriweather",
+            "Open Sans"
+          ],
+          "computedFonts": [
+            "Open Sans",
+            "PP Supply Sans",
+            "Roboto"
+          ],
+          "bodyBg": "rgb(241, 238, 227)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": false,
+          "textSample": "Menu Our Story Locations Contact Catering Pickup/Delivery Shop Rewards App! 咥一回想二回 THE XI'AN CLASSICS Our StorySee Menu B2 孜然羊肉夹馍 Spicy Cumin Lamb Burger NS1 孜然羊肉汤扯面 Spicy Cumin Lamb Hand-Ripped Noodles In Soup N4 腊汁猪肉干扯面 Stewed Pork Hand-Ripped Noodles NS4 腊汁猪肉汤扯面 Stewed Pork Hand-Ripped Noodles in Soup “Xi'an Famous Foods made a mark on the city's culinary world with its hand-pulled noodles and spicy Chinese fare.” “...they have customers who are fresh-off-the-boat Chinese immigrants or tourists; on the other end, they’ve gained followers with absolutely no Chinese heritage” “What's more satisfying...than a hearty, warm bowl of spicy beef with hand-pulled noodles?” “[Their] meteoric New York City rise...is a better example of the American dream than most fiction.” WOULD I PREFER TO EAT AT THE GREATEST RESTAURANT IN THE WORLD OR THIS ON AN AVERAGE DAY? YEAH, I’D PREFER TO EAT HERE. Anthony Bourdain XFF GET TO KNOW US First, we were a bubble tea shop. Then, we were a little cart parked off the street next to the Q58 bus stop. Now, we’re a NYC legend expanding beyond the Big Apple. And we still serve the real deal: Noodles, dumplings, burgers, and our proprietary chili oil with 30+ ingredients. ‍ The father: David, a hot head, the mastermind behind the flavors. The son: Jason (me), a chili head, the business guy who wanted to share our food with everyone. ‍ We don’t always get along, but somehow we made it a family business. Here's our story → OUR MOST POPULAR DISHES FAMILY RE"
+        },
+        "transferBytes": 3802901,
+        "requests": 146,
+        "motionLibsInScripts": [
+          "lottie"
+        ]
+      },
+      "mobile": {
+        "url": "https://www.xianfoods.com/",
+        "finalUrl": "https://www.xianfoods.com/",
+        "status": 200,
+        "err": null,
+        "dclMs": 1273,
+        "loadMs": 1941,
+        "networkIdleMs": 2630,
+        "cookieDismissed": null,
+        "pageHeight": 9634,
+        "transferBytes": 2711593,
+        "requests": 124,
+        "motionLibsInScripts": [
+          "lottie"
+        ]
+      }
+    },
+    "menu": {
+      "desktop": {
+        "url": "https://www.xianfoods.com/menu",
+        "finalUrl": "https://www.xianfoods.com/menu",
+        "status": 200,
+        "err": null,
+        "dclMs": 1062,
+        "loadMs": 1717,
+        "networkIdleMs": 2450,
+        "cookieDismissed": null,
+        "pageHeight": 5763,
+        "info": {
+          "title": "Menu-Xi'an Famous Foods: specialty Chinese restaurants serving Xi'an dishes based on family recipes",
+          "metaDesc": "Learn about the story, menu, and locations of the NYC fast-casual Chinese specialty restaurant chain known as Xi'an Famous Foods, serving Chinese dishes based on family recipes of favorite noodles and dishes from Xi'an, Shaanxi, China.",
+          "ogImage": true,
+          "lang": null,
+          "hreflang": [],
+          "hasChinese": true,
+          "chineseCharCount": 124,
+          "generator": null,
+          "cms": [
+            "webflow"
+          ],
+          "h1": [
+            "MENU"
+          ],
+          "ldTypes": [],
+          "videos": 0,
+          "canvas": 0,
+          "imgs": 50,
+          "pdfLinks": [
+            "https://cdn.prod.website-files.com/64e57dd33e949526478688ea/6946d51ca6bca65e5d76859d_Nutrition%20Facts%20and%20Allergen%20Info%20(NOT%20or%20LEAST%20SPICY)%20121925.pdf",
+            "https://cdn.prod.website-files.com/64e57dd33e949526478688ea/6946d511e1cd8f2d7bc67dec_Nutrition%20Facts%20and%20Allergen%20Info%20(SPICY)%20121925.pdf"
+          ],
+          "orderingProviders": [
+            "toasttab",
+            "order.online"
+          ],
+          "telLinks": 0,
+          "loadedFonts": [
+            "PP Supply Sans",
+            "Open Sans"
+          ],
+          "computedFonts": [
+            "Open Sans",
+            "PP Supply Sans"
+          ],
+          "bodyBg": "rgb(241, 238, 227)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": false,
+          "textSample": "Menu Our Story Locations Contact Catering Pickup/Delivery Shop Rewards App! MENU Family recipes so good, they're famous We make our family's versions of Xi’an classics. Think: biang-biang noodles pulled to order, dumplings doused in our signature dipping sauce, and a refreshing, vinegary liang pi for hot summer days (or any day). Please review our nutrition facts and allergen information for when dishes are not spicy/least spicy or when they are made as regular/default spicy (the chili oil amount makes a difference calories-wise!) ALL LIANG PI BURGERS OTHER SPECIALTIES COLD DISHES HAND-RIPPED NOODLES A1 凉皮 Liang Pi \"Cold-Skin Noodles\" A2 热炒凉皮 Stir-Fried Liang Pi \"Cold-Skin Noodles\" B1 腊汁猪肉夹馍 Stewed Pork Burger B2 孜然羊肉夹馍 Spicy Cumin Lamb Burger F1 长安豆花 Chang'An Spicy Tofu Custard F4 酸辣羊肉水饺 Spicy & Sour Lamb Dumplings F5 酸汤羊肉水饺 Spicy & Sour Lamb Dumplings in Soup F6 酸辣菠菜水饺 Spicy & Sour Spinach Dumplings F8 酸辣猪肉白菜水饺 Spicy & Sour Pork Dumplings L2 凉拌黄瓜 Spicy Asian Cucumber Salad N1 孜然羊肉干扯面 Spicy Cumin Lamb Hand-Ripped Noodles N2 麻辣牛腱干扯面 Spicy & Tingly Beef Muscle Hand-Ripped Noodles N3 岐山臊子干扯面 Mt. Qi Pork Hand-Ripped Noodles N4 腊汁猪肉干扯面 Stewed Pork Hand-Ripped Noodles N6 贵妃鸡干扯面 Wok-Tossed Spicy Concubine's Chicken Hand-Ripped Noodles N8 油泼干扯面 Spicy Hot-Oil Seared Hand-Ripped Noodles N9 炸酱干扯面 Pork \"Zha Jiang\" Hand-Ripped Noodles NS1 孜然羊肉汤扯面 Spicy Cumin Lamb Hand-Ripped Noodles In Soup NS2 麻辣牛腱汤扯面 Spicy & Tingly Beef Muscle Hand-Ripped Noodles in Soup NS3 岐山臊子汤扯面 Mt. Qi Pork Hand-Ri"
+        },
+        "transferBytes": 4514694,
+        "requests": 57,
+        "motionLibsInScripts": [
+          "lottie"
+        ]
+      },
+      "mobile": {
+        "url": "https://www.xianfoods.com/menu",
+        "finalUrl": "https://www.xianfoods.com/menu",
+        "status": 200,
+        "err": null,
+        "dclMs": 1676,
+        "loadMs": 2358,
+        "networkIdleMs": 2928,
+        "cookieDismissed": null,
+        "pageHeight": 10230,
+        "transferBytes": 4262042,
+        "requests": 56,
+        "motionLibsInScripts": [
+          "lottie"
+        ]
+      }
+    }
+  }
+}

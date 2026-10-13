@@ -1,0 +1,174 @@
+{
+  "slug": "chagee",
+  "id": "benchmark-04",
+  "checked": "2026-10-13",
+  "summary": {
+    "name": "CHAGEE (global)",
+    "type": "Chinese tea chain",
+    "platform": "Next.js, GSAP ScrollTrigger + Lenis",
+    "ordering": "None on global site (app-based)",
+    "note": "Video hero. Region-redirect modal on first load. English / 简体中文 / 繁體中文 switch.",
+    "url": "https://www.chagee.com/en",
+    "title": "CHAGEE official website-front page",
+    "metaDescription": "CHAGEE TOGETHER!",
+    "loadEventMs_desktop": 13988,
+    "networkIdleMs_desktop": 23116,
+    "transferKB_desktop": 9225,
+    "transferKB_mobile": 9015,
+    "cmsDetected": [
+      "nextjs"
+    ],
+    "generator": null
+  },
+  "method": "Playwright Chromium via network proxy, 1440x900 desktop and 390x844 mobile, wait for networkidle (max 20s) + 2s. Transfer size = sum of CDP encodedDataLength for the page load, one sample. Provider and motion-library detection is a keyword scan and can have false positives.",
+  "pages": {
+    "home": {
+      "desktop": {
+        "url": "https://www.chagee.com/en",
+        "finalUrl": "https://www.chagee.com/en",
+        "status": 200,
+        "err": null,
+        "dclMs": 3422,
+        "loadMs": 13988,
+        "networkIdleMs": 23116,
+        "cookieDismissed": null,
+        "modalsClosed": [
+          "div.fixed.z-40 div.absolute.cursor-pointer"
+        ],
+        "pageHeight": 4796,
+        "info": {
+          "title": "CHAGEE official website-front page",
+          "metaDesc": "CHAGEE TOGETHER!",
+          "ogImage": true,
+          "lang": "en",
+          "hreflang": [],
+          "hasChinese": true,
+          "chineseCharCount": 19,
+          "generator": null,
+          "cms": [
+            "nextjs"
+          ],
+          "h1": [],
+          "ldTypes": [],
+          "videos": 1,
+          "canvas": 0,
+          "imgs": 20,
+          "pdfLinks": [],
+          "orderingProviders": [],
+          "telLinks": 0,
+          "loadedFonts": [],
+          "computedFonts": [
+            "sans-serif"
+          ],
+          "bodyBg": "rgb(255, 255, 255)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": true,
+          "textSample": "ABOUT US INTRODUCTION HISTORY INVESTOR RELATIONS MENU FRESH MILK TEA SNOW CAP MILK TEA VITALITY FRUIT TEA BREWED TEA TEASPRESSO LATTE ICED ORIENTAL TEA FIND US CHAGEE'S INFLUENCE CULTURE HEALTH CONNECTION SUSTAINABILITY MEDIA CENTRE CAREERS English 简体中文 繁体中文 English ABOUT US MENU FIND US CHAGEE'S INFLUENCE MEDIA CENTRE CAREERS English 简体中文 繁体中文 English ABOUT US At CHAGEE, we are Passionate Purveyors of TEA, and it is the very heart and soul of our business. Our journey is fueled by a deep-rooted commitment to sourcing, crafting, and sharing the finest teas from around the world. With a relentless pursuit of quality, innovation, and sustainability, we have emerged as industry leaders, redefining the tea experience from November 17, 2017, with the first store in Yunnan China. Learn More OUR OFFERINGS Made from premium tea leaves and handpicked ingredients, each cup of CHAGEE tea beverage is handcrafted to perfection right in front of you. Learn More OUR GLOBAL STORES From Yunnan to the World: CHAGEE has expanded across Southeast Asia - in Malaysia, Singapore, and Thailand. Since then, the brand has grown to become an international tea beverage company with over 6000+ stores worldwide. Learn More CHAGEE'S INFLUENCE At CHAGEE, we are playing an active role in identifying where we can minimize our environmental impact and help protect the local biodiversity of where our tea is grown. Learn More ABOUT US INTRODUCTION HISTORY INVESTOR RELATIONS MENU FRESH MILK TEA SNOW CAP MILK TEA "
+        },
+        "transferBytes": 9446312,
+        "requests": 92,
+        "motionLibsInScripts": [
+          "ScrollTrigger",
+          "gsap",
+          "Lenis"
+        ]
+      },
+      "mobile": {
+        "url": "https://www.chagee.com/en",
+        "finalUrl": "https://www.chagee.com/en",
+        "status": 200,
+        "err": null,
+        "dclMs": 1557,
+        "loadMs": 13997,
+        "networkIdleMs": 25541,
+        "cookieDismissed": null,
+        "modalsClosed": [
+          "div.fixed.z-40 div.absolute.cursor-pointer"
+        ],
+        "pageHeight": 3275,
+        "transferBytes": 9231087,
+        "requests": 60,
+        "motionLibsInScripts": [
+          "ScrollTrigger",
+          "gsap",
+          "Lenis"
+        ]
+      }
+    },
+    "menu": {
+      "desktop": {
+        "url": "https://www.chagee.com/en/product",
+        "finalUrl": "https://www.chagee.com/en/product",
+        "status": 200,
+        "err": null,
+        "dclMs": 2613,
+        "loadMs": 11202,
+        "networkIdleMs": 11955,
+        "cookieDismissed": null,
+        "modalsClosed": [
+          "div.fixed.z-40 div.absolute.cursor-pointer"
+        ],
+        "pageHeight": 5246,
+        "info": {
+          "title": "CHAGEE official website-About Products",
+          "metaDesc": "CHAGEE TOGETHER!",
+          "ogImage": true,
+          "lang": "en",
+          "hreflang": [],
+          "hasChinese": true,
+          "chineseCharCount": 19,
+          "generator": null,
+          "cms": [
+            "nextjs"
+          ],
+          "h1": [],
+          "ldTypes": [],
+          "videos": 0,
+          "canvas": 0,
+          "imgs": 13,
+          "pdfLinks": [],
+          "orderingProviders": [],
+          "telLinks": 0,
+          "loadedFonts": [],
+          "computedFonts": [
+            "sans-serif"
+          ],
+          "bodyBg": "rgb(255, 255, 255)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": true,
+          "textSample": "ABOUT US INTRODUCTION HISTORY INVESTOR RELATIONS MENU FRESH MILK TEA SNOW CAP MILK TEA VITALITY FRUIT TEA BREWED TEA TEASPRESSO LATTE ICED ORIENTAL TEA FIND US CHAGEE'S INFLUENCE CULTURE HEALTH CONNECTION SUSTAINABILITY MEDIA CENTRE CAREERS English 简体中文 繁体中文 English ABOUT US MENU FIND US CHAGEE'S INFLUENCE MEDIA CENTRE CAREERS English 简体中文 繁体中文 English OUR MENU TEA SERIES Fresh Milk Tea Snow Cap Milk Tea Vitality Fruit Tea Brewed Tea Teaspresso Latte Iced Oriental Tea Fresh Milk Tea Explore Freshly brewed with whole tea leaves and fresh milk, our fresh milk tea offers a refreshing, low-calorie indulgence with balanced sweetness, promoting a healthier lifestyle and connecting tea lovers every day. Snow Cap Milk Tea Explore Fresh leaf milk tea paired with a smooth, airy whipped cream top, offering a rich and full-bodied experience with every sip. Vitality Fruit Tea Explore An invigorating and refreshing drink created from the delightful pairing of fresh fruit with freshly brewed milk tea. Brewed Tea Explore Freshly brewed tea made from original tea leaves, offering an aromatic fragrance and memorable aftertaste. Teaspresso Latte Explore By using innovative extraction brewing techniques to prepare our tea, it allows for both the teas' natural fragrance as well as the nutrition from the tea leaves to be wholly preserved. Iced Oriental Tea Explore Upholding the essence of oriental tea, we use modern innovative extraction techniques to brew tea, preserving its authentic flavor to t"
+        },
+        "transferBytes": 2683025,
+        "requests": 83,
+        "motionLibsInScripts": [
+          "ScrollTrigger",
+          "gsap",
+          "Lenis"
+        ]
+      },
+      "mobile": {
+        "url": "https://www.chagee.com/en/product",
+        "finalUrl": "https://www.chagee.com/en/product",
+        "status": 200,
+        "err": null,
+        "dclMs": 1295,
+        "loadMs": 9198,
+        "networkIdleMs": 11799,
+        "cookieDismissed": null,
+        "modalsClosed": [
+          "div.fixed.z-40 div.absolute.cursor-pointer"
+        ],
+        "pageHeight": 3619,
+        "transferBytes": 2801417,
+        "requests": 61,
+        "motionLibsInScripts": [
+          "ScrollTrigger",
+          "gsap",
+          "Lenis"
+        ]
+      }
+    }
+  }
+}
