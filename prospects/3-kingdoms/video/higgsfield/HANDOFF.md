@@ -1,5 +1,7 @@
 # Handoff: render the Three Kingdoms anime walk-in
 
+> **Status, 13 Oct 2026:** rendered on branch `claude/vigilant-babbage-45rjn2` at Seedance 2.0 fast 480p after the owner asked for the cheapest model (4K did not fit the balance). Results, credits and defects: `anime/RESULTS.md`.
+
 Owner approval, 13 Oct 2026: use the Three Kingdoms cast and render with the Higgsfield connector, **one render per job, no drafts, no re-rolls, only the jobs listed**. The previous session couldn't do it: connector tools are read when a session starts, and the upload and generate tools were only allowed after that session had begun.
 
 Work on branch `claude/happy-sagan-apqllo`.
