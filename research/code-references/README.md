@@ -22,7 +22,7 @@ git submodule update --init --depth 1
 | Technique | Skill to read first | Code reference | Already in the mocks? |
 |---|---|---|---|
 | 1. GSAP + ScrollTrigger timeline scrubbing | `gsap-core`, `gsap-scrolltrigger`, `gsap-timeline`, `gsap-react`, `gsap-performance` | `ScrollAnimationsGrid/`, `gsap-collection/` | Yes, all six variants |
-| 2. 3D WebGL (Three.js, R3F, Spline) | `awwwards-3d` (Three.js), `spline-interactive` (Spline) | `react-three-fiber/` | No |
+| 2. 3D WebGL (Three.js, R3F, Spline) | `threejs-*` (10 skills), `awwwards-3d` (scroll-driven Three.js), `spline-interactive` (Spline) | `react-three-fiber/` | No |
 | 3. Video or frame scrubbing on scroll | `scroll-scrubbed-visual-sequence` | – | No |
 | 4. Lenis smooth scroll | `awwwards-3d` (Lenis + GSAP wiring), `gsap-scrolltrigger` | `lenis/` | Yes, variants C to F (CDN `lenis@1.1.13`) |
 | 5. Native CSS scroll-driven animation (`animation-timeline`) | `impeccable` → `reference/overdrive.md` | – | No |
