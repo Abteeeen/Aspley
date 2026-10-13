@@ -1,4 +1,4 @@
-Model: GPT Image 2 (gpt_image_2), 16:9, 2k. One generation per character. Same base prompt, swap the CHARACTER line.
+Model: GPT Image 2 (gpt_image_2), quality low, 1k, 16:9 — 0.5 credits each. One generation per character. Same base prompt, swap the CHARACTER line.
 
 Base prompt:
 Character reference sheet of one original anime character, 2D cel-shaded with clean ink outlines and flat two-tone shading, on a plain light-grey background. Four views in a row: full body front, full body back, face close-up neutral, face close-up with a wide laughing smile showing teeth. CHARACTER. Original design, not based on any existing anime, manga or video game character. Same character, same costume and colours in all four views. No text, no labels.
