@@ -15,8 +15,8 @@
   "use strict";
 
   var SETS = {
-    landscape: { dir: "media/walk-d/", count: 135 },
-    portrait: { dir: "media/walk-m/", count: 87 }
+    landscape: { dir: "media/walk-d/", count: 106 },
+    portrait: { dir: "media/walk-m/", count: 90 }
   };
 
   function pickSet() {
