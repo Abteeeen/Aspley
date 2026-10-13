@@ -1,0 +1,3 @@
+# impeccable transient state (decision rolls, local config)
+.impeccable/questions/
+.impeccable/config.local.json
