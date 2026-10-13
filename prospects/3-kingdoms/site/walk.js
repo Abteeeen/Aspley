@@ -1,8 +1,9 @@
 /*
   Walk-in frame scrubber for the 3 Kingdoms concepts.
-  Source: our phone footage, 13 Oct 2026 (research/clips/source).
-  Landscape set: corridor clip 120433 at 4fps + walk-in clip 120702 from 3s at 5fps.
-  Portrait set: clips 115928 + 115941 at 5fps.
+  Source: our phone footage, 13 Oct 2026 (research/clips/source), re-rendered with
+  anime characters on Higgsfield Seedance 2.0 (video/higgsfield/anime/RESULTS.md).
+  Landscape set: renders A + B + C, 135 frames at 864x496.
+  Portrait set: renders P1 + P2, 87 frames at 496x864.
 
   Rules followed (scroll-scrubbed-visual-sequence skill):
   - native scroll position is the only source of truth; progress is normalised 0..1

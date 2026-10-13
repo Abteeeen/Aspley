@@ -8,8 +8,8 @@ Built 13 Oct 2026 the same way as the El Pueblo #2 site in the reference video. 
 | `a.html` | **Variant A, Lantern Walk.** Dark and cinematic, the closest to the reference video. |
 | `b.html` | **Variant B, Broadside.** A daylight letterpress poster. The walk plays inside a doorway that opens to full screen. |
 | `walk.js` | Shared scroll-scrub engine. Canvas frame sequence, coarse-to-fine preload, DPR capped at 2, landscape and portrait sets. |
-| `media/walk-d/` | 135 landscape frames (1280×720 WebP): clip 120433 at 4fps, then 120702 from 3s at 5fps. |
-| `media/walk-m/` | 87 portrait frames (720×1280 WebP): clips 115928 and 115941 at 5fps. |
+| `media/walk-d/` | 135 landscape frames (864×496 WebP) cut evenly from the anime renders A + B + C (29s). Real faces blurred. See `../video/higgsfield/anime/RESULTS.md`. |
+| `media/walk-m/` | 87 portrait frames (496×864 WebP) cut evenly from the anime renders P1 + P2 (18s). Real faces blurred. |
 | `media/still/` | Stills from the clips, plus dish cards cropped from the counter frame. |
 | `media/loop-room.mp4` | 6s portrait room loop for Variant A's phone card. |
 | `media/ref/` | Frames from the reference video, used in the hub's breakdown. |
@@ -32,7 +32,8 @@ cd prospects/3-kingdoms/site && python3 -m http.server 8765
 
 ## Before any of this goes public
 
-- Blur the faces of customers and staff in the frames, or get the venue's OK.
+- Walk-in frames: real faces are blurred. The stills in `media/still/` and `media/loop-room.mp4` still show customers and staff: blur them or get the venue's OK.
+- The walk-in is a 480p render with AI anime characters added (Seedance 2.0 fast). Re-render at 1080p or 4K before launch if the owner keeps it.
 - Replace the counter-card crops with a proper food shoot.
 - Wire up Order pickup (nothing is connected yet).
 - Confirm with the owner: the Chinese spice names read off the counter card (大骨汤 · 微辣 · 少辣 · 中辣 · 大辣 · 特辣), the dish names, in-store prices, and the route inside Uptown.
