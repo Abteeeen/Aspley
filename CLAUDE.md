@@ -13,7 +13,7 @@ The current site contradicts itself. The owner told us to pick the best option a
 
 ## Mandatory design and engineering skills
 
-Twenty-two skills are vendored in `.claude/skills/`. They are the source of truth for every UI, UX, and React decision in this repo. Do not build site code without them. Upstream versions and commits are recorded in `.claude/skills/PROVENANCE.md`.
+Thirty-two skills are vendored in `.claude/skills/`. They are the source of truth for every UI, UX, and React decision in this repo. Do not build site code without them. Upstream versions and commits are recorded in `.claude/skills/PROVENANCE.md`.
 
 | Skill | Use it for | When |
 |---|---|---|
@@ -26,7 +26,6 @@ Twenty-two skills are vendored in `.claude/skills/`. They are the source of trut
 | `high-end-visual-design` | Premium agency look: fonts, spacing, card structure, motion. Bans cheap defaults. | Alongside `frontend-design` when setting direction. |
 | `emil-design-eng` | Interaction polish: easing, durations, press feedback, when not to animate. | Every interactive component and transition. |
 | `gsap-core`, `gsap-scrolltrigger`, `gsap-timeline`, `gsap-react`, `gsap-performance` | Official GSAP guidance for timelines and scroll-driven motion. | All JavaScript motion. Pair with `/impeccable animate` for what to animate and `emil-design-eng` for how it should feel. |
-| `scroll-scrubbed-visual-sequence` | Pinned or sticky stage whose video, image sequence or canvas frame follows scroll position, forwards and backwards. | Any video-on-scroll or frame-scrub section. |
 | `awwwards-3d` | Three.js + GSAP + Lenis scroll-driven 3D (camera paths, glass, post-processing). Locks three r170, GSAP 3.12.5, Lenis 1.1.0. | Only if a real 3D scene earns its cost on phones. The skill itself warns against decorative 3D. |
 | `spline-interactive` | Spline scenes exported to React or vanilla JS. | Only if a designer builds the 3D in Spline. |
 | `copywriting` | Conversion copy for hero, sections and CTAs without AI tells. | All site copy. Preserve the facts in `research/aspley-current-site/content-and-language.md`. |
@@ -34,6 +33,8 @@ Twenty-two skills are vendored in `.claude/skills/`. They are the source of trut
 | `shadcn` | Correct shadcn/ui CLI use and theming. | Only if the production build uses shadcn. |
 | `core-web-vitals` | LCP, INP, CLS diagnosis and fixes. | Before launch and after any heavy media change. |
 | `frontend-ui-engineering` | Production UI checklist: accessibility, responsive, states. | Pre-completion checklist. |
+| `threejs-*` (10 skills: fundamentals, geometry, materials, lighting, textures, loaders, animation, interaction, shaders, postprocessing) | Three.js scene setup, WebGL shaders, touch interaction, post-processing. | Any WebGL or 3D moment. Pair with `/impeccable overdrive` for what is worth building and `core-web-vitals` for the phone budget. |
+| `scroll-scrubbed-visual-sequence` | Reversible scroll-scrubbed video, image-sequence, canvas or WebGL stages with a sticky stage and normalized progress. | Video-on-scroll and frame-scrub scenes. Pair with `gsap-scrolltrigger`. |
 | `find-skills` | Discover and install further skills from skills.sh via `npx skills find` / `npx skills add`. | Whenever a task needs a capability none of the installed skills cover. See triggers below. |
 
 ### Rules
