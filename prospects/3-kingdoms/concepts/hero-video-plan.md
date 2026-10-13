@@ -17,7 +17,43 @@ Evidence:
 
 ## What Stark's does, and where we beat it
 
-_Pending: the Stark's delivery and file-size measurements are still being taken. This section is filled in by the next commit._
+Measured on 13 Oct 2026 (files downloaded and probed; page loaded at 1440×900 and 390×844, including a Slow 4G run).
+
+**What it is.** One continuous 13.1 s "arrival":
+- 0–3.5 s: a blue-hour drone shot of the strip mall.
+- 3.5–6.8 s: a dolly to the door.
+- 6.8–7.8 s: the camera passes through the closed glass doors.
+- 7.8–9.5 s: a push through the empty room.
+- From 9.5 s: the wall logo lifts off as a glowing 3D sign, the lights dim, and the film holds on that end card.
+
+It plays once and stops on the last frame (no loop). All copy is HTML on top. It is a hand-built static site with GSAP 3.12.5, ScrollTrigger and Lenis.
+
+**It is mostly AI-generated, and it shows:**
+- The menu boards are gibberish with a repeated "15.39" price.
+- The neighbour's sign morphs from "Banchans" to "Banchanuns".
+- The logo's letters change shape as it turns 3D.
+- There is a muddy halo around the mascot.
+- The whole film is soft at 1080p.
+
+It is the same idea as our clip, an arrival from outside to the counter, made without a camera.
+
+| | Stark's | Ours (plan) |
+|---|---|---|
+| Food in the hero | None. It ends on a logo. | Ends on the Signature Mini Hotpot, steaming, with the $20.80 price and **Order pickup** |
+| The venue | AI-generated, with garbled signage and menus | The real shopfront and room, upscaled |
+| Phone version | The 16:9 film shrunk into a strip over a blurred copy of itself. Only 32% of the frame is sharp. | A true 9:16 cut from a 4K upscale (or a portrait reshoot) |
+| Weight | 7.2 MB desktop / 4.0 MB phone, H.264 only, `preload="auto"` | ≤2.5 MB desktop / ≤1.5 MB phone, AV1 with H.264 fallback, `preload="metadata"` |
+| Start on Slow 4G | ~9.5–10 s after navigation. The video source is set by JS late in the page, and the phone bitrate (2.47 Mbps) is above the link speed. | The poster is in the HTML with `fetchpriority="high"`, and the video bitrate stays below Slow 4G speed |
+| First paint before the poster | Cream text on a tan background, about 1.1:1 contrast (near invisible) | A dark ground that matches the poster, so the text reads from the first paint |
+| Text over the footage | Gold "CRISPY HEAT." measures 1.9:1 at 4 s (3:1 needed); the subline is 3.6:1 (4.5:1 needed). The headline covers the logo end card. | A text-safe zone designed into both the 16:9 and 9:16 compositions, a scrim behind the copy, and contrast checked across the whole film |
+| Motion controls | No pause button. Reduced motion turns off GSAP but the video still autoplays. Save-Data is ignored. | A pause button. Reduced motion and Save-Data get the still. |
+
+**What to keep from Stark's:**
+- One continuous arrival.
+- Play once and hold the last frame, so there is no loop seam.
+- A poster that is exactly frame 0.
+- Copy in HTML.
+- A gentle scroll exit: slight parallax, the copy lifting away, a colour wipe into the next section.
 
 ## What the Higgsfield website docs teach
 
@@ -137,7 +173,15 @@ Cut, grade and export in a normal editor (DaVinci Resolve or Premiere). Higgsfie
 
 ## How it sits on the page
 
-- **First paint.** A still of the shopfront frame, as AVIF/WebP in an `<img fetchpriority="high">`. That image is what the browser measures as the largest paint (LCP), per `core-web-vitals`. The video starts after the poster has painted.
+- **First paint.**
+  - The poster is frame 0 of the hero (the shopfront), as AVIF/WebP, about 60–90 KB, in the HTML as `<img fetchpriority="high">`, as `core-web-vitals` prescribes. It is not set later by JS, which is what delays Stark's.
+  - The page ground behind it is dark and matches the poster, so the copy reads before the image arrives.
+  - The Stark's test found that Chromium can leave a full-viewport image out of LCP, so the score can look fine while the hero arrives late. Measure when the poster actually paints, not just the LCP number.
+- **Video tags.**
+  - `<video muted playsinline autoplay preload="metadata">`, with AV1 `<source>` first and H.264 fallback.
+  - Separate 16:9 and 9:16 files, chosen by `media` and re-checked on rotation.
+  - Plays once, then holds the last frame.
+  - A visible pause button (WCAG 2.2.2).
 - **File sizes**, from encode tests on our clip, 13 Oct 2026:
 
   | Version | Size |
