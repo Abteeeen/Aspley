@@ -120,7 +120,8 @@ a { color: inherit; }
 .cue { position: absolute; right: var(--gutter); top: calc(env(safe-area-inset-top, 0px) + 84px); font: 500 0.8rem var(--f-ui); letter-spacing: 0.1em; text-transform: uppercase; color: var(--paper-dim); }
 
 /* motion mode: tall track, sticky stage, beats driven by progress */
-.motion .walk { height: 560vh; }
+.motion .walk { height: 1000vh; }
+@media (max-aspect-ratio: 85/100) { .motion .walk { height: 700vh; } }
 .motion .walk .stage { position: sticky; top: 0; }
 .motion .walk .poster { display: none; }
 .motion .beat { opacity: 0; will-change: opacity, transform; }
@@ -324,16 +325,19 @@ footer a { color: var(--paper); }
       <div class="endshade" id="endshade"></div>
       <span class="cue" id="cue" aria-hidden="true">Scroll to walk in</span>
 
-      <div class="beat first" data-in="-1" data-out="0.2">
+      <div class="beat first" data-in="-1" data-out="0.17">
         <p><span class="k">Shop 32 · Level A · Uptown</span><span data-en="Down the hall from Target, follow the red light." data-zh="塔吉特旁的走廊里，跟着红光走。">Down the hall from Target, follow the red light.</span></p>
       </div>
-      <div class="beat beat-2" data-in="0.24" data-out="0.46">
+      <div class="beat beat-2" data-in="0.2" data-out="0.3">
         <p data-en="Most of Queen Street walks straight past. Come in." data-zh="皇后街的人大多匆匆走过。进来坐坐。">Most of Queen Street walks straight past. Come in.</p>
       </div>
-      <div class="beat" data-in="0.5" data-out="0.74">
+      <div class="beat" data-in="0.5" data-out="0.6">
         <p data-en="Over forty ingredients on ice. You choose the bowl, the kitchen cooks it in broth." data-zh="四十多种食材任你挑，选好后厨房用汤底现煮。">Over forty ingredients on ice. You choose the bowl, the kitchen cooks it in broth.</p>
       </div>
-      <div class="beat title-beat" data-in="0.8" data-out="2">
+      <div class="beat beat-2" data-in="0.8" data-out="0.9">
+        <p data-en="Order at the counter. Pick one of six heats." data-zh="在柜台点餐，六种辣度任选。">Order at the counter. Pick one of six heats.</p>
+      </div>
+      <div class="beat title-beat" data-in="0.92" data-out="2">
         <h1><span class="zh-title" id="zhTitle" lang="zh-Hans">三国冒菜</span><span class="en-title">3 Kingdoms</span></h1>
         <p class="sub" data-en="Chengdu mao cai, Sichuan mini hotpot. Open every day from 11am." data-zh="成都冒菜，四川小火锅。每天上午11点营业。">Chengdu mao cai, Sichuan mini hotpot. Open every day from 11am.</p>
         <div class="row">
@@ -514,6 +518,7 @@ footer a { color: var(--paper); }
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.0/dist/lenis.min.js"></script>
 <script src="walk.js"></script>
 <script>
 (function () {
@@ -582,13 +587,14 @@ footer a { color: var(--paper); }
   body.classList.remove("static");
   body.classList.add("motion");
   gsap.registerPlugin(ScrollTrigger);
+  window.startSmoothScroll();
 
   /* ---- 1. walk-in ---- */
   var walk = createWalk(document.getElementById("walkCanvas"), { focus: [0.5, 0.5], smoothing: 0.2 });
   var beats = Array.prototype.slice.call(document.querySelectorAll(".walk .beat"));
   var routeLis = document.querySelectorAll("#route li");
   var routeBar = document.getElementById("routeBar");
-  var stops = [0, 0.32, 0.48, 0.82];
+  var stops = [0, 0.2, 0.5, 0.8];
   var zhChars = (function () {
     var el = document.getElementById("zhTitle");
     var t = el.textContent; el.textContent = "";
@@ -605,12 +611,12 @@ footer a { color: var(--paper); }
     walk.setProgress(p);
     beats.forEach(function (b, i) {
       var a = Number(b.dataset.in), z = Number(b.dataset.out);
-      var o = window01(p, a, z, 0.05);
+      var o = window01(p, a, z, 0.02);
       b.style.opacity = o;
       if (!b.classList.contains("title-beat")) b.style.transform = "translateY(" + ((1 - o) * 18) + "px)";
     });
     /* title: characters rise in sequence, sheen sweeps once */
-    var t = clamp01((p - 0.8) / 0.14);
+    var t = clamp01((p - 0.92) / 0.07);
     zhChars.forEach(function (s, i) {
       var c = clamp01(t * 1.6 - i * 0.18);
       s.style.transform = "translateY(" + ((1 - c) * 0.35) + "em)";
@@ -621,7 +627,7 @@ footer a { color: var(--paper); }
     routeBar.style.setProperty("--p", p);
     routeLis.forEach(function (li, i) { li.classList.toggle("on", p >= stops[i] - 0.001); });
     cue.style.opacity = 1 - clamp01(p / 0.06);
-    endshade.style.opacity = clamp01((p - 0.76) / 0.1);
+    endshade.style.opacity = clamp01((p - 0.88) / 0.05);
   }
   ScrollTrigger.create({
     trigger: "#walk", start: "top top", end: "bottom bottom",

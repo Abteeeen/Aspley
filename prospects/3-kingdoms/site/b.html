@@ -110,7 +110,8 @@ a { color: inherit; }
 .ticket .row { display: flex; gap: 12px; flex-wrap: wrap; }
 .cue { position: absolute; left: 50%; bottom: 14px; translate: -50% 0; font: 800 1rem var(--f-band); text-transform: uppercase; letter-spacing: 0.08em; color: var(--paper); opacity: var(--co, 1); }
 
-.motion .walk { height: 520vh; }
+.motion .walk { height: 1000vh; }
+@media (max-aspect-ratio: 85/100) { .motion .walk { height: 700vh; } }
 .motion .walk .stage { position: sticky; top: 0; }
 .motion .walk .poster { display: none; }
 .motion .ticket { opacity: 0; visibility: hidden; transform: translateY(20px); }
@@ -433,6 +434,7 @@ footer .zh { font-size: 2.4rem; line-height: 1; }
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.0/dist/lenis.min.js"></script>
 <script src="walk.js"></script>
 <script>
 (function () {
@@ -493,6 +495,7 @@ footer .zh { font-size: 2.4rem; line-height: 1; }
   document.body.classList.remove("static");
   document.body.classList.add("motion");
   gsap.registerPlugin(ScrollTrigger);
+  window.startSmoothScroll();
 
   /* ---- 1. doorway opens while the walk scrubs ---- */
   var walk = createWalk(document.getElementById("walkCanvas"), { smoothing: 0.2 });
@@ -515,23 +518,23 @@ footer .zh { font-size: 2.4rem; line-height: 1; }
   }
   function renderWalk(p) {
     walk.setProgress(p);
-    var o = easeOut(clamp01(p / 0.3));
+    var o = easeOut(clamp01(p / 0.18));
     door.style.setProperty("--t", doorRect.t * (1 - o) + "px");
     door.style.setProperty("--b", doorRect.b * (1 - o) + "px");
     door.style.setProperty("--l", doorRect.l * (1 - o) + "px");
     door.style.setProperty("--r", doorRect.r * (1 - o) + "px");
-    door.style.setProperty("--dk", clamp01((p - 0.35) / 0.2));
+    door.style.setProperty("--dk", clamp01((p - 0.2) / 0.1));
     bTop.style.setProperty("--up", (-o * 120) + "%");
     bBot.style.setProperty("--dn", (o * 160) + "%");
     sideL.style.setProperty("--so", 1 - clamp01(p / 0.12));
     sideR.style.setProperty("--so", 1 - clamp01(p / 0.12));
     cue.style.setProperty("--co", 1 - clamp01(p / 0.08));
-    [[0.4, 0.92], [0.55, 0.92], [0.7, 0.92]].forEach(function (w, i) {
-      var a = clamp01((p - w[0]) / 0.06) * clamp01((w[1] - p) / 0.05);
+    [[0.2, 0.92], [0.5, 0.92], [0.8, 0.92]].forEach(function (w, i) {
+      var a = clamp01((p - w[0]) / 0.03) * clamp01((w[1] - p) / 0.03);
       stamps[i].style.opacity = a;
-      stamps[i].style.transform = "translateY(" + ((1 - clamp01((p - w[0]) / 0.06)) * 0.25) + "em)";
+      stamps[i].style.transform = "translateY(" + ((1 - clamp01((p - w[0]) / 0.03)) * 0.25) + "em)";
     });
-    ticket.classList.toggle("on", p > 0.9);
+    ticket.classList.toggle("on", p > 0.93);
   }
   measureDoor();
   ScrollTrigger.create({ trigger: "#walk", start: "top top", end: "bottom bottom", onUpdate: function (st) { renderWalk(st.progress); }, onRefresh: function (st) { measureDoor(); renderWalk(st.progress); } });
