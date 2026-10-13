@@ -13,7 +13,7 @@ The current site contradicts itself. The owner told us to pick the best option a
 
 ## Mandatory design and engineering skills
 
-Thirty-two skills are vendored in `.claude/skills/`. They are the source of truth for every UI, UX, and React decision in this repo. Do not build site code without them. Upstream versions and commits are recorded in `.claude/skills/PROVENANCE.md`.
+Thirty-three skills are vendored in `.claude/skills/`. They are the source of truth for every UI, UX, React and video-prompt decision in this repo. Do not build site code without them. Upstream versions and commits are recorded in `.claude/skills/PROVENANCE.md`.
 
 | Skill | Use it for | When |
 |---|---|---|
@@ -35,12 +35,13 @@ Thirty-two skills are vendored in `.claude/skills/`. They are the source of trut
 | `frontend-ui-engineering` | Production UI checklist: accessibility, responsive, states. | Pre-completion checklist. |
 | `threejs-*` (10 skills: fundamentals, geometry, materials, lighting, textures, loaders, animation, interaction, shaders, postprocessing) | Three.js scene setup, WebGL shaders, touch interaction, post-processing. | Any WebGL or 3D moment. Pair with `/impeccable overdrive` for what is worth building and `core-web-vitals` for the phone budget. |
 | `scroll-scrubbed-visual-sequence` | Reversible scroll-scrubbed video, image-sequence, canvas or WebGL stages with a sticky stage and normalized progress. | Video-on-scroll and frame-scrub scenes. Pair with `gsap-scrolltrigger`. |
+| `higgsfield` (video editor skill) | Higgsfield AI video and image prompts: MCSLA formula (Model, Camera, Subject, Look, Action), model choice (Kling, Seedance, Veo, Soul, Nano Banana and others), named camera and motion presets, Cinema Studio, Marketing Studio ads, extend and edit existing clips, troubleshooting failed generations. Root `SKILL.md` routes to 35 sub-skills. | Before writing any Higgsfield prompt or generating footage or stills for the site and socials. See "Video editor skill" below. |
 | `find-skills` | Discover and install further skills from skills.sh via `npx skills find` / `npx skills add`. | Whenever a task needs a capability none of the installed skills cover. See triggers below. |
 
 ### Rules
 
 1. **Skills come first.** Read the relevant `SKILL.md` before writing code. Cite the skill rule when a decision is driven by it.
-2. **Build on top of the skills, never around them.** If a skill and a personal default disagree, the skill wins. If two skills disagree: `impeccable` and `frontend-design` decide aesthetics (impeccable's command reference is more specific, so it wins ties; `high-end-visual-design` is advisory below them, and its font bans never override accessibility), `ui-ux-pro-max` decides palette and type data, `react-best-practices` decides performance, `composition-patterns` decides component API shape.
+2. **Build on top of the skills, never around them.** If a skill and a personal default disagree, the skill wins. If two skills disagree: `impeccable` and `frontend-design` decide aesthetics (impeccable's command reference is more specific, so it wins ties; `high-end-visual-design` is advisory below them, and its font bans never override accessibility), `ui-ux-pro-max` decides palette and type data, `react-best-practices` decides performance, `composition-patterns` decides component API shape, `higgsfield` decides video prompt wording and model choice (how footage sits on the page is still `impeccable` and `frontend-design`; its weight on phones is `core-web-vitals`).
 3. **Do not edit vendored skill files.** Project-specific additions go in `CLAUDE.md` or in `design-system/`, not inside `.claude/skills/*`.
 4. **Design system is persisted.** The `ui-ux-pro-max` output lives in `design-system/aspley/MASTER.md`. Read it before every page. Page overrides live in `design-system/aspley/pages/`. Never regenerate with `--force` without the owner's explicit approval.
 5. **Audit before done.** Every page passes a `web-design-guidelines` review and a `react-best-practices` review before it is reported complete.
@@ -56,6 +57,23 @@ python3 .claude/skills/ui-ux-pro-max/scripts/search.py "<query>" --stack <stack>
 ```
 
 Stack is decided once the framework is chosen and will be recorded here.
+
+### Video editor skill (Higgsfield)
+
+`.claude/skills/higgsfield/` is the vendored OSideMedia Higgsfield prompt library (v3.40.0, specs snapshot 2026-09-26). It writes prompts; it does not generate. Generation runs through the Higgsfield MCP connector or the `higgsfield` CLI, and both spend the owner's credits, so confirm before submitting a paid job.
+
+- Follow its HARD RULES: open the root `SKILL.md` and `skills/higgsfield-prompt/SKILL.md` in full before any prompt, then the sub-skill its routing table names. Paths inside the skill (`skills/`, `templates/`, `specs/`) are relative to `.claude/skills/higgsfield/`.
+- Its scripts resolve paths from their own location, so run them from the Aspley repo root:
+
+  ```bash
+  python3 .claude/skills/higgsfield/scripts/preflight.py --model <id> --param aspect_ratio=9:16 --param duration=8
+  python3 .claude/skills/higgsfield/scripts/seedance_lint.py --model seedance_2_0 "<prompt>"
+  python3 .claude/skills/higgsfield/scripts/higgsfield_memory.py log-gen aspley --model <id> --tags <tags> --outcome kept   # rejected needs --reason; vocab in db/ledger/README.md
+  ```
+
+- The skill's `workspace/` folders are git-ignored. Save prompt packs worth keeping in `design-system/aspley/video/` and commit them. Ledger rows written by `higgsfield_memory.py` land in `.claude/skills/higgsfield/db/ledger/aspley.json`; that is the one file inside the skill we write to on purpose.
+- Venue guardrails for every prompt: the Aspley Hotel is a pub with no rooms, so never show hotel rooms or beds. Food and drink shots must match dishes on the real menus. Do not render identifiable real staff or patrons. Gambling advertising is regulated in Queensland, so no gaming-machine footage, and check with the owner before any TAB or gaming-room visual.
+- Site footage also has to pass `core-web-vitals`, and scroll-driven footage is built with `scroll-scrubbed-visual-sequence`.
 
 ## When to reach for `find-skills` on this project
 
