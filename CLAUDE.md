@@ -13,7 +13,7 @@ The current site contradicts itself. The owner told us to pick the best option a
 
 ## Mandatory design and engineering skills
 
-Sixteen skills are vendored in `.claude/skills/`. They are the source of truth for every UI, UX, and React decision in this repo. Do not build site code without them. Upstream versions and commits are recorded in `.claude/skills/PROVENANCE.md`.
+Twenty-seven skills are vendored in `.claude/skills/`. They are the source of truth for every UI, UX, and React decision in this repo. Do not build site code without them. Upstream versions and commits are recorded in `.claude/skills/PROVENANCE.md`.
 
 | Skill | Use it for | When |
 |---|---|---|
@@ -31,6 +31,8 @@ Sixteen skills are vendored in `.claude/skills/`. They are the source of truth f
 | `shadcn` | Correct shadcn/ui CLI use and theming. | Only if the production build uses shadcn. |
 | `core-web-vitals` | LCP, INP, CLS diagnosis and fixes. | Before launch and after any heavy media change. |
 | `frontend-ui-engineering` | Production UI checklist: accessibility, responsive, states. | Pre-completion checklist. |
+| `threejs-*` (10 skills: fundamentals, geometry, materials, lighting, textures, loaders, animation, interaction, shaders, postprocessing) | Three.js scene setup, WebGL shaders, touch interaction, post-processing. | Any WebGL or 3D moment. Pair with `/impeccable overdrive` for what is worth building and `core-web-vitals` for the phone budget. |
+| `scroll-scrubbed-visual-sequence` | Reversible scroll-scrubbed video, image-sequence, canvas or WebGL stages with a sticky stage and normalized progress. | Video-on-scroll and frame-scrub scenes. Pair with `gsap-scrolltrigger`. |
 | `find-skills` | Discover and install further skills from skills.sh via `npx skills find` / `npx skills add`. | Whenever a task needs a capability none of the installed skills cover. See triggers below. |
 
 ### Rules
