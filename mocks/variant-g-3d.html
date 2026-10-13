@@ -1269,13 +1269,21 @@ const PHONE = coarse || innerWidth <= 760;
 const SOFT = /swiftshader|llvmpipe|software/i.test(window.__glInfo || '');
 const FORCE_FULL = qs.get('g3d') === 'full';
 const POST = !PHONE && (!SOFT || FORCE_FULL);
-const DPR_CAP = PHONE ? 1.5 : (SOFT && !FORCE_FULL ? 1 : 2);
+/* Pixel-ratio budget (core-web-vitals INP, awwwards-3d rule 3). Start conservative; the adaptive
+   controller in the loop moves between DPR_MIN and DPR_CAP from measured frame times. Bloom doubles
+   fill cost, so the post tier caps at 1.5 even on retina laptops. */
+const DPR_CAP = PHONE ? 1.5 : (POST ? 1.5 : (SOFT && !FORCE_FULL ? 1 : 2));
+const DPR_MIN = 1;
+const BENCH = qs.get('g3d') === 'bench';   /* QA hook: fixed 1.5x, no adaptation or idle throttle, for like-for-like timing */
+let dprNow = Math.min(window.devicePixelRatio || 1, BENCH ? 1.5 : (PHONE ? 1.25 : DPR_CAP));
 const Q = PHONE ? 0.55 : 1;               /* particle budget scale */
 G.tier = PHONE ? 'phone' : (POST ? 'desktop' : 'desktop-lite');
 
 /* ---------- renderer ---------- */
 const canvas = document.getElementById('g3d');
 const sizer = document.querySelector('.g3d-sizer');
+/* MSAA stays on for phones: tile-based mobile GPUs resolve it on-chip, so it is cheap there; pixel count is
+   what costs, and the adaptive pixel ratio handles that. The post tier antialiases in its multisampled target. */
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: !POST, powerPreference: 'high-performance', stencil: false, alpha: false });
 renderer.setClearColor(0x140F14, 1);
 renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -1315,11 +1323,21 @@ function glowTexture(){
 }
 const GLOW = glowTexture();
 const disposables = [GLOW, envRT];
+/* Textures decode off the main thread (createImageBitmap) and upload during idle time, so a photo
+   arriving mid-scroll never stalls a frame (core-web-vitals: long tasks hurt INP). */
 const texLoader = new THREE.TextureLoader();
+const bmpLoader = ('createImageBitmap' in window) ? new THREE.ImageBitmapLoader().setOptions({ imageOrientation: 'flipY', premultiplyAlpha: 'none' }) : null;
+const idleCb = window.requestIdleCallback || ((f) => setTimeout(f, 60));
+function prepTex(t){
+  t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = Math.min(4, renderer.capabilities.getMaxAnisotropy()); disposables.push(t);
+  return new Promise((r) => idleCb(() => { try { renderer.initTexture(t); } catch (e) {} r(t); }, { timeout: 500 }));
+}
 function loadTex(url){
-  return new Promise((res) => texLoader.load(url, (t) => { t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = Math.min(4, renderer.capabilities.getMaxAnisotropy()); disposables.push(t); res(t); }, undefined, () => res(null)));
+  if (bmpLoader) return new Promise((res) => bmpLoader.load(url, (bmp) => { const t = new THREE.Texture(bmp); t.flipY = false; t.needsUpdate = true; prepTex(t).then(res); }, undefined, () => res(null)));
+  return new Promise((res) => texLoader.load(url, (t) => prepTex(t).then(res), undefined, () => res(null)));
 }
 const IMG = (n) => 'img/drive/' + n + (PHONE ? '-sm' : '') + '.webp';
+const IMG_SM = (n) => 'img/drive/' + n + '-sm.webp';   /* for textures that are blurred anyway */
 
 /* point-sprite shader used by dust, bokeh, bulbs, fireflies, town lights, bubbles and stars */
 function pointsMaterial(opts){
@@ -1618,7 +1636,7 @@ const dustMat = pointsMaterial({ move: 'p.x += sin(uTime*.13 + aSeed.x*40.)*.5; 
 const dust = new THREE.Points(dustGeo, dustMat); dust.frustumCulled = false; scene.add(dust);
 
 /* ============================================================================================
-   SET 3. THE POUR. A nonic pint (LatheGeometry) in MeshPhysicalMaterial transmission over RoomEnvironment.
+   SET 3. THE POUR. A nonic pint (LatheGeometry) in a fresnel glass material over RoomEnvironment.
    Beer, head and bubbles all read one normalised progress (scroll-scrubbed-visual-sequence).
    ============================================================================================ */
 const bar = new THREE.Group(); bar.name = 'bar'; scene.add(bar);
@@ -1627,7 +1645,21 @@ bar.position.copy(GLASS_POS);
 const glassProfile = [[0,0],[.6,0],[.635,.03],[.645,.13],[.82,2.04],[.875,2.22],[.85,2.46],[.835,2.5],[.815,2.485],[.828,2.22],[.782,2.05],[.592,.27],[0,.25]].map(([x,y]) => new THREE.Vector2(x,y));
 const RIN = [[.27,.585],[2.05,.775],[2.22,.82],[2.47,.806]];
 const innerR = (y) => { if (y <= RIN[0][0]) return RIN[0][1]; for (let i=1;i<RIN.length;i++){ if (y <= RIN[i][0]){ const a = RIN[i-1], b = RIN[i]; return lerp(a[1], b[1], (y-a[0])/(b[0]-a[0])); } } return RIN[RIN.length-1][1]; };
-const glassMat = new THREE.MeshPhysicalMaterial({ color: 0xffffff, metalness: 0, roughness: .04, transmission: 1, thickness: .35, ior: 1.5, dispersion: PHONE ? 0 : .6, envMapIntensity: 1.35, specularIntensity: 1, clearcoat: .4, clearcoatRoughness: .05, attenuationColor: col('#FFF6EA'), attenuationDistance: 3 });
+/* Glass without the transmission pass. MeshPhysicalMaterial transmission re-renders the whole opaque scene
+   into a mip-mapped target every frame; it measured 4-5x slower than any other chapter on the phone tier.
+   This is a standard material with a fresnel alpha and rim (threejs-shaders: extending built-in materials),
+   so the beer reads through the body and the rim and edges catch the RoomEnvironment reflections. */
+const glassMat = new THREE.MeshStandardMaterial({ color: col('#FFF8EE'), metalness: 0, roughness: .06, envMapIntensity: POST ? 1.1 : 1.8, transparent: true, depthWrite: false, side: THREE.DoubleSide });
+glassMat.onBeforeCompile = (sh) => {
+  sh.fragmentShader = sh.fragmentShader.replace('#include <opaque_fragment>', `
+    float gFr = pow(1.0 - clamp(abs(dot(normalize(vViewPosition), normal)), 0.0, 1.0), 2.6);
+    outgoingLight += vec3(1.0, .96, .9) * gFr * .45;
+    ${POST
+      /* the bloom tier blends in a linear HDR target, where a little white alpha reads several times stronger */
+      ? 'diffuseColor.a = clamp(.004 + gFr * gFr * .6, 0.0, .75);'
+      : 'diffuseColor.a = clamp(.035 + gFr * .8, 0.0, .9);'}
+    #include <opaque_fragment>`);
+};
 const glass = new THREE.Mesh(new THREE.LatheGeometry(glassProfile, PHONE ? 64 : 96), glassMat); glass.renderOrder = 2; bar.add(glass);
 const levelPlane = new THREE.Plane(new THREE.Vector3(0,-1,0), 0);
 const foamTop = new THREE.Plane(new THREE.Vector3(0,-1,0), 0), foamBottom = new THREE.Plane(new THREE.Vector3(0,1,0), 0);
@@ -1636,9 +1668,9 @@ const beerGeo = new THREE.LatheGeometry(beerProfile, 64);
 { const p = beerGeo.attributes.position, c = new Float32Array(p.count*3); const lo = col('#7A3A08'), hi = col('#E89A2E');
   for (let i=0;i<p.count;i++){ const t = clamp((p.getY(i)-.25)/2.2, 0, 1); const k = lo.clone().lerp(hi, Math.pow(t,.8)); c.set([k.r,k.g,k.b], i*3); }
   beerGeo.setAttribute('color', new THREE.BufferAttribute(c,3)); }
-const beerMat = new THREE.MeshPhysicalMaterial({ vertexColors: true, roughness: .18, metalness: 0, emissive: col('#5A2600'), emissiveIntensity: .22, clearcoat: .6, clippingPlanes: [levelPlane], side: THREE.DoubleSide });
+const beerMat = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: .16, metalness: 0, emissive: col('#5A2600'), emissiveIntensity: .26, envMapIntensity: POST ? .45 : .8, clippingPlanes: [levelPlane], side: THREE.DoubleSide });
 const beer = new THREE.Mesh(beerGeo, beerMat); bar.add(beer);
-const beerTop = new THREE.Mesh(new THREE.CircleGeometry(1, 48).rotateX(-Math.PI/2), new THREE.MeshPhysicalMaterial({ color: col('#E8A33A'), roughness: .12, emissive: col('#7A3A00'), emissiveIntensity: .2 }));
+const beerTop = new THREE.Mesh(new THREE.CircleGeometry(1, 48).rotateX(-Math.PI/2), new THREE.MeshStandardMaterial({ color: col('#E8A33A'), roughness: .12, emissive: col('#7A3A00'), emissiveIntensity: .2 }));
 bar.add(beerTop);
 const foamMat = new THREE.MeshStandardMaterial({ color: col('#F4E7CC'), roughness: .85, metalness: 0, emissive: col('#3A2A14'), emissiveIntensity: .25, clippingPlanes: [foamTop, foamBottom], side: THREE.DoubleSide });
 const foam = new THREE.Mesh(beerGeo, foamMat); foam.scale.set(1.004, 1, 1.004); bar.add(foam);
@@ -1647,7 +1679,7 @@ const foamCapGeo = new THREE.CircleGeometry(1, 48, 0, Math.PI*2).rotateX(-Math.P
 const foamCap = new THREE.Mesh(foamCapGeo, new THREE.MeshStandardMaterial({ color: col('#FBF1DC'), roughness: .9, emissive: col('#3A2A14'), emissiveIntensity: .3 }));
 bar.add(foamCap);
 const streamGeo = new THREE.CylinderGeometry(1, 1, 1, 14, 1, true); streamGeo.translate(0, -.5, 0);
-const stream = new THREE.Mesh(streamGeo, new THREE.MeshPhysicalMaterial({ color: col('#E39A2C'), roughness: .1, emissive: col('#6A3000'), emissiveIntensity: .6, clearcoat: 1 }));
+const stream = new THREE.Mesh(streamGeo, new THREE.MeshStandardMaterial({ color: col('#E39A2C'), roughness: .1, emissive: col('#6A3000'), emissiveIntensity: .6, envMapIntensity: 1.6 }));
 bar.add(stream);
 const bubN = Math.round(110*Q);
 const bubGeo = pointsGeometry(bubN, () => ({ p:[0,0,0], s: 14 + rnd()*20, c: C3('#FFF0C8', 1.3) }));
@@ -1746,6 +1778,12 @@ function buildCoin(){
 }
 const coinKey = new THREE.DirectionalLight(0xfff0d8, 2.2); coinKey.position.set(-3, 4, 5); coinSet.add(coinKey); coinSet.add(coinKey.target);
 const coinRim = new THREE.PointLight(0xff5a6a, 18, 10, 1.6); coinRim.position.set(2.5, 1.5, -2); coinSet.add(coinRim);
+/* Constant light count. Lit materials compile one program per light combination, so lights that came and
+   went with their chapter forced fresh shader compiles at every chapter overlap (measured mid-scroll stalls).
+   The chapter lights now live at scene level for the whole visit and fade their intensity instead. */
+const SET_LIGHTS = [[bar, key, 2.4], [bar, rim1, 26], [bar, rim2, 10], [coinSet, coinKey, 2.2], [coinSet, coinRim, 18]];
+scene.updateMatrixWorld(true);
+SET_LIGHTS.forEach(([, l]) => { scene.attach(l); if (l.target) scene.attach(l.target); l.intensity = 0; });
 const sparkGeo = pointsGeometry(Math.round(160*Q), () => { const a = rnd()*6.283, r = 1.7 + rnd()*1.6; return { p:[Math.cos(a)*r, (rnd()-.5)*2.6, Math.sin(a)*r*.4 - .3], s: 26 + rnd()*36, c: C3('#FFD27A', 1.3) }; });
 const sparkMat = pointsMaterial({ move: 'float a = atan(p.y, p.x) + uTime * (.12 + aSeed.y * .2); float r = length(p.xy); p.xy = vec2(cos(a), sin(a)) * r;', tw: 'vTw = pow(.5 + .5 * sin(uTime * (2. + aSeed.y * 3.) + aSeed.x * 50.), 4.) * 1.4;' });
 const sparks = new THREE.Points(sparkGeo, sparkMat); sparks.frustumCulled = false; coinSet.add(sparks);
@@ -1835,8 +1873,8 @@ const MOODS = [
   M(3.9,  '#151230','#3E2444','#C8613F','#2A1A28', .016, 1, .05, 1.12, 2.6, .62),
   M(4.7,  '#120C09','#1A110C','#2A1A10','#150E0B', .055, 0, 0,  1.05, 2, .5),
   M(11,   '#100A08','#170F0B','#24160E','#140D0A', .05,  0, 0,  1.0, 2, .55),
-  M(12,   '#140C07','#1E120A','#2E1A0E','#160E09', .03,  0, 0,  1.0, 2, .32),
-  M(14.4, '#140C07','#1E120A','#2E1A0E','#160E09', .03,  0, 0,  1.0, 2, .32),
+  M(12,   '#140C07','#1E120A','#2E1A0E','#160E09', .03,  0, 0,  1.0, 2, .12),
+  M(14.4, '#140C07','#1E120A','#2E1A0E','#160E09', .03,  0, 0,  1.0, 2, .12),
   M(15,   '#140A0C','#1E0E12','#2A1216','#170B0E', .04,  0, 0,  1.0, 2, .8),
   M(16.5, '#140A0C','#1E0E12','#2A1216','#170B0E', .04,  0, 0,  1.0, 2, .8),
   M(17,   '#1A080C','#260A10','#3A0E16','#1A090D', .035, 0, 0,  1.05, 2, .7),
@@ -1913,9 +1951,9 @@ function resize(){
   resizeQ = false;
   const w = document.documentElement.clientWidth, h = Math.max(sizer.offsetHeight, innerHeight);
   const prevP = P;
-  if (w !== W || Math.abs(h - Hh) > 1){
+  const pr = Math.min(window.devicePixelRatio || 1, dprNow);
+  if (w !== W || Math.abs(h - Hh) > 1 || pr !== renderer.getPixelRatio()){
     W = w; Hh = h;
-    const pr = Math.min(window.devicePixelRatio || 1, DPR_CAP);
     renderer.setPixelRatio(pr); renderer.setSize(W, Hh, false);
     if (composer){ composer.setPixelRatio(pr); composer.setSize(W, Hh); bloom.resolution.set(W*.5, Hh*.5); }
     camera.aspect = W/Hh; camera.fov = (Hh > W*1.05) ? 54 : 40; camera.updateProjectionMatrix();
@@ -1937,7 +1975,7 @@ document.querySelectorAll('[data-scene]').forEach((el) => io.observe(el));
 /* ---------- the loop ---------- */
 const tmpP = new THREE.Vector3(), tmpL = new THREE.Vector3(), tmpR = new THREE.Vector3(), tmpU = new THREE.Vector3(), UPV = new THREE.Vector3(0,1,0);
 const introPos = new THREE.Vector3(), introLook = new THREE.Vector3();
-let time = 0, lastFx = -9, lastFy = -9, poseB = false, ready = false;
+let time = 0, lastFx = -9, lastFy = -9, poseB = false, ready = false, WARM_U = null;
 const gauge = document.getElementById('gauge');
 function setHillPose(b){
   if (b === poseB) return; poseB = b;
@@ -1947,7 +1985,8 @@ function frame(dt){
   time += dt;
   /* 1. inputs to targets */
   const y = window.scrollY;
-  S.u.t = uAt(y);
+  S.u.t = WARM_U === null ? uAt(y) : WARM_U;
+  if (WARM_U !== null) S.u.c = WARM_U;
   S.pour.t = clamp((y - pourR[0]) / Math.max(1, pourR[1] - pourR[0]), 0, 1);
   S.coin.t = clamp((y - coinR[0]) / Math.max(1, coinR[1] - coinR[0]), 0, 1);
   S.week.t = clamp((y - weekR[0]) / Math.max(1, weekR[1] - weekR[0]), 0, 1);
@@ -2003,7 +2042,10 @@ function frame(dt){
     tu.uBase.value.copy(BASE_DUSK).lerp(BASE_NIGHT, mood.night);
     bbMat.uniforms.uNight.value = mood.night; bbMat.uniforms.uTime.value = time;
     const dz = camera.position.z - hill.position.z;
-    bbMat.uniforms.uHole.value = poseB ? 0 : smooth(5.2, .9, dz) * 1.1;
+    const holeT = poseB ? 0 : smooth(5.2, .9, dz);
+    bbMat.uniforms.uHole.value = holeT * 1.1;
+    /* dissolve the facade as the door opens, so the camera never ends up inside a magnified, blooming photo */
+    bbMat.uniforms.uOpacity.value = 1 - smooth(.04, .3, holeT); G.hole = +holeT.toFixed(3);
     billboard.visible = poseB || dz > -.2;
     pubGlow.material.opacity = (.35 + mood.night * .5) * mood.out;
     townMat.uniforms.uAlpha.value = mood.out * (.45 + mood.night * .75); townMat.uniforms.uTime.value = time;
@@ -2041,11 +2083,12 @@ function frame(dt){
     backMat.uniforms.uTime.value = time; backMat.uniforms.uFill.value = fill; backMat.uniforms.uFade.value = smooth(14.2, 14.8, u); backMat.uniforms.uFadeCol.value.copy(mood.fog);
     glass.rotation.y = time * .1;
     if (gauge){ gauge.style.setProperty('--fill', fill.toFixed(3)); gauge.classList.toggle('on', u > 11.5 && u < 14.8); }
-    if (!backMat.uniforms.uHas.value && !bar.userData.loading){ bar.userData.loading = true; loadTex(IMG('12-bistro-bar-counter-view-02')).then((tx) => { if (tx){ backMat.uniforms.uMap.value = tx; backMat.uniforms.uHas.value = 1; } }); }
+    if (!backMat.uniforms.uHas.value && !bar.userData.loading){ bar.userData.loading = true; loadTex(IMG_SM('12-bistro-bar-counter-view-02')).then((tx) => { if (tx){ backMat.uniforms.uMap.value = tx; backMat.uniforms.uHas.value = 1; } }); }
   } else if (gauge) gauge.classList.remove('on');
   bokeh.visible = u > 13.6 && u < 18.4;
   if (bokeh.visible){ bokehMat.uniforms.uTime.value = time; bokehMat.uniforms.uAlpha.value = smooth(13.6, 14.8, u) * (1 - smooth(17.6, 18.4, u)); }
   coinSet.visible = u > 15.6 && u < 19.4;
+  for (const [g, l, i] of SET_LIGHTS) l.intensity = g.visible ? i : 0;
   if (coinSet.visible){
     buildCoin();
     flickV *= Math.exp(-dt * 1.5); flickA += flickV * dt * 6;
@@ -2057,7 +2100,8 @@ function frame(dt){
   }
   if (grain) grain.uniforms.uTime.value = time;
 
-  /* 6. draw */
+  /* 6. draw (skipped while prewarming shader programs) */
+  if (WARM_U !== null) return;
   if (composer) composer.render(dt); else renderer.render(scene, camera);
   G.frames++;
 }
@@ -2065,10 +2109,29 @@ function frame(dt){
 /* ---------- start: size, path, first frame, then hand over from the poster with an establishing pull-back ---------- */
 resize();
 let started = false;
+/* Adaptive quality (gsap-performance, awwwards-3d step 5): average real frame times over ~1s windows and
+   step the pixel ratio down when the device can't hold ~45fps, back up when it has headroom. Phones also
+   drop to half rate while nothing is moving, which keeps them cool so they don't throttle. */
+let acc = 0, skip = 0, winMs = 0, winN = 0, goodWins = 0;
+function adapt(dms){
+  if (BENCH || dms > 120 || WARM_U !== null) return;         /* ignore stalls from tab switches or prewarm */
+  winMs += dms; winN++;
+  if (winMs < 1000) return;
+  const avg = winMs / winN; winMs = 0; winN = 0;
+  G.avgMs = +avg.toFixed(1);
+  if (avg > 23 && dprNow > DPR_MIN + .01){ dprNow = Math.max(DPR_MIN, +(dprNow - .2).toFixed(2)); goodWins = 0; resize(); }
+  else if (avg < 15){ if (++goodWins >= 3 && dprNow < DPR_CAP - .01){ dprNow = Math.min(DPR_CAP, +(dprNow + .1).toFixed(2)); goodWins = 0; resize(); } }
+  else goodWins = 0;
+  G.dpr = dprNow;
+}
 const tick = (tm, dms) => {
   if (hidden || !onScreen) return;
-  const dt = Math.min((dms || 16.7) / 1000, .1);
-  frame(dt);
+  const ms = dms || 16.7;
+  acc += Math.min(ms / 1000, .1);
+  const calm = !BENCH && PHONE && Math.abs(S.u.t - S.u.c) < .002 && Math.abs(flickV) < .01 && S.intro.c < .001;
+  if (calm && (++skip & 1)) return;
+  adapt(calm ? ms * 2 : ms);
+  frame(Math.min(acc, .1)); acc = 0;
 };
 frame(1/60);
 if (shaderBroken) throw new Error('shader compile failed');
@@ -2081,11 +2144,41 @@ requestAnimationFrame(() => {
   loadTex(IMG('24-hotel-wide-exterior-hero')).then((t) => { if (t){ bbMat.uniforms.uMap.value = t; gsap.to(bbMat.uniforms.uHas, { value: 1, duration: 1.2, ease: 'power2.out' }); } });
   const idle = window.requestIdleCallback || ((f) => setTimeout(f, 1200));
   idle(() => loadRooms(), { timeout: 4000 });
-  idle(() => buildCoin(), { timeout: 7000 });
+  idle(() => { buildCoin(); prewarm(); }, { timeout: 2500 });
 });
 
+/* Compile every chapter's shader programs up front, during the intro pull-back, instead of the first time
+   each chapter scrolls into view (measured as multi-second main-thread stalls mid-scroll). compile() alone
+   misses render-time state (clipping, light setup), so each chapter is really drawn once into a 1x1 scissor:
+   same program keys as the real frame, nothing visible. With bloom on, it draws into the composer's
+   HDR target because that is where the scene renders. */
+const WARM_STOPS = [3, 6.5, 9, 11.5, 13, 15, 17, 19.5, 21.5, 23];
+const warmVP = new THREE.Vector4(), warmSc = new THREE.Vector4();
+async function prewarm(){
+  for (const uu of WARM_STOPS){
+    if (uu >= NK || hidden) continue;
+    const keep = S.u.c;
+    WARM_U = uu; try { frame(0); } finally { WARM_U = null; }
+    const forced = [];
+    scene.traverseVisible((o) => { o.children.forEach((c) => { if (!c.visible && !c.isLight){ c.visible = true; forced.push(c); } }); });
+    const prevRT = renderer.getRenderTarget(), scOn = renderer.getScissorTest();
+    renderer.getViewport(warmVP); renderer.getScissor(warmSc);
+    try {
+      if (composer) renderer.setRenderTarget(composer.readBuffer);
+      renderer.setScissorTest(true); renderer.setScissor(0, 0, 1, 1); renderer.setViewport(0, 0, 1, 1);
+      renderer.render(scene, camera);
+    } finally {
+      renderer.setRenderTarget(prevRT); renderer.setScissorTest(scOn); renderer.setScissor(warmSc); renderer.setViewport(warmVP);
+      forced.forEach((c) => { c.visible = false; });
+    }
+    S.u.c = keep; frame(0);
+    await new Promise((r) => idleCb(r, { timeout: 250 }));
+  }
+  G.warm = true;
+}
+
 /* test and QA hooks */
-G.renderer = renderer;
+G.renderer = renderer; G.scene = scene;
 G.capabilities = { isWebGL2: renderer.capabilities.isWebGL2, maxTextureSize: renderer.capabilities.maxTextureSize, precision: renderer.capabilities.precision, renderer: window.__glInfo };
 G.state = () => ({ flick: +flickV.toFixed(3), flickA: +flickA.toFixed(3), cam: camera.position.toArray().map((v) => +v.toFixed(2)), u: S.u.c, uT: S.u.t, pour: S.pour.c, coin: S.coin.c, intro: S.intro.c, tier: G.tier, frames: G.frames, poseB, anchors: anchors.length });
 G.settle = () => { for (const k2 in S) S[k2].c = S[k2].t; S.intro.c = 0; gsap.killTweensOf(S.intro); };
