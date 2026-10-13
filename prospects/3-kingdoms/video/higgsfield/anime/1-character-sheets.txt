@@ -1,0 +1,11 @@
+Model: GPT Image 2 (gpt_image_2), 16:9, 2k. One generation per character. Same base prompt, swap the CHARACTER line.
+
+Base prompt:
+Character reference sheet of one original anime character, 2D cel-shaded with clean ink outlines and flat two-tone shading, on a plain light-grey background. Four views in a row: full body front, full body back, face close-up neutral, face close-up with a wide laughing smile showing teeth. CHARACTER. Original design, not based on any existing anime, manga or video game character. Same character, same costume and colours in all four views. No text, no labels.
+
+CHARACTER lines:
+1 Liu Bei — a warm, steady leader, long black hair in a topknot with a jade pin, gentle eyes, moss-green and cream Han-dynasty robe with wide sleeves, a plain sword on his belt.
+2 Guan Yu — a tall, calm warrior with a long flowing black beard and a deep red complexion, green robe over dark armour, green headscarf.
+3 Zhang Fei — a broad, loud warrior with a wild short black beard and bushy brows, black and bronze armour, a red sash.
+4 Zhuge Liang — a slim, thoughtful strategist with a white crane-feather fan, a black scholar's cap, flowing white and pale-blue robes.
+5 Zhao Yun — a young-looking, upright knight with a high ponytail, polished silver-white armour with a blue cape.
