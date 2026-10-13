@@ -34,6 +34,7 @@ Thirty-two skills are vendored in `.claude/skills/`. They are the source of trut
 | `core-web-vitals` | LCP, INP, CLS diagnosis and fixes. | Before launch and after any heavy media change. |
 | `frontend-ui-engineering` | Production UI checklist: accessibility, responsive, states. | Pre-completion checklist. |
 | `threejs-*` (10 skills: fundamentals, geometry, materials, lighting, textures, loaders, animation, interaction, shaders, postprocessing) | Three.js scene setup, WebGL shaders, touch interaction, post-processing. | Any WebGL or 3D moment. Pair with `/impeccable overdrive` for what is worth building and `core-web-vitals` for the phone budget. |
+| `scroll-scrubbed-visual-sequence` | Reversible scroll-scrubbed video, image-sequence, canvas or WebGL stages with a sticky stage and normalized progress. | Video-on-scroll and frame-scrub scenes. Pair with `gsap-scrolltrigger`. |
 | `find-skills` | Discover and install further skills from skills.sh via `npx skills find` / `npx skills add`. | Whenever a task needs a capability none of the installed skills cover. See triggers below. |
 
 ### Rules
