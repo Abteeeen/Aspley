@@ -56,3 +56,28 @@ Requested by the owner after researching scroll-driven and 3D techniques. Every 
 Gemini's three skill names ("Spline-to-Web Interactive Canvas", "GSAP ScrollTrigger Timeline Orchestration", "Frame-Scrubbing Canvas Player") do not exist on skills.sh. The rows above, plus `scroll-scrubbed-visual-sequence` from the third batch (installed in both sessions; the copies are identical), are the closest real skills.
 
 Related upstream code repos (Lenis, react-three-fiber, Codrops ScrollAnimationsGrid, gsap-collection) are pinned as git submodules under `research/code-references/`. See the README there.
+
+## Added 13 Oct 2026 (fifth batch: video editor skill, Higgsfield prompts)
+
+The owner asked for a video editor skill for writing Higgsfield AI prompts (site hero video, scroll-scrubbed footage, promo reels). Every file was read or scanned before install. The installed copy was diffed against the reviewed checkout and matches byte for byte, minus the exclusions below.
+
+| skill | upstream | commit | notes |
+|---|---|---|---|
+| higgsfield | OSideMedia/higgsfield-ai-prompt-skill (MIT), v3.40.0, specs snapshot 2026-09-26 | 7075497 | **Vendored by hand** into `.claude/skills/higgsfield/`, the install path the upstream README gives. Root `SKILL.md` is a dispatcher that reads 35 sub-skills under `skills/higgsfield-*/` by relative path; Claude Code registers only the root `higgsfield` skill. Prompt-writing only: it never calls Higgsfield itself. Generation goes through the Higgsfield MCP connector or the `higgsfield` CLI. Not in `skills-lock.json`, so update it by hand. |
+
+Left out of the vendored copy (upstream maintainer tooling, not used by the skill at runtime):
+
+- `CLAUDE.md`: upstream maintainer rules (`feat: vX.Y.Z` commit format, CHANGELOG on every change, release ceremony). Claude Code would load it as nested project memory when reading the skill and it conflicts with this repo's git rules.
+- `.claude/`: upstream `settings.json` pre-allows `Bash(git push *)`, `Bash(gh *)` and `Edit(.claude/**)`, plus `/release`, `/validate` and `/refresh-specs` commands for maintaining that repo.
+- `.github/`: CI and a weekly spec-drift job that needs a `HIGGSFIELD_CREDENTIALS` secret. Workflows do not run from a subfolder anyway.
+- `tests/`: pytest suite for the upstream tooling; parts of it read the upstream git history, which is not here.
+- `assets/fonts/`: 2.3 MB of DejaVu fonts used only by `scripts/generate_user_guide.py` to build a PDF user guide.
+
+Security notes for `higgsfield`:
+
+- All Python in `scripts/` and `evals/` is stdlib only. No network calls (no `urllib`, `requests`, `socket` or `http`). Every script resolves paths from its own location, so it can be run from the Aspley repo root.
+- `scripts/higgsfield_memory.py` writes only under the skill's `db/` (or `$HF_DB_DIR` if set): filter and quality memory plus the per-project generation ledger in `db/ledger/`. Those writes will show up in `git status`; commit them only on purpose.
+- `scripts/preflight.py` evaluates the platform's CEL rules with its own parser and never calls Python `eval`.
+- `scripts/refresh_specs.py` and `snapshot_crosscheck.py` shell out to the local `higgsfield` CLI (read-only `model list` / `model get`). `validate.py` runs `git ls-files` and its own sibling scripts. `validate_user_guide.py` calls `pdftotext` if installed. Nothing else uses `subprocess`.
+- `workspace/input|output|processed/` each carry a `.gitignore` that ignores everything but the README, so files dropped there stay local.
+- Smoke-tested on install: `validate.py` passes (one optional-dependency skip for `fpdf2`), `preflight.py` and `seedance_lint.py` run against the bundled specs.
