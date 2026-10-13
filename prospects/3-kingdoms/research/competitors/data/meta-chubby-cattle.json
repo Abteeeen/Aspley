@@ -1,0 +1,186 @@
+{
+  "slug": "chubby-cattle",
+  "id": "benchmark-02",
+  "checked": "2026-10-13",
+  "summary": {
+    "name": "Chubby Cattle",
+    "type": "Conveyor hot pot / wagyu (US)",
+    "platform": "WordPress + Divi 4.27",
+    "ordering": "Location pages",
+    "note": "Hero is a 24 MB .mov video. Captured hero uses an extracted frame.",
+    "url": "https://www.chubbycattle.com/",
+    "title": "Chubby Cattle",
+    "metaDescription": "Our mission is to change the way you enjoy each hotpot dip, shabu shabu swish, and yakiniku sear. With traditional recipes and global influence, Chubby Cattle",
+    "loadEventMs_desktop": 5415,
+    "networkIdleMs_desktop": 6593,
+    "transferKB_desktop": 5938,
+    "transferKB_mobile": 2792,
+    "cmsDetected": [
+      "wordpress"
+    ],
+    "generator": "Divi v.4.27.9"
+  },
+  "method": "Playwright Chromium via network proxy, 1440x900 desktop and 390x844 mobile, wait for networkidle (max 20s) + 2s. Transfer size = sum of CDP encodedDataLength for the page load, one sample. Provider and motion-library detection is a keyword scan and can have false positives.",
+  "pages": {
+    "home": {
+      "desktop": {
+        "url": "https://www.chubbycattle.com/",
+        "finalUrl": "https://www.chubbycattle.com/",
+        "status": 200,
+        "err": null,
+        "dclMs": 3313,
+        "loadMs": 5415,
+        "networkIdleMs": 6593,
+        "cookieDismissed": "Accept All",
+        "modalsClosed": [],
+        "pageHeight": 3952,
+        "info": {
+          "title": "Chubby Cattle",
+          "metaDesc": "Our mission is to change the way you enjoy each hotpot dip, shabu shabu swish, and yakiniku sear. With traditional recipes and global influence, Chubby Cattle",
+          "ogImage": true,
+          "lang": "en-US",
+          "hreflang": [],
+          "hasChinese": false,
+          "chineseCharCount": 0,
+          "generator": "Divi v.4.27.9",
+          "cms": [
+            "wordpress"
+          ],
+          "h1": [
+            "EXPLORE CHUBBY CATTLE INTERNATIONAL"
+          ],
+          "ldTypes": [
+            "Restaurant",
+            "Organization",
+            "WebSite",
+            "ImageObject",
+            "WebPage",
+            "Person",
+            "Article"
+          ],
+          "videos": 0,
+          "canvas": 1,
+          "imgs": 48,
+          "pdfLinks": [],
+          "orderingProviders": [],
+          "telLinks": 0,
+          "loadedFonts": [
+            "Open Sans",
+            "ETmodules"
+          ],
+          "computedFonts": [
+            "Open Sans"
+          ],
+          "bodyBg": "rgb(0, 0, 0)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": false,
+          "textSample": "Home About Us Locations Membership Press Partnership Contact Us Video Player Media error: Format(s) not supported or source(s) not found Download File: https://www.chubbycattle.com/wp-content/uploads/2025/08/IMG_8124.mov Search Locations 3 EXPLORE CHUBBY CATTLE INTERNATIONAL Prev Prev ABOUT US Chubby Cattle is redefining the all you can eat dining experience through three distinct concepts: Chubby Cattle BBQ, Chubby Cattle Shabu, and Chubby Cattle Hotpot. With 13 locations across the United States including California, Philadelphia, Las Vegas, Denver, and Duluth, we combine authentic Asian flavors with state of the art dining technology. From ranch sourced premium beef to house made broths and sauces, our menu is crafted to highlight the best ingredients. Whether you are grilling yakiniku, enjoying a light shabu shabu swish, or diving into a rich hotpot, every visit brings something new to explore. Our restaurants feature robot servers, food conveyor belts, and immersive 5D projection dining rooms, making every meal an experience. At Chubby Cattle, tradition meets innovation to create unforgettable moments for every guest. Learn More The Chubby Cattle NFT Collection FREE FOOD FOR LIFE Mint Now Private & Corporate Book Your Special Event Learn More Latest News Expense Accounts Will Flock to This Baller New Downtown Wagyu Steak Palace Chubby Cattle Introduces NFTs – and Free Food For Life Forbes 30 Under 30 Entrepreneur David Zhao on Building an Empire of Upscale Experiential D"
+        },
+        "transferBytes": 6080921,
+        "requests": 146,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      },
+      "mobile": {
+        "url": "https://www.chubbycattle.com/",
+        "finalUrl": "https://www.chubbycattle.com/",
+        "status": 200,
+        "err": null,
+        "dclMs": 2246,
+        "loadMs": 5275,
+        "networkIdleMs": 6131,
+        "cookieDismissed": "Accept All",
+        "modalsClosed": [],
+        "pageHeight": 5415,
+        "transferBytes": 2858984,
+        "requests": 145,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      }
+    },
+    "menu": {
+      "desktop": {
+        "url": "https://www.chubbycattle.com/locations/",
+        "finalUrl": "https://www.chubbycattle.com/locations/",
+        "status": 200,
+        "err": null,
+        "dclMs": 2280,
+        "loadMs": 5493,
+        "networkIdleMs": 6475,
+        "cookieDismissed": "Accept All",
+        "modalsClosed": [],
+        "pageHeight": 3172,
+        "info": {
+          "title": "Locations - Chubby Cattle",
+          "metaDesc": null,
+          "ogImage": false,
+          "lang": "en-US",
+          "hreflang": [],
+          "hasChinese": false,
+          "chineseCharCount": 0,
+          "generator": "Divi v.4.27.9",
+          "cms": [
+            "wordpress"
+          ],
+          "h1": [
+            "Chubby Cattle Santa Clara (Coming Soon)",
+            "Chubby Cattle Roseville",
+            "Chubby Cattle BBQ Orlando",
+            "Chubby Cattle Shabu Novi"
+          ],
+          "ldTypes": [
+            "Restaurant",
+            "Organization",
+            "WebSite",
+            "WebPage",
+            "Person",
+            "Article"
+          ],
+          "videos": 0,
+          "canvas": 1,
+          "imgs": 35,
+          "pdfLinks": [],
+          "orderingProviders": [],
+          "telLinks": 0,
+          "loadedFonts": [
+            "Open Sans",
+            "ETmodules"
+          ],
+          "computedFonts": [
+            "Open Sans"
+          ],
+          "bodyBg": "rgb(0, 0, 0)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": false,
+          "textSample": "Home About Us Locations Membership Press Partnership Contact Us SELECT CITY SELECT CONCEPT RESET Chubby Cattle Santa Clara (Coming Soon) Los Angeles, CA View Chubby Cattle Roseville Honolulu, HI View Chubby Cattle BBQ Orlando Honolulu, HI View Chubby Cattle Shabu Novi Novi, MI View Chubby Cattle BBQ Denver (Coming Soon) Denver, CO View Chubby Cattle Honolulu (Coming Soon) Honolulu, HI View Chubby Cattle San Antonio (Coming Soon) San Antonio, TX View Chubby Cattle Austin (Coming Soon) Austin, TX View Chubby Cattle New York New York, NY View Chubby Cattle Milpitas (Coming Soon) San Francisco, CA View Chubby Cattle Dunwoody Atlanta, GA View Chubby Cattle Topanga Los Angeles, CA View 1 2 3 &#x35; About Us Partnership Locations Membership Press Contact Us Terms and Conditions Privacy Policy Cookie Policy Contact Us Copyright © 2025 Chubby Group. All Rights Reserved."
+        },
+        "transferBytes": 8104767,
+        "requests": 114,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      },
+      "mobile": {
+        "url": "https://www.chubbycattle.com/locations/",
+        "finalUrl": "https://www.chubbycattle.com/locations/",
+        "status": 200,
+        "err": null,
+        "dclMs": 2579,
+        "loadMs": 4479,
+        "networkIdleMs": 5626,
+        "cookieDismissed": "Accept All",
+        "modalsClosed": [],
+        "pageHeight": 6084,
+        "transferBytes": 8108380,
+        "requests": 114,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      }
+    }
+  }
+}

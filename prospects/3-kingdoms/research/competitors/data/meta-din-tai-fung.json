@@ -1,0 +1,213 @@
+{
+  "slug": "din-tai-fung",
+  "id": "benchmark-03",
+  "checked": "2026-10-13",
+  "summary": {
+    "name": "Din Tai Fung (US)",
+    "type": "Dumplings and noodles",
+    "platform": "Next.js",
+    "ordering": "order.dtf.com (own), reservations per location",
+    "note": "First visit opens a \"Bao Bao Insiders\" newsletter modal over the hero (see -signup-modal.jpg). One of three loads threw a client-side application error. hreflang zh-us/zh-ca: Chinese-language version.",
+    "url": "https://dtf.com/en-us",
+    "title": "Din Tai Fung - Shaped by Tradition, Crafted by Hand | Din Tai Fung",
+    "metaDescription": "World-Renowned Soup Dumplings and Noodles",
+    "loadEventMs_desktop": 1514,
+    "networkIdleMs_desktop": 5330,
+    "transferKB_desktop": 14943,
+    "transferKB_mobile": 3743,
+    "cmsDetected": [
+      "nextjs"
+    ],
+    "generator": null
+  },
+  "method": "Playwright Chromium via network proxy, 1440x900 desktop and 390x844 mobile, wait for networkidle (max 20s) + 2s. Transfer size = sum of CDP encodedDataLength for the page load, one sample. Provider and motion-library detection is a keyword scan and can have false positives.",
+  "pages": {
+    "home": {
+      "desktop": {
+        "url": "https://dtf.com/en-us",
+        "finalUrl": "https://dtf.com/en-us",
+        "status": 200,
+        "err": null,
+        "dclMs": 922,
+        "loadMs": 1514,
+        "networkIdleMs": 5330,
+        "cookieDismissed": "Accept",
+        "modalsClosed": [
+          "div[class*=GlobalNewsletterModal_modal] button"
+        ],
+        "pageHeight": 7191,
+        "info": {
+          "title": "Din Tai Fung - Shaped by Tradition, Crafted by Hand | Din Tai Fung",
+          "metaDesc": "World-Renowned Soup Dumplings and Noodles",
+          "ogImage": true,
+          "lang": "en-us",
+          "hreflang": [
+            "zh-us",
+            "en-ca",
+            "zh-ca",
+            "x-default"
+          ],
+          "hasChinese": false,
+          "chineseCharCount": 0,
+          "generator": null,
+          "cms": [
+            "nextjs"
+          ],
+          "h1": [
+            "Explore Our Locations",
+            "Share the joy of\nDin Tai Fung",
+            "“The World's\nGREATEST\nDUMPLINGS”",
+            "Crafted to Perfection"
+          ],
+          "ldTypes": [],
+          "videos": 2,
+          "canvas": 0,
+          "imgs": 12,
+          "pdfLinks": [],
+          "orderingProviders": [
+            "ubereats",
+            "order.dtf.com",
+            "yelp"
+          ],
+          "telLinks": 0,
+          "loadedFonts": [
+            "Heldane Display",
+            "Suisse Intl"
+          ],
+          "computedFonts": [
+            "Arial",
+            "Suisse Intl",
+            "Heldane Display"
+          ],
+          "bodyBg": "rgb(239, 235, 218)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": true,
+          "textSample": "MENU LOCATIONS GIFT CARDS DISCOVER CAREERS RESERVE ORDER RESERVE ORDER SHAPED BY TRADITION, CRAFTED BY HAND SIGN UP FOR Bao Bao Insiders Your monthly bite of Din Tai Fung exclusives, news and delicious surprises. We've saved a seat at the table for you. * First Name * * Last Name * * Email Address * Phone: (123) 123-4567 Birthday (MM/DD/YYYY) * Preferred Location Preferred Location * Arizona, Chandler (Coming Soon) Arizona, Scottsdale California, Anaheim California, Arcadia California, Brea California, Canoga Park (Coming Soon) California, Costa Mesa California, Glendale California, Irvine California, Los Angeles California, San Diego California, Santa Clara California, Santa Monica California, Torrance Nevada, Las Vegas New York, Brooklyn (Coming Soon) New York, New York Oregon, Portland Oregon, Tigard Washington, Bellevue Washington, Seattle Pacific Place Washington, Seattle University Village Washington, Tukwila SUBMIT Explore Our Locations ALL LOCATIONS Brea Closed P. (657) 205-8988 A. 1401 Brea Mall, Brea, California 92821 Scottsdale Closed P. (480) 256-8683 A. 7014 E Camelback Rd, Suite 608, Scottsdale, Arizona 85251 New York Closed P. (212) 287-9178 A. 1633 Broadway, New York, New York 10019 Share the joy of Din Tai Fung Whether for a special occasion or just because, a DTF gift card is always the perfect choice. Give the gift of an unforgettable dining experience - purchase a gift card in-store or send an eGift card online. GIFT NOW FORBES “The World's GREATEST DUMPLI"
+        },
+        "transferBytes": 15302051,
+        "requests": 104,
+        "motionLibsInScripts": [
+          "ScrollTrigger",
+          "gsap",
+          "swiper"
+        ]
+      },
+      "mobile": {
+        "url": "https://dtf.com/en-us",
+        "finalUrl": "https://dtf.com/en-us",
+        "status": 200,
+        "err": null,
+        "dclMs": 511,
+        "loadMs": 10926,
+        "networkIdleMs": 11819,
+        "cookieDismissed": "Accept",
+        "modalsClosed": [
+          "div[class*=GlobalNewsletterModal_modal] button"
+        ],
+        "pageHeight": 8584,
+        "transferBytes": 3832429,
+        "requests": 99,
+        "motionLibsInScripts": [
+          "ScrollTrigger",
+          "gsap",
+          "swiper"
+        ]
+      }
+    },
+    "menu": {
+      "desktop": {
+        "url": "https://dtf.com/en-us/menu",
+        "finalUrl": "https://dtf.com/en-us/menu",
+        "status": 200,
+        "err": null,
+        "dclMs": 1447,
+        "loadMs": 3199,
+        "networkIdleMs": 4476,
+        "cookieDismissed": "Accept",
+        "modalsClosed": [
+          "div[class*=GlobalNewsletterModal_modal] button"
+        ],
+        "pageHeight": 24646,
+        "info": {
+          "title": "Menu | Din Tai Fung",
+          "metaDesc": "Welcome to Din Tai Fung, a world-renowned Taiwanese restaurant that specializes in soup dumplings and noodles.",
+          "ogImage": true,
+          "lang": "en-us",
+          "hreflang": [
+            "zh-us",
+            "en-ca",
+            "zh-ca",
+            "x-default"
+          ],
+          "hasChinese": false,
+          "chineseCharCount": 0,
+          "generator": null,
+          "cms": [
+            "nextjs"
+          ],
+          "h1": [
+            "SHAPED by\nTRADITION,\nCRAFTED\nby HAND",
+            "Appetizers",
+            "Cucumber Salad",
+            "Seaweed & Beancurd Salad"
+          ],
+          "ldTypes": [],
+          "videos": 1,
+          "canvas": 0,
+          "imgs": 90,
+          "pdfLinks": [
+            "https://dtf-cdn.com/files/production/93487c15c4d0af9cd4cefe67a5d503acf5d203ec.pdf"
+          ],
+          "orderingProviders": [
+            "resy",
+            "yelp"
+          ],
+          "telLinks": 0,
+          "loadedFonts": [
+            "Heldane Display",
+            "Suisse Intl"
+          ],
+          "computedFonts": [
+            "Arial",
+            "Suisse Intl",
+            "Heldane Display"
+          ],
+          "bodyBg": "rgb(239, 235, 218)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": true,
+          "textSample": "MENU LOCATIONS GIFT CARDS DISCOVER CAREERS RESERVE ORDER SHAPED by TRADITION, CRAFTED by HAND * WITH THE HIGHEST QUALITY INGREDIENTS VIEW MENU VIEW ALLERGEN GUIDE MOST POPULAR APPETIZERS XIAO LONG BAO DUMPLINGS & BUNS WONTONS GREENS SPECIALTIES NOODLES NOODLE SOUPS FROM THE WOK A LA CARTE SIGNATURE COCKTAILS DESSERTS BEVERAGES Our kitchen uses shared equipment, surfaces, and cooking oils/water. We cannot guarantee any item is free of allergens, gluten, or animal products. VIEW ALLERGEN GUIDE Most Popular Chicken Xiao Long Bao A classic reinvented, with fresh chicken, ground daily in-house, sweet notes of carrot, celery and hints of aromatic ginger and green onion. Chicken Dumplings Our delicately hand-folded dumplings are filled with premium chicken and sweet onions. Fried Rice with Pork Chop Perfectly seasoned and textured fried rice meets the irresistible aromas of fried eggs and freshly-chopped green onion. Topped with our signature Shanghainese-style fried pork cutlet that is crispy on the outside with a tender, juicy center. String Beans with Garlic Freshly-cut string beans, coated with minced garlic and tossed over high heat for a savory, umami-packed bite. Appetizers Cucumber Salad Crisp Persian cucumbers combined with cuts of mild fresno chili peppers and sliced, fresh garlic—all tossed together with drizzles of sesame oil and our signature DTF chili oil. LEARN MORE Seaweed & Beancurd Salad Crisp bean sprouts, smooth glass noodles, springy beancurd, and thin strips of"
+        },
+        "transferBytes": 15514155,
+        "requests": 299,
+        "motionLibsInScripts": [
+          "ScrollTrigger",
+          "gsap",
+          "swiper"
+        ]
+      },
+      "mobile": {
+        "url": "https://dtf.com/en-us/menu",
+        "finalUrl": "https://dtf.com/en-us/menu",
+        "status": 200,
+        "err": null,
+        "dclMs": 11217,
+        "loadMs": 21045,
+        "networkIdleMs": 21924,
+        "cookieDismissed": "Accept",
+        "modalsClosed": [
+          "div[class*=GlobalNewsletterModal_modal] button"
+        ],
+        "pageHeight": 182785,
+        "transferBytes": 3152362,
+        "requests": 175,
+        "motionLibsInScripts": [
+          "ScrollTrigger",
+          "gsap",
+          "swiper"
+        ]
+      }
+    }
+  }
+}

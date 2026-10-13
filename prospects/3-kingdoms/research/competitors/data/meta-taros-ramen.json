@@ -1,0 +1,173 @@
+{
+  "slug": "taros-ramen",
+  "id": "local-07",
+  "checked": "2026-10-13",
+  "summary": {
+    "name": "Taro's Ramen",
+    "type": "Ramen, CBD casual",
+    "platform": "Shopify",
+    "ordering": "TableAgent for bookings; takeaway page; Shopify shop for home packs",
+    "note": "Dine-in menus are PDFs.",
+    "url": "https://taros.com.au/",
+    "title": "Taro's Ramen e-shopping",
+    "metaDescription": null,
+    "loadEventMs_desktop": 2996,
+    "networkIdleMs_desktop": 22998,
+    "transferKB_desktop": 1729,
+    "transferKB_mobile": 1666,
+    "cmsDetected": [
+      "shopify"
+    ],
+    "generator": null
+  },
+  "method": "Playwright Chromium via network proxy, 1440x900 desktop and 390x844 mobile, wait for networkidle (max 20s) + 2s. Transfer size = sum of CDP encodedDataLength for the page load, one sample. Provider and motion-library detection is a keyword scan and can have false positives.",
+  "pages": {
+    "home": {
+      "desktop": {
+        "url": "https://taros.com.au/",
+        "finalUrl": "https://taros.com.au/",
+        "status": 200,
+        "err": null,
+        "dclMs": 2417,
+        "loadMs": 2996,
+        "networkIdleMs": 22998,
+        "cookieDismissed": null,
+        "pageHeight": 4400,
+        "info": {
+          "title": "Taro's Ramen e-shopping",
+          "metaDesc": null,
+          "ogImage": true,
+          "lang": "en",
+          "hreflang": [],
+          "hasChinese": false,
+          "chineseCharCount": 0,
+          "generator": null,
+          "cms": [
+            "shopify"
+          ],
+          "h1": [
+            ""
+          ],
+          "ldTypes": [
+            "Organization",
+            "WebSite"
+          ],
+          "videos": 0,
+          "canvas": 0,
+          "imgs": 8,
+          "pdfLinks": [],
+          "orderingProviders": [
+            "tableagent"
+          ],
+          "telLinks": 0,
+          "loadedFonts": [
+            "Lato"
+          ],
+          "computedFonts": [
+            "Lato",
+            "Arial",
+            "Helvetica"
+          ],
+          "bodyBg": "rgb(255, 255, 255)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": false,
+          "textSample": "Skip to content TAKEAWAY & DELIVERIES LOCATIONS (BOOKINGS) ABOUT TARO'S RAMEN WHAT'S ON DINE IN MENU SHOP HOMEPACKS VOUCHER/GIFTS CONTACT NOW HIRING Log in Cart Taro's Ramen Australia's Best Ramen to Brisbane. That's our mission. CURRENT DEALS For more information ABOUT In 2010, we set on a mission to provide Australia’s best ramen to Brisbane. We're committed to using the freshest, highest quality ingredients, sourcing locally whenever possible. Each component of our ramen is handcrafted, and our recipes are continuously refined. We prioritize food safety and ethical sourcing, avoiding harmful additives and supporting farmers who prioritize animal welfare. Our service combines traditional Japanese hospitality with a relaxed, friendly Brisbane atmosphere. We believe in a win-win philosophy, aiming to benefit our customers, suppliers, employees, and the business itself. For more information RESTAURANT OPENING HOURS CBD closed June 13th Lunch and June 14th Dinner. Ascot / Stones Corner [Lunch] 12:00pm-2:00pm [Dinner] 5:30pm-8:00pm CBD (Queen St) [Mon-Fri] 11:30am-2:00pm, 5:30pm-8:00pm [Sat, Sun] 12:00pm-2:00pm, 5:30pm-8:00pm South Brisbane [Mon-Thu] 12:00pm-4:00pm, 5:00pm-8:00pm [Fri, Sat] 12:00pm-9:00pm [Sun] 12:00pm-8:00pm * All locations are closed on public holidays. Subscribe to our Newsletter Email Facebook Instagram YouTube Payment methods © Taro's Ramen"
+        },
+        "transferBytes": 1770462,
+        "requests": 245,
+        "motionLibsInScripts": []
+      },
+      "mobile": {
+        "url": "https://taros.com.au/",
+        "finalUrl": "https://taros.com.au/",
+        "status": 200,
+        "err": null,
+        "dclMs": 1760,
+        "loadMs": 2191,
+        "networkIdleMs": 22193,
+        "cookieDismissed": null,
+        "pageHeight": 3280,
+        "transferBytes": 1705527,
+        "requests": 241,
+        "motionLibsInScripts": []
+      }
+    },
+    "menu": {
+      "desktop": {
+        "url": "https://taros.com.au/pages/dine-in-menut",
+        "finalUrl": "https://taros.com.au/pages/dine-in-menut",
+        "status": 200,
+        "err": null,
+        "dclMs": 1434,
+        "loadMs": 1807,
+        "networkIdleMs": 21808,
+        "cookieDismissed": null,
+        "pageHeight": 971,
+        "info": {
+          "title": "DINE IN MENU – Taro's Ramen",
+          "metaDesc": "  Taro's Ramen Menu Download Ramen Menu Lambkotsu Ramen Menu  Download Lambkotsu Ramen Menu     ",
+          "ogImage": true,
+          "lang": "en",
+          "hreflang": [],
+          "hasChinese": false,
+          "chineseCharCount": 0,
+          "generator": null,
+          "cms": [
+            "shopify"
+          ],
+          "h1": [
+            "DINE IN MENU"
+          ],
+          "ldTypes": [
+            "Organization"
+          ],
+          "videos": 0,
+          "canvas": 0,
+          "imgs": 5,
+          "pdfLinks": [
+            "https://cdn.shopify.com/s/files/1/0373/8524/0709/files/Ramen_Menu_Aug_2025.pdf?v=1754401393",
+            "https://cdn.shopify.com/s/files/1/0373/8524/0709/files/Ramen_Menu_inc_Hotpot_Nov_2024.pdf?v=1731311388",
+            "https://cdn.shopify.com/s/files/1/0373/8524/0709/files/Queen_Weekday_Izakaya_Menu_3.pdf?v=1739249472",
+            "https://cdn.shopify.com/s/files/1/0373/8524/0709/files/Lambkotsu_Event_Menu_A2_Landscape_594_x_420_mm_3840_x_2160_px.pdf?v=1765178195",
+            "https://cdn.shopify.com/s/files/1/0373/8524/0709/files/Queen_Weekday_Izakaya_Menu.pdf?v=1731310696"
+          ],
+          "orderingProviders": [
+            "tableagent"
+          ],
+          "telLinks": 0,
+          "loadedFonts": [
+            "Lato"
+          ],
+          "computedFonts": [
+            "Lato",
+            "Arial",
+            "Helvetica"
+          ],
+          "bodyBg": "rgb(255, 255, 255)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": false,
+          "textSample": "Skip to content TAKEAWAY & DELIVERIES LOCATIONS (BOOKINGS) ABOUT TARO'S RAMEN WHAT'S ON DINE IN MENU SHOP HOMEPACKS VOUCHER/GIFTS CONTACT NOW HIRING Log in Cart DINE IN MENU Taro's Ramen Menu Download Ramen Menu Lambkotsu Ramen Menu Download Lambkotsu Ramen Menu Subscribe to our Newsletter Email Facebook Instagram YouTube Payment methods © Taro's Ramen"
+        },
+        "transferBytes": 1538420,
+        "requests": 238,
+        "motionLibsInScripts": []
+      },
+      "mobile": {
+        "url": "https://taros.com.au/pages/dine-in-menut",
+        "finalUrl": "https://taros.com.au/pages/dine-in-menut",
+        "status": 200,
+        "err": null,
+        "dclMs": 1368,
+        "loadMs": 1663,
+        "networkIdleMs": 20664,
+        "cookieDismissed": null,
+        "pageHeight": 884,
+        "transferBytes": 1529080,
+        "requests": 230,
+        "motionLibsInScripts": []
+      }
+    }
+  }
+}

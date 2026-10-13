@@ -1,0 +1,192 @@
+{
+  "slug": "boiling-point",
+  "id": "benchmark-01",
+  "checked": "2026-10-13",
+  "summary": {
+    "name": "Boiling Point",
+    "type": "Taiwanese individual hot pot (US)",
+    "platform": "Custom PHP",
+    "ordering": "Aloha Online Ordering (pickup/delivery), Uber Eats, DoorDash, own app",
+    "note": "EN / 中文 switch in the top bar. Hero promotes ordering ahead.",
+    "url": "https://www.bpgroupusa.com/",
+    "title": "Boiling Point - Hot Soup Specialty Restaurant",
+    "metaDescription": "Welcome to Boiling Point, home of the original \"Mini Wok on a Box\". Stop by and enjoy our delicious Taiwanese Hot Pot cuisine!",
+    "loadEventMs_desktop": 3309,
+    "networkIdleMs_desktop": 4280,
+    "transferKB_desktop": 2667,
+    "transferKB_mobile": 2615,
+    "cmsDetected": [],
+    "generator": null
+  },
+  "method": "Playwright Chromium via network proxy, 1440x900 desktop and 390x844 mobile, wait for networkidle (max 20s) + 2s. Transfer size = sum of CDP encodedDataLength for the page load, one sample. Provider and motion-library detection is a keyword scan and can have false positives.",
+  "pages": {
+    "home": {
+      "desktop": {
+        "url": "https://www.bpgroupusa.com/",
+        "finalUrl": "https://www.bpgroupusa.com/",
+        "status": 200,
+        "err": null,
+        "dclMs": 2024,
+        "loadMs": 3309,
+        "networkIdleMs": 4280,
+        "cookieDismissed": null,
+        "modalsClosed": [
+          "Close"
+        ],
+        "pageHeight": 2747,
+        "info": {
+          "title": "Boiling Point - Hot Soup Specialty Restaurant",
+          "metaDesc": "Welcome to Boiling Point, home of the original \"Mini Wok on a Box\". Stop by and enjoy our delicious Taiwanese Hot Pot cuisine!",
+          "ogImage": true,
+          "lang": "en",
+          "hreflang": [],
+          "hasChinese": true,
+          "chineseCharCount": 2,
+          "generator": null,
+          "cms": [],
+          "h1": [
+            "Available at all locations.\n\n\nORDER NOW",
+            "Available at all locations. \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t",
+            "Available at all locations. \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t"
+          ],
+          "ldTypes": [],
+          "videos": 0,
+          "canvas": 0,
+          "imgs": 22,
+          "pdfLinks": [],
+          "orderingProviders": [
+            "ubereats",
+            "doordash",
+            "alohaorderonline"
+          ],
+          "telLinks": 0,
+          "loadedFonts": [
+            "FontAwesome",
+            "Jost-Bold",
+            "Jost-Regular",
+            "LeagueGothic-Regular"
+          ],
+          "computedFonts": [
+            "Jost-Bold",
+            "Jost-Regular",
+            "LeagueGothic-Regular"
+          ],
+          "bodyBg": "rgb(255, 255, 255)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": false,
+          "textSample": "Skip to main content BOILING POINT BOILING POINT CANADA JIN THE TEA SHOP EN 中文 MENU LOCATIONS NEWS AMAZON ORDER NOW Order & Pay In-Store Available at all locations. ORDER NOW Join our email list for news, promotion, and more delivered right to your inbox. Shibuya Store Now Open! Boiling Point Group does not accept franchising . Any location not listed on this official website is not affiliated with Boiling Point. Boiling Point signature sauces now available in store near you. Join our email list for news, promotion, and more delivered right to your inbox. Shibuya Store Now Open! Enter your e-mail address Southern California Northern California Washington State Canada Region COMPANY Our Story Our Locations What’s Happening Rewards Careers OUR MENU Our Food Nutritional Fact ONLINE STORE Amazon CUSTOMER CARE Talk to Us Survey Gift Card Gift Card Balance TERMS / LEGAL Privacy Policy Terms of Use Accessibility Statement Do Not Sell or Share My Personal Information © 2020-2026 Boiling Point Group, Inc."
+        },
+        "transferBytes": 2730994,
+        "requests": 86,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      },
+      "mobile": {
+        "url": "https://www.bpgroupusa.com/",
+        "finalUrl": "https://www.bpgroupusa.com/",
+        "status": 200,
+        "err": null,
+        "dclMs": 5777,
+        "loadMs": 6460,
+        "networkIdleMs": 26462,
+        "cookieDismissed": null,
+        "modalsClosed": [
+          "Close"
+        ],
+        "pageHeight": 3452,
+        "transferBytes": 2678113,
+        "requests": 82,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      }
+    },
+    "menu": {
+      "desktop": {
+        "url": "https://www.bpgroupusa.com/order.html",
+        "finalUrl": "https://www.bpgroupusa.com/order.html",
+        "status": 200,
+        "err": null,
+        "dclMs": 1791,
+        "loadMs": 2589,
+        "networkIdleMs": 4929,
+        "cookieDismissed": null,
+        "modalsClosed": [
+          "Close"
+        ],
+        "pageHeight": 1691,
+        "info": {
+          "title": "Boiling Point - Pick Up & Delivery",
+          "metaDesc": null,
+          "ogImage": true,
+          "lang": "en",
+          "hreflang": [],
+          "hasChinese": true,
+          "chineseCharCount": 2,
+          "generator": null,
+          "cms": [],
+          "h1": [
+            "Get Started!"
+          ],
+          "ldTypes": [],
+          "videos": 0,
+          "canvas": 0,
+          "imgs": 100,
+          "pdfLinks": [],
+          "orderingProviders": [
+            "ubereats",
+            "doordash",
+            "olo.com",
+            "alohaorderonline",
+            "fantuan"
+          ],
+          "telLinks": 0,
+          "loadedFonts": [
+            "Roboto",
+            "FontAwesome",
+            "Jost-Bold",
+            "Jost-Regular",
+            "LeagueGothic-Regular"
+          ],
+          "computedFonts": [
+            "Jost-Bold",
+            "Jost-Regular",
+            "Roboto",
+            "LeagueGothic-Regular"
+          ],
+          "bodyBg": "rgb(255, 255, 255)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": false,
+          "textSample": "Skip to main content BOILING POINT BOILING POINT CANADA JIN THE TEA SHOP EN 中文 MENU LOCATIONS NEWS AMAZON ORDER NOW Get Started! PICK UP DELIVERY Your Address Search Use My Location Map Satellite Keyboard shortcuts Map data ©2026 Google, INEGI Terms Report a map error Enter your e-mail address Southern California Northern California Washington State Canada Region COMPANY Our Story Our Locations What’s Happening Rewards Careers OUR MENU Our Food Nutritional Fact ONLINE STORE Amazon CUSTOMER CARE Talk to Us Survey Gift Card Gift Card Balance TERMS / LEGAL Privacy Policy Terms of Use Accessibility Statement Do Not Sell or Share My Personal Information © 2020-2026 Boiling Point Group, Inc."
+        },
+        "transferBytes": 2514510,
+        "requests": 156,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      },
+      "mobile": {
+        "url": "https://www.bpgroupusa.com/order.html",
+        "finalUrl": "https://www.bpgroupusa.com/order.html",
+        "status": 200,
+        "err": null,
+        "dclMs": 1652,
+        "loadMs": 2270,
+        "networkIdleMs": 4627,
+        "cookieDismissed": null,
+        "modalsClosed": [
+          "Close"
+        ],
+        "pageHeight": 1734,
+        "transferBytes": 2243689,
+        "requests": 83,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      }
+    }
+  }
+}

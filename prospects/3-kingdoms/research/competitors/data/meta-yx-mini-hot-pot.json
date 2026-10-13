@@ -1,0 +1,165 @@
+{
+  "slug": "yx-mini-hot-pot",
+  "id": "benchmark-08",
+  "checked": "2026-10-13",
+  "summary": {
+    "name": "YX Mini Hot Pot (余香精品小火锅)",
+    "type": "Sichuan mini hot pot (Eastwood, Sydney)",
+    "platform": "Custom PHP CMS",
+    "ordering": "Reservation request form (confirmed within 48 hours)",
+    "note": "Chinese-first site with English version. Menu is a PDF. Fixed Reservations bar on mobile. Interior styled as an ancient Chinese street.",
+    "url": "https://mini-hotpot.yxgroup.com.au/en",
+    "title": "YX Mini Hot Pot",
+    "metaDescription": "YX Mini Hot Pot",
+    "loadEventMs_desktop": 9071,
+    "networkIdleMs_desktop": 9571,
+    "transferKB_desktop": 11754,
+    "transferKB_mobile": 11899,
+    "cmsDetected": [],
+    "generator": null
+  },
+  "method": "Playwright Chromium via network proxy, 1440x900 desktop and 390x844 mobile, wait for networkidle (max 20s) + 2s. Transfer size = sum of CDP encodedDataLength for the page load, one sample. Provider and motion-library detection is a keyword scan and can have false positives.",
+  "pages": {
+    "home": {
+      "desktop": {
+        "url": "https://mini-hotpot.yxgroup.com.au/en",
+        "finalUrl": "https://mini-hotpot.yxgroup.com.au/en",
+        "status": 200,
+        "err": null,
+        "dclMs": 3887,
+        "loadMs": 9071,
+        "networkIdleMs": 9571,
+        "cookieDismissed": null,
+        "pageHeight": 5055,
+        "info": {
+          "title": "YX Mini Hot Pot",
+          "metaDesc": "YX Mini Hot Pot",
+          "ogImage": false,
+          "lang": null,
+          "hreflang": [],
+          "hasChinese": true,
+          "chineseCharCount": 2,
+          "generator": null,
+          "cms": [],
+          "h1": [],
+          "ldTypes": [],
+          "videos": 0,
+          "canvas": 0,
+          "imgs": 40,
+          "pdfLinks": [],
+          "orderingProviders": [],
+          "telLinks": 0,
+          "loadedFonts": [
+            "swiper-icons",
+            "Palatino Linotype",
+            "Mini Hotpot",
+            "Roboto"
+          ],
+          "computedFonts": [
+            "Microsoft YaHei",
+            "Mini Hotpot",
+            "Palatino Linotype"
+          ],
+          "bodyBg": "rgb(248, 248, 248)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": false,
+          "textSample": "MENU CLOSE Reservations 中文 About Us ANCIENT CHARM Founded in 2014, YX Hot Pot has remained true to its original philosophy: pure, natural flavour, crafted with care. Our signature broths are slowly simmered by the YX culinary team using traditional methods — entirely free from additives. Inspired by the principles of Chinese medicinal cuisine and modern flavour aesthetics, we’ve created a new standard for wellness hot pot: broths so nourishing, they’re good enough to drink. We select only the freshest ingredients, sourcing premium Australian produce wherever possible. From handpicked wagyu beef to house-made marinated delicacies, every component is rooted in authenticity and layered in flavour — a testament to our commitment to traceable quality and culinary integrity. But at YX, hot pot is more than a meal — it’s a cultural experience. Our restaurant spaces blend ancient Chinese architectural elements with immersive design, transporting diners into a realm where tradition meets imagination. Amid swirling steam and warm ambience, every meal becomes a journey through time and taste. Over the past decade, YX Hot Pot has grown into a leading name in Australia’s Chinese hot pot scene. With continuous innovation, we’ve introduced fan-favourite creations like the Tomato Oxtail Broth, New Zealand Fish Maw Free-Range Chicken Pot, and our signature Ultimate Hot Pot Platter — setting new trends and raising the bar for hot pot dining across the country. LEARN MORE Menu FLAVOURS LEARN MO"
+        },
+        "transferBytes": 12035753,
+        "requests": 61,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      },
+      "mobile": {
+        "url": "https://mini-hotpot.yxgroup.com.au/en",
+        "finalUrl": "https://mini-hotpot.yxgroup.com.au/en",
+        "status": 200,
+        "err": null,
+        "dclMs": 2783,
+        "loadMs": 5958,
+        "networkIdleMs": 6560,
+        "cookieDismissed": null,
+        "pageHeight": 4339,
+        "transferBytes": 12185069,
+        "requests": 61,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      }
+    },
+    "menu": {
+      "desktop": {
+        "url": "https://mini-hotpot.yxgroup.com.au/en/menu/",
+        "finalUrl": "https://mini-hotpot.yxgroup.com.au/en/menu/",
+        "status": 200,
+        "err": null,
+        "dclMs": 2151,
+        "loadMs": 3912,
+        "networkIdleMs": 4413,
+        "cookieDismissed": null,
+        "pageHeight": 1899,
+        "info": {
+          "title": "Menu_YX Mini Hot Pot",
+          "metaDesc": "YX Mini Hot Pot",
+          "ogImage": false,
+          "lang": null,
+          "hreflang": [],
+          "hasChinese": true,
+          "chineseCharCount": 2,
+          "generator": null,
+          "cms": [],
+          "h1": [],
+          "ldTypes": [],
+          "videos": 0,
+          "canvas": 0,
+          "imgs": 14,
+          "pdfLinks": [
+            "https://mini-hotpot.yxgroup.com.au/uploads/soft/20260630/2-2606301G2501J.pdf",
+            "https://mini-hotpot.yxgroup.com.au/uploads/soft/20250731/1-250I1224044a9.pdf"
+          ],
+          "orderingProviders": [],
+          "telLinks": 0,
+          "loadedFonts": [
+            "swiper-icons",
+            "Palatino Linotype",
+            "Mini Hotpot",
+            "Roboto"
+          ],
+          "computedFonts": [
+            "Microsoft YaHei",
+            "Mini Hotpot",
+            "Palatino Linotype"
+          ],
+          "bodyBg": "rgb(248, 248, 248)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": false,
+          "textSample": "MENU CLOSE Reservations 中文 Home / Menu Menu At YX Mini Hot Pot, every dish is born from an unwavering dedication to the true essence of ingredients. We carefully select premium Australian wagyu, live seafood, and house-made marinated delicacies crafted in the traditional Sichuan way. From richly marbled beef to freshly sourced ocean harvests and inventive small bites, each element contributes to a hot pot feast that’s layered, vibrant, and full of soul. Menu Beverages Refreshments Mango Shaved ice cream A spoonful of sunshine captured in soft, silky ice. Seafood Seafood Combo (M) An ocean’s bounty on one plate. Sliced Meat Rose Matsuzaka Pork Like a rose in full bloom, this dish holds a delightful surprise. About Us Menu Reservations What's On Contact Us Email | eastwood@yxgroup.com.au Address | Shop 1b/14 Glen St, Eastwood NSW 2122 © 2019-2025 YX Catering Group"
+        },
+        "transferBytes": 8214646,
+        "requests": 36,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      },
+      "mobile": {
+        "url": "https://mini-hotpot.yxgroup.com.au/en/menu/",
+        "finalUrl": "https://mini-hotpot.yxgroup.com.au/en/menu/",
+        "status": 200,
+        "err": null,
+        "dclMs": 2099,
+        "loadMs": 3879,
+        "networkIdleMs": 4378,
+        "cookieDismissed": null,
+        "pageHeight": 2083,
+        "transferBytes": 8213213,
+        "requests": 35,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      }
+    }
+  }
+}

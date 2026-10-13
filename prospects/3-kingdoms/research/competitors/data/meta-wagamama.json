@@ -1,0 +1,219 @@
+{
+  "slug": "wagamama",
+  "id": "benchmark-06",
+  "checked": "2026-10-13",
+  "summary": {
+    "name": "wagamama (UK)",
+    "type": "Pan-Asian fast casual",
+    "platform": "Nuxt",
+    "ordering": "takeout.wagamama.com (own), Deliveroo, Uber Eats; group bookings",
+    "note": "Menu is HTML with category tabs and dietary filters. Student-exclusive campaign in the hero on 13 Oct 2026.",
+    "url": "https://www.wagamama.com/",
+    "title": "wagamama | pan-asian restaurant serving food from the bench",
+    "metaDescription": "discover bold flavours at wagamama. your go-to pan-asian restaurant for ramen, rice bowls, plant-based dishes + more. dine in, click + collect, or delivery",
+    "loadEventMs_desktop": 5844,
+    "networkIdleMs_desktop": 14597,
+    "transferKB_desktop": 4488,
+    "transferKB_mobile": 3792,
+    "cmsDetected": [
+      "nuxt"
+    ],
+    "generator": null
+  },
+  "method": "Playwright Chromium via network proxy, 1440x900 desktop and 390x844 mobile, wait for networkidle (max 20s) + 2s. Transfer size = sum of CDP encodedDataLength for the page load, one sample. Provider and motion-library detection is a keyword scan and can have false positives.",
+  "pages": {
+    "home": {
+      "desktop": {
+        "url": "https://www.wagamama.com/",
+        "finalUrl": "https://www.wagamama.com/",
+        "status": 200,
+        "err": null,
+        "dclMs": 3485,
+        "loadMs": 5844,
+        "networkIdleMs": 14597,
+        "cookieDismissed": "accept all cookies",
+        "pageHeight": 3273,
+        "info": {
+          "title": "wagamama | pan-asian restaurant serving food from the bench",
+          "metaDesc": "discover bold flavours at wagamama. your go-to pan-asian restaurant for ramen, rice bowls, plant-based dishes + more. dine in, click + collect, or delivery",
+          "ogImage": false,
+          "lang": "en",
+          "hreflang": [
+            "en-GB",
+            "ar-AE",
+            "nl-NL",
+            "tr-TR",
+            "en-US",
+            "ar-SA",
+            "ar-OM",
+            "ar-QA",
+            "en-GI",
+            "da-DK",
+            "en-MT",
+            "en-IE",
+            "de-AT",
+            "sk-SK",
+            "el-GR",
+            "el-CY",
+            "it-IT",
+            "x-default",
+            "en-GB",
+            "en-US",
+            "de-AT",
+            "en-BH",
+            "nl-BE",
+            "en-CY",
+            "ar-AE",
+            "el-GR",
+            "it-IT"
+          ],
+          "hasChinese": false,
+          "chineseCharCount": 0,
+          "generator": null,
+          "cms": [
+            "nuxt"
+          ],
+          "h1": [
+            "join soul club",
+            "our new menu is making waves",
+            "new street wraps",
+            "students! our first student exclusive is here"
+          ],
+          "ldTypes": [
+            "Organization",
+            "Restaurant",
+            "LocalBusiness",
+            "WebSite",
+            "FAQPage"
+          ],
+          "videos": 0,
+          "canvas": 0,
+          "imgs": 12,
+          "pdfLinks": [],
+          "orderingProviders": [
+            "ubereats",
+            "deliveroo",
+            "opentable",
+            "takeout.wagamama"
+          ],
+          "telLinks": 0,
+          "loadedFonts": [
+            "Wagamama"
+          ],
+          "computedFonts": [
+            "Wagamama",
+            "Arial"
+          ],
+          "bodyBg": "rgb(0, 0, 0)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": false,
+          "textSample": "menu restaurants order online join soul club kids and families jobs shop more book a table join soul club download the app + join soul club to earn stamps and unlock tasty food rewards. plus, we’ll welcome you with your first stamp + reward on us *soul club t+cs' apply more on soul club our new menu is making waves we know, it’s bold to mess with a seaside classic. but when you taste that first slurp of our new fish + chips ramen, you’ll get it. our new menu is officially here, and it’s sure to make waves see the new menu new street wraps our brand new street wraps have arrived, and they’re exclusively available when you order to your door. so tap over to uber eats or deliveroo, and let us bring lunch to you uber eats deliveroo students! our first student exclusive is here you're going to want to give this one a spin...your chance to win tasty food rewards and iconic merch*. plus, we're on the hunt for our first soul club student society ambassadors. *ts+cs apply get the details feeling festive? already? we know, it’s still basically summer. but there’s no harm in getting the group chat to pick a date to feast with us this festive season. book our festive set menu by october 15 for any time between november 18 and january 5, and we’ll welcome you with a glass of prosecco (or an alcohol-free alternative) on us* book now join soul club download the app + join soul club to earn stamps and unlock tasty food rewards. plus, we’ll welcome you with your first stamp + reward on us *so"
+        },
+        "transferBytes": 4595934,
+        "requests": 576,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      },
+      "mobile": {
+        "url": "https://www.wagamama.com/",
+        "finalUrl": "https://www.wagamama.com/",
+        "status": 200,
+        "err": null,
+        "dclMs": 2190,
+        "loadMs": 4678,
+        "networkIdleMs": 19175,
+        "cookieDismissed": "accept all cookies",
+        "pageHeight": 3897,
+        "transferBytes": 3882743,
+        "requests": 571,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      }
+    },
+    "menu": {
+      "desktop": {
+        "url": "https://www.wagamama.com/menu",
+        "finalUrl": "https://www.wagamama.com/menu?category=lunch+time",
+        "status": 200,
+        "err": null,
+        "dclMs": 2364,
+        "loadMs": 5015,
+        "networkIdleMs": 15201,
+        "cookieDismissed": "accept all cookies",
+        "pageHeight": 2177,
+        "info": {
+          "title": "wagamama food menu | pan-asian cuisine",
+          "metaDesc": "view our menu, which contains popular japanese and asian cuisine in many popular categories such as ramen, teppanyaki and curry dishes",
+          "ogImage": false,
+          "lang": "en",
+          "hreflang": [
+            "en-GB",
+            "en-IE",
+            "en-US",
+            "x-default"
+          ],
+          "hasChinese": false,
+          "chineseCharCount": 0,
+          "generator": null,
+          "cms": [
+            "nuxt"
+          ],
+          "h1": [
+            "our new menu is making waves\nmain menu"
+          ],
+          "ldTypes": [
+            "Menu",
+            "FAQPage"
+          ],
+          "videos": 0,
+          "canvas": 0,
+          "imgs": 7,
+          "pdfLinks": [],
+          "orderingProviders": [
+            "ubereats",
+            "deliveroo",
+            "opentable",
+            "takeout.wagamama"
+          ],
+          "telLinks": 0,
+          "loadedFonts": [
+            "Wagamama"
+          ],
+          "computedFonts": [
+            "Wagamama",
+            "Arial"
+          ],
+          "bodyBg": "rgb(0, 0, 0)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": false,
+          "textSample": "menu restaurants order online join soul club kids and families jobs shop more book a table our new menu is making waves main menu autumn has officially arrived. and as we say hello to cosier, cooler weather, we also welcome our new menu made for the season. with new, elevated dishes hand picked by our chefs, and an unexpected twist on some classic seaside classic…it’s exactly what the weather requires click to view northern ireland menu lunch time sides the main event extras desserts + sweet treats drinks kids gluten free dietary filters vegan vg vegetarian v katsu chicken wrap beetroot wrap. crispy omelette. katsu chicken. crunchy asian slaw. katsu pick... (481 kcals) find out more yasai katsu wrap spinach wrap. crispy omelette. panko sweet potato and aubergine. crunchy asia... (596 kcals) find out more new v miso k-chicken lunch box sticky miso korean fried chicken. sticky rice. beetroot. kimchee cucumber. sh... (739 kcals) find out more miso cauliflower lunch box sticky miso korean fried cauliflower. sticky rice. beetroot. kimchee. cucumbe... (800 kcals) find out more vg v nasi goreng lunch box grilled chicken breast. teriyaki fried rice with peppers + onions. fried egg.... (765 kcals) find out more adults need around 2,000 kcal a day want exclusive perks + fresh deals? get exclusive news and offers straight to your inbox. you can opt out at anytime sign me up our business about us jobs contact us press franchise policies + reports investors our menu our menu plant based a"
+        },
+        "transferBytes": 3383367,
+        "requests": 554,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      },
+      "mobile": {
+        "url": "https://www.wagamama.com/menu",
+        "finalUrl": "https://www.wagamama.com/menu?category=lunch+time",
+        "status": 200,
+        "err": null,
+        "dclMs": 2590,
+        "loadMs": 4440,
+        "networkIdleMs": 12004,
+        "cookieDismissed": "accept all cookies",
+        "pageHeight": 2625,
+        "transferBytes": 3375461,
+        "requests": 553,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      }
+    }
+  }
+}
