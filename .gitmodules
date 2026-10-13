@@ -1,0 +1,16 @@
+[submodule "research/code-references/lenis"]
+	path = research/code-references/lenis
+	url = https://github.com/darkroomengineering/lenis
+	shallow = true
+[submodule "research/code-references/react-three-fiber"]
+	path = research/code-references/react-three-fiber
+	url = https://github.com/pmndrs/react-three-fiber
+	shallow = true
+[submodule "research/code-references/ScrollAnimationsGrid"]
+	path = research/code-references/ScrollAnimationsGrid
+	url = https://github.com/codrops/ScrollAnimationsGrid
+	shallow = true
+[submodule "research/code-references/gsap-collection"]
+	path = research/code-references/gsap-collection
+	url = https://github.com/Ibaliqbal/gsap-collection
+	shallow = true
