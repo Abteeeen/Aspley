@@ -1,0 +1,240 @@
+<title>3 Kingdoms Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+SC:wght@900&display=swap">
+<style>
+/* Layout: a review dossier. One reading column for the argument, wide image rows for the work. */
+:root {
+  --bg: #F5F4F1;
+  --surface: #FFFFFF;
+  --fg: #1B1714;
+  --muted: #5E554E;
+  --rule: rgba(27, 23, 20, 0.14);
+  --accent: #B42318;
+  --accent-ink: #FFFFFF;
+  --f-display: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --f-body: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --f-ui: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+  --f-zh: "Noto Serif SC", "Songti SC", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #15110E; --surface: #1F1915; --fg: #EEE9E3; --muted: #B3A89F; --rule: rgba(238, 233, 227, 0.16); --accent: #E2452F; --accent-ink: #15110E; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --bg: #15110E; --surface: #1F1915; --fg: #EEE9E3; --muted: #B3A89F; --rule: rgba(238, 233, 227, 0.16); --accent: #E2452F; --accent-ink: #15110E; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font: 400 1.08rem/1.6 var(--f-body); font-optical-sizing: auto; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-inline: clamp(16px, 4vw, 40px); padding-block: 0; }
+.col { max-width: 68ch; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 500; text-wrap: balance; letter-spacing: -0.01em; }
+h2 { font-size: clamp(1.9rem, 3.6vw, 2.7rem); line-height: 1.08; margin: 0 0 14px; }
+h3 { font-size: 1.35rem; line-height: 1.2; margin: 0 0 6px; }
+p { margin: 0 0 14px; }
+.ui { font-family: var(--f-ui); font-weight: 500; }
+.muted { color: var(--muted); }
+section { padding-block: clamp(48px, 8vw, 88px); border-top: 1px solid var(--rule); }
+
+/* masthead */
+.mast { padding-block: clamp(40px, 7vw, 80px) clamp(32px, 5vw, 56px); }
+.mast .zh { font: 900 clamp(2.6rem, 7vw, 4.6rem)/1 var(--f-zh); color: var(--accent); letter-spacing: 0.04em; display: block; margin-bottom: 14px; }
+.mast h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: 1; margin: 0 0 18px; }
+.mast .lede { font-size: clamp(1.15rem, 1.8vw, 1.35rem); max-width: 56ch; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 18px; font: 500 0.92rem var(--f-ui); color: var(--muted); }
+.facts b { color: var(--fg); font-weight: 600; }
+.btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.btn { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 4px; font: 600 1rem var(--f-ui); text-decoration: none; border: 1px solid var(--fg); color: var(--fg); transition: transform 150ms cubic-bezier(0.23, 1, 0.32, 1); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn:active { transform: scale(0.97); }
+
+/* variants */
+.variants { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(20px, 3vw, 36px); margin-top: 28px; }
+@media (max-width: 820px) { .variants { grid-template-columns: minmax(0, 1fr); } }
+.v { min-width: 0; display: grid; gap: 14px; align-content: start; }
+.v .hero { border-radius: 6px; overflow: hidden; border: 1px solid var(--rule); }
+.v .strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.v .strip img { border-radius: 4px; border: 1px solid var(--rule); aspect-ratio: 16 / 10; object-fit: cover; width: 100%; }
+.v .label { font: 600 0.85rem var(--f-ui); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+.v ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+.phones { display: flex; gap: 12px; margin-top: 30px; overflow-x: auto; padding-bottom: 6px; }
+.phones figure { margin: 0; flex: none; width: 180px; }
+.phones img { border-radius: 10px; border: 1px solid var(--rule); }
+.phones figcaption { font: 500 0.82rem var(--f-ui); color: var(--muted); margin-top: 6px; }
+
+/* method */
+.steps { list-style: none; margin: 26px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; counter-reset: s; }
+@media (max-width: 820px) { .steps { grid-template-columns: minmax(0, 1fr); } }
+.steps li { counter-increment: s; min-width: 0; }
+.steps li::before { content: counter(s); display: block; font: 600 2.4rem/1 var(--f-display); color: var(--accent); margin-bottom: 8px; }
+.steps img { border-radius: 6px; border: 1px solid var(--rule); margin-bottom: 10px; max-height: 300px; width: auto; }
+.anat { margin-top: 36px; overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; min-width: 760px; font-size: 1rem; }
+th, td { text-align: left; vertical-align: top; padding: 12px 14px 12px 0; border-bottom: 1px solid var(--rule); }
+th { font: 600 0.82rem var(--f-ui); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+td img { width: 220px; max-width: none; border-radius: 4px; border: 1px solid var(--rule); }
+td.n { font: 600 1rem var(--f-ui); color: var(--muted); font-variant-numeric: tabular-nums; width: 2.2em; }
+
+/* top 10 */
+.ten { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 32px; margin-top: 28px; }
+@media (max-width: 820px) { .ten { grid-template-columns: minmax(0, 1fr); } }
+.site { min-width: 0; display: grid; grid-template-columns: 2.4em minmax(0, 1fr); gap: 0 10px; }
+.site .rk { font: 600 1.6rem/1.1 var(--f-display); color: var(--accent); font-variant-numeric: tabular-nums; }
+.site img { border-radius: 5px; border: 1px solid var(--rule); margin: 6px 0 10px; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; width: 100%; }
+.site .meta { font: 500 0.88rem var(--f-ui); color: var(--muted); margin-bottom: 6px; }
+.site p { font-size: 1rem; margin-bottom: 6px; }
+.site .take { font-style: italic; }
+.patterns { margin-top: 36px; }
+.patterns ul { padding-left: 1.1em; display: grid; gap: 8px; }
+
+/* status */
+.status { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 40px; margin-top: 20px; }
+@media (max-width: 820px) { .status { grid-template-columns: minmax(0, 1fr); } }
+.status ul { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; }
+.pill { display: inline-block; font: 600 0.75rem var(--f-ui); letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 8px; border-radius: 99px; border: 1px solid currentColor; margin-bottom: 10px; }
+.ok { color: #2F7D4B; }
+.todo { color: var(--accent); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ok { color: #7CC492; } }
+:root[data-theme="dark"] .ok { color: #7CC492; }
+footer { border-top: 1px solid var(--rule); padding-block: 32px 48px; font: 500 0.9rem var(--f-ui); color: var(--muted); }
+code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.88em; overflow-wrap: anywhere; }
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <span class="zh" lang="zh-Hans">三国冒菜</span>
+    <h1>Two websites for 3 Kingdoms, built from our walk-in footage</h1>
+    <p class="lede">Both variants use the same method as the El Pueblo #2 site in the reference video. Scrolling plays the camera from the Level A hall, past the red lattice, through the dining room and onto the counter menu. Everything after that is real 3 Kingdoms content: the counter board, the six spice levels, counter prices and how to find Shop 32.</p>
+    <div class="facts"><span><b>Prepared</b> 13 Oct 2026</span><span><b>Footage</b> 4 phone clips shot in store that day</span><span><b>Status</b> concepts for the owner to choose from</span></div>
+    <div class="btns">
+      <a class="btn primary" href="a.html">Open Variant A: Lantern Walk</a>
+      <a class="btn" href="b.html">Open Variant B: Broadside</a>
+    </div>
+  </header>
+
+  <section aria-labelledby="vH">
+    <div class="col">
+      <h2 id="vH">The two variants</h2>
+      <p>Open each one and scroll slowly. The walk-in is tied to the scroll bar, so it plays backwards too. On a phone, the walk switches to the portrait clips.</p>
+    </div>
+    <div class="variants">
+      <article class="v">
+        <span class="label">Variant A</span>
+        <h3>Lantern Walk</h3>
+        <a class="hero" href="a.html"><img src="media/shots/a-title.webp" alt="Variant A: the walk ends on the counter and the gold 三国冒菜 title lands" width="1200" height="750"></a>
+        <div class="strip">
+          <img src="media/shots/a-walk0.webp" alt="Variant A opening frame in the Level A hall" loading="lazy" width="1200" height="750">
+          <img src="media/shots/a-menu.webp" alt="Variant A counter board with spice dial" loading="lazy" width="1200" height="750">
+          <img src="media/shots/a-deck.webp" alt="Variant A 3D photo deck of the dining room" loading="lazy" width="1200" height="750">
+        </div>
+        <p>Closest to the reference video. Night-dark, full-bleed footage, gold title type. It follows the video's section order.</p>
+        <ul>
+          <li>Full-screen walk-in with a 4-step route bar: Level A hall, Shop 32, the red room, the counter.</li>
+          <li>Word-by-word statement of what mao cai is.</li>
+          <li>Counter board with a six-step spice dial that warms the whole section.</li>
+          <li>Scroll-driven 3D photo deck of the room.</li>
+          <li>Marquee with a phone card playing a room clip, pointing creators to the handles.</li>
+          <li>Find-us photo that grows from an inset to full screen, with hours, directions and phone.</li>
+        </ul>
+        <a class="btn primary" href="a.html">Open Variant A</a>
+      </article>
+      <article class="v">
+        <span class="label">Variant B</span>
+        <h3>Broadside</h3>
+        <a class="hero" href="b.html"><img src="media/shots/b-walk0.webp" alt="Variant B: the walk starts as a doorway between giant type bands" width="1200" height="750"></a>
+        <div class="strip">
+          <img src="media/shots/b-walk2.webp" alt="Variant B overprint: Pick it. Weigh it. Spice it." loading="lazy" width="1200" height="750">
+          <img src="media/shots/b-board.webp" alt="Variant B horizontal board of menu tickets" loading="lazy" width="1200" height="750">
+          <img src="media/shots/b-heat.webp" alt="Variant B six heats letters" loading="lazy" width="1200" height="750">
+        </div>
+        <p>A daylight letterpress poster, loud enough for TikTok and students. The footage starts as a doorway between the type bands and opens to fill the screen.</p>
+        <ul>
+          <li>Doorway walk-in, with "Pick it. Weigh it. Spice it." printed over the room in red.</li>
+          <li>Counter cards drifting over a giant 冒菜.</li>
+          <li>Pinned horizontal board of menu tickets with counter prices.</li>
+          <li>Six heats as six characters. Move across them to pick a level, like the reference video's letters.</li>
+          <li>Find us as four numbered photo steps from Queen Street.</li>
+        </ul>
+        <a class="btn" href="b.html">Open Variant B</a>
+      </article>
+    </div>
+    <div class="phones" aria-label="Phone screenshots">
+      <figure><img src="media/shots/am-walk0.webp" alt="Variant A on a phone, opening frame" loading="lazy" width="390" height="844"><figcaption>A · phone, start</figcaption></figure>
+      <figure><img src="media/shots/am-title.webp" alt="Variant A on a phone, title" loading="lazy" width="390" height="844"><figcaption>A · phone, title</figcaption></figure>
+      <figure><img src="media/shots/am-menu.webp" alt="Variant A on a phone, spice dial" loading="lazy" width="390" height="844"><figcaption>A · phone, spice dial</figcaption></figure>
+      <figure><img src="media/shots/bm-walk0.webp" alt="Variant B on a phone, doorway" loading="lazy" width="390" height="844"><figcaption>B · phone, doorway</figcaption></figure>
+      <figure><img src="media/shots/bm-title.webp" alt="Variant B on a phone, ticket at the counter" loading="lazy" width="390" height="844"><figcaption>B · phone, at the counter</figcaption></figure>
+      <figure><img src="media/shots/bm-board.webp" alt="Variant B on a phone, menu tickets" loading="lazy" width="390" height="844"><figcaption>B · phone, the board</figcaption></figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="mH">
+    <div class="col">
+      <h2 id="mH">How the reference site was made</h2>
+      <p>The video shows a creator building the El Pueblo #2 site for a restaurant. These are the steps it shows, which we repeated for 3 Kingdoms.</p>
+    </div>
+    <ol class="steps">
+      <li><img src="media/ref/02-t8.5.webp" alt="Reference video: filming the restaurant from outside" loading="lazy" width="478" height="850"><h3>Film the place</h3><p>One clip of the outside, then the left side and the right side of the room. We shot four clips on 13 Oct: the Level A hall, the walk in, and two portrait passes.</p></li>
+      <li><img src="media/ref/03-t19.5.webp" alt="Reference video: three zip files handed to Claude" loading="lazy" width="478" height="850"><h3>Hand it to Claude</h3><p>Three zips: the clips and two photo sets. Claude unpacked them, built the site and deployed it to a preview link. Our clips are in the repo, compressed to under 20 MB each.</p></li>
+      <li><img src="media/ref/06-t32.webp" alt="Reference video: the finished site's gold title over the dining room" loading="lazy" width="956" height="368"><h3>Scroll becomes the camera</h3><p>The clip is cut into frames and drawn on a canvas as you scroll, so the page walks you in. Then the name lands and the rest of the page is ordinary sections with motion.</p></li>
+    </ol>
+
+    <div class="anat">
+      <table>
+        <thead><tr><th></th><th>In the reference video</th><th>What it does</th><th>Variant A</th><th>Variant B</th></tr></thead>
+        <tbody>
+          <tr><td class="n">1</td><td><img src="media/ref/04-t24.webp" alt="El Pueblo #2 exterior opening frame" loading="lazy" width="956" height="368"></td><td>Scroll-scrubbed walk from the street, through the door, around the room.</td><td>Full-bleed walk from the Level A hall to the counter, with a route bar.</td><td>The same walk inside a doorway that opens to full screen.</td></tr>
+          <tr><td class="n">2</td><td><img src="media/ref/06-t32.webp" alt="El Pueblo #2 gold title over the room" loading="lazy" width="956" height="368"></td><td>Gold name lands letter by letter at the end of the walk.</td><td>Gold 三国冒菜 rises character by character with one light sweep.</td><td>A printed ticket with the name, the $20.80 bowl and two actions.</td></tr>
+          <tr><td class="n">3</td><td><img src="media/ref/07-t32.5.webp" alt="El Pueblo #2 plates over giant type" loading="lazy" width="956" height="368"></td><td>Plates over giant type: "From the kitchen".</td><td>Counter board with spice dial and dish cards.</td><td>Counter cards drifting over a giant 冒菜.</td></tr>
+          <tr><td class="n">4</td><td><img src="media/ref/08-t35.webp" alt="El Pueblo #2 Instagram card over a marquee" loading="lazy" width="956" height="368"></td><td>Instagram post rising over a moving marquee.</td><td>Phone card with a room clip over two marquees.</td><td>Red ribbon marquee: "Hidden gem? Not any more."</td></tr>
+          <tr><td class="n">5</td><td><img src="media/ref/10-t38.5.webp" alt="El Pueblo #2 3D card stack gallery" loading="lazy" width="956" height="368"></td><td>3D card-stack gallery: scroll, drag or arrow keys.</td><td>Scroll-driven 3D deck of six room photos with arrows.</td><td>Pinned horizontal board of menu tickets.</td></tr>
+          <tr><td class="n">6</td><td><img src="media/ref/11-t41.webp" alt="El Pueblo #2 word-by-word reveal" loading="lazy" width="956" height="368"></td><td>Statement that fills in word by word, last line in red.</td><td>"What mao cai is", ending in red on the opening hours.</td><td>Folded into the bowls section copy.</td></tr>
+          <tr><td class="n">7</td><td><img src="media/ref/12-t41.5.webp" alt="El Pueblo #2 interactive letters" loading="lazy" width="956" height="368"></td><td>"Move across the letters" interactive name.</td><td>Spice dial does this job.</td><td>Six heats as six characters you sweep across.</td></tr>
+          <tr><td class="n">8</td><td><img src="media/ref/13-t43.webp" alt="El Pueblo #2 golden hour photo growing to full screen" loading="lazy" width="956" height="368"></td><td>Inset photo grows to full screen: "Golden hour in the dining room".</td><td>Shopfront grows to full screen: "Lanterns on till 7."</td><td>Four numbered photo steps from Queen Street.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="tH" id="top10">
+    <div class="col">
+      <h2 id="tH">Top 10 award-winning food and drink sites</h2>
+      <p class="muted">Research in progress.</p>
+    </div>
+    <!--TOP10-->
+  </section>
+
+  <section aria-labelledby="sH">
+    <div class="col">
+      <h2 id="sH">What is real and what is still to do</h2>
+    </div>
+    <div class="status">
+      <div>
+        <span class="pill ok">Real</span>
+        <ul>
+          <li>All walk-in and room imagery is our footage from 13 Oct 2026.</li>
+          <li>Dish images are the cards on the counter, cropped from the same footage.</li>
+          <li>The six spice levels come from the counter card: 大骨汤 No spicy, 微辣 Mild, 少辣 Little, 中辣 Medium, 大辣 Extra, 特辣 Extra plus.</li>
+          <li>Prices are the in-store list prices from our research ($20.80 signature, $19.80 mains and noodles).</li>
+          <li>Hours, address, phone and delivery links match Uptown, Google and Uber Eats.</li>
+        </ul>
+      </div>
+      <div>
+        <span class="pill todo">To do before launch</span>
+        <ul>
+          <li>Blur faces of customers and staff in the footage, or get the venue's OK.</li>
+          <li>A proper food shoot. The counter cards are photos of photos behind acrylic.</li>
+          <li>Order pickup is not wired up yet. The buttons jump to the menu.</li>
+          <li>Owner to confirm the Chinese spice names and dish names, and in-store prices.</li>
+          <li>Directions within Uptown need a walk-through to confirm the route from Queen Street.</li>
+          <li>Full audit: web-design-guidelines and react-best-practices passes once one variant is chosen.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Concepts for the owner of 3 Kingdoms, 三国冒菜, Shop 32, Level A, Uptown, 91 Queen St, Brisbane. Not the live site. Source in the repo under <code>prospects/3-kingdoms/site/</code>.
+  </footer>
+</div>

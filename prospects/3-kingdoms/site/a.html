@@ -1,0 +1,716 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>3 Kingdoms Lantern Walk</title>
+<meta name="description" content="Concept A for 3 Kingdoms 三国冒菜, Sichuan mini hotpot at Shop 32, Level A, Uptown, Brisbane.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+SC:wght@600;900&display=swap">
+<link rel="preload" as="image" href="media/walk-d/000.webp" media="(min-aspect-ratio: 85/100)">
+<link rel="preload" as="image" href="media/walk-m/000.webp" media="(max-aspect-ratio: 85/100)">
+<style>
+/* Layout: one continuous night walk. Full-bleed footage first, then dark sections lit
+   like the room: lantern gold for light, seal red for action, rice paper for text. */
+:root {
+  --ink: #17130F;        /* logo black, warmed to sit beside the footage */
+  --ink-2: #221A15;      /* raised panels */
+  --paper: #F7F6F2;      /* rice paper text */
+  --paper-dim: #B9AFA6;  /* secondary text on ink, 7.9:1 */
+  --seal: #C8321F;       /* the red seal: every action */
+  --seal-hi: #E2452F;
+  --lantern: #F2A93B;    /* lantern glow: highlights, prices */
+  --oil: #E0601A;        /* chilli oil: heat */
+  --pepper: #8FA043;     /* green peppercorn: no-spice only */
+  --line: rgba(247, 246, 242, 0.14);
+
+  --f-zh: "Noto Serif SC", "Songti SC", "STSong", serif;
+  --f-display: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --f-body: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --f-ui: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+
+  --gutter: clamp(16px, 4vw, 56px);
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { background: var(--ink); -webkit-text-size-adjust: 100%; overflow-x: clip; }
+body {
+  margin: 0; background: var(--ink); color: var(--paper);
+  font: 400 1.125rem/1.6 var(--f-body);
+  font-optical-sizing: auto;
+  overflow-x: clip;
+}
+img, video, canvas { display: block; max-width: 100%; }
+img { height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--lantern); outline-offset: 3px; border-radius: 2px; }
+.zh { font-family: var(--f-zh); }
+.ui { font-family: var(--f-ui); font-weight: 500; letter-spacing: 0.02em; }
+.num { font-variant-numeric: tabular-nums lining-nums; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- header ---------- */
+.top {
+  position: fixed; inset: 0 0 auto 0; z-index: 50;
+  display: flex; align-items: center; gap: 24px;
+  padding: calc(env(safe-area-inset-top, 0px) + 14px) var(--gutter) 14px;
+  background: linear-gradient(rgba(23, 19, 15, 0.72), rgba(23, 19, 15, 0));
+}
+.brand { display: flex; align-items: baseline; gap: 10px; text-decoration: none; }
+.brand .zh { font-weight: 900; font-size: 1.35rem; letter-spacing: 0.06em; }
+.brand .en { font: 600 0.82rem var(--f-ui); letter-spacing: 0.14em; text-transform: uppercase; color: var(--paper-dim); }
+.tag { font: 500 0.7rem var(--f-ui); letter-spacing: 0.08em; text-transform: uppercase; color: var(--lantern); border: 1px solid rgba(242, 169, 59, 0.45); padding: 3px 7px; border-radius: 99px; white-space: nowrap; }
+.nav { margin-left: auto; display: flex; align-items: center; gap: 22px; }
+.nav a, .nav button { font: 500 0.95rem var(--f-ui); color: var(--paper); text-decoration: none; background: none; border: 0; padding: 6px 0; cursor: pointer; }
+.nav a:hover, .nav button:hover { color: var(--lantern); }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 44px; padding: 0 20px; border-radius: 4px;
+  font: 600 1rem var(--f-ui); letter-spacing: 0.02em; text-decoration: none; cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 160ms var(--ease-out), background-color 160ms var(--ease-out);
+}
+.btn:active { transform: scale(0.97); }
+.btn-seal { background: var(--seal); color: var(--paper); }
+.btn-seal:hover { background: var(--seal-hi); }
+.btn-ghost { border-color: rgba(247, 246, 242, 0.5); color: var(--paper); background: rgba(23, 19, 15, 0.35); }
+.btn-ghost:hover { border-color: var(--paper); }
+@media (max-width: 760px) { .nav .hide-sm { display: none; } .top { gap: 12px; } .brand .en { display: none; } }
+
+/* ---------- 1. the walk ---------- */
+.walk { position: relative; background: #000; }
+.walk .stage { position: relative; height: 100svh; min-height: 560px; overflow: hidden; }
+.walk canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.walk .poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.walk .shade {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(120% 90% at 50% 45%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.55) 100%),
+    linear-gradient(180deg, rgba(23,19,15,0.55) 0%, rgba(23,19,15,0) 22%, rgba(23,19,15,0) 55%, rgba(23,19,15,0.88) 100%);
+}
+.endshade { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(70% 60% at 50% 50%, rgba(23,19,15,0.82), rgba(23,19,15,0.55)); opacity: 0; }
+.static .endshade { opacity: 1; }
+.beat { position: absolute; left: var(--gutter); right: var(--gutter); bottom: clamp(120px, 20vh, 200px); max-width: 30ch; }
+.beat p { margin: 0; font: 500 clamp(1.7rem, 3.6vw, 3.1rem)/1.12 var(--f-display); letter-spacing: -0.01em; text-wrap: balance; text-shadow: 0 2px 24px rgba(0,0,0,0.5); }
+.beat .k { display: block; margin-bottom: 14px; font: 600 0.85rem var(--f-ui); letter-spacing: 0.12em; text-transform: uppercase; color: var(--lantern); text-shadow: none; }
+.beat-2 { left: auto; text-align: right; }
+.title-beat { bottom: auto; top: 50%; left: 0; right: 0; max-width: none; transform: translateY(-50%); text-align: center; padding-inline: var(--gutter); }
+.title-beat h1 { margin: 0; line-height: 1; }
+.title-beat .zh-title {
+  display: block; font: 900 clamp(4.2rem, 15vw, 13rem)/1 var(--f-zh); letter-spacing: 0.04em;
+  background: linear-gradient(100deg, #8a4b14 0%, #f7cf7a 22%, #fff3d2 32%, #f2a93b 45%, #b8561a 70%, #f2a93b 100%);
+  background-size: 260% 100%; background-position: var(--sheen, 100%) 0;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 6px 30px rgba(200, 50, 31, 0.55));
+}
+.title-beat .zh-title span { display: inline-block; background: inherit; background-size: inherit; background-position: inherit; -webkit-background-clip: text; background-clip: text; color: transparent; }
+.title-beat .en-title { display: block; margin-top: 14px; font: 600 clamp(1rem, 2vw, 1.35rem) var(--f-ui); letter-spacing: 0.42em; text-transform: uppercase; padding-left: 0.42em; }
+.title-beat .sub { margin: 18px auto 26px; max-width: 34ch; font: 400 clamp(1.1rem, 1.6vw, 1.3rem)/1.45 var(--f-body); color: var(--paper); }
+.title-beat .row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+.route { position: absolute; left: var(--gutter); right: var(--gutter); bottom: max(28px, env(safe-area-inset-bottom, 0px)); display: grid; gap: 10px; }
+.route ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.route li { font: 500 0.8rem var(--f-ui); letter-spacing: 0.05em; color: var(--paper-dim); transition: color 200ms var(--ease-out); min-width: 0; }
+.route li b { display: block; font-weight: 600; color: var(--lantern); font-variant-numeric: tabular-nums; }
+.route li.on { color: var(--paper); }
+.route .bar { height: 2px; background: var(--line); position: relative; overflow: hidden; }
+.route .bar i { position: absolute; inset: 0; transform-origin: 0 50%; transform: scaleX(var(--p, 0)); background: linear-gradient(90deg, var(--lantern), var(--seal)); }
+.cue { position: absolute; right: var(--gutter); top: calc(env(safe-area-inset-top, 0px) + 84px); font: 500 0.8rem var(--f-ui); letter-spacing: 0.1em; text-transform: uppercase; color: var(--paper-dim); }
+
+/* motion mode: tall track, sticky stage, beats driven by progress */
+.motion .walk { height: 560vh; }
+.motion .walk .stage { position: sticky; top: 0; }
+.motion .walk .poster { display: none; }
+.motion .beat { opacity: 0; will-change: opacity, transform; }
+.motion .beat.first { opacity: 1; }
+.static .beat:not(.title-beat), .static .cue { display: none; }
+.static .route li { color: var(--paper); }
+.static .route .bar i { transform: scaleX(1); }
+
+/* ---------- 2. word reveal ---------- */
+.story { position: relative; padding: clamp(96px, 16vh, 180px) var(--gutter); }
+.story .inner { max-width: 1100px; margin: 0 auto; }
+.story .k { font: 600 0.85rem var(--f-ui); letter-spacing: 0.12em; text-transform: uppercase; color: var(--lantern); margin: 0 0 22px; }
+.story p.big { margin: 0; font: 500 clamp(1.9rem, 4.3vw, 3.9rem)/1.14 var(--f-display); letter-spacing: -0.015em; text-wrap: pretty; }
+.story .w { transition: color 220ms linear; }
+.story .heat { color: var(--seal-hi); }
+.motion .story { height: 230vh; padding: 0; }
+.motion .story .pin { position: sticky; top: 0; height: 100svh; display: grid; align-items: center; padding: 0 var(--gutter); }
+.motion .story .w { color: rgba(247, 246, 242, 0.24); }
+.motion .story .w.on { color: var(--paper); }
+.motion .story .heat .w.on { color: var(--seal-hi); }
+
+/* ---------- 3. the counter: menu + spice dial ---------- */
+.counter {
+  --heat: 0;
+  position: relative; padding: clamp(80px, 12vh, 140px) var(--gutter);
+  background:
+    radial-gradient(80% 60% at 20% 0%, color-mix(in oklch, var(--oil) calc(var(--heat) * 6%), transparent), transparent 70%),
+    var(--ink);
+  transition: background-color 400ms var(--ease-out);
+  border-top: 1px solid var(--line);
+}
+.counter .head { max-width: 1200px; margin: 0 auto 48px; display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 20px; }
+.counter h2, .section-h { margin: 0; font: 500 clamp(2.4rem, 5.4vw, 4.6rem)/1 var(--f-display); letter-spacing: -0.02em; }
+.counter h2 .zh, .section-h .zh { font-weight: 900; font-size: 0.7em; margin-left: 0.3em; color: var(--lantern); letter-spacing: 0.05em; }
+.counter .lead { max-width: 44ch; margin: 0; color: var(--paper-dim); }
+.counter .grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 4vw, 64px); }
+@media (max-width: 900px) { .counter .grid { grid-template-columns: minmax(0, 1fr); } }
+
+.dial { margin: 0; padding: 26px; border: 1px solid var(--line); border-radius: 6px; background: var(--ink-2); min-width: 0; }
+.dial legend { font: 600 0.85rem var(--f-ui); letter-spacing: 0.12em; text-transform: uppercase; color: var(--lantern); padding: 0 6px; }
+.dial .opts { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; margin-top: 8px; }
+.dial input { position: absolute; opacity: 0; pointer-events: none; }
+.dial label {
+  display: grid; justify-items: center; gap: 6px; padding: 12px 2px 10px; border-radius: 4px; cursor: pointer;
+  border: 1px solid var(--line); text-align: center;
+  transition: background-color 180ms var(--ease-out), border-color 180ms var(--ease-out), transform 160ms var(--ease-out);
+}
+.dial label:active { transform: scale(0.96); }
+.dial label .dot { width: 14px; height: 14px; border-radius: 50%; background: var(--c); box-shadow: 0 0 0 3px color-mix(in oklch, var(--c) 25%, transparent); }
+.dial label .zh { font-size: 0.95rem; font-weight: 600; }
+.dial label .en { font: 500 0.72rem var(--f-ui); color: var(--paper-dim); line-height: 1.2; }
+.dial input:checked + label { background: color-mix(in oklch, var(--c) 22%, var(--ink-2)); border-color: var(--c); }
+.dial input:focus-visible + label { outline: 2px solid var(--lantern); outline-offset: 2px; }
+.dial .read { margin-top: 20px; min-height: 5.2em; }
+.dial .read strong { display: block; font: 500 1.6rem/1.1 var(--f-display); }
+.dial .read span { color: var(--paper-dim); }
+.dial .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 22px; }
+.dial .cards figure { margin: 0; }
+.dial .cards img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 3px; filter: saturate(1.05) contrast(1.05); }
+.dial .cards figcaption { font: 500 0.72rem/1.3 var(--f-ui); color: var(--paper-dim); margin-top: 6px; }
+
+.board { min-width: 0; }
+.board h3 { margin: 0 0 6px; font: 600 0.85rem var(--f-ui); letter-spacing: 0.12em; text-transform: uppercase; color: var(--lantern); }
+.board ul { list-style: none; margin: 0 0 30px; padding: 0; }
+.board li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.board li .name { font: 500 1.25rem/1.25 var(--f-display); }
+.board li .name .zh { font-size: 0.85em; font-weight: 600; color: var(--paper-dim); margin-left: 8px; }
+.board li .price { font: 600 1.15rem var(--f-ui); color: var(--lantern); font-variant-numeric: tabular-nums; text-align: right; }
+.board li .desc { grid-column: 1 / -1; color: var(--paper-dim); font-size: 1rem; }
+.board .note { font: 500 0.85rem/1.5 var(--f-ui); color: var(--paper-dim); }
+.board .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+
+/* ---------- 4. inside: 3D card stack ---------- */
+.inside { position: relative; border-top: 1px solid var(--line); }
+.inside .pin { padding: clamp(80px, 12vh, 140px) var(--gutter); }
+.inside .head { max-width: 1200px; margin: 0 auto 30px; display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; }
+.inside .hint { font: 500 0.85rem var(--f-ui); color: var(--paper-dim); margin: 0; }
+.deck { position: relative; perspective: 1400px; }
+.deck .card { margin: 0; }
+.deck img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; }
+.deck figcaption { font: 500 0.9rem var(--f-ui); color: var(--paper-dim); margin-top: 10px; }
+.static .deck { display: grid; grid-auto-flow: column; grid-auto-columns: min(78vw, 520px); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; }
+.static .deck .card { scroll-snap-align: start; }
+.static .deck img { aspect-ratio: 4 / 3; }
+.static .deck-ctl { display: none; }
+.motion .inside { height: 360vh; }
+.motion .inside .pin { position: sticky; top: 0; height: 100svh; display: grid; grid-template-rows: auto 1fr auto; padding-bottom: 28px; }
+.motion .deck { height: 100%; transform-style: preserve-3d; }
+.motion .deck .card {
+  position: absolute; left: 50%; top: 50%;
+  width: min(60vw, 720px); aspect-ratio: 4 / 3;
+  translate: -50% -50%;
+  will-change: transform, opacity;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  border-radius: 6px;
+}
+.motion .deck figcaption { display: none; }
+@media (max-width: 760px) { .motion .deck .card { width: 78vw; aspect-ratio: 4 / 5; } }
+.deck-ctl { max-width: 1200px; margin: 0 auto; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.deck-ctl .cap { margin: 0; font: 500 1.2rem var(--f-display); min-width: 0; }
+.deck-ctl .cap small { display: block; font: 500 0.8rem var(--f-ui); color: var(--paper-dim); letter-spacing: 0.06em; }
+.deck-ctl .arrows { display: flex; gap: 8px; }
+.icon-btn { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(247,246,242,0.4); background: transparent; color: var(--paper); font: 600 1.1rem var(--f-ui); cursor: pointer; transition: transform 160ms var(--ease-out), border-color 160ms; }
+.icon-btn:hover { border-color: var(--paper); }
+.icon-btn:active { transform: scale(0.94); }
+
+/* ---------- 5. seen on your feed: marquee + phone ---------- */
+.seen { position: relative; overflow: hidden; padding: clamp(90px, 14vh, 160px) 0; border-top: 1px solid var(--line); background: #0f0b09; }
+.marq { display: flex; white-space: nowrap; font: 900 clamp(3.4rem, 10vw, 9rem)/1.05 var(--f-zh); letter-spacing: 0.02em; }
+.marq span { padding-right: 0.6em; }
+.marq .en { font: 500 italic clamp(3rem, 9vw, 8rem)/1.05 var(--f-display); }
+.marq-a { color: var(--seal); }
+.marq-b { color: transparent; -webkit-text-stroke: 1px rgba(247, 246, 242, 0.35); }
+.marq .track { display: flex; animation: marq 38s linear infinite; }
+.marq-b .track { animation-direction: reverse; animation-duration: 46s; }
+@keyframes marq { to { transform: translateX(-50%); } }
+.phone {
+  position: relative; z-index: 2; width: min(300px, 70vw); margin: -6vw auto 0;
+  background: var(--paper); color: var(--ink); border-radius: 14px; padding: 10px; box-shadow: 0 40px 90px rgba(0,0,0,0.6);
+}
+.phone .who { display: flex; align-items: center; gap: 8px; padding: 4px 4px 10px; font: 600 0.85rem var(--f-ui); }
+.phone .who i { width: 26px; height: 26px; border-radius: 50%; background: var(--ink); color: var(--paper); display: grid; place-items: center; font: 900 0.7rem var(--f-zh); font-style: normal; }
+.phone video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 8px; background: #000; }
+.phone p { margin: 10px 4px 4px; font: 400 0.95rem/1.4 var(--f-body); }
+.seen .after { max-width: 52ch; margin: 40px auto 0; padding-inline: var(--gutter); text-align: center; color: var(--paper-dim); }
+.seen .after strong { color: var(--paper); font-weight: 500; }
+
+/* ---------- 6. find us: inset grows to full bleed ---------- */
+.visit { position: relative; border-top: 1px solid var(--line); }
+.visit .pin { position: relative; height: 100svh; min-height: 520px; overflow: hidden; }
+.visit .frame { position: absolute; inset: 0; clip-path: inset(var(--ci, 0%) var(--cx, 0%) var(--ci, 0%) var(--cx, 0%) round var(--cr, 0px)); }
+.visit .frame img { width: 100%; height: 100%; object-fit: cover; transform: scale(var(--zs, 1)); }
+.visit .frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(23,19,15,0.15), rgba(23,19,15,0.75)); }
+.visit .over { position: absolute; left: var(--gutter); right: var(--gutter); bottom: clamp(40px, 9vh, 90px); }
+.visit .over h2 { margin: 0; font: 500 clamp(2.6rem, 7vw, 6.4rem)/0.98 var(--f-display); letter-spacing: -0.025em; max-width: 14ch; text-wrap: balance; }
+.motion .visit { height: 240vh; }
+.motion .visit .pin { position: sticky; top: 0; }
+.motion .visit .over { opacity: var(--ov, 1); transform: translateY(calc((1 - var(--ov, 1)) * 24px)); }
+.details { max-width: 1200px; margin: 0 auto; padding: clamp(64px, 10vh, 120px) var(--gutter); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(28px, 4vw, 56px); }
+@media (max-width: 900px) { .details { grid-template-columns: minmax(0, 1fr); } }
+.details h3 { margin: 0 0 14px; font: 600 0.85rem var(--f-ui); letter-spacing: 0.12em; text-transform: uppercase; color: var(--lantern); }
+.details ol { margin: 0; padding-left: 1.3em; display: grid; gap: 10px; }
+.details table { width: 100%; border-collapse: collapse; font: 500 1rem var(--f-ui); font-variant-numeric: tabular-nums; }
+.details td { padding: 8px 0; border-bottom: 1px solid var(--line); }
+.details td + td { text-align: right; }
+.details .today td { color: var(--lantern); }
+.details address { font-style: normal; display: grid; gap: 6px; }
+.details .phone-n { font: 600 1.3rem var(--f-ui); font-variant-numeric: tabular-nums; user-select: all; }
+.details .small { color: var(--paper-dim); font-size: 0.95rem; }
+
+/* ---------- footer + phone bar ---------- */
+footer { border-top: 1px solid var(--line); padding: 48px var(--gutter) calc(120px + env(safe-area-inset-bottom, 0px)); color: var(--paper-dim); font: 500 0.9rem/1.6 var(--f-ui); }
+footer .wrap { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 24px 48px; justify-content: space-between; }
+footer .zh { font-size: 2rem; font-weight: 900; color: var(--paper); }
+footer a { color: var(--paper); }
+.bar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; display: none;
+  grid-template-columns: 1.3fr 1fr 1fr; gap: 1px; background: var(--line);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.bar a { display: grid; place-items: center; min-height: 56px; background: var(--ink); font: 600 0.95rem var(--f-ui); text-decoration: none; }
+.bar a.go { background: var(--seal); }
+@media (max-width: 760px) { .bar { display: grid; } }
+
+@media (max-width: 760px) {
+  .route { bottom: calc(70px + env(safe-area-inset-bottom, 0px)); }
+  .beat { bottom: 150px; }
+  .motion .inside .pin { padding-bottom: 84px; }
+  .visit .over { bottom: 84px; }
+  .dial { padding: 18px; }
+  .dial .opts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marq .track { animation: none; }
+  * { transition-duration: 0ms !important; }
+}
+</style>
+</head>
+<body class="static">
+<a class="sr" href="#menu">Skip to the menu</a>
+
+<header class="top">
+  <a class="brand" href="#walk" aria-label="3 Kingdoms, back to top"><span class="zh">三国冒菜</span><span class="en">3 Kingdoms</span></a>
+  <span class="tag" title="Design concept prepared for the owner. Not the live site.">Concept A</span>
+  <nav class="nav" aria-label="Main">
+    <a class="hide-sm" href="#menu">Menu</a>
+    <a class="hide-sm" href="#inside">Inside</a>
+    <a class="hide-sm" href="#visit">Find us</a>
+    <button type="button" id="lang" aria-pressed="false">中文</button>
+    <a class="btn btn-seal hide-sm" href="#menu" data-en="Order pickup" data-zh="到店自取">Order pickup</a>
+  </nav>
+</header>
+
+<main>
+  <!-- 1. Scroll-scrubbed walk-in, built from our 13 Oct footage -->
+  <section class="walk" id="walk" aria-label="Walk in from the Level A hall">
+    <div class="stage">
+      <img class="poster" src="media/still/counter.webp" alt="The 3 Kingdoms counter: lit menu board under red lanterns and the neon 三国冒菜 sign" width="1920" height="1080">
+      <canvas id="walkCanvas" aria-hidden="true"></canvas>
+      <div class="shade"></div>
+      <div class="endshade" id="endshade"></div>
+      <span class="cue" id="cue" aria-hidden="true">Scroll to walk in</span>
+
+      <div class="beat first" data-in="-1" data-out="0.2">
+        <p><span class="k">Shop 32 · Level A · Uptown</span><span data-en="Down the hall from Target, follow the red light." data-zh="塔吉特旁的走廊里，跟着红光走。">Down the hall from Target, follow the red light.</span></p>
+      </div>
+      <div class="beat beat-2" data-in="0.24" data-out="0.46">
+        <p data-en="Most of Queen Street walks straight past. Come in." data-zh="皇后街的人大多匆匆走过。进来坐坐。">Most of Queen Street walks straight past. Come in.</p>
+      </div>
+      <div class="beat" data-in="0.5" data-out="0.74">
+        <p data-en="Over forty ingredients on ice. You choose the bowl, the kitchen cooks it in broth." data-zh="四十多种食材任你挑，选好后厨房用汤底现煮。">Over forty ingredients on ice. You choose the bowl, the kitchen cooks it in broth.</p>
+      </div>
+      <div class="beat title-beat" data-in="0.8" data-out="2">
+        <h1><span class="zh-title" id="zhTitle" lang="zh-Hans">三国冒菜</span><span class="en-title">3 Kingdoms</span></h1>
+        <p class="sub" data-en="Chengdu mao cai, Sichuan mini hotpot. Open every day from 11am." data-zh="成都冒菜，四川小火锅。每天上午11点营业。">Chengdu mao cai, Sichuan mini hotpot. Open every day from 11am.</p>
+        <div class="row">
+          <a class="btn btn-seal" href="#menu" data-en="Order pickup" data-zh="到店自取">Order pickup</a>
+          <a class="btn btn-ghost" href="#visit" data-en="How to find us" data-zh="怎么找到我们">How to find us</a>
+        </div>
+      </div>
+
+      <div class="route" aria-label="Your route in">
+        <div class="bar"><i id="routeBar"></i></div>
+        <ol id="route">
+          <li class="on"><b>1</b>Level A hall</li>
+          <li><b>2</b>Shop 32</li>
+          <li><b>3</b>The red room</li>
+          <li><b>4</b>The counter</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Word-by-word statement -->
+  <section class="story" id="story" aria-labelledby="storyK">
+    <div class="pin"><div class="inner">
+      <p class="k" id="storyK">What mao cai is</p>
+      <p class="big" id="words"><span class="seg">Mao cai is Chengdu's one-bowl hotpot. Pick your meat, greens and noodles, and we cook them in a broth made fresh every day. Rice comes on the side. Choose one of six heats, from none at all to extra plus.</span> <span class="seg heat">Open every day from eleven.</span></p>
+    </div></div>
+  </section>
+
+  <!-- 3. The counter -->
+  <section class="counter" id="menu" aria-labelledby="menuH">
+    <div class="head">
+      <h2 id="menuH"><span data-en="The counter board" data-zh="柜台菜单">The counter board</span><span class="zh" lang="zh-Hans">菜单</span></h2>
+      <p class="lead">Counter prices, the same as in store. Order ahead for pickup and skip the delivery-app mark-up.</p>
+    </div>
+    <div class="grid">
+      <fieldset class="dial" id="dial">
+        <legend>Choose your heat</legend>
+        <div class="opts">
+          <input type="radio" name="heat" id="h0" value="0"><label for="h0" style="--c:#8FA043"><i class="dot"></i><span class="zh">大骨汤</span><span class="en">No spicy</span></label>
+          <input type="radio" name="heat" id="h1" value="1"><label for="h1" style="--c:#E9B44C"><i class="dot"></i><span class="zh">微辣</span><span class="en">Mild</span></label>
+          <input type="radio" name="heat" id="h2" value="2" checked><label for="h2" style="--c:#EE9535"><i class="dot"></i><span class="zh">少辣</span><span class="en">Little</span></label>
+          <input type="radio" name="heat" id="h3" value="3"><label for="h3" style="--c:#E0601A"><i class="dot"></i><span class="zh">中辣</span><span class="en">Medium</span></label>
+          <input type="radio" name="heat" id="h4" value="4"><label for="h4" style="--c:#D5381F"><i class="dot"></i><span class="zh">大辣</span><span class="en">Extra</span></label>
+          <input type="radio" name="heat" id="h5" value="5"><label for="h5" style="--c:#A3150F"><i class="dot"></i><span class="zh">特辣</span><span class="en">Extra plus</span></label>
+        </div>
+        <div class="read" aria-live="polite" id="heatRead"><strong>Little</strong><span>Noticeable heat that stays easy-going.</span></div>
+        <div class="cards">
+          <figure><img src="media/still/card-signature.webp" alt="Counter card: Signature Mini Hotpot, 三国冒菜招牌冒菜" loading="lazy" width="420" height="570"><figcaption>Signature Mini Hotpot</figcaption></figure>
+          <figure><img src="media/still/card-marinated-beef.webp" alt="Counter card: Marinated Beef Noodles" loading="lazy" width="435" height="525"><figcaption>Marinated Beef Noodles</figcaption></figure>
+          <figure><img src="media/still/card-crab.webp" alt="Counter card: Blue Swimmer Crab Hotpot with Rice" loading="lazy" width="480" height="660"><figcaption>Blue Swimmer Crab Hotpot</figcaption></figure>
+        </div>
+      </fieldset>
+
+      <div class="board">
+        <h3>Mini hotpot, served with rice</h3>
+        <ul>
+          <li><span class="name">Signature Mini Hotpot<span class="zh" lang="zh-Hans">招牌冒菜</span></span><span class="price">$20.80</span><span class="desc">The house bowl in the signature broth. The most-ordered dish on every platform.</span></li>
+          <li><span class="name">Tender Beef Mini Hotpot<span class="zh" lang="zh-Hans">牛肉冒菜</span></span><span class="price">$19.80</span></li>
+          <li><span class="name">Sliced Beef Mini Hotpot</span><span class="price">$19.80</span></li>
+          <li><span class="name">Build your own bowl</span><span class="price">by weight</span><span class="desc">500g or 1kg from the ice counter. Priced at the scale.</span></li>
+        </ul>
+        <h3>Noodles</h3>
+        <ul>
+          <li><span class="name">Signature Braised Beef Noodles</span><span class="price">$19.80</span><span class="desc">Egg noodles, rice noodles or sweet potato noodles.</span></li>
+          <li><span class="name">Marinated Beef Noodles</span><span class="price">$19.80</span></li>
+          <li><span class="name">Pickled Cabbage Beef Noodles<span class="zh" lang="zh-Hans">老坛酸菜牛肉面</span></span><span class="price">$19.80</span></li>
+        </ul>
+        <h3>Cold Sichuan sides</h3>
+        <ul>
+          <li><span class="name">Marinated Beef</span><span class="price">$8.90</span></li>
+          <li><span class="name">Marinated Pork Trotters</span><span class="price">$8.90</span></li>
+          <li><span class="name">Sichuanese Tofu</span><span class="price">$6.90</span></li>
+        </ul>
+        <p class="note">Most dishes may contain nuts. Tell the counter about allergies before you order.</p>
+        <div class="actions">
+          <a class="btn btn-seal" href="#menu">Order pickup</a>
+          <a class="btn btn-ghost" href="https://www.ubereats.com/au/store/3-kingdoms-uptown-brisbane/Fcq98iq7T9Wchx1lXd_L7g" target="_blank" rel="noopener">Delivery options</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Inside: scroll-driven 3D deck -->
+  <section class="inside" id="inside" aria-labelledby="insideH">
+    <div class="pin">
+      <div class="head">
+        <h2 class="section-h" id="insideH"><span data-en="Inside the red room" data-zh="红色的店堂">Inside the red room</span></h2>
+        <p class="hint">Scroll, or use the arrows.</p>
+      </div>
+      <div class="deck" id="deck">
+        <figure class="card" data-cap="Lantern row" data-sub="Booths along the back wall"><img src="media/still/lanterns.webp" alt="A row of red lanterns over the booths along the back wall" loading="lazy" width="1920" height="1080"><figcaption>Lantern row</figcaption></figure>
+        <figure class="card" data-cap="The dining room" data-sub="Tables for one to six"><img src="media/still/dining.webp" alt="The red dining room with lanterns and wooden tables" loading="lazy" width="1920" height="1080"><figcaption>The dining room</figcaption></figure>
+        <figure class="card" data-cap="The lattice front" data-sub="What you see from the Level A hall"><img src="media/still/lattice.webp" alt="Red Chinese lattice panels and brick at the shop front" loading="lazy" width="1920" height="1080"><figcaption>The lattice front</figcaption></figure>
+        <figure class="card" data-cap="Lunch hour" data-sub="Quick bowls before the bus"><img src="media/still/dining-2.webp" alt="Diners at tables under warm lantern light" loading="lazy" width="1920" height="1080"><figcaption>Lunch hour</figcaption></figure>
+        <figure class="card" data-cap="The counter" data-sub="Order here, pick your heat"><img src="media/still/counter-wide.webp" alt="The counter with the lit menu board and the neon 3 Kingdoms sign" loading="lazy" width="1920" height="1080"><figcaption>The counter</figcaption></figure>
+        <figure class="card" data-cap="Shop 32" data-sub="Under the 三国冒菜 sign"><img src="media/still/shopfront.webp" alt="The 3 Kingdoms shopfront under its illuminated sign" loading="lazy" width="1920" height="1080"><figcaption>Shop 32</figcaption></figure>
+      </div>
+      <div class="deck-ctl">
+        <p class="cap" id="deckCap" aria-live="polite">Lantern row<small>Booths along the back wall</small></p>
+        <div class="arrows">
+          <button class="icon-btn" type="button" id="prev" aria-label="Previous photo">‹</button>
+          <button class="icon-btn" type="button" id="next" aria-label="Next photo">›</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Marquee + phone card -->
+  <section class="seen" aria-labelledby="seenH">
+    <h2 class="sr" id="seenH">On Instagram and TikTok</h2>
+    <div class="marq marq-a" aria-hidden="true"><div class="track"><span>三国冒菜</span><span class="en">Sichuan mini hotpot</span><span>三国冒菜</span><span class="en">Level A, Uptown</span><span>三国冒菜</span><span class="en">Sichuan mini hotpot</span><span>三国冒菜</span><span class="en">Level A, Uptown</span></div></div>
+    <div class="marq marq-b" aria-hidden="true"><div class="track"><span class="en">Six heats</span><span>麻辣</span><span class="en">Handmade noodles</span><span>冒菜</span><span class="en">Six heats</span><span>麻辣</span><span class="en">Handmade noodles</span><span>冒菜</span></div></div>
+    <div class="phone" id="phone">
+      <div class="who"><i>三</i>@3kingdomsbne</div>
+      <video src="media/loop-room.mp4" muted loop playsinline preload="metadata" poster="media/still/p-room-2.webp" aria-label="Short clip panning across the dining room to the counter"></video>
+      <p>Creators keep calling it a hidden gem. Tag us when you find it.</p>
+    </div>
+    <p class="after"><strong>@3kingdomsbne</strong> on Instagram and <strong>@3kingdoms.hotpot</strong> on TikTok. Every post links back here, to the menu and the map.</p>
+  </section>
+
+  <!-- 6. Find us -->
+  <section class="visit" id="visit" aria-labelledby="visitH">
+    <div class="pin">
+      <div class="frame" id="visitFrame"><img src="media/still/shopfront.webp" alt="The 3 Kingdoms shopfront on Level A, Uptown" loading="lazy" width="1920" height="1080"></div>
+      <div class="over" id="visitOver">
+        <h2 id="visitH" data-en="Lanterns on till 7. Fridays till 7:30." data-zh="灯笼亮到晚上7点，周五到7点半。">Lanterns on till 7. Fridays till 7:30.</h2>
+      </div>
+    </div>
+    <div class="details">
+      <div>
+        <h3>Finding Shop 32</h3>
+        <ol>
+          <li>Come into Uptown from Queen Street Mall, or from the Queen Street Bus Station.</li>
+          <li>Head to Level A and find Target.</li>
+          <li>Walk down the hall past Target.</li>
+          <li>Look for red lattice and the 三国冒菜 sign.</li>
+        </ol>
+      </div>
+      <div>
+        <h3>Hours</h3>
+        <table id="hours">
+          <tbody>
+            <tr data-d="1"><td>Monday</td><td>11am – 7pm</td></tr>
+            <tr data-d="2"><td>Tuesday</td><td>11am – 7pm</td></tr>
+            <tr data-d="3"><td>Wednesday</td><td>11am – 7pm</td></tr>
+            <tr data-d="4"><td>Thursday</td><td>11am – 7pm</td></tr>
+            <tr data-d="5"><td>Friday</td><td>11am – 7:30pm</td></tr>
+            <tr data-d="6"><td>Saturday</td><td>11am – 7pm</td></tr>
+            <tr data-d="0"><td>Sunday</td><td>11am – 7pm</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3>Address and phone</h3>
+        <address>
+          <span>Shop 32, Level A, Uptown<br>91 Queen St, Brisbane City QLD 4000</span>
+          <span class="phone-n">07 3190 0144</span>
+          <span class="small">Wheelchair-accessible entrance. Uptown gift cards accepted.</span>
+        </address>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><span class="zh">三国冒菜</span><br>3 Kingdoms · Shop 32, Level A, Uptown, 91 Queen St, Brisbane</div>
+    <div>Delivery: <a href="https://www.ubereats.com/au/store/3-kingdoms-uptown-brisbane/Fcq98iq7T9Wchx1lXd_L7g" target="_blank" rel="noopener">Uber Eats</a> · <a href="https://www.doordash.com/store/3-kingdoms-brisbane-city-24863669/" target="_blank" rel="noopener">DoorDash</a> · <a href="https://aus.hungrypanda.co/shop?shopId=8880" target="_blank" rel="noopener">HungryPanda</a></div>
+    <div>Concept A, prepared Oct 2026. Footage shot in store on 13 Oct 2026. Not the live site.</div>
+  </div>
+</footer>
+
+<nav class="bar" aria-label="Quick actions">
+  <a class="go" href="#menu">Order pickup</a>
+  <a href="#visit">Find us</a>
+  <a href="#visit">Call</a>
+</nav>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="walk.js"></script>
+<script>
+(function () {
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var canMove = !reduce && window.gsap && window.ScrollTrigger && window.createWalk;
+  var body = document.body;
+
+  /* today's hours */
+  var today = new Date().getDay();
+  var row = document.querySelector('#hours tr[data-d="' + today + '"]');
+  if (row) row.classList.add("today");
+
+  /* language toggle: swaps data-en / data-zh text on marked elements */
+  var langBtn = document.getElementById("lang");
+  langBtn.addEventListener("click", function () {
+    var zh = langBtn.getAttribute("aria-pressed") !== "true";
+    langBtn.setAttribute("aria-pressed", String(zh));
+    langBtn.textContent = zh ? "EN" : "中文";
+    document.documentElement.lang = zh ? "zh-Hans" : "en";
+    document.querySelectorAll("[data-zh]").forEach(function (el) {
+      el.textContent = zh ? el.dataset.zh : el.dataset.en;
+    });
+  });
+
+  /* spice dial */
+  var heats = [
+    ["No spicy", "Plain bone-broth base. All the flavour, no chilli."],
+    ["Mild", "A warm edge. A good place to start."],
+    ["Little", "Noticeable heat that stays easy-going."],
+    ["Medium", "Proper Sichuan heat. Regulars say medium runs hot."],
+    ["Extra", "For people who already know what mala does."],
+    ["Extra plus", "The top of the card. Numbing and hot, all the way."]
+  ];
+  var counter = document.getElementById("menu");
+  var read = document.getElementById("heatRead");
+  document.getElementById("dial").addEventListener("change", function (e) {
+    var v = Number(e.target.value);
+    counter.style.setProperty("--heat", v);
+    read.innerHTML = "<strong>" + heats[v][0] + "</strong><span>" + heats[v][1] + "</span>";
+  });
+
+  /* phone clip plays only while on screen */
+  var vid = document.querySelector(".phone video");
+  if (!reduce && "IntersectionObserver" in window) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (en) { if (en.isIntersecting) vid.play().catch(function () {}); else vid.pause(); });
+    }, { threshold: 0.25 }).observe(vid);
+  }
+
+  /* deck captions */
+  var cards = Array.prototype.slice.call(document.querySelectorAll("#deck .card"));
+  var cap = document.getElementById("deckCap");
+  var capIdx = -1;
+  function setCap(i) {
+    if (i === capIdx) return;
+    capIdx = i;
+    cap.innerHTML = cards[i].dataset.cap + "<small>" + cards[i].dataset.sub + "</small>";
+  }
+
+  if (!canMove) {
+    /* static layout: arrows scroll the strip */
+    return;
+  }
+
+  body.classList.remove("static");
+  body.classList.add("motion");
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ---- 1. walk-in ---- */
+  var walk = createWalk(document.getElementById("walkCanvas"), { focus: [0.5, 0.5], smoothing: 0.2 });
+  var beats = Array.prototype.slice.call(document.querySelectorAll(".walk .beat"));
+  var routeLis = document.querySelectorAll("#route li");
+  var routeBar = document.getElementById("routeBar");
+  var stops = [0, 0.27, 0.45, 0.8];
+  var zhChars = (function () {
+    var el = document.getElementById("zhTitle");
+    var t = el.textContent; el.textContent = "";
+    return t.split("").map(function (c) { var s = document.createElement("span"); s.textContent = c; el.appendChild(s); return s; });
+  })();
+  var zhEl = document.getElementById("zhTitle");
+  var cue = document.getElementById("cue");
+  var endshade = document.getElementById("endshade");
+  function clamp01(x) { return x < 0 ? 0 : x > 1 ? 1 : x; }
+  function window01(p, a, b, f) { /* fade in over f after a, fade out over f before b */
+    return Math.min(clamp01((p - a) / f), clamp01((b - p) / f));
+  }
+  function renderWalk(p) {
+    walk.setProgress(p);
+    beats.forEach(function (b, i) {
+      var a = Number(b.dataset.in), z = Number(b.dataset.out);
+      var o = window01(p, a, z, 0.05);
+      b.style.opacity = o;
+      if (!b.classList.contains("title-beat")) b.style.transform = "translateY(" + ((1 - o) * 18) + "px)";
+    });
+    /* title: characters rise in sequence, sheen sweeps once */
+    var t = clamp01((p - 0.8) / 0.14);
+    zhChars.forEach(function (s, i) {
+      var c = clamp01(t * 1.6 - i * 0.18);
+      s.style.transform = "translateY(" + ((1 - c) * 0.35) + "em)";
+      s.style.opacity = c;
+      s.style.filter = "blur(" + ((1 - c) * 8) + "px)";
+    });
+    zhEl.style.setProperty("--sheen", (100 - t * 100) + "%");
+    routeBar.style.setProperty("--p", p);
+    routeLis.forEach(function (li, i) { li.classList.toggle("on", p >= stops[i] - 0.001); });
+    cue.style.opacity = 1 - clamp01(p / 0.06);
+    endshade.style.opacity = clamp01((p - 0.76) / 0.1);
+  }
+  ScrollTrigger.create({
+    trigger: "#walk", start: "top top", end: "bottom bottom",
+    onUpdate: function (st) { renderWalk(st.progress); }
+  });
+  renderWalk(0);
+
+  /* ---- 2. words ---- */
+  var wordsEl = document.getElementById("words");
+  var words = [];
+  wordsEl.querySelectorAll(".seg").forEach(function (seg) {
+    var parts = seg.textContent.split(/(\s+)/);
+    seg.textContent = "";
+    parts.forEach(function (w) {
+      if (/^\s+$/.test(w) || !w) { seg.appendChild(document.createTextNode(w)); return; }
+      var s = document.createElement("span"); s.className = "w"; s.textContent = w; seg.appendChild(s); words.push(s);
+    });
+  });
+  ScrollTrigger.create({
+    trigger: "#story", start: "top top", end: "bottom bottom",
+    onUpdate: function (st) {
+      var n = Math.round(clamp01(st.progress / 0.85) * words.length);
+      words.forEach(function (w, i) { w.classList.toggle("on", i < n); });
+    }
+  });
+
+  /* ---- 4. deck ---- */
+  var N = cards.length;
+  var deckST;
+  function layoutDeck(f) {
+    var wide = window.innerWidth > 760;
+    var spread = wide ? 0.42 : 0.62;
+    cards.forEach(function (c, i) {
+      var o = i - f;
+      var ao = Math.abs(o);
+      var x = o * spread * 100;
+      var z = -ao * 260;
+      var ry = Math.max(-1, Math.min(1, o)) * -32;
+      c.style.transform = "translateX(" + x + "%) translateZ(" + z + "px) rotateY(" + ry + "deg)";
+      c.style.opacity = ao > 2.6 ? 0 : 1 - ao * 0.22;
+      c.style.zIndex = String(100 - Math.round(ao * 10));
+    });
+    setCap(Math.max(0, Math.min(N - 1, Math.round(f))));
+  }
+  deckST = ScrollTrigger.create({
+    trigger: "#inside", start: "top top", end: "bottom bottom",
+    onUpdate: function (st) { layoutDeck(st.progress * (N - 1)); }
+  });
+  layoutDeck(0);
+  function stepDeck(d) {
+    var cur = Math.round(deckST.progress * (N - 1));
+    var nxt = Math.max(0, Math.min(N - 1, cur + d));
+    var y = deckST.start + (deckST.end - deckST.start) * (nxt / (N - 1));
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }
+  document.getElementById("prev").addEventListener("click", function () { stepDeck(-1); });
+  document.getElementById("next").addEventListener("click", function () { stepDeck(1); });
+  document.getElementById("inside").addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft") { stepDeck(-1); e.preventDefault(); }
+    if (e.key === "ArrowRight") { stepDeck(1); e.preventDefault(); }
+  });
+
+  /* ---- 5. phone rises against the marquee ---- */
+  gsap.fromTo("#phone", { y: 120, rotate: -4 }, {
+    y: -40, rotate: 2, ease: "none",
+    scrollTrigger: { trigger: ".seen", start: "top bottom", end: "bottom top", scrub: true }
+  });
+
+  /* ---- 6. inset grows to full bleed ---- */
+  var frame = document.getElementById("visitFrame");
+  var over = document.getElementById("visitOver");
+  function renderVisit(p) {
+      var g = clamp01(p / 0.75);
+      var e = 1 - Math.pow(1 - g, 3);
+      var wide = window.innerWidth > 760;
+      frame.style.setProperty("--ci", ((1 - e) * (wide ? 22 : 18)) + "%");
+      frame.style.setProperty("--cx", ((1 - e) * (wide ? 30 : 10)) + "%");
+      frame.style.setProperty("--cr", ((1 - e) * 10) + "px");
+      frame.style.setProperty("--zs", 1.18 - e * 0.18);
+      over.style.setProperty("--ov", clamp01((p - 0.6) / 0.3));
+  }
+  ScrollTrigger.create({
+    trigger: "#visit", start: "top top", end: function () { return "+=" + window.innerHeight * 1.4; },
+    onUpdate: function (st) { renderVisit(st.progress); }
+  });
+  renderVisit(0);
+
+  window.addEventListener("load", function () { ScrollTrigger.refresh(); });
+})();
+</script>
+</body>
+</html>
