@@ -68,7 +68,21 @@ From the blog post (one site built end to end on Higgsfield, ~$74):
 
 From the Website builder skill page: every example site (LOOMERE, VOYARELLE, VELLARO, ELIN MARLOW, STACKED) is built around **one generated film, split into chapters and scrubbed by scroll**. STACKED, the burger shop, is the closest to us: "a layer-by-layer burger film with five chapters, a menu, add-to-cart, a pickup cart drawer".
 
-_Pending: the STACKED scroll-film measurements are still being taken. This section is filled in by the next commit._
+What STACKED actually does (page and files measured on 13 Oct 2026):
+
+- **Five short clips, not one film.** Each is 2.3–3.8 s at 24 fps with a locked camera: bun → patty and cheese → salad → top bun → finished burger. **Each clip starts on the previous clip's last frame**, so the joins are invisible. In Higgsfield terms that is a chain of first/last-frame generations, the same technique as our bridge shot.
+- **The scroll engine is about 250 lines of plain React, with no GSAP.** A sticky 100dvh stage; chapter heights set in `dvh`; video `currentTime` follows scroll progress. At most one seek is in flight, and it eases toward the target. The poster stays underneath until the first frame paints. Clips are fetched whole as Blobs about 1.5 screens ahead. Reduced motion gets five stills and downloads no video at all.
+- **The encode is what makes scrubbing smooth:** H.264, CRF 20 with a keyframe every 8 frames on desktop, CRF 23 at 720p with a keyframe every 4 frames on mobile, scene-cut detection off, no audio, faststart. The 4-frame mobile files seeked 2–4× faster.
+
+Where it falls short, and what we do instead:
+
+| STACKED | Our fix |
+|---|---|
+| ~20 MB hero on desktop, 7 MB of it PNG posters that all load at once | WebP/AVIF posters (the same set is 0.34 MB as WebP) and a 4–6 MB phone budget for any scroll film |
+| The "mobile" clips are 16:9 downscales. On a phone the crop shows ~26% of the width, chapter 1 is an empty orange field, and the whole burger never appears. | Real 9:16 renders, with a focal point set per chapter |
+| Progress runs over the whole section but the stage pins for 100dvh less, so the last chapter finishes off-screen | Map progress over (section height − 100vh). Every chapter ends on its last frame while still pinned. |
+| The copy says "cheese melts" over a different clip; headlines sit on the food | Copy beats written against the finished footage; a text-safe zone in every composition |
+| The first frame is an empty board | The first frame is the real dish |
 
 ## The hero, shot by shot
 
@@ -192,10 +206,15 @@ Cut, grade and export in a normal editor (DaVinci Resolve or Premiere). Higgsfie
 
   Targets: desktop ≤2.5 MB (AV1 first, H.264 fallback), phone 1080×1920 ≤1.5 MB, both `muted playsinline`. Users with reduced motion or data saver get the still.
 - **No text in the video.** This is the `scroll-scrubbed-visual-sequence` rule, and it is the only way the English and Chinese copy both work.
-- **"Find us", lower down the page.** The full walk becomes a scroll-driven section with the scroll-scrubbed skill: a sticky stage, with copy stops along the route ("Queen St Mall → Level A → next to Target → Shop 32").
-  - Desktop: a short-keyframe video (720p with a keyframe every 5 frames measured 6.4 MB, so trim it or use 540p).
-  - Phones: an image sequence of ~90–120 frames, loaded only near the section.
-  - Every stop lands on a fixed state at slow, normal and flick speeds, which is the blog's motion fix.
+- **"Find us", lower down the page.** The walk becomes a scroll-driven section built with the `scroll-scrubbed-visual-sequence` skill: a sticky stage, with copy stops along the route ("Queen St Mall → Level A → next to Target → Shop 32").
+  - Trim it to the 10–12 s that show the way.
+  - Encode it with the STACKED recipe: desktop 1080p, CRF 20, keyframe every 8 frames; phone 720p 9:16, CRF 23, keyframe every 4 frames; scene-cut detection off, no audio. Our full-length 720p test with a keyframe every 5 frames came to 6.4 MB, which is why the trim matters.
+  - Load it only when the section is about 1.5 screens away.
+  - Map progress over (section height − 100vh), and check slow, normal and flick scrolling in both directions. Each stop must land on the same frame every time, which is the blog's motion fix.
+- **Optional second scroll film: "Build your bowl".** The STACKED pattern fits our real ordering steps exactly: choose the broth, pick ingredients by weight, set the spice from 6 levels.
+  - Four chained Higgsfield clips: the broth poured → the real ingredients go in (wombok, sugarloaf, broccoli, cauliflower, beef, coriander-pork meatballs) → the spice level deepens the red → the finished bowl.
+  - Each clip starts from the last frame of the one before. Each is generated from photos of the real ingredients, not from text alone.
+  - It is the menu explainer that no local rival has. It comes after the hero is approved, not before.
 - **By concept:**
   - **A, Light Box:** the hero bowl sits in the centre lit panel and the walk drives "Find us".
   - **B, Ink and Oil:** the bowl shot is the broth inside the brush strokes, and the walk is secondary.
