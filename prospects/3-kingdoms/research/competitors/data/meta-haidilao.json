@@ -1,0 +1,82 @@
+{
+  "slug": "haidilao",
+  "id": "local-04",
+  "checked": "2026-10-13",
+  "summary": {
+    "name": "Haidilao Hotpot (AU)",
+    "type": "Sichuan shared hot pot",
+    "platform": "unknown",
+    "ordering": "unknown",
+    "note": "https://www.haidilao.com/au returned 502 through our network proxy on 13 Oct 2026. Not captured. Do not cite as broken; it is an access issue on our side.",
+    "url": "https://www.haidilao.com/au",
+    "title": "",
+    "metaDescription": null,
+    "loadEventMs_desktop": 6802,
+    "networkIdleMs_desktop": 7300,
+    "transferKB_desktop": 0,
+    "transferKB_mobile": 96,
+    "cmsDetected": [],
+    "generator": null
+  },
+  "method": "Playwright Chromium via network proxy, 1440x900 desktop and 390x844 mobile, wait for networkidle (max 20s) + 2s. Transfer size = sum of CDP encodedDataLength for the page load, one sample. Provider and motion-library detection is a keyword scan and can have false positives.",
+  "pages": {
+    "home": {
+      "desktop": {
+        "url": "https://www.haidilao.com/au",
+        "finalUrl": "https://www.haidilao.com/au",
+        "status": 502,
+        "err": null,
+        "dclMs": 6800,
+        "loadMs": 6802,
+        "networkIdleMs": 7300,
+        "cookieDismissed": null,
+        "pageHeight": 900,
+        "info": {
+          "title": "",
+          "metaDesc": null,
+          "ogImage": false,
+          "lang": null,
+          "hreflang": [],
+          "hasChinese": false,
+          "chineseCharCount": 0,
+          "generator": null,
+          "cms": [],
+          "h1": [],
+          "ldTypes": [],
+          "videos": 0,
+          "canvas": 0,
+          "imgs": 0,
+          "pdfLinks": [],
+          "orderingProviders": [],
+          "telLinks": 0,
+          "loadedFonts": [],
+          "computedFonts": [],
+          "bodyBg": "rgba(0, 0, 0, 0)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": false,
+          "textSample": "upstream request failed"
+        },
+        "transferBytes": 164,
+        "requests": 1,
+        "motionLibsInScripts": []
+      },
+      "mobile": {
+        "url": "https://www.haidilao.com/au",
+        "finalUrl": "https://www.haidilao.com/au",
+        "status": 200,
+        "err": null,
+        "dclMs": 8991,
+        "loadMs": 8992,
+        "networkIdleMs": 9490,
+        "cookieDismissed": null,
+        "pageHeight": 844,
+        "transferBytes": 98569,
+        "requests": 4,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      }
+    }
+  }
+}

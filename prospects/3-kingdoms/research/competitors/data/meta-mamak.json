@@ -1,0 +1,166 @@
+{
+  "slug": "mamak",
+  "id": "local-06",
+  "checked": "2026-10-13",
+  "summary": {
+    "name": "Mamak",
+    "type": "Malaysian roti and satay, CBD casual",
+    "platform": "Custom static site",
+    "ordering": "Mr Yum (pickup and delivery links per city)",
+    "note": "Order links sit inside the hamburger menu on mobile.",
+    "url": "https://mamak.com.au/",
+    "title": "Mamak",
+    "metaDescription": "Mamak - home to the best Malaysian food",
+    "loadEventMs_desktop": 5497,
+    "networkIdleMs_desktop": 5998,
+    "transferKB_desktop": 1864,
+    "transferKB_mobile": 1871,
+    "cmsDetected": [],
+    "generator": null
+  },
+  "method": "Playwright Chromium via network proxy, 1440x900 desktop and 390x844 mobile, wait for networkidle (max 20s) + 2s. Transfer size = sum of CDP encodedDataLength for the page load, one sample. Provider and motion-library detection is a keyword scan and can have false positives.",
+  "pages": {
+    "home": {
+      "desktop": {
+        "url": "https://mamak.com.au/",
+        "finalUrl": "https://mamak.com.au/",
+        "status": 200,
+        "err": null,
+        "dclMs": 3619,
+        "loadMs": 5497,
+        "networkIdleMs": 5998,
+        "cookieDismissed": null,
+        "pageHeight": 2462,
+        "info": {
+          "title": "Mamak",
+          "metaDesc": "Mamak - home to the best Malaysian food",
+          "ogImage": false,
+          "lang": "en-US",
+          "hreflang": [],
+          "hasChinese": false,
+          "chineseCharCount": 0,
+          "generator": null,
+          "cms": [],
+          "h1": [
+            "Mamak"
+          ],
+          "ldTypes": [],
+          "videos": 0,
+          "canvas": 0,
+          "imgs": 16,
+          "pdfLinks": [],
+          "orderingProviders": [
+            "mryum"
+          ],
+          "telLinks": 0,
+          "loadedFonts": [
+            "museo300",
+            "ralewayregular"
+          ],
+          "computedFonts": [
+            "museo300",
+            "ralewayregular"
+          ],
+          "bodyBg": "rgb(255, 255, 255)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": false,
+          "textSample": "Mamak menu Home About Menu show more Order Takeaway show more Order Delivery Gift Cards Shop Catering Careers Press Contact Mamak is an award winning Malaysian restaurant, with branches in Sydney, Melbourne and Brisbane. Named after the roadside stalls of Kuala Lumpur that peddle Indian Malay street food, Mamak is renowned for authentic, bold and traditional flavours, with smart and friendly service. Give the gift of a truly authentic Malaysian dining experience with our Gift Cards! Sambal & Satay Sauce jars back in stock at all branches and online store! Let us cater for your next function! Order from our online catering menu. Our famous Sambal and Satay Sauce are now available to take home! Purchase at any branch or order from our online shop. Give the gift of a truly authentic Malaysian dining experience with our Gift Cards! Sambal & Satay Sauce jars back in stock at all branches and online store! Follow us! @mamakrestaurant Mamak © 2026 Sydney : Chinatown, Chatswood, Parramatta | Melbourne | Brisbane facebook instagram"
+        },
+        "transferBytes": 1908568,
+        "requests": 39,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      },
+      "mobile": {
+        "url": "https://mamak.com.au/",
+        "finalUrl": "https://mamak.com.au/",
+        "status": 200,
+        "err": null,
+        "dclMs": 2744,
+        "loadMs": 4627,
+        "networkIdleMs": 5127,
+        "cookieDismissed": null,
+        "pageHeight": 1094,
+        "transferBytes": 1915462,
+        "requests": 39,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      }
+    },
+    "menu": {
+      "desktop": {
+        "url": "https://mamak.com.au/mamakmenu",
+        "finalUrl": "https://mamak.com.au/mamakmenu",
+        "status": 200,
+        "err": null,
+        "dclMs": 2815,
+        "loadMs": 4169,
+        "networkIdleMs": 4667,
+        "cookieDismissed": null,
+        "pageHeight": 7066,
+        "info": {
+          "title": "Mamak",
+          "metaDesc": null,
+          "ogImage": false,
+          "lang": "en-US",
+          "hreflang": [],
+          "hasChinese": false,
+          "chineseCharCount": 0,
+          "generator": null,
+          "cms": [],
+          "h1": [
+            "Mamak",
+            "Savoury",
+            "Sweet"
+          ],
+          "ldTypes": [],
+          "videos": 0,
+          "canvas": 0,
+          "imgs": 6,
+          "pdfLinks": [],
+          "orderingProviders": [
+            "mryum"
+          ],
+          "telLinks": 0,
+          "loadedFonts": [
+            "museo300",
+            "ralewayregular"
+          ],
+          "computedFonts": [
+            "museo300",
+            "ralewayregular"
+          ],
+          "bodyBg": "rgb(255, 255, 255)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": false,
+          "textSample": "Mamak menu Home About Menu show more Order Takeaway show more Order Delivery Gift Cards Shop Catering Careers Press Contact Savoury Served with two curry dips and spicy sambal sauce. Roti canai $11.50 for 1 | $18.00 for 2 The original roti. Crispy on the outside, fluffy on the inside. Roti telur $12.50 Classic egg roti. Roti planta $12.50 A rich buttery roti. Roti bawang $12.50 With lashings of sweet red onions. Roti telur bawang $13.50 Egg and onions - a must for omelette lovers. Murtabak (chicken/lamb) $20.00 A local favourite. Filled with spicy meat, cabbage, eggs and onions (Allow 15 mins). Sweet Served traditionally with curry or enjoyed as a dessert with ice-cream. Roti pisang $14.00 A popular roti with freshly sliced bananas. Roti kaya $14.00 Filled with a traditional spread made from pandan and coconut. Roti bom $17.00 A truly indulgent roti served thicker, richer and sweeter (Allow 20 mins). Roti tisu $17.00 Paper-thin, extra crispy and served tall. Satay Chicken/Beef Satay Flame grilled for that authentic Malaysian flavour. Served with a sweet and spicy peanut sauce. 1/2 dozen $19.00 1 Dozen $34.00 Mains Kari ayam $26.00 Classic chicken curry cooked with freshly ground spices and chunky potatoes. Kari ikan $28.00 A tangy fish curry cooked with fresh tomatoes, okra and eggplant. Kari kambing $28.00 Spicy lamb curry slow-cooked until tender. Kari sayur $23.00 Vegetarian curry cooked with lentils, fresh tomatoes, carrots, potatoes, long beans and eggplant. Sambal udang"
+        },
+        "transferBytes": 965032,
+        "requests": 25,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      },
+      "mobile": {
+        "url": "https://mamak.com.au/mamakmenu",
+        "finalUrl": "https://mamak.com.au/mamakmenu",
+        "status": 200,
+        "err": null,
+        "dclMs": 2654,
+        "loadMs": 4498,
+        "networkIdleMs": 4995,
+        "cookieDismissed": null,
+        "pageHeight": 5975,
+        "transferBytes": 971811,
+        "requests": 25,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      }
+    }
+  }
+}

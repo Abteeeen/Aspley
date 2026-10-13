@@ -1,0 +1,170 @@
+{
+  "slug": "happy-boy",
+  "id": "local-09",
+  "checked": "2026-10-13",
+  "summary": {
+    "name": "Happy Boy",
+    "type": "Chinese (Sichuan-leaning dishes), Fortitude Valley",
+    "platform": "Custom",
+    "ordering": "Bopple (takeaway), Obee (bookings, gift vouchers)",
+    "note": "Menu is a single PDF. Hero is text only, no food photo.",
+    "url": "https://www.happyboy.com.au/",
+    "title": "",
+    "metaDescription": null,
+    "loadEventMs_desktop": 5317,
+    "networkIdleMs_desktop": 6081,
+    "transferKB_desktop": 6178,
+    "transferKB_mobile": 6178,
+    "cmsDetected": [],
+    "generator": null
+  },
+  "method": "Playwright Chromium via network proxy, 1440x900 desktop and 390x844 mobile, wait for networkidle (max 20s) + 2s. Transfer size = sum of CDP encodedDataLength for the page load, one sample. Provider and motion-library detection is a keyword scan and can have false positives.",
+  "pages": {
+    "home": {
+      "desktop": {
+        "url": "https://www.happyboy.com.au/",
+        "finalUrl": "https://www.happyboy.com.au/",
+        "status": 200,
+        "err": null,
+        "dclMs": 2677,
+        "loadMs": 5317,
+        "networkIdleMs": 6081,
+        "cookieDismissed": null,
+        "pageHeight": 4220,
+        "info": {
+          "title": "",
+          "metaDesc": null,
+          "ogImage": true,
+          "lang": "en",
+          "hreflang": [],
+          "hasChinese": false,
+          "chineseCharCount": 0,
+          "generator": null,
+          "cms": [],
+          "h1": [
+            "Primary Navigation",
+            "ABOUT"
+          ],
+          "ldTypes": [],
+          "videos": 0,
+          "canvas": 0,
+          "imgs": 8,
+          "pdfLinks": [],
+          "orderingProviders": [
+            "bopple",
+            "obee"
+          ],
+          "telLinks": 1,
+          "loadedFonts": [
+            "Lato"
+          ],
+          "computedFonts": [
+            "Lato"
+          ],
+          "bodyBg": "rgb(255, 255, 255)",
+          "gsapGlobal": true,
+          "scrollTriggerGlobal": true,
+          "lenisClass": false,
+          "textSample": "Primary Navigation ABOUT MENU FUNCTIONS GIFT VOUCHERS CONTACT TAKEAWAY BOOK An East Street Restaurant ABOUT Happy Boy loves tasty Chinese food served in generous portions alongside the best small producer Australian wine. Our focus is on the wok cooking of Southern China and Hong Kong as well as the traditional BBQ cooking in the Guangdong style. Positioned underneath fairy lit trees, Happy Boy is a large banqueting and drinking hall with unadorned white plaster and concrete dominating - the food and wine are obviously the focus. In fine weather guests can sit underneath fairy lit trees on our outside deck. Come join us for an early dinner with the family or bring a group of friends for the beginning of a fun night out in the Valley. Footer HOURS DINNERS (open — last orders) Tuesday to Wednesday - 5:30pm till 8:30pm Thursday - 5:30pm till 9:30pm Sunday - 5:00pm till 8:30pm LUNCHES Tuesday to Thursday - 11:30am till last orders at 2:00pm Sunday - 11.30am till last orders at 2.15pm ALL DAY Friday to Saturday - 11:30am till 9:30pm CONTACT Email us at happy@happyboy.com.au Call us on +61 413 246 890 Find us at East St, Fortitude Valley QLD 4006 Instagram © Happy Boy Privacy Policy"
+        },
+        "transferBytes": 6326696,
+        "requests": 29,
+        "motionLibsInScripts": [
+          "ScrollTrigger",
+          "gsap",
+          "swiper"
+        ]
+      },
+      "mobile": {
+        "url": "https://www.happyboy.com.au/",
+        "finalUrl": "https://www.happyboy.com.au/",
+        "status": 200,
+        "err": null,
+        "dclMs": 2448,
+        "loadMs": 4057,
+        "networkIdleMs": 4859,
+        "cookieDismissed": null,
+        "pageHeight": 4240,
+        "transferBytes": 6326683,
+        "requests": 29,
+        "motionLibsInScripts": [
+          "ScrollTrigger",
+          "gsap",
+          "swiper"
+        ]
+      }
+    },
+    "menu": {
+      "desktop": {
+        "url": "https://www.happyboy.com.au/menu",
+        "finalUrl": "https://www.happyboy.com.au/menu",
+        "status": 200,
+        "err": null,
+        "dclMs": 2011,
+        "loadMs": 2916,
+        "networkIdleMs": 3635,
+        "cookieDismissed": null,
+        "pageHeight": 1913,
+        "info": {
+          "title": "",
+          "metaDesc": null,
+          "ogImage": true,
+          "lang": "en",
+          "hreflang": [],
+          "hasChinese": false,
+          "chineseCharCount": 0,
+          "generator": null,
+          "cms": [],
+          "h1": [
+            "Primary Navigation",
+            "HAPPY BOY MENU"
+          ],
+          "ldTypes": [],
+          "videos": 0,
+          "canvas": 0,
+          "imgs": 2,
+          "pdfLinks": [
+            "https://www.happyboy.com.au/menu.pdf"
+          ],
+          "orderingProviders": [
+            "bopple",
+            "obee"
+          ],
+          "telLinks": 1,
+          "loadedFonts": [
+            "Lato"
+          ],
+          "computedFonts": [
+            "Lato"
+          ],
+          "bodyBg": "rgb(255, 255, 255)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": false,
+          "textSample": "Primary Navigation ABOUT MENU FUNCTIONS GIFT VOUCHERS CONTACT TAKEAWAY BOOK HAPPY BOY MENU View or download the current Happy Boy food and drinks menu. OPEN MENU PDF Your browser cannot display the menu preview. Open the PDF instead. Footer HOURS DINNERS (open — last orders) Tuesday to Wednesday - 5:30pm till 8:30pm Thursday - 5:30pm till 9:30pm Sunday - 5:00pm till 8:30pm LUNCHES Tuesday to Thursday - 11:30am till last orders at 2:00pm Sunday - 11.30am till last orders at 2.15pm ALL DAY Friday to Saturday - 11:30am till 9:30pm CONTACT Email us at happy@happyboy.com.au Call us on +61 413 246 890 Find us at East St, Fortitude Valley QLD 4006 Instagram © Happy Boy Privacy Policy"
+        },
+        "transferBytes": 768813,
+        "requests": 21,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      },
+      "mobile": {
+        "url": "https://www.happyboy.com.au/menu",
+        "finalUrl": "https://www.happyboy.com.au/menu",
+        "status": 200,
+        "err": null,
+        "dclMs": 2192,
+        "loadMs": 3227,
+        "networkIdleMs": 4009,
+        "cookieDismissed": null,
+        "pageHeight": 2097,
+        "transferBytes": 768970,
+        "requests": 22,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "slug": "crav-burgers",
+  "id": "benchmark-07",
+  "checked": "2026-10-13",
+  "summary": {
+    "name": "CRAV Burgers",
+    "type": "Smash burgers (Spain) - AGENCY CONCEPT SITE",
+    "platform": "Next.js, GSAP ScrollTrigger + Lenis",
+    "ordering": "Concept only",
+    "note": "The site states \"This is a concept website created by Anyflow agency\". Listed on Awwwards. Use only as a motion reference, never as a trading-restaurant comparison.",
+    "url": "https://www.cravburgers.shop/",
+    "title": "CRAV | Enjoy",
+    "metaDescription": "Experience the ultimate artisan smashed burgers at CRAV. Fresh ingredients, bold flavors, and zero guilt. Est. 1997 — Navarra, España.",
+    "loadEventMs_desktop": 2117,
+    "networkIdleMs_desktop": 3638,
+    "transferKB_desktop": 6184,
+    "transferKB_mobile": 6184,
+    "cmsDetected": [
+      "nextjs"
+    ],
+    "generator": null
+  },
+  "method": "Playwright Chromium via network proxy, 1440x900 desktop and 390x844 mobile, wait for networkidle (max 20s) + 2s. Transfer size = sum of CDP encodedDataLength for the page load, one sample. Provider and motion-library detection is a keyword scan and can have false positives.",
+  "pages": {
+    "home": {
+      "desktop": {
+        "url": "https://www.cravburgers.shop/",
+        "finalUrl": "https://www.cravburgers.shop/",
+        "status": 200,
+        "err": null,
+        "dclMs": 523,
+        "loadMs": 2117,
+        "networkIdleMs": 3638,
+        "cookieDismissed": null,
+        "modalsClosed": [],
+        "pageHeight": 10429,
+        "info": {
+          "title": "CRAV | Enjoy",
+          "metaDesc": "Experience the ultimate artisan smashed burgers at CRAV. Fresh ingredients, bold flavors, and zero guilt. Est. 1997 — Navarra, España.",
+          "ogImage": true,
+          "lang": "en",
+          "hreflang": [],
+          "hasChinese": false,
+          "chineseCharCount": 0,
+          "generator": null,
+          "cms": [
+            "nextjs"
+          ],
+          "h1": [
+            "THE BURGER\nTHE BURGER"
+          ],
+          "ldTypes": [
+            "Restaurant"
+          ],
+          "videos": 0,
+          "canvas": 0,
+          "imgs": 42,
+          "pdfLinks": [],
+          "orderingProviders": [],
+          "telLinks": 0,
+          "loadedFonts": [
+            "Modak",
+            "Mouse Memoirs"
+          ],
+          "computedFonts": [
+            "Modak",
+            "Mouse Memoirs"
+          ],
+          "bodyBg": "rgb(245, 227, 205)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": true,
+          "textSample": "CRAV BURGERS BURGERS MENU MENU HOME ABOUT OUR SPICES LOCATIONS CONTACT EST. 1997 — NAVARRA, ESPAÑA COOKIES IN USE We use cookies to improve your experience. LATER LATER OKAY! OKAY! THE BURGER THE BURGER SMASHED FRESH SMASHED FRESH BOLD FLAVOR BOLD FLAVOR CRAV CRAV Smashed hot on the flat top, our prime patties lock in ultimate juiciness under a caramelized crust. Topped with melted cheddar and our signature chili honey glaze crafted to satisfy your cravings since 1997. TOP CLASSIC JUICY CHEESY FULLY LOADED JUICY CHEESY FULLY LOADED CRAV is back and bolder than ever. Honoring our rich roots, we bring you the ultimate smashed experience fully loaded, hot, and crafted fresh. ORDER NOW EXPERIENCE FOOD THAT FEELS GOOD FOOD THAT FEELS GOOD 450 KCAL HIGH PROTEIN FRESH INGREDIENTS BOLD FLAVOUR 100% ORGANIC ZERO GUILT TRUE TASTE PURE QUALITY EVERY LAYER PACKED WITH SIGNATURE FLAVOR TAKE AWAY QUALITY THAT TRAVELS WITH YOU Freshly packed smash burgers, ready to go wherever you crave. From our flat-top to any corner of the globe, we ensure every layer stays hot and juicy. BERLIN˝ LONDON˝ NEW YORK˝ SYDNEY˝ TOKYO˝ FEEL IT FEEL THE CHANGE FEEL THE CHANGE Smashed for the bold, built for the hungry. Dive into a legendary craft experience where every crispy edge and juicy layer rules. ORDER NOW HOME HOME BURGERS BURGERS SPICES SPICES CONTACT CONTACT © 2026 CRAV — ALL RIGHTS RESERVED SMASHED PATTIES · TOASTED BUNS · EST. 1997 CRAV CRAV CRAVING..."
+        },
+        "transferBytes": 6331948,
+        "requests": 67,
+        "motionLibsInScripts": [
+          "ScrollTrigger",
+          "Lenis",
+          "gsap"
+        ]
+      },
+      "mobile": {
+        "url": "https://www.cravburgers.shop/",
+        "finalUrl": "https://www.cravburgers.shop/",
+        "status": 200,
+        "err": null,
+        "dclMs": 468,
+        "loadMs": 1751,
+        "networkIdleMs": 2721,
+        "cookieDismissed": null,
+        "modalsClosed": [],
+        "pageHeight": 7804,
+        "transferBytes": 6331958,
+        "requests": 67,
+        "motionLibsInScripts": [
+          "ScrollTrigger",
+          "Lenis",
+          "gsap"
+        ]
+      }
+    },
+    "menu": {
+      "desktop": {
+        "url": "https://www.cravburgers.shop/menu",
+        "finalUrl": "https://www.cravburgers.shop/menu",
+        "status": 200,
+        "err": null,
+        "dclMs": 606,
+        "loadMs": 1516,
+        "networkIdleMs": 2915,
+        "cookieDismissed": null,
+        "modalsClosed": [],
+        "pageHeight": 4378,
+        "info": {
+          "title": "Menu | Enjoy",
+          "metaDesc": "Explore our selection of premium smashed burgers, hand-crafted with fresh, organic ingredients. From classic cheeseburgers to our signature CRAV specials.",
+          "ogImage": true,
+          "lang": "en",
+          "hreflang": [],
+          "hasChinese": false,
+          "chineseCharCount": 0,
+          "generator": null,
+          "cms": [
+            "nextjs"
+          ],
+          "h1": [
+            "EAT LIKE YOU MEAN IT\nEAT LIKE YOU MEAN IT"
+          ],
+          "ldTypes": [
+            "Restaurant"
+          ],
+          "videos": 0,
+          "canvas": 0,
+          "imgs": 19,
+          "pdfLinks": [],
+          "orderingProviders": [],
+          "telLinks": 0,
+          "loadedFonts": [
+            "Modak",
+            "Mouse Memoirs"
+          ],
+          "computedFonts": [
+            "Modak",
+            "Mouse Memoirs"
+          ],
+          "bodyBg": "rgb(245, 227, 205)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": true,
+          "textSample": "CRAV BURGERS BURGERS MENU MENU HOME ABOUT OUR SPICES LOCATIONS CONTACT EST. 1997 — NAVARRA, ESPAÑA COOKIES IN USE We use cookies to improve your experience. LATER LATER OKAY! OKAY! CONCEPT CHECKOUT THIS IS A CONCEPT WEBSITE CREATED BY ANYFLOW AGENCY. IF YOU ARE LOOKING FOR BRAND DESIGN AND DEVELOPMENT LIKE THIS, YOU CAN REACH OUT TO US AT ANYFLOWAGENCY@GMAIL.COM DESIGNED & DEVELOPED BY ANYFLOW ACKNOWLEDGE & CLOSE ACKNOWLEDGE & CLOSE ADDED TO CART 0 EAT LIKE YOU MEAN IT EAT LIKE YOU MEAN IT THE BEST OUR FINEST BURGER PICKS OUR FINEST BURGER PICKS 6 ITEMS QUICK DETAILS 10–12 MIN BUN BRIOCHE PATTY BEEF SPICE MILD CALORIES: 720 PROTEIN: 32G Classic Burger $16 QUICK DETAILS 12–14 MIN BUN BRIOCHE PATTY BEEF SPICE HOT CALORIES: 810 PROTEIN: 34G Spicy Jalapeño Burger $18 QUICK DETAILS 12–15 MIN BUN BRIOCHE PATTY BEEF SPICE MILD CALORIES: 900 PROTEIN: 37G Bacon Cheese Burger $21 QUICK DETAILS 10–12 MIN BUN SESAME PATTY VEGGIE SPICE MILD CALORIES: 620 PROTEIN: 17G Veggie Delight Burger $15 QUICK DETAILS 12–14 MIN BUN BRIOCHE PATTY BEEF SPICE MEDIUM CALORIES: 870 PROTEIN: 36G BBQ Ranch Burger $19 QUICK DETAILS 12–14 MIN BUN BRIOCHE PATTY BEEF SPICE MILD CALORIES: 830 PROTEIN: 33G Mushroom Swiss Burger $20 FEEL IT FEEL THE CHANGE FEEL THE CHANGE Smashed for the bold, built for the hungry. Dive into a legendary craft experience where every crispy edge and juicy layer rules. ORDER NOW HOME HOME BURGERS BURGERS SPICES SPICES CONTACT CONTACT © 2026 CRAV — ALL RIGHTS RESERVED SMASHED PATTIES "
+        },
+        "transferBytes": 3491625,
+        "requests": 55,
+        "motionLibsInScripts": [
+          "ScrollTrigger",
+          "Lenis",
+          "gsap"
+        ]
+      },
+      "mobile": {
+        "url": "https://www.cravburgers.shop/menu",
+        "finalUrl": "https://www.cravburgers.shop/menu",
+        "status": 200,
+        "err": null,
+        "dclMs": 409,
+        "loadMs": 1134,
+        "networkIdleMs": 2940,
+        "cookieDismissed": null,
+        "modalsClosed": [],
+        "pageHeight": 3996,
+        "transferBytes": 3491615,
+        "requests": 55,
+        "motionLibsInScripts": [
+          "ScrollTrigger",
+          "Lenis",
+          "gsap"
+        ]
+      }
+    }
+  }
+}

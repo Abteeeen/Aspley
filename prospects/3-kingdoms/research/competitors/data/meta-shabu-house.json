@@ -1,0 +1,182 @@
+{
+  "slug": "shabu-house",
+  "id": "local-08",
+  "checked": "2026-10-13",
+  "summary": {
+    "name": "Shabu House",
+    "type": "Japanese shabu shabu + sushi buffet",
+    "platform": "Squarespace",
+    "ordering": "inline.app bookings",
+    "note": "All menus are PDFs (6 files). Bookings button hidden in hamburger on mobile.",
+    "url": "https://www.shabuhouse.com.au/",
+    "title": "Shabuhouse Shabu & Sushi Buffet Brisbane",
+    "metaDescription": null,
+    "loadEventMs_desktop": 4012,
+    "networkIdleMs_desktop": 4762,
+    "transferKB_desktop": 2774,
+    "transferKB_mobile": 2431,
+    "cmsDetected": [
+      "squarespace"
+    ],
+    "generator": null
+  },
+  "method": "Playwright Chromium via network proxy, 1440x900 desktop and 390x844 mobile, wait for networkidle (max 20s) + 2s. Transfer size = sum of CDP encodedDataLength for the page load, one sample. Provider and motion-library detection is a keyword scan and can have false positives.",
+  "pages": {
+    "home": {
+      "desktop": {
+        "url": "https://www.shabuhouse.com.au/",
+        "finalUrl": "https://www.shabuhouse.com.au/",
+        "status": 200,
+        "err": null,
+        "dclMs": 2611,
+        "loadMs": 4012,
+        "networkIdleMs": 4762,
+        "cookieDismissed": null,
+        "pageHeight": 3540,
+        "info": {
+          "title": "Shabuhouse Shabu & Sushi Buffet Brisbane",
+          "metaDesc": null,
+          "ogImage": true,
+          "lang": "en-AU",
+          "hreflang": [],
+          "hasChinese": false,
+          "chineseCharCount": 0,
+          "generator": null,
+          "cms": [
+            "squarespace"
+          ],
+          "h1": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "ldTypes": [
+            "WebSite",
+            "LocalBusiness"
+          ],
+          "videos": 0,
+          "canvas": 0,
+          "imgs": 16,
+          "pdfLinks": [],
+          "orderingProviders": [
+            "inline.app",
+            "opentable"
+          ],
+          "telLinks": 1,
+          "loadedFonts": [
+            "Poppins"
+          ],
+          "computedFonts": [
+            "Poppins"
+          ],
+          "bodyBg": "rgb(0, 162, 164)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": false,
+          "textSample": "Skip to Content BOOKINGS Open Menu About Us Menu Price Functions & Events Gift Cards Gallery Parking FAQ Contact BOOKINGS SHABU SHABU〰️HOUSE HOUSE〰️SHABUUUU〰️SHABU SHABU〰️HOUSE HOUSE〰️SHABUUUU〰️SHABU SHABU〰️HOUSE HOUSE〰️SHABUUUU〰️SHABU SHABU〰️HOUSE HOUSE〰️ SHABU SHABU 〰️ HOUSE HOUSE 〰️ SHABUUUU 〰️ Welcome to Shabu House Japanese Shabu Shabu + Sushi Buffet Enjoy all you can eat fresh sushi and shabu shabu with exceptional quality meats and vegetables. We hope you enjoy going nom nom on our sushi and swish swish with your noodles. Order your favourite drinks from the tablet at your table including beers, wines, sake and cocktails. Opening 7 Days Lunch | 11:30-3pm Dinner | 5-10pm *Closed on Christmas Day & New Years Day only. Pricing Lunch Mon - Fri | $35 (Not available on Public Holidays) Sat - Sun & PH | $53 Dinner Mon-Fri | $55 pp Sat-Sun & PH | $58 pp *Express Options Not available on Public Holidays Express Weekday Dinner Mon-Fri | $39 pp Express Weekend Lunch Sat-Sun | $39 pp Contact Level 1, 70 Mary Street Brisbane, Q 4000 Ph. 0493 235 658 Bookings Functions Email"
+        },
+        "transferBytes": 2840975,
+        "requests": 79,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      },
+      "mobile": {
+        "url": "https://www.shabuhouse.com.au/",
+        "finalUrl": "https://www.shabuhouse.com.au/",
+        "status": 200,
+        "err": null,
+        "dclMs": 2289,
+        "loadMs": 4837,
+        "networkIdleMs": 5578,
+        "cookieDismissed": null,
+        "pageHeight": 3590,
+        "transferBytes": 2489647,
+        "requests": 77,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      }
+    },
+    "menu": {
+      "desktop": {
+        "url": "https://www.shabuhouse.com.au/menu",
+        "finalUrl": "https://www.shabuhouse.com.au/menu",
+        "status": 200,
+        "err": null,
+        "dclMs": 2182,
+        "loadMs": 3151,
+        "networkIdleMs": 5161,
+        "cookieDismissed": null,
+        "pageHeight": 1875,
+        "info": {
+          "title": "Menu & Price — Shabuhouse Shabu & Sushi Buffet Brisbane",
+          "metaDesc": "Menu & Price - At Shabu House Brisbane, enjoy the Japanese sushi buffet, hot food bar, and cook your meats and vegetables in the shabu shabu on your table in the soup of your choice.",
+          "ogImage": false,
+          "lang": "en-AU",
+          "hreflang": [],
+          "hasChinese": false,
+          "chineseCharCount": 0,
+          "generator": null,
+          "cms": [
+            "squarespace"
+          ],
+          "h1": [],
+          "ldTypes": [
+            "WebSite",
+            "LocalBusiness"
+          ],
+          "videos": 0,
+          "canvas": 0,
+          "imgs": 7,
+          "pdfLinks": [
+            "https://www.shabuhouse.com.au/s/Shabuhouse-Lunch-Menu-15-Dec.pdf",
+            "https://www.shabuhouse.com.au/s/Shabuhouse-Dinner-Menu-20-Apr.pdf",
+            "https://www.shabuhouse.com.au/s/Shabuhouse-Dinner-Express-Menu-15-Dec-knlp.pdf",
+            "https://www.shabuhouse.com.au/s/SH-NO-PRICE-Drinks-May-2026.pdf",
+            "https://www.shabuhouse.com.au/s/SHA-Drink-Packages.pdf",
+            "https://www.shabuhouse.com.au/s/SHA-Banquets-Sep-2026-365l.pdf"
+          ],
+          "orderingProviders": [
+            "inline.app",
+            "opentable"
+          ],
+          "telLinks": 1,
+          "loadedFonts": [
+            "Poppins"
+          ],
+          "computedFonts": [
+            "Poppins"
+          ],
+          "bodyBg": "rgb(0, 162, 164)",
+          "gsapGlobal": false,
+          "scrollTriggerGlobal": false,
+          "lenisClass": false,
+          "textSample": "Skip to Content BOOKINGS Open Menu About Us Menu Price Functions & Events Gift Cards Gallery Parking FAQ Contact BOOKINGS Buffets View Lunch Menu View Dinner Menu View Express Menu Drinks View Menu View Drink Packages See Pricing Banquet View Menu Addons View Menu *Addons require a buffet menu purchase and cannot be ordered alone Opening 7 Days Lunch | 11:30-3pm Dinner | 5-10pm *Closed on Christmas Day & New Years Day only. Pricing Lunch Mon - Fri | $35 (Not available on Public Holidays) Sat - Sun & PH | $53 Dinner Mon-Fri | $55 pp Sat-Sun & PH | $58 pp *Express Options Not available on Public Holidays Express Weekday Dinner Mon-Fri | $39 pp Express Weekend Lunch Sat-Sun | $39 pp Contact Level 1, 70 Mary Street Brisbane, Q 4000 Ph. 0493 235 658 Bookings Functions Email"
+        },
+        "transferBytes": 2381722,
+        "requests": 78,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      },
+      "mobile": {
+        "url": "https://www.shabuhouse.com.au/menu",
+        "finalUrl": "https://www.shabuhouse.com.au/menu",
+        "status": 200,
+        "err": null,
+        "dclMs": 2199,
+        "loadMs": 3076,
+        "networkIdleMs": 3838,
+        "cookieDismissed": null,
+        "pageHeight": 2711,
+        "transferBytes": 2104484,
+        "requests": 78,
+        "motionLibsInScripts": [
+          "swiper"
+        ]
+      }
+    }
+  }
+}

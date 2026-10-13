@@ -1,0 +1,52 @@
+{
+  "slug": "love-malatang",
+  "id": "local-11",
+  "checked": "2026-10-13",
+  "summary": {
+    "name": "Love Malatang",
+    "type": "Malatang",
+    "platform": "unknown",
+    "ordering": "unknown",
+    "note": "https://www.lovemalatang.com.au/ could not be reached through our network proxy (tunnel failure). Not captured.",
+    "url": "https://www.lovemalatang.com.au/",
+    "title": null,
+    "metaDescription": null,
+    "loadEventMs_desktop": null,
+    "networkIdleMs_desktop": null,
+    "transferKB_desktop": 0,
+    "transferKB_mobile": 0,
+    "cmsDetected": null,
+    "generator": null
+  },
+  "method": "Playwright Chromium via network proxy, 1440x900 desktop and 390x844 mobile, wait for networkidle (max 20s) + 2s. Transfer size = sum of CDP encodedDataLength for the page load, one sample. Provider and motion-library detection is a keyword scan and can have false positives.",
+  "pages": {
+    "home": {
+      "desktop": {
+        "url": "https://www.lovemalatang.com.au/",
+        "finalUrl": "chrome-error://chromewebdata/",
+        "status": null,
+        "err": "page.goto: net::ERR_TUNNEL_CONNECTION_FAILED at https://www.lovemalatang.com.au/",
+        "dclMs": null,
+        "loadMs": null,
+        "networkIdleMs": null,
+        "cookieDismissed": null,
+        "transferBytes": 0,
+        "requests": 1,
+        "motionLibsInScripts": []
+      },
+      "mobile": {
+        "url": "https://www.lovemalatang.com.au/",
+        "finalUrl": "chrome-error://chromewebdata/",
+        "status": null,
+        "err": "page.goto: net::ERR_TUNNEL_CONNECTION_FAILED at https://www.lovemalatang.com.au/",
+        "dclMs": null,
+        "loadMs": null,
+        "networkIdleMs": null,
+        "cookieDismissed": null,
+        "transferBytes": 0,
+        "requests": 1,
+        "motionLibsInScripts": []
+      }
+    }
+  }
+}

@@ -1,0 +1,361 @@
+<title>3 Kingdoms Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Big+Shoulders+Display:wght@700;900&family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Public+Sans:wght@400;600;700&family=Zilla+Slab:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@900&family=Noto+Serif+SC:wght@600;900&family=ZCOOL+QingKe+HuangYou&display=swap&text=%E4%B8%80%E4%B8%89%E4%B8%8D%E4%B8%AD%E4%BA%8C%E4%BA%94%E5%85%AD%E5%86%92%E5%8D%95%E5%9B%9B%E5%9B%BD%E6%8B%9B%E6%96%87%E7%89%8C%E7%89%9B%E7%89%B9%E8%82%89%E8%87%AA%E8%8F%9C%E8%BE%A3%E9%80%89">
+<style>
+/* Layout: a quiet review board; three full-width concept sections, each led by a live first-screen sketch in that concept's own world. */
+:root {
+  --bg: #F3F2EF;
+  --surface: #FFFFFF;
+  --fg: #1E1D1B;
+  --muted: #5E5B55;
+  --rule: #D9D6CF;
+  --accent: #A3261B;
+  --font-ui: "Public Sans", "Segoe UI", system-ui, sans-serif;
+  --font-head: "Newsreader", Georgia, "Times New Roman", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #191816; --surface: #22211E; --fg: #ECEAE5; --muted: #A9A59C; --rule: #3A3833; --accent: #E8705F; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --bg: #191816; --surface: #22211E; --fg: #ECEAE5; --muted: #A9A59C; --rule: #3A3833; --accent: #E8705F; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font: 400 1rem/1.55 var(--font-ui); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: clamp(16px, 4vw, 40px); padding-block: 40px 72px; }
+h1, h2, h3 { font-family: var(--font-head); font-weight: 600; text-wrap: balance; line-height: 1.15; margin: 0; }
+h1 { font-size: clamp(2rem, 5vw, 3.1rem); }
+h2 { font-size: clamp(1.6rem, 3.6vw, 2.3rem); }
+h3 { font-size: 1.15rem; }
+p { margin: 0; max-width: 68ch; }
+a { color: var(--accent); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.intro { display: grid; gap: 16px; padding-block-end: 28px; border-bottom: 1px solid var(--rule); }
+.intro .lede { font-size: 1.12rem; color: var(--fg); }
+.meta { color: var(--muted); font-size: .92rem; }
+
+.musts { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px 28px; padding-block: 28px; border-bottom: 1px solid var(--rule); }
+.musts h2 { grid-column: 1 / -1; font-size: 1.35rem; }
+.must { display: grid; gap: 4px; min-width: 0; }
+.must b { font-weight: 700; }
+.must span { color: var(--muted); font-size: .94rem; }
+
+.concept { display: grid; gap: 22px; padding-block: 48px; border-bottom: 1px solid var(--rule); }
+.concept-head { display: grid; gap: 8px; }
+.tag { font-size: .85rem; color: var(--muted); }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px 36px; }
+.cols > div { display: grid; gap: 8px; align-content: start; min-width: 0; }
+.cols p { font-size: .97rem; }
+.risk { border-left: 3px solid var(--accent); padding-left: 12px; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip { display: grid; grid-template-columns: 34px auto; gap: 2px 10px; align-items: center; font-size: .84rem; min-width: 150px; }
+.chip i { grid-row: span 2; width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--rule); }
+.chip code { color: var(--muted); font-size: .8rem; font-variant-numeric: tabular-nums; }
+
+/* Sketch frame: every sketch is a 16:10 first screen that scales with its container. */
+.sketch { container-type: inline-size; width: 100%; max-width: 100%; aspect-ratio: 16 / 10; border-radius: 6px; overflow: hidden; position: relative; box-shadow: 0 1px 0 var(--rule), 0 18px 40px -24px rgba(0,0,0,.45); }
+.sketch-note { font-size: .84rem; color: var(--muted); }
+:where(.sketch) button { font: inherit; cursor: pointer; }
+
+/* ---------- A. Light Box ---------- */
+.lb { --glow: 0; background: #000; color: #FFF9F0; font-family: "Archivo", "Arial Narrow", sans-serif; display: grid; grid-template-rows: auto 1fr auto auto; padding: 1.6cqi; gap: 1.2cqi; }
+.lb-top { display: flex; justify-content: space-between; align-items: baseline; font-size: 1.7cqi; font-stretch: 100%; }
+.lb-top .brand { font-family: "Noto Sans SC", sans-serif; font-weight: 900; font-size: 2.4cqi; letter-spacing: .1em; }
+.lb-top .brand small { font-family: "Archivo", sans-serif; font-weight: 700; font-size: 1.6cqi; letter-spacing: 0; margin-left: .8cqi; }
+.lb-top nav { display: flex; gap: 2.4cqi; font-weight: 600; }
+.lb-panels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2cqi; min-height: 0; }
+.panel { position: relative; border-radius: .6cqi; padding: 1.4cqi; display: grid; grid-template-rows: auto 1fr auto auto auto; gap: .5cqi; color: #1A0B08;
+  background: color-mix(in oklab, #FFF9F0 calc(100% - var(--glow) * 1%), #FFC9B8);
+  box-shadow: 0 0 calc(1cqi + var(--glow) * .05cqi) color-mix(in oklab, #FFF3DC calc(100% - var(--glow) * 1%), #FF2A1A); transition: background .35s ease, box-shadow .35s ease; }
+.panel .code { font-weight: 800; font-size: 1.5cqi; color: #D0021B; }
+.panel .bowl { justify-self: center; align-self: center; width: 70%; aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(circle at 38% 40%, #F6C24A 0 7%, transparent 8%), radial-gradient(circle at 62% 58%, #6B8E23 0 8%, transparent 9%), radial-gradient(circle at 55% 33%, #F3E3C3 0 9%, transparent 10%), radial-gradient(circle at 40% 64%, #8B2A1C 0 10%, transparent 11%), radial-gradient(circle, #C2160F 0 58%, #7A0C07 60%, #2B2522 61% 67%, #4A403A 68% 70%, transparent 71%); }
+.panel .zh { font-family: "Noto Sans SC", sans-serif; font-weight: 900; font-size: 2.2cqi; }
+.panel .en { font-weight: 700; font-stretch: 70%; font-size: 1.9cqi; line-height: 1.05; text-transform: uppercase; }
+.panel .price { font-weight: 900; font-stretch: 125%; font-size: 2.8cqi; color: #D0021B; font-variant-numeric: tabular-nums; }
+.lb-dial { display: flex; align-items: center; gap: 1.2cqi; font-size: 1.6cqi; font-weight: 600; }
+.lb-dial .zh { font-family: "Noto Sans SC", sans-serif; font-weight: 900; }
+.lb-dial .steps { display: flex; gap: .7cqi; }
+.lb-dial button { width: 2.6cqi; height: 2.6cqi; min-width: 18px; min-height: 18px; border-radius: 50%; border: .25cqi solid #FFF9F0; background: transparent; padding: 0; }
+.lb-dial button[aria-pressed="true"] { background: #D0021B; border-color: #FFB3A6; }
+.lb-dial button:nth-child(-n+2)[aria-pressed="true"] { background: #93A62E; border-color: #D9E59A; }
+.lb-sign { display: flex; justify-content: space-between; align-items: center; gap: 1cqi; background: #FFB81C; color: #000; border-radius: .5cqi; padding: .9cqi 1.4cqi; font-weight: 800; font-size: 1.8cqi; }
+.lb-sign .arrow { font-stretch: 125%; }
+.lb-sign .order { background: #D0021B; color: #FFF9F0; border-radius: .4cqi; padding: .6cqi 1.4cqi; font-weight: 800; }
+
+/* ---------- B. Ink and Oil ---------- */
+.io { background: #17130F; color: #F7F6F2; font-family: "Newsreader", Georgia, serif; display: grid; grid-template-rows: auto 1fr auto; padding: 2.4cqi 3cqi; }
+.io-top { display: flex; justify-content: space-between; align-items: center; font-size: 1.7cqi; }
+.io-top .mark { width: 3cqi; height: 3cqi; background: #C8321F; border-radius: .3cqi; display: grid; place-items: center; font-family: "Noto Serif SC", serif; font-weight: 900; font-size: 1.6cqi; color: #F7F6F2; }
+.io-top nav { display: flex; gap: 2.6cqi; }
+.io-top nav .zh { font-family: "Noto Serif SC", serif; }
+.io-hero { display: grid; align-content: center; gap: 1.6cqi; }
+.io-logo { font-family: "Noto Serif SC", serif; font-weight: 900; font-size: 12.5cqi; line-height: 1; letter-spacing: .06em;
+  background: linear-gradient(115deg, #F7F6F2 0 30%, #E0601A 42%, #C8321F 50%, #F0A35A 58%, #F7F6F2 70% 100%); background-size: 260% 100%; background-position: 100% 0;
+  -webkit-background-clip: text; background-clip: text; color: transparent; animation: oil 9s ease-in-out infinite alternate; }
+@keyframes oil { to { background-position: 0% 0; } }
+.io-line { font-size: 2.5cqi; line-height: 1.25; }
+.io-sub { font-size: 1.6cqi; color: #CFC9BE; }
+.io-actions { display: flex; gap: 1.6cqi; align-items: center; flex-wrap: wrap; }
+.io-btn { border-radius: .3cqi; padding: 1cqi 2cqi; font-size: 1.7cqi; font-weight: 600; border: .2cqi solid #F7F6F2; background: transparent; color: #F7F6F2; }
+.io-btn.seal { background: #C8321F; border-color: #C8321F; }
+.io-seals { display: flex; gap: 1cqi; align-items: center; font-size: 1.5cqi; color: #CFC9BE; }
+.io-seals button { width: 3.4cqi; height: 3.4cqi; min-width: 20px; min-height: 20px; border: .2cqi solid #6D6357; border-radius: .3cqi; background: transparent; color: #CFC9BE; font-family: "Noto Serif SC", serif; font-weight: 900; font-size: 1.6cqi; padding: 0; transition: transform .15s ease-out, background .15s; }
+.io-seals button[aria-pressed="true"] { background: #C8321F; border-color: #C8321F; color: #F7F6F2; transform: rotate(-4deg) scale(1.06); }
+.io-seals button:active { transform: scale(.92); }
+
+/* ---------- C. Broadside ---------- */
+.bs { background: #C9A57B; color: #1C1A17; display: grid; grid-template-rows: repeat(5, auto) 1fr; align-content: start; padding: 2cqi 2.6cqi; gap: .4cqi;
+  background-image: radial-gradient(rgba(60,40,20,.10) 1px, transparent 1.3px); background-size: .9cqi .9cqi; }
+.band { line-height: .88; overflow: hidden; text-transform: uppercase; white-space: nowrap; border-bottom: .3cqi solid #1C1A17; padding-bottom: .5cqi; }
+.b1 { font-family: "ZCOOL QingKe HuangYou", "Noto Sans SC", sans-serif; font-size: 8.4cqi; letter-spacing: .02em; display: flex; justify-content: space-between; align-items: end; }
+.b1 small { font-family: "Big Shoulders Display", Impact, sans-serif; font-weight: 900; font-size: 3.5cqi; }
+.b2 { font-family: "Big Shoulders Display", Impact, sans-serif; font-weight: 900; font-size: 7.6cqi; letter-spacing: .01em; }
+.b3 { font-family: "Big Shoulders Display", Impact, sans-serif; font-weight: 900; font-size: 6.4cqi; position: relative; color: #D7261E; mix-blend-mode: multiply; }
+.band.fit > span { display: inline-block; }
+.b3::after { content: attr(data-ink); position: absolute; left: .35cqi; top: .25cqi; color: #6F8A2A; mix-blend-mode: multiply; opacity: .55; pointer-events: none; }
+.b4 { font-family: "Big Shoulders Display", Impact, sans-serif; font-weight: 700; font-size: 4.25cqi; font-variant-numeric: tabular-nums; }
+.b5 { font-family: "Zilla Slab", Georgia, serif; font-weight: 700; font-size: 2.15cqi; text-transform: uppercase; letter-spacing: .04em; }
+.bs-actions { display: grid; grid-template-columns: 1.6fr 1fr 1.4fr; gap: 1.2cqi; align-items: end; padding-top: 1cqi; }
+.bs-btn { font-family: "Big Shoulders Display", Impact, sans-serif; font-weight: 900; font-size: 3.2cqi; text-transform: uppercase; border: .35cqi solid #1C1A17; padding: .6cqi 1.4cqi; background: #D7261E; color: #FBFAF7; text-align: left; }
+.bs-btn.ghost { background: transparent; color: #1C1A17; }
+.ticket { background: #FBFAF7; font-family: "Zilla Slab", Georgia, serif; font-size: 1.45cqi; padding: .8cqi 1.2cqi; min-height: 6cqi; display: grid; align-content: start; gap: .2cqi; }
+.ticket b { font-size: 1.3cqi; letter-spacing: .08em; text-transform: uppercase; }
+.ticket .line { animation: press .22s steps(2, end); }
+.ticket .line span { color: #D7261E; font-weight: 700; }
+@keyframes press { from { opacity: 0; transform: translateY(-.4cqi); } }
+
+/* ---------- Safe option ---------- */
+.safe { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 28px; align-items: center; padding-block: 40px; border-bottom: 1px solid var(--rule); }
+.safe-sketch { aspect-ratio: 16 / 10; max-width: 100%; border-radius: 6px; overflow: hidden; container-type: inline-size; background: #FEF2F2; display: grid; grid-template-rows: auto 1fr; font-family: Georgia, serif; }
+.safe-sketch .bar { background: #DC2626; color: #fff; font: 700 3cqi/1 Georgia, serif; padding: 2.4cqi 3cqi; display: flex; justify-content: space-between; }
+.safe-sketch .bar span { background: #A16207; padding: 1cqi 2cqi; font-size: 2.6cqi; }
+.safe-sketch .hero { display: grid; place-content: center; text-align: center; gap: 2cqi; color: #450A0A; font-size: 6cqi; background: radial-gradient(circle at 50% 120%, #FCA5A5, transparent 60%); }
+.safe-sketch .hero small { font-size: 2.6cqi; color: #475569; font-family: system-ui, sans-serif; }
+
+.next { display: grid; gap: 14px; padding-block: 40px 0; }
+.next ol { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; max-width: 70ch; }
+
+@media (max-width: 720px) { .safe { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .io-logo, .ticket .line { animation: none; } .panel, .io-seals button { transition: none; } }
+</style>
+
+<div class="wrap">
+
+  <header class="intro">
+    <p class="meta">Prepared 13 Oct 2026 · research only, nothing built</p>
+    <h1>Three directions for 3 Kingdoms</h1>
+    <p class="lede">三国冒菜 is a Sichuan mao cai counter on Level A of Uptown, Brisbane. It has no website: every online order goes through a delivery app at 22–34% above counter prices, and the most common thing reviewers say is that it is hard to find. Each concept below solves the same problems in a different visual world. Pick one, or tell us what to change.</p>
+    <p class="meta">The sketches are first screens at desktop proportions. Each has its one signature interaction working. Dish photos are drawn placeholders until the shoot.</p>
+  </header>
+
+  <section class="musts" aria-labelledby="musts-h">
+    <h2 id="musts-h">Every concept does these</h2>
+    <div class="must"><b>Order pickup at counter prices</b><span>$20.80 for the Signature bowl, not $25.80–$27.80 through the apps.</span></div>
+    <div class="must"><b>Find us, on the first screen</b><span>Shop 32, Level A, next to Target, with a walk-in route from Queen Street Mall.</span></div>
+    <div class="must"><b>The real menu, as text</b><span>Broth, ingredients by weight, six spice levels, prices, and the nut warning.</span></div>
+    <div class="must"><b>English and 中文</b><span>No Brisbane rival offers a Chinese menu yet.</span></div>
+    <div class="must"><b>One set of hours</b><span>Today six platforms disagree on hours, floor and prices.</span></div>
+    <div class="must"><b>A page for creators</b><span>Ten-plus creator posts, and nowhere to send their followers.</span></div>
+  </section>
+
+  <!-- A -->
+  <section class="concept" aria-labelledby="a-h">
+    <div class="concept-head">
+      <span class="tag">Concept A</span>
+      <h2 id="a-h">Light Box</h2>
+      <p>The backlit photo menu above the counter, lit up and carried to your phone, plus the wayfinding signs that walk you from Queen Street to Shop 32.</p>
+    </div>
+
+    <div class="sketch lb" id="lb" role="group" aria-label="Light Box first screen sketch">
+      <div class="lb-top"><span class="brand">三国冒菜<small>3 Kingdoms</small></span><nav><span>Menu</span><span>Find us</span><span>中文</span></nav></div>
+      <div class="lb-panels">
+        <div class="panel"><span class="code">A1</span><span class="bowl" aria-hidden="true"></span><span class="zh">招牌冒菜</span><span class="en">Signature mini hotpot</span><span class="price">$20.80</span></div>
+        <div class="panel"><span class="code">A2</span><span class="bowl" aria-hidden="true"></span><span class="zh">牛肉冒菜</span><span class="en">Beef mini hotpot</span><span class="price">$19.80</span></div>
+        <div class="panel"><span class="code">A3</span><span class="bowl" aria-hidden="true"></span><span class="zh">自选 500g</span><span class="en">Build your own bowl</span><span class="price">By weight</span></div>
+      </div>
+      <div class="lb-dial"><span>Spice <span class="zh">不辣</span></span><div class="steps" id="lb-steps"></div><span class="zh">特辣</span></div>
+      <div class="lb-sign"><span class="arrow">➜ Level A, next to Target, Shop 32</span><span class="order">Order pickup</span></div>
+    </div>
+    <p class="sketch-note">Try the spice dial: one control re-lights the whole board.</p>
+
+    <div class="chips" aria-label="Light Box palette">
+      <span class="chip"><i style="background:#000000"></i>Board black<code>#000000</code></span>
+      <span class="chip"><i style="background:#FFF9F0"></i>Lit panel<code>#FFF9F0</code></span>
+      <span class="chip"><i style="background:#D0021B"></i>Chilli oil<code>#D0021B</code></span>
+      <span class="chip"><i style="background:#93A62E"></i>Green peppercorn<code>#93A62E</code></span>
+      <span class="chip"><i style="background:#FFB81C"></i>Sign amber<code>#FFB81C</code></span>
+    </div>
+
+    <div class="cols">
+      <div><h3>Type</h3><p>Archivo, condensed for dish names and stretched wide for prices. Noto Sans SC Black for Chinese. Prices sit in fixed positions and never jump.</p></div>
+      <div><h3>Motion</h3><p>The panels flicker on once, like a board powering up. "Find us" is a scroll-scrubbed walk from the mall entrance to the counter, cut from our own clips.</p></div>
+      <div><h3>Why it fits</h3><p>It fixes the two biggest problems, being hard to find and having no clear menu, inside the look itself. It looks like where the food actually comes from.</p></div>
+      <div class="risk"><h3>Risk</h3><p>It lives or dies on food photography. Weak photos in lit panels look cheap, so it needs a proper food shoot.</p></div>
+    </div>
+  </section>
+
+  <!-- B -->
+  <section class="concept" aria-labelledby="b-h">
+    <div class="concept-head">
+      <span class="tag">Concept B</span>
+      <h2 id="b-h">Ink and Oil</h2>
+      <p>The brush-calligraphy logo they already own becomes the whole site: ink-black ground, a red seal for every action, and chilli oil as the only colour that moves.</p>
+    </div>
+
+    <div class="sketch io" role="group" aria-label="Ink and Oil first screen sketch">
+      <div class="io-top"><span class="mark" aria-hidden="true">三</span><nav><span><span class="zh">菜单</span> Menu</span><span>Find us</span><span>中文</span></nav></div>
+      <div class="io-hero">
+        <div class="io-logo" aria-label="三国冒菜">三国冒菜</div>
+        <p class="io-line">Chengdu mao cai, built your way.</p>
+        <p class="io-sub">Shop 32, Level A, Uptown · open until 7pm today</p>
+      </div>
+      <div class="io-actions">
+        <button class="io-btn seal" type="button">Order pickup</button>
+        <button class="io-btn" type="button">Find us</button>
+        <span class="io-seals" id="io-seals"><span>Spice</span></span>
+      </div>
+    </div>
+    <p class="sketch-note">The real brush logo replaces the set type in the build. Try the seals: choosing a spice level stamps it.</p>
+
+    <div class="chips" aria-label="Ink and Oil palette">
+      <span class="chip"><i style="background:#17130F"></i>Ink<code>#17130F</code></span>
+      <span class="chip"><i style="background:#F7F6F2"></i>Rice paper<code>#F7F6F2</code></span>
+      <span class="chip"><i style="background:#C8321F"></i>Seal red<code>#C8321F</code></span>
+      <span class="chip"><i style="background:#E0601A"></i>Chilli oil<code>#E0601A</code></span>
+      <span class="chip"><i style="background:#7E8F3A"></i>Green peppercorn<code>#7E8F3A</code></span>
+    </div>
+
+    <div class="cols">
+      <div><h3>Type</h3><p>Noto Serif SC for Chinese and Newsreader for English. The only brush lettering is their real logo, so there are no fake brush fonts.</p></div>
+      <div><h3>Motion</h3><p>One ink-bleed reveal as the logo lands. Scrolling scrubs a top-down clip of red oil spreading across the broth. Still image for reduced motion.</p></div>
+      <div><h3>Why it fits</h3><p>It has the strongest continuity with what they already have: the logo, the black-and-red packaging, and the Instagram. It is the most premium of the three.</p></div>
+      <div class="risk"><h3>Risk</h3><p>It is the most familiar. Din Tai Fung opens with calligraphy on black, and dark food sites are common. It needs one great close-up broth shot.</p></div>
+    </div>
+  </section>
+
+  <!-- C -->
+  <section class="concept" aria-labelledby="c-h">
+    <div class="concept-head">
+      <span class="tag">Concept C</span>
+      <h2 id="c-h">Broadside</h2>
+      <p>A letterpress street poster for the bowl, printed on takeaway-bag kraft. Every line fills the width, and red ink lands a hair off-register. As loud as their Instagram, but about the food.</p>
+    </div>
+
+    <div class="sketch bs" role="group" aria-label="Broadside first screen sketch">
+      <div class="band b1">三国冒菜 <small>Three Kingdoms</small></div>
+      <div class="band b2 fit"><span>Sichuan mini hotpot</span></div>
+      <div class="band b3 fit" data-ink="Pick it. Weigh it. Spice it."><span>Pick it. Weigh it. Spice it.</span></div>
+      <div class="band b4 fit"><span>Signature bowl $20.80 at the counter</span></div>
+      <div class="band b5 fit"><span>Shop 32, Level A, Uptown, open until 7pm</span></div>
+      <div class="bs-actions">
+        <button class="bs-btn" type="button" id="bs-add">Order pickup</button>
+        <button class="bs-btn ghost" type="button">Find us</button>
+        <div class="ticket" id="bs-ticket" aria-live="polite"><b>Your ticket</b></div>
+      </div>
+    </div>
+    <p class="sketch-note">Press "Order pickup": each change is one stamp onto the ticket.</p>
+
+    <div class="chips" aria-label="Broadside palette">
+      <span class="chip"><i style="background:#C9A57B"></i>Kraft<code>#C9A57B</code></span>
+      <span class="chip"><i style="background:#1C1A17"></i>Carbon ink<code>#1C1A17</code></span>
+      <span class="chip"><i style="background:#D7261E"></i>Chilli red<code>#D7261E</code></span>
+      <span class="chip"><i style="background:#6F8A2A"></i>Peppercorn green<code>#6F8A2A</code></span>
+      <span class="chip"><i style="background:#FBFAF7"></i>Ticket white<code>#FBFAF7</code></span>
+    </div>
+
+    <div class="cols">
+      <div><h3>Type</h3><p>Big Shoulders Display as condensed wood type, ZCOOL QingKe HuangYou for Chinese bands, and Zilla Slab for body text.</p></div>
+      <div><h3>Motion</h3><p>One press-pull as the poster loads. Bands rewrap into condensed type on phones. No 3D, so it is the lightest and fastest of the three.</p></div>
+      <div><h3>Why it fits</h3><p>The most shareable for creators and students, and it can use rougher handheld clips as "window" panels in the bands.</p></div>
+      <div class="risk"><h3>Risk</h3><p>Xi'an Famous Foods already works in this poster style, and kraft can drift towards a craft-burger look. It shows fewer dishes at once than Light Box.</p></div>
+    </div>
+  </section>
+
+  <section class="safe" aria-labelledby="s-h">
+    <div class="safe-sketch" aria-hidden="true"><div class="bar">3 Kingdoms <span>Order now</span></div><div class="hero">Authentic Sichuan<small>Food photo · menu cards below</small></div></div>
+    <div style="display:grid;gap:10px;min-width:0">
+      <span class="tag">Also available</span>
+      <h2 id="s-h">The safe option</h2>
+      <p>The category standard, played straight: red and gold, a large food photo, "Order now", menu cards, serif headings. It is what most rivals look like. It works, and it blends in.</p>
+    </div>
+  </section>
+
+  <section class="next" aria-labelledby="n-h">
+    <h2 id="n-h">What happens next</h2>
+    <ol>
+      <li>Choose A, B, C or the safe option, or ask for changes to one.</li>
+      <li>Share our four Drive clips (each is over the 10 MB limit we can fetch), so we can check which concept the footage suits.</li>
+      <li>We write the design brief for the chosen concept and confirm it with you before anything is built.</li>
+    </ol>
+    <p class="meta">Full research, competitor screenshots and sources are in the project repo under prospects/3-kingdoms.</p>
+  </section>
+</div>
+
+<script>
+(function () {
+  // A: spice dial re-lights the board.
+  var lb = document.getElementById('lb');
+  var steps = document.getElementById('lb-steps');
+  var labels = ['No spice', 'Mild', 'Medium', 'Hot', 'Extra hot', 'Extra plus'];
+  labels.forEach(function (label, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Spice level ' + (i + 1) + ': ' + label);
+    b.setAttribute('aria-pressed', i === 2 ? 'true' : 'false');
+    b.addEventListener('click', function () {
+      steps.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+      b.setAttribute('aria-pressed', 'true');
+      lb.style.setProperty('--glow', String(i * 14));
+    });
+    steps.appendChild(b);
+  });
+  lb.style.setProperty('--glow', '28');
+
+  // B: spice seals stamp.
+  var seals = document.getElementById('io-seals');
+  ['一', '二', '三', '四', '五', '六'].forEach(function (n, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = n;
+    b.setAttribute('aria-label', 'Spice level ' + (i + 1));
+    b.setAttribute('aria-pressed', i === 1 ? 'true' : 'false');
+    b.addEventListener('click', function () {
+      seals.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+      b.setAttribute('aria-pressed', 'true');
+    });
+    seals.appendChild(b);
+  });
+
+  // C: every band fills the full measure, like set wood type.
+  function fitBands() {
+    document.querySelectorAll('.band.fit').forEach(function (band) {
+      var span = band.firstElementChild;
+      band.style.fontSize = '';
+      var base = parseFloat(getComputedStyle(band).fontSize);
+      var avail = band.clientWidth;
+      var w = span.getBoundingClientRect().width;
+      if (w > 0 && avail > 0) band.style.fontSize = (base * avail / w * 0.995) + 'px';
+    });
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitBands);
+  fitBands();
+  if (window.ResizeObserver) new ResizeObserver(fitBands).observe(document.querySelector('.bs'));
+
+  // C: each press prints one ticket line.
+  var items = [['Signature mini hotpot', '$20.80'], ['Beef mini hotpot', '$19.80'], ['Sichuanese tofu', '$6.90'], ['Marinated beef', '$8.90']];
+  var n = 0;
+  var ticket = document.getElementById('bs-ticket');
+  document.getElementById('bs-add').addEventListener('click', function () {
+    var lines = ticket.querySelectorAll('.line');
+    if (lines.length >= 3) lines[0].remove();
+    var it = items[n++ % items.length];
+    var d = document.createElement('div');
+    d.className = 'line';
+    d.innerHTML = '1 × ' + it[0] + ' <span>' + it[1] + '</span>';
+    ticket.appendChild(d);
+  });
+})();
+</script>
