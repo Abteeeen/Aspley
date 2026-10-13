@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>3 Kingdoms Broadside</title>
+<meta name="description" content="Concept B for 3 Kingdoms 三国冒菜, Sichuan mini hotpot at Shop 32, Level A, Uptown, Brisbane.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=ZCOOL+QingKe+HuangYou&family=Zilla+Slab:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="preload" as="image" href="media/walk-d/000.webp" media="(min-aspect-ratio: 85/100)">
+<link rel="preload" as="image" href="media/walk-m/000.webp" media="(max-aspect-ratio: 85/100)">
+<style>
+/* Layout: a letterpress street poster on paper. Type bands run the full width; the
+   footage starts as a doorway between the bands and opens to fill the page. */
+:root {
+  --paper: #FBFAF7;      /* poster stock */
+  --carbon: #1C1A17;     /* ink */
+  --chilli: #D7261E;     /* red overprint: headline and every action */
+  --chilli-dk: #B01D16;
+  --pepper: #6F8A2A;     /* second ink: no-spice, greens */
+  --kraft: #C9A57B;      /* takeaway-bag stock */
+  --kraft-lt: #EFE4D3;   /* kraft panels */
+  --grey: #5C554D;       /* secondary text on paper, 7.1:1 */
+  --rule: rgba(28, 26, 23, 0.16);
+
+  --f-band: "Big Shoulders Display", "Oswald", "Arial Narrow", Impact, sans-serif;
+  --f-zh: "ZCOOL QingKe HuangYou", "PingFang SC", "Heiti SC", sans-serif;
+  --f-body: "Zilla Slab", Rockwell, "Courier New", serif;
+
+  --gutter: clamp(16px, 3.4vw, 48px);
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { background: var(--paper); -webkit-text-size-adjust: 100%; overflow-x: clip; }
+body { margin: 0; background: var(--paper); color: var(--carbon); font: 400 1.125rem/1.55 var(--f-body); overflow-x: clip; }
+img, video, canvas { display: block; max-width: 100%; }
+img { height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--chilli); outline-offset: 3px; }
+.zh { font-family: var(--f-zh); font-weight: 400; }
+.band { font-family: var(--f-band); font-weight: 900; text-transform: uppercase; line-height: 0.86; letter-spacing: -0.005em; }
+.num { font-variant-numeric: tabular-nums lining-nums; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+/* misregistered red overprint */
+.over-print { color: var(--chilli); mix-blend-mode: multiply; }
+
+/* ---------- header ---------- */
+.top {
+  position: fixed; inset: 0 0 auto 0; z-index: 50; display: flex; align-items: center; gap: 18px;
+  padding: calc(env(safe-area-inset-top, 0px) + 10px) var(--gutter) 10px;
+  background: var(--paper); border-bottom: 2px solid var(--carbon);
+}
+.brand { display: flex; align-items: baseline; gap: 10px; text-decoration: none; }
+.brand .zh { font-size: 1.7rem; line-height: 1; }
+.brand .band { font-size: 1.35rem; }
+.tag { font: 600 0.72rem var(--f-body); letter-spacing: 0.06em; text-transform: uppercase; border: 1.5px solid var(--carbon); padding: 2px 7px; white-space: nowrap; }
+.nav { margin-left: auto; display: flex; align-items: center; gap: 20px; }
+.nav a, .nav button { font: 800 1.15rem var(--f-band); text-transform: uppercase; text-decoration: none; background: none; border: 0; padding: 6px 0; color: var(--carbon); cursor: pointer; letter-spacing: 0.02em; }
+.nav a:hover, .nav button:hover { color: var(--chilli); }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 22px;
+  font: 900 1.2rem var(--f-band); text-transform: uppercase; letter-spacing: 0.03em; text-decoration: none; cursor: pointer;
+  border: 2px solid var(--carbon); transition: transform 150ms var(--ease-out), box-shadow 150ms var(--ease-out);
+}
+.btn-red { background: var(--chilli); color: var(--paper); border-color: var(--chilli); box-shadow: 4px 4px 0 var(--carbon); }
+.btn-red:hover { background: var(--chilli-dk); }
+.btn-ink { background: var(--paper); color: var(--carbon); box-shadow: 4px 4px 0 var(--carbon); }
+.btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--carbon); }
+.nav .btn { color: var(--paper); font-size: 1.1rem; min-height: 40px; padding: 0 16px; box-shadow: none; }
+@media (max-width: 760px) { .nav .hide-sm { display: none; } .brand .band { display: none; } }
+
+/* ---------- 1. the doorway walk ---------- */
+.walk { position: relative; }
+.walk .stage { position: relative; height: 100svh; min-height: 600px; overflow: hidden; background: var(--paper); }
+.walk .door {
+  position: absolute; inset: 0; background: var(--carbon);
+  clip-path: inset(var(--t, 0px) var(--r, 0px) var(--b, 0px) var(--l, 0px));
+}
+.walk canvas, .walk .poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.walk .door::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,26,23,0) 50%, rgba(28,26,23,0.65)); opacity: var(--dk, 0); pointer-events: none; }
+.bands { position: absolute; inset: 0; pointer-events: none; display: grid; grid-template-rows: auto 1fr auto; padding: calc(env(safe-area-inset-top, 0px) + 74px) var(--gutter) 22px; }
+.bands .b-top { font-size: clamp(5rem, 17.5vw, 17rem); line-height: 0.92; text-align: center; letter-spacing: 0.06em; transform: translateY(var(--up, 0)); }
+.bands .b-bot { transform: translateY(var(--dn, 0)); }
+.bands .b-bot .band { display: block; text-align: center; }
+.bands .l1 { font-size: clamp(3rem, 11.2vw, 11rem); }
+.bands .l2 { font-size: clamp(1.6rem, 5vw, 5rem); color: var(--chilli); margin-top: 0.06em; }
+.side { position: absolute; top: 50%; translate: 0 -50%; width: min(22vw, 260px); font: 500 1rem/1.4 var(--f-body); opacity: var(--so, 1); }
+.side b { display: block; font: 900 1.4rem/1 var(--f-band); text-transform: uppercase; margin-bottom: 6px; }
+.side.l { left: var(--gutter); }
+.side.r { right: var(--gutter); text-align: right; }
+@media (max-width: 760px) { .side { display: none; } }
+
+.stamp {
+  position: absolute; left: var(--gutter); bottom: clamp(110px, 18vh, 170px); pointer-events: none;
+  font: 900 clamp(4rem, 13vw, 12rem)/0.84 var(--f-band); text-transform: uppercase; color: var(--paper);
+  text-shadow: 0.045em 0.035em 0 var(--chilli);
+}
+.stamp span { display: block; opacity: 0; transform: translateY(0.25em); }
+.ticket {
+  position: absolute; right: var(--gutter); bottom: clamp(28px, 6vh, 60px); width: min(380px, calc(100% - 2 * var(--gutter)));
+  background: var(--paper); color: var(--carbon); padding: 20px 22px 22px; border: 2px solid var(--carbon); box-shadow: 8px 8px 0 var(--chilli);
+}
+.ticket h1 { margin: 0; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.ticket h1 .zh { font-size: 2.6rem; line-height: 1; }
+.ticket h1 .band { font-size: 2.2rem; }
+.ticket p { margin: 8px 0 16px; }
+.ticket .price { font: 900 1.6rem var(--f-band); color: var(--chilli); }
+.ticket .row { display: flex; gap: 12px; flex-wrap: wrap; }
+.cue { position: absolute; left: 50%; bottom: 14px; translate: -50% 0; font: 800 1rem var(--f-band); text-transform: uppercase; letter-spacing: 0.08em; color: var(--paper); opacity: var(--co, 1); }
+
+.motion .walk { height: 520vh; }
+.motion .walk .stage { position: sticky; top: 0; }
+.motion .walk .poster { display: none; }
+.motion .ticket { opacity: 0; visibility: hidden; transform: translateY(20px); }
+.motion .ticket.on { opacity: 1; visibility: visible; transform: none; transition: opacity 300ms var(--ease-out), transform 400ms var(--ease-out); }
+.static .walk .stage { height: auto; min-height: 0; display: grid; }
+.static .walk .door { position: relative; height: 70svh; clip-path: none; margin-top: 66px; }
+.static .bands, .static .side, .static .stamp, .static .cue { display: none; }
+.static .ticket { position: relative; right: auto; bottom: auto; margin: -80px var(--gutter) 40px auto; }
+
+/* ---------- 2. bowls over type ---------- */
+.bowls { position: relative; overflow: hidden; background: var(--kraft-lt); border-top: 2px solid var(--carbon); padding: clamp(80px, 12vh, 140px) var(--gutter); }
+.bowls .giant { position: absolute; left: 50%; top: 50%; translate: -50% -50%; font: 400 clamp(14rem, 46vw, 44rem)/0.8 var(--f-zh); color: var(--chilli); white-space: nowrap; pointer-events: none; opacity: 0.92; }
+.bowls .inner { position: relative; max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 64px); align-items: center; }
+@media (max-width: 900px) { .bowls .inner { grid-template-columns: minmax(0, 1fr); } }
+.copy { position: relative; z-index: 2; background: var(--paper); border: 2px solid var(--carbon); padding: clamp(22px, 3vw, 36px); box-shadow: 8px 8px 0 var(--carbon); }
+.copy h2 { margin: 0 0 14px; font: 900 clamp(2.6rem, 5.6vw, 5rem)/0.88 var(--f-band); text-transform: uppercase; }
+.copy h2 .zh { display: block; color: var(--chilli); font-size: 0.8em; line-height: 1.1; }
+.copy p { margin: 0 0 14px; max-width: 46ch; }
+.copy .fine { color: var(--grey); font-size: 1rem; }
+.plates { position: relative; z-index: 1; height: clamp(420px, 60vw, 640px); }
+.plate { position: absolute; margin: 0; width: 42%; background: var(--paper); padding: 8px 8px 10px; border: 2px solid var(--carbon); box-shadow: 6px 6px 0 rgba(28,26,23,0.9); }
+.plate img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.plate figcaption { font: 800 1rem/1.1 var(--f-band); text-transform: uppercase; margin-top: 8px; }
+.plate figcaption small { display: block; font: 400 0.95rem var(--f-zh); color: var(--chilli); }
+.plate:nth-child(1) { left: 2%; top: 4%; rotate: -6deg; }
+.plate:nth-child(2) { left: 32%; top: 22%; rotate: 4deg; z-index: 2; }
+.plate:nth-child(3) { right: 0; top: 0; rotate: -2deg; width: 36%; }
+.plate:nth-child(4) { right: 6%; bottom: 0; rotate: 7deg; width: 34%; }
+@media (max-width: 900px) { .plate { width: 48%; } .plate:nth-child(3), .plate:nth-child(4) { width: 42%; } }
+
+/* ---------- 3. the board: pinned horizontal tickets ---------- */
+.board { position: relative; border-top: 2px solid var(--carbon); }
+.board .pin { padding: clamp(70px, 10vh, 110px) 0 40px; overflow: hidden; }
+.board header { padding: 0 var(--gutter); display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
+.board h2 { margin: 0; font: 900 clamp(3rem, 8vw, 7.4rem)/0.84 var(--f-band); text-transform: uppercase; }
+.board h2 .zh { color: var(--chilli); margin-left: 0.15em; }
+.board header p { margin: 0; max-width: 40ch; color: var(--grey); }
+.track { display: flex; gap: 20px; padding: 0 var(--gutter) 24px; width: max-content; }
+.tk {
+  width: clamp(260px, 26vw, 340px); flex: none; background: var(--paper); border: 2px solid var(--carbon); padding: 16px 16px 18px;
+  display: grid; grid-template-rows: auto auto 1fr auto; gap: 8px; position: relative;
+}
+.tk::before, .tk::after { content: ""; position: absolute; top: 46%; width: 18px; height: 18px; border-radius: 50%; background: var(--paper); border: 2px solid var(--carbon); }
+.tk::before { left: -11px; clip-path: inset(0 0 0 50%); }
+.tk::after { right: -11px; clip-path: inset(0 50% 0 0); }
+.tk img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 1.5px solid var(--carbon); }
+.tk .ph { aspect-ratio: 4 / 3; border: 1.5px dashed var(--carbon); display: grid; place-items: center; font: 400 3.4rem var(--f-zh); color: var(--chilli); background: var(--kraft-lt); }
+.tk h3 { margin: 4px 0 0; font: 900 1.7rem/0.92 var(--f-band); text-transform: uppercase; }
+.tk h3 .zh { display: block; font-size: 1.15rem; color: var(--chilli); margin-top: 4px; }
+.tk p { margin: 0; font-size: 1rem; color: var(--grey); }
+.tk .pr { display: flex; justify-content: space-between; align-items: baseline; border-top: 2px dashed var(--carbon); padding-top: 10px; font: 900 1.9rem var(--f-band); }
+.tk .pr span:first-child { font: 500 0.9rem var(--f-body); color: var(--grey); }
+.tk.red { background: var(--chilli); color: var(--paper); }
+.tk.red p, .tk.red .pr span:first-child { color: var(--paper); }
+.tk.red h3 .zh { color: var(--paper); }
+.tk ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.tk li { display: flex; justify-content: space-between; gap: 10px; border-bottom: 1px solid var(--rule); padding-bottom: 6px; font-size: 1rem; }
+.tk li b { font: 900 1.25rem var(--f-band); font-variant-numeric: tabular-nums; }
+.board .after { padding: 0 var(--gutter); display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.board .after small { color: var(--grey); font-size: 0.95rem; }
+.static .board .track-wrap { overflow-x: auto; }
+.motion .board { height: 340vh; }
+.motion .board .pin { position: sticky; top: 0; height: 100svh; display: grid; grid-template-rows: auto 1fr auto; align-content: center; padding-top: 80px; }
+.motion .track { will-change: transform; align-self: center; }
+
+/* ---------- 4. six heats: move across the letters ---------- */
+.heat { --c: var(--chilli); position: relative; background: var(--carbon); color: var(--paper); padding: clamp(80px, 12vh, 140px) var(--gutter); }
+.heat h2 { margin: 0 0 8px; font: 900 clamp(2.6rem, 6vw, 5.4rem)/0.9 var(--f-band); text-transform: uppercase; }
+.heat .hint { margin: 0 0 30px; color: #CFC6BB; }
+.letters { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); border-top: 2px solid rgba(251,250,247,0.3); border-bottom: 2px solid rgba(251,250,247,0.3); touch-action: pan-y; }
+.letters button {
+  appearance: none; border: 0; background: none; color: rgba(251,250,247,0.28); cursor: pointer; padding: 18px 0 14px;
+  display: grid; justify-items: center; gap: 4px; font: inherit;
+  transition: color 160ms var(--ease-out), transform 200ms var(--ease-out);
+}
+.letters button .ch { font: 400 clamp(3.4rem, 13vw, 12rem)/1 var(--f-zh); }
+.letters button .lv { font: 800 clamp(0.85rem, 1.4vw, 1.2rem) var(--f-band); text-transform: uppercase; letter-spacing: 0.04em; }
+.letters button[aria-checked="true"] { color: var(--c); transform: translateY(-6px); }
+.letters button.lit { color: var(--paper); }
+.heat .readout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 28px; align-items: end; }
+@media (max-width: 760px) { .heat .readout { grid-template-columns: minmax(0, 1fr); } }
+.heat .readout strong { font: 900 clamp(2.6rem, 7vw, 6rem)/0.9 var(--f-band); text-transform: uppercase; color: var(--c); }
+.heat .readout p { margin: 0; font-size: 1.2rem; max-width: 40ch; }
+
+/* ---------- 5. find us: numbered route ---------- */
+.visit { border-top: 2px solid var(--carbon); padding: clamp(80px, 12vh, 140px) var(--gutter); }
+.visit h2 { margin: 0 0 30px; font: 900 clamp(3rem, 8vw, 7.4rem)/0.84 var(--f-band); text-transform: uppercase; max-width: 12ch; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 900px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.steps li { min-width: 0; }
+.steps .n { font: 900 4.4rem/0.8 var(--f-band); color: var(--chilli); }
+.steps img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border: 2px solid var(--carbon); margin: 10px 0; }
+.steps p { margin: 0; font-size: 1.05rem; }
+.facts { margin-top: 48px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border: 2px solid var(--carbon); background: var(--kraft-lt); }
+@media (max-width: 900px) { .facts { grid-template-columns: minmax(0, 1fr); } }
+.facts > div { padding: 22px; border-right: 2px solid var(--carbon); min-width: 0; }
+.facts > div:last-child { border-right: 0; }
+@media (max-width: 900px) { .facts > div { border-right: 0; border-bottom: 2px solid var(--carbon); } .facts > div:last-child { border-bottom: 0; } }
+.facts h3 { margin: 0 0 10px; font: 900 1.6rem var(--f-band); text-transform: uppercase; }
+.facts table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: 1rem; }
+.facts td { padding: 5px 0; border-bottom: 1px solid var(--rule); }
+.facts td + td { text-align: right; }
+.facts .today td { color: var(--chilli); font-weight: 600; }
+.facts address { font-style: normal; display: grid; gap: 6px; }
+.facts .ph-n { font: 900 2rem var(--f-band); user-select: all; }
+
+/* ---------- marquee + footer ---------- */
+.ribbon { background: var(--chilli); color: var(--paper); border-block: 2px solid var(--carbon); overflow: hidden; }
+.ribbon .track2 { display: flex; width: max-content; animation: marq 30s linear infinite; }
+.ribbon span { font: 900 clamp(2.4rem, 6vw, 5rem)/1.1 var(--f-band); text-transform: uppercase; padding: 10px 0.5em; white-space: nowrap; }
+.ribbon .zh { font-family: var(--f-zh); font-weight: 400; text-transform: none; }
+@keyframes marq { to { transform: translateX(-50%); } }
+footer { padding: 40px var(--gutter) calc(110px + env(safe-area-inset-bottom, 0px)); font-size: 1rem; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px 40px; }
+footer .zh { font-size: 2.4rem; line-height: 1; }
+.bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; display: none; grid-template-columns: 1.3fr 1fr 1fr; border-top: 2px solid var(--carbon); background: var(--paper); padding-bottom: env(safe-area-inset-bottom, 0px); }
+.bar a { display: grid; place-items: center; min-height: 56px; font: 900 1.15rem var(--f-band); text-transform: uppercase; text-decoration: none; border-right: 2px solid var(--carbon); }
+.bar a:last-child { border-right: 0; }
+.bar a.go { background: var(--chilli); color: var(--paper); }
+@media (max-width: 760px) {
+  .bar { display: grid; } .ticket { bottom: 80px; } .stamp { bottom: 330px; } .cue { display: none; }
+  .bands { padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+  .bands .l1 { font-size: 15vw; } .bands .l2 { font-size: 6.4vw; }
+}
+@media (prefers-reduced-motion: reduce) { .ribbon .track2 { animation: none; } * { transition-duration: 0ms !important; } }
+</style>
+</head>
+<body class="static">
+<a class="sr" href="#board">Skip to the menu</a>
+
+<header class="top">
+  <a class="brand" href="#walk" aria-label="3 Kingdoms, back to top"><span class="zh">三国冒菜</span><span class="band">3 Kingdoms</span></a>
+  <span class="tag" title="Design concept prepared for the owner. Not the live site.">Concept B</span>
+  <nav class="nav" aria-label="Main">
+    <a class="hide-sm" href="#board">Menu</a>
+    <a class="hide-sm" href="#heat">Spice</a>
+    <a class="hide-sm" href="#visit">Find us</a>
+    <button type="button" id="lang" aria-pressed="false">中文</button>
+    <a class="btn btn-red hide-sm" href="#board">Order pickup</a>
+  </nav>
+</header>
+
+<main>
+  <!-- 1. Doorway walk-in -->
+  <section class="walk" id="walk" aria-label="Walk in from the Level A hall">
+    <div class="stage" id="stage">
+      <div class="door" id="door">
+        <img class="poster" src="media/still/counter.webp" alt="The 3 Kingdoms counter: lit menu board under red lanterns and the neon 三国冒菜 sign" width="1920" height="1080">
+        <canvas id="walkCanvas" aria-hidden="true"></canvas>
+      </div>
+      <div class="bands" aria-hidden="true">
+        <div class="b-top zh" id="bTop">三国冒菜</div>
+        <div></div>
+        <div class="b-bot" id="bBot"><span class="band l1">Three Kingdoms</span><span class="band l2">Sichuan mini hotpot · Shop 32</span></div>
+      </div>
+      <p class="side l" id="sideL"><b>Level A, Uptown</b>Down the hall from Target. Look for the red lattice.</p>
+      <p class="side r" id="sideR"><b>Open daily from 11</b>Till 7pm, Fridays till 7:30. Scroll to walk in.</p>
+      <div class="stamp" aria-hidden="true"><span id="s1">Pick it.</span><span id="s2">Weigh it.</span><span id="s3">Spice it.</span></div>
+      <div class="ticket" id="ticket">
+        <h1><span class="zh" lang="zh-Hans">三国冒菜</span><span class="band">3 Kingdoms</span></h1>
+        <p data-en="Chengdu mao cai, cooked to order in Uptown. The signature bowl is $20.80 at the counter." data-zh="成都冒菜，现点现煮。招牌冒菜店内价 $20.80。">Chengdu mao cai, cooked to order in Uptown. The signature bowl is <span class="price num">$20.80</span> at the counter.</p>
+        <div class="row">
+          <a class="btn btn-red" href="#board" data-en="Order pickup" data-zh="到店自取">Order pickup</a>
+          <a class="btn btn-ink" href="#visit" data-en="Find us" data-zh="怎么走">Find us</a>
+        </div>
+      </div>
+      <span class="cue" id="cue" aria-hidden="true">Scroll to walk in</span>
+    </div>
+  </section>
+
+  <!-- 2. Bowls over giant type -->
+  <section class="bowls" id="bowls" aria-labelledby="bowlsH">
+    <div class="giant" aria-hidden="true">冒菜</div>
+    <div class="inner">
+      <div class="copy">
+        <h2 id="bowlsH"><span class="zh" lang="zh-Hans">冒菜</span>Chengdu's one-bowl hotpot</h2>
+        <p>Pick your meat, greens and noodles from the ice counter. The kitchen cooks the lot in a broth made fresh each day and sends it out with rice.</p>
+        <p>Mao cai is the Chengdu dish. Chengdu was the capital of Shu in the Three Kingdoms period, which is where the name comes from.</p>
+        <p class="fine">Photos are the cards on our counter, shot on 13 Oct 2026.</p>
+      </div>
+      <div class="plates" id="plates">
+        <figure class="plate"><img src="media/still/card-signature.webp" alt="Signature Mini Hotpot card from the counter" loading="lazy" width="420" height="570"><figcaption>Signature Mini Hotpot<small lang="zh-Hans">招牌冒菜</small></figcaption></figure>
+        <figure class="plate"><img src="media/still/card-pickled-cabbage.webp" alt="Pickled Cabbage Beef Noodles card from the counter" loading="lazy" width="435" height="570"><figcaption>Pickled Cabbage Beef Noodles<small lang="zh-Hans">老坛酸菜牛肉面</small></figcaption></figure>
+        <figure class="plate"><img src="media/still/card-seafood.webp" alt="Seafood Noodles card from the counter" loading="lazy" width="480" height="600"><figcaption>Seafood Noodles</figcaption></figure>
+        <figure class="plate"><img src="media/still/card-crab.webp" alt="Blue Swimmer Crab Hotpot with Rice card from the counter" loading="lazy" width="480" height="660"><figcaption>Blue Swimmer Crab Hotpot</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. The board -->
+  <section class="board" id="board" aria-labelledby="boardH">
+    <div class="pin">
+      <header>
+        <h2 id="boardH"><span data-en="The board" data-zh="菜单">The board</span><span class="zh" lang="zh-Hans">菜单</span></h2>
+        <p>Counter prices. Order here for pickup and pay what you'd pay in store, not the delivery-app price.</p>
+      </header>
+      <div class="track-wrap"><div class="track" id="track">
+        <article class="tk red">
+          <img src="media/still/card-signature.webp" alt="" loading="lazy" width="420" height="570">
+          <h3>Signature Mini Hotpot<span class="zh" lang="zh-Hans">招牌冒菜</span></h3>
+          <p>The house bowl in the signature broth, with rice. Most ordered on every platform.</p>
+          <div class="pr"><span>with rice</span><span class="num">$20.80</span></div>
+        </article>
+        <article class="tk">
+          <img src="media/still/panel-beef.webp" alt="" loading="lazy" width="810" height="360">
+          <h3>Tender Beef Mini Hotpot<span class="zh" lang="zh-Hans">牛肉冒菜</span></h3>
+          <p>Tender beef, greens and noodles in the broth, with rice.</p>
+          <div class="pr"><span>with rice</span><span class="num">$19.80</span></div>
+        </article>
+        <article class="tk">
+          <div class="ph" aria-hidden="true">秤</div>
+          <h3>Build your own bowl</h3>
+          <p>Fill a bowl from the ice counter, 500g or 1kg. Over forty ingredients. The scale sets the price.</p>
+          <div class="pr"><span>500g · 1kg</span><span>By weight</span></div>
+        </article>
+        <article class="tk">
+          <img src="media/still/card-marinated-beef.webp" alt="" loading="lazy" width="435" height="525">
+          <h3>Marinated Beef Noodles</h3>
+          <p>Handmade noodles with marinated beef.</p>
+          <div class="pr"><span>noodles</span><span class="num">$19.80</span></div>
+        </article>
+        <article class="tk">
+          <img src="media/still/card-pickled-cabbage.webp" alt="" loading="lazy" width="435" height="570">
+          <h3>Pickled Cabbage Beef Noodles<span class="zh" lang="zh-Hans">老坛酸菜牛肉面</span></h3>
+          <p>Tender beef with tangy pickled cabbage.</p>
+          <div class="pr"><span>noodles</span><span class="num">$19.80</span></div>
+        </article>
+        <article class="tk">
+          <div class="ph" aria-hidden="true">面</div>
+          <h3>Signature Braised Beef Noodles</h3>
+          <p>Egg noodles, rice noodles or sweet potato noodles.</p>
+          <div class="pr"><span>noodles</span><span class="num">$19.80</span></div>
+        </article>
+        <article class="tk">
+          <div class="ph" aria-hidden="true">凉</div>
+          <h3>Cold Sichuan sides</h3>
+          <ul>
+            <li>Marinated Beef <b class="num">$8.90</b></li>
+            <li>Marinated Pork Trotters <b class="num">$8.90</b></li>
+            <li>Sichuanese Tofu <b class="num">$6.90</b></li>
+          </ul>
+          <div class="pr"><span>sides</span><span></span></div>
+        </article>
+      </div></div>
+      <div class="after">
+        <a class="btn btn-red" href="#board">Order pickup</a>
+        <small>Most dishes may contain nuts. Tell the counter about allergies.</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Six heats -->
+  <section class="heat" id="heat" aria-labelledby="heatH">
+    <h2 id="heatH"><span data-en="Six heats" data-zh="六种辣度">Six heats</span></h2>
+    <p class="hint">Move across the letters, or use the arrow keys. These are the six levels on the counter card.</p>
+    <div class="letters" role="radiogroup" aria-labelledby="heatH" id="letters">
+      <button type="button" role="radio" aria-checked="false" data-c="#8FA043" data-en="No spicy" data-d="Plain bone-broth base. All the flavour, no chilli." tabindex="-1"><span class="ch" lang="zh-Hans">汤</span><span class="lv">No spicy</span></button>
+      <button type="button" role="radio" aria-checked="false" data-c="#E9B44C" data-en="Mild" data-d="A warm edge. A good place to start." tabindex="-1"><span class="ch" lang="zh-Hans">微</span><span class="lv">Mild</span></button>
+      <button type="button" role="radio" aria-checked="true" data-c="#EE9535" data-en="Little" data-d="Noticeable heat that stays easy-going." tabindex="0"><span class="ch" lang="zh-Hans">少</span><span class="lv">Little</span></button>
+      <button type="button" role="radio" aria-checked="false" data-c="#F06A2A" data-en="Medium" data-d="Proper Sichuan heat. Regulars say medium runs hot." tabindex="-1"><span class="ch" lang="zh-Hans">中</span><span class="lv">Medium</span></button>
+      <button type="button" role="radio" aria-checked="false" data-c="#F0392B" data-en="Extra" data-d="For people who already know what mala does." tabindex="-1"><span class="ch" lang="zh-Hans">大</span><span class="lv">Extra</span></button>
+      <button type="button" role="radio" aria-checked="false" data-c="#FF5A4A" data-en="Extra plus" data-d="The top of the card. Numbing and hot, all the way." tabindex="-1"><span class="ch" lang="zh-Hans">特</span><span class="lv">Extra plus</span></button>
+    </div>
+    <div class="readout" aria-live="polite"><strong id="heatName">Little</strong><p id="heatDesc">Noticeable heat that stays easy-going.</p></div>
+  </section>
+
+  <div class="ribbon" aria-hidden="true"><div class="track2">
+    <span>Hidden gem? Not any more.</span><span class="zh">三国冒菜</span><span>Level A · Shop 32</span><span class="zh">冒菜</span>
+    <span>Hidden gem? Not any more.</span><span class="zh">三国冒菜</span><span>Level A · Shop 32</span><span class="zh">冒菜</span>
+  </div></div>
+
+  <!-- 5. Find us -->
+  <section class="visit" id="visit" aria-labelledby="visitH">
+    <h2 id="visitH" data-en="Four steps from Queen Street" data-zh="从皇后街走四步">Four steps from Queen Street</h2>
+    <ol class="steps">
+      <li><span class="n">1</span><img src="media/still/corridor.webp" alt="The Level A hall inside Uptown" loading="lazy" width="1920" height="1080"><p>Come into Uptown from Queen Street Mall or the Queen Street Bus Station, and head to Level A.</p></li>
+      <li><span class="n">2</span><img src="media/still/p-entrance.webp" alt="The 3 Kingdoms entrance under its lit sign" loading="lazy" width="1080" height="1920"><p>Find Target and walk down the hall past it.</p></li>
+      <li><span class="n">3</span><img src="media/still/shopfront.webp" alt="Red lattice and the 三国冒菜 sign at Shop 32" loading="lazy" width="1920" height="1080"><p>Red lattice, brick and the 三国冒菜 sign. That's Shop 32.</p></li>
+      <li><span class="n">4</span><img src="media/still/p-counter.webp" alt="The counter with the lit menu board" loading="lazy" width="1080" height="1920"><p>Order at the counter, pick your heat, take a table.</p></li>
+    </ol>
+    <div class="facts">
+      <div>
+        <h3>Hours</h3>
+        <table id="hours"><tbody>
+          <tr data-d="1"><td>Monday</td><td>11am – 7pm</td></tr>
+          <tr data-d="2"><td>Tuesday</td><td>11am – 7pm</td></tr>
+          <tr data-d="3"><td>Wednesday</td><td>11am – 7pm</td></tr>
+          <tr data-d="4"><td>Thursday</td><td>11am – 7pm</td></tr>
+          <tr data-d="5"><td>Friday</td><td>11am – 7:30pm</td></tr>
+          <tr data-d="6"><td>Saturday</td><td>11am – 7pm</td></tr>
+          <tr data-d="0"><td>Sunday</td><td>11am – 7pm</td></tr>
+        </tbody></table>
+      </div>
+      <div>
+        <h3>Address</h3>
+        <address>Shop 32, Level A, Uptown<br>91 Queen St, Brisbane City QLD 4000<span>Wheelchair-accessible entrance. Uptown gift cards accepted.</span></address>
+      </div>
+      <div>
+        <h3>Call</h3>
+        <span class="ph-n">07 3190 0144</span>
+        <p style="margin:8px 0 0">Delivery: <a href="https://www.ubereats.com/au/store/3-kingdoms-uptown-brisbane/Fcq98iq7T9Wchx1lXd_L7g" target="_blank" rel="noopener">Uber Eats</a>, <a href="https://www.doordash.com/store/3-kingdoms-brisbane-city-24863669/" target="_blank" rel="noopener">DoorDash</a>, <a href="https://aus.hungrypanda.co/shop?shopId=8880" target="_blank" rel="noopener">HungryPanda</a>.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><span class="zh">三国冒菜</span><br>3 Kingdoms · Shop 32, Level A, Uptown, 91 Queen St, Brisbane</div>
+    <div>@3kingdomsbne on Instagram · @3kingdoms.hotpot on TikTok</div>
+    <div>Concept B, prepared Oct 2026. Footage shot in store on 13 Oct 2026. Not the live site.</div>
+  </div>
+</footer>
+
+<nav class="bar" aria-label="Quick actions">
+  <a class="go" href="#board">Order pickup</a>
+  <a href="#visit">Find us</a>
+  <a href="#visit">Call</a>
+</nav>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="walk.js"></script>
+<script>
+(function () {
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var canMove = !reduce && window.gsap && window.ScrollTrigger && window.createWalk;
+  function clamp01(x) { return x < 0 ? 0 : x > 1 ? 1 : x; }
+  function easeOut(x) { return 1 - Math.pow(1 - x, 3); }
+
+  var row = document.querySelector('#hours tr[data-d="' + new Date().getDay() + '"]');
+  if (row) row.classList.add("today");
+
+  var langBtn = document.getElementById("lang");
+  langBtn.addEventListener("click", function () {
+    var zh = langBtn.getAttribute("aria-pressed") !== "true";
+    langBtn.setAttribute("aria-pressed", String(zh));
+    langBtn.textContent = zh ? "EN" : "中文";
+    document.documentElement.lang = zh ? "zh-Hans" : "en";
+    document.querySelectorAll("[data-zh]").forEach(function (el) { el.textContent = zh ? el.dataset.zh : el.dataset.en; });
+  });
+
+  /* six heats: pointer across the row, click, or arrow keys */
+  var letters = document.getElementById("letters");
+  var btns = Array.prototype.slice.call(letters.querySelectorAll("button"));
+  var heatSec = document.getElementById("heat");
+  var nameEl = document.getElementById("heatName");
+  var descEl = document.getElementById("heatDesc");
+  var curHeat = 2;
+  function setHeat(i, focus) {
+    if (i === curHeat && !focus) return;
+    curHeat = i;
+    btns.forEach(function (b, j) {
+      b.setAttribute("aria-checked", String(j === i));
+      b.tabIndex = j === i ? 0 : -1;
+      b.classList.toggle("lit", j < i);
+    });
+    heatSec.style.setProperty("--c", btns[i].dataset.c);
+    nameEl.textContent = btns[i].dataset.en;
+    descEl.textContent = btns[i].dataset.d;
+    if (focus) btns[i].focus();
+  }
+  setHeat(2, false); curHeat = 2;
+  btns.forEach(function (b, i) {
+    b.addEventListener("click", function () { setHeat(i, false); });
+    b.addEventListener("pointerenter", function (e) { if (e.pointerType === "mouse") setHeat(i, false); });
+  });
+  letters.addEventListener("pointermove", function (e) {
+    if (e.pointerType === "mouse") return;
+    var r = letters.getBoundingClientRect();
+    setHeat(Math.max(0, Math.min(5, Math.floor((e.clientX - r.left) / r.width * 6))), false);
+  });
+  letters.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") { setHeat(Math.min(5, curHeat + 1), true); e.preventDefault(); }
+    if (e.key === "ArrowLeft" || e.key === "ArrowUp") { setHeat(Math.max(0, curHeat - 1), true); e.preventDefault(); }
+  });
+
+  if (!canMove) return;
+  document.body.classList.remove("static");
+  document.body.classList.add("motion");
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ---- 1. doorway opens while the walk scrubs ---- */
+  var walk = createWalk(document.getElementById("walkCanvas"), { smoothing: 0.2 });
+  var door = document.getElementById("door");
+  var stage = document.getElementById("stage");
+  var bTop = document.getElementById("bTop");
+  var bBot = document.getElementById("bBot");
+  var sideL = document.getElementById("sideL");
+  var sideR = document.getElementById("sideR");
+  var stamps = [document.getElementById("s1"), document.getElementById("s2"), document.getElementById("s3")];
+  var ticket = document.getElementById("ticket");
+  var cue = document.getElementById("cue");
+  var doorRect = { t: 0, r: 0, b: 0, l: 0 };
+  function measureDoor() {
+    var W = stage.clientWidth, H = stage.clientHeight;
+    var top = bTop.getBoundingClientRect().bottom - stage.getBoundingClientRect().top;
+    var bot = H - (bBot.getBoundingClientRect().top - stage.getBoundingClientRect().top);
+    var dw = W > 760 ? Math.min(W * 0.28, 420) : W * 0.56;
+    doorRect = { t: top + 8, b: bot + 8, l: (W - dw) / 2, r: (W - dw) / 2 };
+  }
+  function renderWalk(p) {
+    walk.setProgress(p);
+    var o = easeOut(clamp01(p / 0.3));
+    door.style.setProperty("--t", doorRect.t * (1 - o) + "px");
+    door.style.setProperty("--b", doorRect.b * (1 - o) + "px");
+    door.style.setProperty("--l", doorRect.l * (1 - o) + "px");
+    door.style.setProperty("--r", doorRect.r * (1 - o) + "px");
+    door.style.setProperty("--dk", clamp01((p - 0.35) / 0.2));
+    bTop.style.setProperty("--up", (-o * 120) + "%");
+    bBot.style.setProperty("--dn", (o * 160) + "%");
+    sideL.style.setProperty("--so", 1 - clamp01(p / 0.12));
+    sideR.style.setProperty("--so", 1 - clamp01(p / 0.12));
+    cue.style.setProperty("--co", 1 - clamp01(p / 0.08));
+    [[0.4, 0.92], [0.55, 0.92], [0.7, 0.92]].forEach(function (w, i) {
+      var a = clamp01((p - w[0]) / 0.06) * clamp01((w[1] - p) / 0.05);
+      stamps[i].style.opacity = a;
+      stamps[i].style.transform = "translateY(" + ((1 - clamp01((p - w[0]) / 0.06)) * 0.25) + "em)";
+    });
+    ticket.classList.toggle("on", p > 0.9);
+  }
+  measureDoor();
+  ScrollTrigger.create({ trigger: "#walk", start: "top top", end: "bottom bottom", onUpdate: function (st) { renderWalk(st.progress); }, onRefresh: function (st) { measureDoor(); renderWalk(st.progress); } });
+  renderWalk(0);
+
+  /* ---- 2. plates drift over the giant type ---- */
+  gsap.utils.toArray(".plate").forEach(function (pl, i) {
+    gsap.fromTo(pl, { y: 80 + i * 40 }, { y: -60 - i * 30, ease: "none", scrollTrigger: { trigger: "#bowls", start: "top bottom", end: "bottom top", scrub: true } });
+  });
+  gsap.fromTo("#bowls .giant", { xPercent: -42 }, { xPercent: -58, ease: "none", scrollTrigger: { trigger: "#bowls", start: "top bottom", end: "bottom top", scrub: true } });
+
+  /* ---- 3. horizontal board ---- */
+  var track = document.getElementById("track");
+  gsap.to(track, {
+    x: function () { return -Math.max(0, track.scrollWidth - window.innerWidth); },
+    ease: "none",
+    scrollTrigger: { trigger: "#board", start: "top top", end: "bottom bottom", scrub: 0.4, invalidateOnRefresh: true }
+  });
+
+  document.fonts && document.fonts.ready.then(function () { ScrollTrigger.refresh(); });
+  window.addEventListener("load", function () { ScrollTrigger.refresh(); });
+})();
+</script>
+</body>
+</html>
